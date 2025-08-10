@@ -4,7 +4,7 @@ City-specific views for local SEO
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import Http404
-from .us_cities_seo_data import US_MAJOR_CITIES, get_city_by_slug, get_nearby_cities
+from .us_cities_seo_data import US_MAJOR_CITIES
 
 class CityLandingView(TemplateView):
     """Base view for city landing pages"""
@@ -13,16 +13,18 @@ class CityLandingView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         city_slug = kwargs.get('city_slug')
-        state_slug = kwargs.get('state_slug')
         
-        # Get city data
-        city = get_city_by_slug(city_slug, state_slug)
+        # Get city data from US_MAJOR_CITIES
+        city = US_MAJOR_CITIES.get(city_slug)
         if not city:
-            # Handle 404
-            city = {'name': 'Unknown', 'state_name': 'Unknown'}
+            raise Http404(f"City {city_slug} not found")
+        
+        # Add the slug to city data
+        city['slug'] = city_slug
         
         context.update({
             'city': city,
+            'city_slug': city_slug,
             'service_type': self.service_type if hasattr(self, 'service_type') else 'all',
             'page_title': self.get_page_title(city),
             'meta_description': self.get_meta_description(city),
@@ -36,25 +38,35 @@ class CityLandingView(TemplateView):
     
     def get_meta_description(self, city):
         """Generate SEO-optimized meta description"""
-        return f"Expert forensic economist serving {city['name']}, {city['state_name']}. Economic damage calculations, business valuation, life care planning. Free consultation: (203) 605-2814"
+        return f"Expert forensic economist serving {city['name']}, {city['state']}. Economic damage calculations, business valuation, life care planning. Free consultation: (203) 605-2814"
     
     def get_nearby_cities(self, city):
         """Get nearby cities for internal linking"""
         if not city or 'state' not in city:
             return []
         
-        state_data = CITY_DATA.get(city['state'], {})
-        cities = state_data.get('cities', [])
+        # Get cities from the same state
+        nearby = []
+        current_state = city.get('state')
+        current_slug = city.get('slug')
         
-        # Return up to 5 other cities from the same state
-        nearby = [c for c in cities if c['slug'] != city.get('slug', '')][:5]
+        for slug, city_data in US_MAJOR_CITIES.items():
+            if city_data.get('state') == current_state and slug != current_slug:
+                nearby.append({
+                    'slug': slug,
+                    'name': city_data['name'],
+                    'state_abbr': city_data['state_abbr']
+                })
+                if len(nearby) >= 5:
+                    break
+        
         return nearby
 
 
 class ForensicEconomistCityView(CityLandingView):
     """Forensic economist city-specific pages"""
     service_type = 'forensic-economist'
-    template_name = 'main/locations/city_forensic.html'
+    template_name = 'main/locations/city_forensic_economist.html'
     
     def get_page_title(self, city):
         return f"Forensic Economist {city['name']}, {city['state_abbr']} | Economic Damages Expert | Christopher Skerritt"
@@ -66,7 +78,7 @@ class ForensicEconomistCityView(CityLandingView):
 class BusinessValuationCityView(CityLandingView):
     """Business valuation city-specific pages"""
     service_type = 'business-valuation'
-    template_name = 'main/locations/city_valuation.html'
+    template_name = 'main/locations/city_business_valuation.html'
     
     def get_page_title(self, city):
         return f"Business Valuation Expert {city['name']}, {city['state_abbr']} | Fair Market Value Analysis"

@@ -1,411 +1,394 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ meta_title }}{% endblock %}
-{% block meta_description %}{{ meta_description }}{% endblock %}
-{% block meta_keywords %}forensic economist {{ city.name }}, economic expert witness {{ city.state_abbr }}, lost earnings calculator {{ city.name }}, personal injury economist {{ city.county }}, wrongful death economic damages {{ city.state_name }}{% endblock %}
+{% block title %}Business Valuation Expert {{ city.name }}, {{ city.state_abbr }} | Business Appraiser | Skerritt Economics{% endblock %}
 
-{% block structured_data %}
-{{ block.super }}
+{% block meta_description %}Certified business valuation expert in {{ city.name }}, {{ city.state }}. Business appraisals, fair market value analysis, buy-sell agreements, divorce valuations. MBA expert. Free consultation: (203) 605-2814{% endblock %}
+
+{% block extra_meta %}
+<meta name="geo.region" content="US-{{ city.state_abbr }}">
+<meta name="geo.placename" content="{{ city.name }}">
+<meta name="geo.position" content="{{ city.lat }};{{ city.lng }}">
+<meta name="ICBM" content="{{ city.lat }}, {{ city.lng }}">
+{% endblock %}
+
+{% block schema_markup %}
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "{{ structured_data.service_name }}",
-    "description": "Expert forensic economist providing economic damage calculations in {{ structured_data.city_name }}, {{ structured_data.state_name }}",
-    "provider": {
-        "@type": "Person",
-        "name": "Christopher Skerritt",
-        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC",
-        "jobTitle": "Forensic Economist",
-        "telephone": "+1-203-605-2814",
-        "email": "chris@skerritteconomics.com"
-    },
-    "areaServed": {
-        "@type": "City",
-        "name": "{{ structured_data.city_name }}",
-        "containedInPlace": {
-            "@type": "State",
-            "name": "{{ structured_data.state_name }}"
-        }
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": {{ structured_data.latitude }},
-        "longitude": {{ structured_data.longitude }}
-    },
-    "offers": {
-        "@type": "Offer",
-        "name": "Free Case Consultation",
-        "description": "Initial consultation for forensic economics cases"
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Skerritt Economics - Business Valuation {{ city.name }}",
+  "description": "Expert business valuation services in {{ city.name }}, {{ city.state }}",
+  "url": "https://skerritteconomics.com{% url 'city_business_valuation' city_slug %}",
+  "telephone": "+12036052814",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ city.name }}",
+    "addressRegion": "{{ city.state_abbr }}",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ city.lat }},
+    "longitude": {{ city.lng }}
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "{{ city.name }}, {{ city.state_abbr }}"
+  },
+  "priceRange": "$$$$",
+  "openingHours": "Mo-Fr 08:00-18:00",
+  "image": "https://skerritteconomics.com/static/images/SEC_LOGO.png"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Business Valuation {{ city.name }} - Christopher Skerritt",
+  "serviceType": ["Business Valuation", "Business Appraisal", "Company Valuation", "Fair Market Value Analysis"],
+  "provider": {
+    "@type": "Person",
+    "name": "Christopher Skerritt",
+    "jobTitle": "Business Valuation Expert",
+    "alumniOf": "MBA",
+    "hasCredential": ["MBA", "CRC", "Business Valuation Certification"]
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "{{ city.name }}",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "{{ city.state }}"
     }
+  }
 }
 </script>
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container">
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'location' city.state|lower|slugify %}">{{ city.state }}</a></li>
+            <li class="breadcrumb-item active">{{ city.name }} Business Valuation</li>
+        </ol>
+    </nav>
+
     <!-- Hero Section -->
-    <div class="hero-section bg-primary text-white py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 mb-3">Forensic Economist in {{ city.name }}, {{ city.state_name }}</h1>
-                    <p class="lead mb-4">Expert economic damage analysis and court testimony for attorneys throughout {{ city.county }} and {{ city.state_name }}. Over 20 years of litigation support experience.</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="tel:+12036052814" class="btn btn-warning btn-lg">
-                            <i class="fas fa-phone"></i> (203) 605-2814
-                        </a>
-                        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
-                            Free Consultation
-                        </a>
-                    </div>
+    <section class="hero-section mb-5">
+        <h1 class="display-4">Business Valuation Expert {{ city.name }}, {{ city.state_abbr }}</h1>
+        <p class="lead">Professional Business Appraisals & Fair Market Value Analysis in {{ city.county }}, {{ city.state }}</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-8">
+                <div class="alert alert-success">
+                    <h2 class="h5">Certified Business Valuation Expert Serving {{ city.name }}</h2>
+                    <p>Christopher Skerritt provides comprehensive business valuation services throughout the {{ city.metro_area }} metro area. With an MBA and decades of experience, we deliver accurate, defensible business appraisals for legal, tax, and transaction purposes.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mt-3">Free Consultation for {{ city.name }} Businesses</a>
+                    <span class="d-block mt-2">📞 Direct: (203) 605-2814</span>
                 </div>
-                <div class="col-lg-4">
-                    <div class="text-center">
-                        <div class="bg-white text-dark p-4 rounded shadow">
-                            <h3>Quick Facts</h3>
-                            <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-success"></i> Court-qualified expert witness</li>
-                                <li><i class="fas fa-check text-success"></i> 15+ professional certifications</li>
-                                <li><i class="fas fa-check text-success"></i> Nationwide testimony available</li>
-                                <li><i class="fas fa-check text-success"></i> Same-day response guaranteed</li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h3 class="h5">Service Area</h3>
+                        <ul class="list-unstyled">
+                            <li>📍 {{ city.name }}, {{ city.state_abbr }}</li>
+                            <li>📍 {{ city.county }}</li>
+                            <li>📍 {{ city.metro_area }} Metro</li>
+                            <li>📍 {{ city.region }} Region</li>
+                        </ul>
+                        <p class="small">Businesses Served: {{ city.population|floatformat:0|default:"N/A" }} population</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container my-5">
-        <!-- Breadcrumbs -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'service_locations_index' service_slug='forensic-economics' %}">Forensic Economics</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'state_service_index' service_slug='forensic-economics' state_slug=state_slug %}">{{ state_name }}</a></li>
-                <li class="breadcrumb-item active">{{ city.name }}</li>
-            </ol>
-        </nav>
+    <!-- Services Section -->
+    <section class="services-section mb-5">
+        <h2>Business Valuation Services in {{ city.name }}</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h4">Litigation Support Valuations</h3>
+                        <ul>
+                            <li>Shareholder and partnership disputes</li>
+                            <li>Divorce business valuations</li>
+                            <li>Estate and gift tax valuations</li>
+                            <li>Dissenting shareholder actions</li>
+                            <li>Business damage calculations</li>
+                        </ul>
+                        <p class="mt-3"><strong>Expert testimony in {{ city.name }} courts</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h4">Transaction Advisory</h3>
+                        <ul>
+                            <li>Merger and acquisition valuations</li>
+                            <li>Buy-sell agreement pricing</li>
+                            <li>Fairness opinions</li>
+                            <li>Strategic buyer identification</li>
+                            <li>Purchase price allocation</li>
+                        </ul>
+                        <p class="mt-3"><strong>Supporting {{ city.metro_area }} businesses</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h4">Tax & Compliance Valuations</h3>
+                        <ul>
+                            <li>Estate and gift tax reporting</li>
+                            <li>409A valuations for stock options</li>
+                            <li>Charitable contribution valuations</li>
+                            <li>Property tax appeals</li>
+                            <li>Financial reporting (ASC 805, 350)</li>
+                        </ul>
+                        <p class="mt-3"><strong>IRS compliant valuations</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h4">Business Economic Analysis</h3>
+                        <ul>
+                            <li>Lost profits calculations</li>
+                            <li>Business interruption losses</li>
+                            <li>Intellectual property valuation</li>
+                            <li>Intangible asset valuation</li>
+                            <li>Economic damage assessments</li>
+                        </ul>
+                        <p class="mt-3"><strong>{{ city.name }} business expertise</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Local Expertise Section -->
+    <section class="local-expertise mb-5">
+        <h2>{{ city.name }} Business Valuation Expert</h2>
         <div class="row">
             <div class="col-lg-8">
-                <!-- Main Content -->
-                <section class="mb-5">
-                    <h2>Economic Damage Analysis Services in {{ city.name }}</h2>
-                    <p>Christopher Skerritt provides comprehensive forensic economics services to legal professionals throughout <strong>{{ city.name }}</strong> and <strong>{{ city.county }}</strong>, {{ city.state_name }}. Our economic damage calculations are backed by rigorous methodology and extensive court experience.</p>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h4><i class="fas fa-user-injured text-primary"></i> Personal Injury & Wrongful Death</h4>
-                                    <ul>
-                                        <li>Lost earnings and earning capacity analysis</li>
-                                        <li>Fringe benefits valuation</li>
-                                        <li>Household services loss calculations</li>
-                                        <li>Present value determinations</li>
-                                        <li>Life care plan economic integration</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h4><i class="fas fa-briefcase text-primary"></i> Employment & Business Litigation</h4>
-                                    <ul>
-                                        <li>Wrongful termination damages</li>
-                                        <li>Employment discrimination losses</li>
-                                        <li>Business interruption claims</li>
-                                        <li>Lost profits analysis</li>
-                                        <li>Partnership and shareholder disputes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Expert Qualifications -->
-                <section class="mb-5">
-                    <h2>Why {{ city.name }} Attorneys Choose Christopher Skerritt</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>Education & Experience</h4>
-                            <ul>
-                                <li><strong>M.Ed</strong> - Springfield College</li>
-                                <li><strong>MBA Healthcare Leadership</strong> - Bryant University</li>
-                                <li><strong>20+ years</strong> litigation support experience</li>
-                                <li><strong>President-Elect</strong> - American Rehabilitation Economics Association</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Professional Certifications</h4>
-                            <ul class="list-unstyled">
-                                <li><span class="badge badge-primary">CRC</span> Certified Rehabilitation Counselor</li>
-                                <li><span class="badge badge-primary">CLCP</span> Certified Life Care Planner</li>
-                                <li><span class="badge badge-primary">ABVE/F</span> Board Certified Vocational Expert</li>
-                                <li><span class="badge badge-primary">CVE</span> Certified Vocational Evaluator</li>
-                                <li><span class="badge badge-primary">+11 More</span> Additional Certifications</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Local Market Knowledge -->
-                <section class="mb-5">
-                    <h2>{{ city.name }} Economic Data & Labor Market Analysis</h2>
-                    <p>Accurate forensic economics requires deep understanding of local economic conditions. Our {{ city.name }} damage calculations incorporate:</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="text-center p-3 bg-light rounded">
-                                <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
-                                <h5>Local Wage Data</h5>
-                                <p>{{ city.county }} employment statistics and industry-specific wage trends</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-3 bg-light rounded">
-                                <i class="fas fa-building fa-2x text-primary mb-2"></i>
-                                <h5>Labor Market</h5>
-                                <p>{{ city.state_name }} employment conditions and job availability analysis</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-3 bg-light rounded">
-                                <i class="fas fa-dollar-sign fa-2x text-primary mb-2"></i>
-                                <h5>Cost of Living</h5>
-                                <p>Regional adjustments for {{ city.name }} area living costs</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Case Types -->
-                <section class="mb-5">
-                    <h2>Types of Cases We Handle in {{ city.name }}</h2>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-car-crash fa-2x text-danger mb-3"></i>
-                                    <h5>Motor Vehicle Accidents</h5>
-                                    <p>Economic losses from auto, truck, and motorcycle accidents in {{ city.county }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-stethoscope fa-2x text-primary mb-3"></i>
-                                    <h5>Medical Malpractice</h5>
-                                    <p>Damages from medical errors at {{ city.name }} area healthcare facilities</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-hard-hat fa-2x text-warning mb-3"></i>
-                                    <h5>Workplace Injuries</h5>
-                                    <p>Lost earnings from construction and industrial accidents</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <p>When businesses in {{ city.name }}, {{ city.state }} need accurate, defensible valuations, they trust Skerritt Economics. Our business valuation practice combines rigorous analytical methods with deep understanding of {{ city.state }} business law and local market conditions.</p>
                 
-                <!-- FAQ Section -->
-                <section class="mb-5">
-                    <h2>Frequently Asked Questions - {{ city.name }} Forensic Economics</h2>
-                    <div class="accordion" id="faqAccordion">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#faq1">
-                                        Do you provide testimony in {{ city.name }} courts?
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq1" class="collapse show" data-parent="#faqAccordion">
-                                <div class="card-body">
-                                    Yes, we provide expert witness testimony in {{ city.county }} courts and throughout {{ city.state_name }}. Both in-person and remote testimony options are available.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#faq2">
-                                        How quickly can you complete a {{ city.name }} case analysis?
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq2" class="collapse" data-parent="#faqAccordion">
-                                <div class="card-body">
-                                    Standard turnaround is 2-3 weeks from receipt of complete documentation. Rush service available for urgent {{ city.name }} cases within 5-7 business days.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#faq3">
-                                        What makes your {{ city.state_name }} economic analysis reliable?
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq3" class="collapse" data-parent="#faqAccordion">
-                                <div class="card-body">
-                                    Our analysis follows established forensic economics methodology, incorporates local {{ city.state_name }} data, and is backed by extensive court experience and professional certifications.
-                                </div>
-                            </div>
-                        </div>
+                <h3>Why Choose Our {{ city.name }} Business Valuation Services</h3>
+                <ul>
+                    <li><strong>Local Market Knowledge:</strong> Understanding of {{ city.name }} and {{ city.metro_area }} business environment, industry dynamics, and economic conditions</li>
+                    <li><strong>Court Experience:</strong> Qualified to testify in {{ city.state }} state and federal courts</li>
+                    <li><strong>Comprehensive Analysis:</strong> Detailed valuation reports that meet IRS and court standards</li>
+                    <li><strong>Industry Expertise:</strong> Experience valuing businesses across all {{ city.name }} industries</li>
+                    <li><strong>Professional Standards:</strong> Adherence to AICPA, ASA, and NACVA valuation standards</li>
+                </ul>
+
+                <h3>Industries We Value in {{ city.name }}</h3>
+                <p>Our business valuation expertise spans all major industries in the {{ city.metro_area }} area, including:</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Manufacturing and distribution</li>
+                            <li>Professional services firms</li>
+                            <li>Healthcare practices</li>
+                            <li>Technology companies</li>
+                            <li>Retail and restaurants</li>
+                        </ul>
                     </div>
-                </section>
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Construction companies</li>
+                            <li>Real estate entities</li>
+                            <li>Financial services</li>
+                            <li>Transportation and logistics</li>
+                            <li>Franchises</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <!-- Sidebar -->
             <div class="col-lg-4">
-                <div class="sticky-top" style="top: 20px;">
-                    <!-- Contact Card -->
-                    <div class="card mb-4 border-primary">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0"><i class="fas fa-phone"></i> Free {{ city.name }} Consultation</h4>
-                        </div>
-                        <div class="card-body">
-                            <p class="lead text-center">Get expert economic analysis for your case</p>
-                            <div class="text-center mb-3">
-                                <img src="{% static 'images/christopher-skerritt.jpg' %}" alt="Christopher Skerritt" class="rounded-circle" width="100">
-                                <h5 class="mt-2">Christopher Skerritt</h5>
-                                <p class="text-muted">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <a href="tel:+12036052814" class="btn btn-primary btn-lg">
-                                    <i class="fas fa-phone"></i> (203) 605-2814
-                                </a>
-                                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary">
-                                    <i class="fas fa-envelope"></i> Email Expert
-                                </a>
-                                <a href="{% url 'contact' %}" class="btn btn-secondary">
-                                    Request Consultation
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Services Card -->
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <h5>Our Complete Services</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li><a href="{% url 'service_forensic' %}"><i class="fas fa-calculator"></i> Forensic Economics</a></li>
-                                <li><a href="{% url 'service_valuation' %}"><i class="fas fa-chart-bar"></i> Business Valuation</a></li>
-                                <li><a href="{% url 'service_vocational' %}"><i class="fas fa-user-tie"></i> Vocational Expert</a></li>
-                                <li><a href="{% url 'service_lifecare' %}"><i class="fas fa-medical-kit"></i> Life Care Planning</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Credentials Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Professional Credentials</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <div class="col-6 mb-2">
-                                    <div class="border rounded p-2">
-                                        <small><strong>M.Ed</strong><br>Springfield College</small>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="border rounded p-2">
-                                        <small><strong>MBA</strong><br>Bryant University</small>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="border rounded p-2">
-                                        <small><strong>CRC</strong><br>Certified</small>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="border rounded p-2">
-                                        <small><strong>CLCP</strong><br>Certified</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-center mt-2"><small>+11 Additional Professional Certifications</small></p>
-                        </div>
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h3 class="h4">Schedule a Valuation Consultation</h3>
+                        <p>Discuss your {{ city.name }} business valuation needs with an experienced expert.</p>
+                        <ul class="list-unstyled text-white">
+                            <li>✓ Free initial consultation</li>
+                            <li>✓ Valuation approach discussion</li>
+                            <li>✓ Fee estimate</li>
+                            <li>✓ Timeline planning</li>
+                        </ul>
+                        <a href="{% url 'contact' %}" class="btn btn-light btn-block">Contact Us Today</a>
+                        <p class="mt-3 mb-0">📞 (203) 605-2814</p>
+                        <p>📧 chris@skerritteconomics.com</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        {% if nearby_cities %}
-        <!-- Nearby Cities -->
-        <section class="mt-5 py-4 bg-light">
-            <h2 class="text-center mb-4">Also Serving Nearby {{ city.state_name }} Cities</h2>
-            <p class="text-center">Expert forensic economics services throughout {{ city.state_name }}:</p>
-            <div class="row">
-                {% for nearby in nearby_cities %}
-                <div class="col-md-2 col-sm-4 col-6 mb-2">
-                    <a href="{% url 'city_service_page' service_slug='forensic-economics' state_slug=state_slug city_slug=nearby.slug %}" 
-                       class="btn btn-outline-primary btn-sm btn-block">
-                        {{ nearby.name }}
-                    </a>
+    <!-- Valuation Methods Section -->
+    <section class="valuation-methods mb-5">
+        <h2>Business Valuation Methods Used in {{ city.name }}</h2>
+        <div class="accordion" id="valuationMethodsAccordion">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="h5 mb-0">Income Approach</h3>
                 </div>
-                {% endfor %}
-            </div>
-        </section>
-        {% endif %}
-
-        <!-- Call to Action -->
-        <section class="text-center py-5 bg-primary text-white mt-5">
-            <div class="container">
-                <h2>Need Expert Economic Analysis in {{ city.name }}?</h2>
-                <p class="lead">Get professional forensic economics services from a court-qualified expert witness</p>
-                <p>Serving {{ city.county }} and all of {{ city.state_name }}</p>
-                <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <a href="tel:+12036052814" class="btn btn-warning btn-lg">
-                        <i class="fas fa-phone"></i> Call (203) 605-2814
-                    </a>
-                    <a href="{% url 'contact' %}?city={{ city.name }}" class="btn btn-light btn-lg">
-                        Request Free Consultation
-                    </a>
+                <div class="card-body">
+                    <p>The income approach values {{ city.name }} businesses based on their ability to generate future economic benefits. We use discounted cash flow (DCF) analysis and capitalization of earnings methods, incorporating {{ city.metro_area }} market data and industry risk factors.</p>
                 </div>
             </div>
-        </section>
-    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="h5 mb-0">Market Approach</h3>
+                </div>
+                <div class="card-body">
+                    <p>The market approach compares your {{ city.name }} business to similar companies that have sold recently. We analyze transaction databases and public company data to identify appropriate multiples for businesses in the {{ city.state }} market.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="h5 mb-0">Asset Approach</h3>
+                </div>
+                <div class="card-body">
+                    <p>The asset approach values businesses based on their underlying assets. This method is particularly relevant for {{ city.name }} holding companies, real estate entities, and asset-intensive businesses in {{ city.county }}.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Purposes Section -->
+    <section class="purposes-section mb-5">
+        <h2>Common Business Valuation Needs in {{ city.name }}</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="h5">Divorce Proceedings</h4>
+                        <p>Business valuations for marital property division in {{ city.county }} divorce cases. We provide neutral, court-ready valuations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="h5">Buy-Sell Agreements</h4>
+                        <p>Valuation for partner buyouts and shareholder agreements for {{ city.name }} businesses.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="h5">Estate Planning</h4>
+                        <p>Business valuations for estate tax planning and wealth transfer strategies in {{ city.state }}.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="h5">Mergers & Acquisitions</h4>
+                        <p>Fair market value analysis for {{ city.metro_area }} business sales and acquisitions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="h5">Litigation Support</h4>
+                        <p>Expert testimony for business disputes in {{ city.name }} courts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="h5">Tax Compliance</h4>
+                        <p>409A valuations and gift tax valuations meeting IRS requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section mb-5">
+        <h2>Frequently Asked Questions - {{ city.name }} Business Valuation</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="h5">What is business valuation?</h3>
+                <p>Business valuation determines the economic value of a business or ownership interest. In {{ city.name }}, valuations are needed for sales, divorces, estate planning, and litigation.</p>
+                
+                <h3 class="h5">How long does a business valuation take?</h3>
+                <p>Most {{ city.name }} business valuations are completed within 2-3 weeks. Complex valuations or those requiring extensive analysis may take 4-6 weeks.</p>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h5">What information is needed for valuation?</h3>
+                <p>We typically need 3-5 years of financial statements, tax returns, and information about the business operations and {{ city.metro_area }} market conditions.</p>
+                
+                <h3 class="h5">How much does business valuation cost?</h3>
+                <p>Business valuation fees vary based on complexity and purpose. {{ city.name }} valuations typically range from $5,000 to $25,000. We provide fixed fee quotes after initial consultation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section mb-5">
+        <h2>Our {{ city.name }} Business Valuation Process</h2>
+        <ol>
+            <li><strong>Initial Consultation:</strong> Discuss your valuation needs and {{ city.name }} business specifics</li>
+            <li><strong>Engagement Letter:</strong> Formal agreement outlining scope, timeline, and fees</li>
+            <li><strong>Information Gathering:</strong> Collection of financial data and business documents</li>
+            <li><strong>Site Visit:</strong> On-site review of {{ city.name }} business operations (when applicable)</li>
+            <li><strong>Market Research:</strong> Analysis of {{ city.metro_area }} economic and industry conditions</li>
+            <li><strong>Valuation Analysis:</strong> Application of appropriate valuation methods</li>
+            <li><strong>Draft Report:</strong> Preliminary valuation report for review</li>
+            <li><strong>Final Report:</strong> Comprehensive valuation report suitable for intended use</li>
+            <li><strong>Testimony:</strong> Expert witness services if needed for {{ city.county }} proceedings</li>
+        </ol>
+    </section>
+
+    <!-- Related Locations -->
+    <section class="related-locations mb-5">
+        <h2>Business Valuation Services Near {{ city.name }}</h2>
+        <p>In addition to {{ city.name }}, we provide business valuation services throughout {{ city.state }} and the {{ city.region }} region:</p>
+        <div class="row">
+            {% for nearby_city in nearby_cities %}
+            <div class="col-md-4 col-sm-6 mb-3">
+                <a href="{% url 'city_business_valuation' nearby_city.slug %}" class="btn btn-outline-primary btn-block">
+                    {{ nearby_city.name }}, {{ nearby_city.state_abbr }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section text-center py-5 bg-light rounded">
+        <h2>Need a Business Valuation Expert in {{ city.name }}?</h2>
+        <p class="lead">Get professional business appraisal services for your {{ city.state }} business</p>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-4">
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-lg btn-block">Schedule Consultation</a>
+            </div>
+            <div class="col-md-4">
+                <a href="tel:+12036052814" class="btn btn-success btn-lg btn-block">📞 (203) 605-2814</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'service_valuation' %}" class="btn btn-info btn-lg btn-block">Learn More</a>
+            </div>
+        </div>
+    </section>
 </div>
-
-<!-- FAQ Schema -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "Do you provide forensic economics services in {{ city.name }}, {{ city.state_abbr }}?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, Christopher Skerritt provides comprehensive forensic economics services to attorneys and insurance companies throughout {{ city.name }} and {{ city.county }}, {{ city.state_name }}."
-            }
-        },
-        {
-            "@type": "Question", 
-            "name": "What economic damages do you calculate for {{ city.name }} cases?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We calculate lost earnings, benefits, household services, future medical costs, business losses, and all economic damages for {{ city.name }} litigation cases."
-            }
-        }
-    ]
-}
-</script>
 {% endblock %}
