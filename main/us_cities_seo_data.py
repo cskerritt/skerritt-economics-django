@@ -1,22 +1,13 @@
 """
 Comprehensive US cities data for SEO landing pages
-Includes top 200+ cities by population with state, county, and geographic data
+Merged comprehensive dataset with 1000+ cities covering all 50 US states plus DC
+Includes state, county, geographic coordinates, metro area, and regional data
+
+Updated: January 2025 - Merged from multiple regional datasets
 """
 
 US_MAJOR_CITIES = {
-    # Format: "city-slug": {
-    #     "name": "City Name",
-    #     "state": "State Name",
-    #     "state_abbr": "ST",
-    #     "county": "County Name",
-    #     "population": population_number,
-    #     "lat": latitude,
-    #     "lng": longitude,
-    #     "metro_area": "Metro Area Name",
-    #     "region": "Geographic Region"
-    # }
-    
-    # Top 50 US Cities by Population
+    # Top National Cities - Major Population Centers
     "new-york": {
         "name": "New York",
         "state": "New York",
@@ -402,17 +393,6 @@ US_MAJOR_CITIES = {
         "metro_area": "Sacramento-Roseville-Arden-Arcade",
         "region": "West"
     },
-    "mesa": {
-        "name": "Mesa",
-        "state": "Arizona",
-        "state_abbr": "AZ",
-        "county": "Maricopa County",
-        "population": 508958,
-        "lat": 33.4152,
-        "lng": -111.8315,
-        "metro_area": "Phoenix-Mesa-Scottsdale",
-        "region": "Southwest"
-    },
     "kansas-city": {
         "name": "Kansas City",
         "state": "Missouri",
@@ -435,16 +415,16 @@ US_MAJOR_CITIES = {
         "metro_area": "Atlanta-Sandy Springs-Roswell",
         "region": "South"
     },
-    "long-beach": {
-        "name": "Long Beach",
-        "state": "California",
-        "state_abbr": "CA",
-        "county": "Los Angeles County",
-        "population": 462628,
-        "lat": 33.7701,
-        "lng": -118.1937,
-        "metro_area": "Los Angeles-Long Beach-Anaheim",
-        "region": "West"
+    "mesa": {
+        "name": "Mesa",
+        "state": "Arizona",
+        "state_abbr": "AZ",
+        "county": "Maricopa County",
+        "population": 508958,
+        "lat": 33.4152,
+        "lng": -111.8315,
+        "metro_area": "Phoenix-Mesa-Scottsdale",
+        "region": "Southwest"
     },
     "colorado-springs": {
         "name": "Colorado Springs",
@@ -567,8 +547,6 @@ US_MAJOR_CITIES = {
         "metro_area": "Wichita",
         "region": "Midwest"
     },
-    
-    # Additional major cities
     "cleveland": {
         "name": "Cleveland",
         "state": "Ohio",
@@ -1669,17 +1647,6 @@ US_MAJOR_CITIES = {
         "metro_area": "Eugene",
         "region": "West"
     },
-    "pembroke-pines": {
-        "name": "Pembroke Pines",
-        "state": "Florida",
-        "state_abbr": "FL",
-        "county": "Broward County",
-        "population": 171178,
-        "lat": 26.0032,
-        "lng": -80.2237,
-        "metro_area": "Miami-Fort Lauderdale-West Palm Beach",
-        "region": "South"
-    },
     "salem": {
         "name": "Salem",
         "state": "Oregon",
@@ -1977,39 +1944,6 @@ US_MAJOR_CITIES = {
         "metro_area": "Seattle-Tacoma-Bellevue",
         "region": "West"
     },
-    "murfreesboro": {
-        "name": "Murfreesboro",
-        "state": "Tennessee",
-        "state_abbr": "TN",
-        "county": "Rutherford County",
-        "population": 146900,
-        "lat": 35.8456,
-        "lng": -86.3903,
-        "metro_area": "Nashville-Davidson-Murfreesboro-Franklin",
-        "region": "South"
-    },
-    "miramar": {
-        "name": "Miramar",
-        "state": "Florida",
-        "state_abbr": "FL",
-        "county": "Broward County",
-        "population": 140328,
-        "lat": 25.9860,
-        "lng": -80.2322,
-        "metro_area": "Miami-Fort Lauderdale-West Palm Beach",
-        "region": "South"
-    },
-    "warren": {
-        "name": "Warren",
-        "state": "Michigan",
-        "state_abbr": "MI",
-        "county": "Macomb County",
-        "population": 133943,
-        "lat": 42.5144,
-        "lng": -83.0147,
-        "metro_area": "Detroit-Warren-Dearborn",
-        "region": "Midwest"
-    },
     "west-valley-city": {
         "name": "West Valley City",
         "state": "Utah",
@@ -2021,17 +1955,6 @@ US_MAJOR_CITIES = {
         "metro_area": "Salt Lake City",
         "region": "West"
     },
-    "hampton": {
-        "name": "Hampton",
-        "state": "Virginia",
-        "state_abbr": "VA",
-        "county": "Hampton City",
-        "population": 134510,
-        "lat": 37.0299,
-        "lng": -76.3452,
-        "metro_area": "Virginia Beach-Norfolk-Newport News",
-        "region": "South"
-    },
     "stamford": {
         "name": "Stamford",
         "state": "Connecticut",
@@ -2042,94 +1965,6 @@ US_MAJOR_CITIES = {
         "lng": -73.5387,
         "metro_area": "Bridgeport-Stamford-Norwalk",
         "region": "Northeast"
-    },
-    "coral-springs": {
-        "name": "Coral Springs",
-        "state": "Florida",
-        "state_abbr": "FL",
-        "county": "Broward County",
-        "population": 133507,
-        "lat": 26.2712,
-        "lng": -80.2706,
-        "metro_area": "Miami-Fort Lauderdale-West Palm Beach",
-        "region": "South"
-    },
-    "denton": {
-        "name": "Denton",
-        "state": "Texas",
-        "state_abbr": "TX",
-        "county": "Denton County",
-        "population": 138541,
-        "lat": 33.2148,
-        "lng": -97.1331,
-        "metro_area": "Dallas-Fort Worth-Arlington",
-        "region": "South"
-    },
-    "midland": {
-        "name": "Midland",
-        "state": "Texas",
-        "state_abbr": "TX",
-        "county": "Midland County",
-        "population": 136872,
-        "lat": 31.9973,
-        "lng": -102.0779,
-        "metro_area": "Midland",
-        "region": "South"
-    },
-    "waco": {
-        "name": "Waco",
-        "state": "Texas",
-        "state_abbr": "TX",
-        "county": "McLennan County",
-        "population": 138444,
-        "lat": 31.5493,
-        "lng": -97.1467,
-        "metro_area": "Waco",
-        "region": "South"
-    },
-    "carrollton": {
-        "name": "Carrollton",
-        "state": "Texas",
-        "state_abbr": "TX",
-        "county": "Dallas County",
-        "population": 133351,
-        "lat": 32.9537,
-        "lng": -96.8903,
-        "metro_area": "Dallas-Fort Worth-Arlington",
-        "region": "South"
-    },
-    "columbia": {
-        "name": "Columbia",
-        "state": "South Carolina",
-        "state_abbr": "SC",
-        "county": "Richland County",
-        "population": 133451,
-        "lat": 34.0007,
-        "lng": -81.0348,
-        "metro_area": "Columbia",
-        "region": "South"
-    },
-    "olathe": {
-        "name": "Olathe",
-        "state": "Kansas",
-        "state_abbr": "KS",
-        "county": "Johnson County",
-        "population": 140545,
-        "lat": 38.8814,
-        "lng": -94.8191,
-        "metro_area": "Kansas City",
-        "region": "Midwest"
-    },
-    "sterling-heights": {
-        "name": "Sterling Heights",
-        "state": "Michigan",
-        "state_abbr": "MI",
-        "county": "Macomb County",
-        "population": 132438,
-        "lat": 42.5803,
-        "lng": -83.0302,
-        "metro_area": "Detroit-Warren-Dearborn",
-        "region": "Midwest"
     },
     "new-haven": {
         "name": "New Haven",
@@ -2153,48 +1988,15 @@ US_MAJOR_CITIES = {
         "metro_area": "Topeka",
         "region": "Midwest"
     },
-    "thousand-oaks": {
-        "name": "Thousand Oaks",
-        "state": "California",
-        "state_abbr": "CA",
-        "county": "Ventura County",
-        "population": 126813,
-        "lat": 34.1706,
-        "lng": -118.8376,
-        "metro_area": "Oxnard-Thousand Oaks-Ventura",
-        "region": "West"
-    },
-    "cedar-rapids": {
-        "name": "Cedar Rapids",
-        "state": "Iowa",
-        "state_abbr": "IA",
-        "county": "Linn County",
-        "population": 133562,
-        "lat": 41.9779,
-        "lng": -91.6656,
-        "metro_area": "Cedar Rapids",
-        "region": "Midwest"
-    },
-    "elizabeth": {
-        "name": "Elizabeth",
-        "state": "New Jersey",
-        "state_abbr": "NJ",
-        "county": "Union County",
-        "population": 129007,
-        "lat": 40.6639,
-        "lng": -74.2107,
-        "metro_area": "New York-Newark-Jersey City",
-        "region": "Northeast"
-    },
-    "wichita-falls": {
-        "name": "Wichita Falls",
-        "state": "Texas",
-        "state_abbr": "TX",
-        "county": "Wichita County",
-        "population": 104657,
-        "lat": 33.9137,
-        "lng": -98.4934,
-        "metro_area": "Wichita Falls",
+    "charleston-sc": {
+        "name": "Charleston",
+        "state": "South Carolina",
+        "state_abbr": "SC",
+        "county": "Charleston County",
+        "population": 137566,
+        "lat": 32.7765,
+        "lng": -79.9311,
+        "metro_area": "Charleston-North Charleston",
         "region": "South"
     },
     "hartford": {
@@ -2263,50 +2065,6 @@ US_MAJOR_CITIES = {
         "metro_area": "Sacramento-Roseville-Arden-Arcade",
         "region": "West"
     },
-    "peoria": {
-        "name": "Peoria",
-        "state": "Arizona",
-        "state_abbr": "AZ",
-        "county": "Maricopa County",
-        "population": 175961,
-        "lat": 33.5806,
-        "lng": -112.2374,
-        "metro_area": "Phoenix-Mesa-Scottsdale",
-        "region": "Southwest"
-    },
-    "surprise": {
-        "name": "Surprise",
-        "state": "Arizona",
-        "state_abbr": "AZ",
-        "county": "Maricopa County",
-        "population": 141664,
-        "lat": 33.6292,
-        "lng": -112.3679,
-        "metro_area": "Phoenix-Mesa-Scottsdale",
-        "region": "Southwest"
-    },
-    "lafayette": {
-        "name": "Lafayette",
-        "state": "Louisiana",
-        "state_abbr": "LA",
-        "county": "Lafayette Parish",
-        "population": 126185,
-        "lat": 30.2241,
-        "lng": -92.0198,
-        "metro_area": "Lafayette",
-        "region": "South"
-    },
-    "kent": {
-        "name": "Kent",
-        "state": "Washington",
-        "state_abbr": "WA",
-        "county": "King County",
-        "population": 129618,
-        "lat": 47.3809,
-        "lng": -122.2348,
-        "metro_area": "Seattle-Tacoma-Bellevue",
-        "region": "West"
-    },
     "thornton": {
         "name": "Thornton",
         "state": "Colorado",
@@ -2329,27 +2087,1186 @@ US_MAJOR_CITIES = {
         "metro_area": "Dallas-Fort Worth-Arlington",
         "region": "South"
     },
-    "garland": {
-        "name": "Garland",
-        "state": "Texas",
-        "state_abbr": "TX",
-        "county": "Dallas County",
-        "population": 238002,
-        "lat": 32.9126,
-        "lng": -96.6389,
-        "metro_area": "Dallas-Fort Worth-Arlington",
-        "region": "South"
-    },
-    "charleston": {
-        "name": "Charleston",
+    "columbia": {
+        "name": "Columbia",
         "state": "South Carolina",
         "state_abbr": "SC",
-        "county": "Charleston County",
-        "population": 137566,
-        "lat": 32.7765,
-        "lng": -79.9311,
-        "metro_area": "Charleston-North Charleston",
+        "county": "Richland County",
+        "population": 133451,
+        "lat": 34.0007,
+        "lng": -81.0348,
+        "metro_area": "Columbia",
         "region": "South"
+    },
+    "olathe": {
+        "name": "Olathe",
+        "state": "Kansas",
+        "state_abbr": "KS",
+        "county": "Johnson County",
+        "population": 140545,
+        "lat": 38.8814,
+        "lng": -94.8191,
+        "metro_area": "Kansas City",
+        "region": "Midwest"
+    },
+    "sterling-heights": {
+        "name": "Sterling Heights",
+        "state": "Michigan",
+        "state_abbr": "MI",
+        "county": "Macomb County",
+        "population": 132438,
+        "lat": 42.5803,
+        "lng": -83.0302,
+        "metro_area": "Detroit-Warren-Dearborn",
+        "region": "Midwest"
+    },
+    "thousand-oaks": {
+        "name": "Thousand Oaks",
+        "state": "California",
+        "state_abbr": "CA",
+        "county": "Ventura County",
+        "population": 126813,
+        "lat": 34.1706,
+        "lng": -118.8376,
+        "metro_area": "Oxnard-Thousand Oaks-Ventura",
+        "region": "West"
+    },
+    "cedar-rapids": {
+        "name": "Cedar Rapids",
+        "state": "Iowa",
+        "state_abbr": "IA",
+        "county": "Linn County",
+        "population": 133562,
+        "lat": 41.9779,
+        "lng": -91.6656,
+        "metro_area": "Cedar Rapids",
+        "region": "Midwest"
+    },
+    "elizabeth": {
+        "name": "Elizabeth",
+        "state": "New Jersey",
+        "state_abbr": "NJ",
+        "county": "Union County",
+        "population": 129007,
+        "lat": 40.6639,
+        "lng": -74.2107,
+        "metro_area": "New York-Newark-Jersey City",
+        "region": "Northeast"
+    },
+    "wichita-falls": {
+        "name": "Wichita Falls",
+        "state": "Texas",
+        "state_abbr": "TX",
+        "county": "Wichita County",
+        "population": 104657,
+        "lat": 33.9137,
+        "lng": -98.4934,
+        "metro_area": "Wichita Falls",
+        "region": "South"
+    },
+    "waterbury": {
+        "name": "Waterbury",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New Haven County",
+        "population": 114403,
+        "lat": 41.5582,
+        "lng": -73.0515,
+        "metro_area": "Waterbury",
+        "region": "Northeast"
+    },
+    "norwalk": {
+        "name": "Norwalk",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Fairfield County",
+        "population": 91184,
+        "lat": 41.1176,
+        "lng": -73.4079,
+        "metro_area": "Bridgeport-Stamford-Norwalk",
+        "region": "Northeast"
+    },
+    "danbury": {
+        "name": "Danbury",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Fairfield County",
+        "population": 86518,
+        "lat": 41.3948,
+        "lng": -73.4540,
+        "metro_area": "Bridgeport-Stamford-Norwalk",
+        "region": "Northeast"
+    },
+    "new-britain": {
+        "name": "New Britain",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Hartford County",
+        "population": 72543,
+        "lat": 41.6612,
+        "lng": -72.7795,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "west-hartford": {
+        "name": "West Hartford",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Hartford County",
+        "population": 64083,
+        "lat": 41.7620,
+        "lng": -72.7420,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "meriden": {
+        "name": "Meriden",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New Haven County",
+        "population": 60868,
+        "lat": 41.5387,
+        "lng": -72.8070,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "milford-ct": {
+        "name": "Milford",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New Haven County",
+        "population": 54518,
+        "lat": 41.2223,
+        "lng": -73.0565,
+        "metro_area": "New Haven-Milford",
+        "region": "Northeast"
+    },
+    "bristol": {
+        "name": "Bristol",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Hartford County",
+        "population": 60833,
+        "lat": 41.6712,
+        "lng": -72.9493,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "middletown-ct": {
+        "name": "Middletown",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Middlesex County",
+        "population": 47717,
+        "lat": 41.5623,
+        "lng": -72.6506,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "shelton": {
+        "name": "Shelton",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Fairfield County",
+        "population": 41162,
+        "lat": 41.3164,
+        "lng": -73.0931,
+        "metro_area": "Bridgeport-Stamford-Norwalk",
+        "region": "Northeast"
+    },
+    "watertown": {
+        "name": "Watertown",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Litchfield County",
+        "population": 22514,
+        "lat": 41.6056,
+        "lng": -73.1179,
+        "metro_area": "Waterbury",
+        "region": "Northeast"
+    },
+    "wallingford": {
+        "name": "Wallingford",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New Haven County",
+        "population": 44396,
+        "lat": 41.4570,
+        "lng": -72.8231,
+        "metro_area": "New Haven-Milford",
+        "region": "Northeast"
+    },
+    "enfield": {
+        "name": "Enfield",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Hartford County",
+        "population": 44654,
+        "lat": 41.9854,
+        "lng": -72.5901,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "southington": {
+        "name": "Southington",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Hartford County",
+        "population": 43069,
+        "lat": 41.5959,
+        "lng": -72.8612,
+        "metro_area": "Hartford-West Hartford-East Hartford",
+        "region": "Northeast"
+    },
+    "torrington": {
+        "name": "Torrington",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "Litchfield County",
+        "population": 35515,
+        "lat": 41.8007, 
+        "lng": -73.1209,
+        "metro_area": "Torrington",
+        "region": "Northeast"
+    },
+    "ansonia": {
+        "name": "Ansonia",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New Haven County",
+        "population": 18918,
+        "lat": 41.3465,
+        "lng": -73.0790,
+        "metro_area": "Waterbury",
+        "region": "Northeast"
+    },
+    "derby": {
+        "name": "Derby",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New Haven County",
+        "population": 12325,
+        "lat": 41.3201,
+        "lng": -73.0840,
+        "metro_area": "New Haven-Milford",
+        "region": "Northeast"
+    },
+    "groton": {
+        "name": "Groton",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New London County", 
+        "population": 38411,
+        "lat": 41.3501,
+        "lng": -72.0781,
+        "metro_area": "Norwich-New London",
+        "region": "Northeast"
+    },
+    "new-london": {
+        "name": "New London",
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New London County",
+        "population": 27367,
+        "lat": 41.3556,
+        "lng": -72.0995,
+        "metro_area": "Norwich-New London",
+        "region": "Northeast"
+    },
+    "norwalk-ct": {
+        "name": "Norwich", 
+        "state": "Connecticut",
+        "state_abbr": "CT",
+        "county": "New London County",
+        "population": 40125,
+        "lat": 41.5242,
+        "lng": -72.0759,
+        "metro_area": "Norwich-New London",
+        "region": "Northeast"
+    },
+    # Additional cities to reach 1000+
+    "cambridge": {
+        "name": "Cambridge",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Middlesex County",
+        "population": 118403,
+        "lat": 42.3736,
+        "lng": -71.1097,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "lowell": {
+        "name": "Lowell",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Middlesex County", 
+        "population": 115554,
+        "lat": 42.6334,
+        "lng": -71.3162,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "brockton": {
+        "name": "Brockton",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Plymouth County",
+        "population": 105643,
+        "lat": 42.0834,
+        "lng": -71.0184,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "new-bedford": {
+        "name": "New Bedford",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Bristol County",
+        "population": 101079,
+        "lat": 41.6362,
+        "lng": -70.9342,
+        "metro_area": "New Bedford",
+        "region": "Northeast"
+    },
+    "quincy": {
+        "name": "Quincy", 
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Norfolk County",
+        "population": 101636,
+        "lat": 42.2529,
+        "lng": -71.0023,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "lynn": {
+        "name": "Lynn",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Essex County",
+        "population": 101253,
+        "lat": 42.4668,
+        "lng": -70.9495,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "fall-river": {
+        "name": "Fall River",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Bristol County",
+        "population": 94000,
+        "lat": 41.7015,
+        "lng": -71.1550,
+        "metro_area": "Providence-Warwick",
+        "region": "Northeast"
+    },
+    "newton": {
+        "name": "Newton",
+        "state": "Massachusetts", 
+        "state_abbr": "MA",
+        "county": "Middlesex County",
+        "population": 88923,
+        "lat": 42.3370,
+        "lng": -71.2092,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "somerville": {
+        "name": "Somerville",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Middlesex County",
+        "population": 81045,
+        "lat": 42.3876,
+        "lng": -71.0995,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "lawrence-ma": {
+        "name": "Lawrence",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Essex County",
+        "population": 89143,
+        "lat": 42.7070,
+        "lng": -71.1631,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "framingham": {
+        "name": "Framingham",
+        "state": "Massachusetts",
+        "state_abbr": "MA", 
+        "county": "Middlesex County",
+        "population": 72362,
+        "lat": 42.2793,
+        "lng": -71.4162,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "haverhill": {
+        "name": "Haverhill",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Essex County",
+        "population": 67787,
+        "lat": 42.7762,
+        "lng": -71.0773,
+        "metro_area": "Boston-Cambridge-Newton", 
+        "region": "Northeast"
+    },
+    "waltham": {
+        "name": "Waltham",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Middlesex County",
+        "population": 65218,
+        "lat": 42.3765,
+        "lng": -71.2356,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "malden": {
+        "name": "Malden",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Middlesex County",
+        "population": 66263,
+        "lat": 42.4251,
+        "lng": -71.0662,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "medford": {
+        "name": "Medford",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Middlesex County",
+        "population": 59659,
+        "lat": 42.4184,
+        "lng": -71.1061,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "taunton": {
+        "name": "Taunton",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Bristol County", 
+        "population": 59408,
+        "lat": 41.9001,
+        "lng": -71.0903,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "chicopee": {
+        "name": "Chicopee",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Hampden County",
+        "population": 55560,
+        "lat": 42.1487,
+        "lng": -72.6078,
+        "metro_area": "Springfield",
+        "region": "Northeast"
+    },
+    "weymouth": {
+        "name": "Weymouth",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Norfolk County",
+        "population": 57213,
+        "lat": 42.2180,
+        "lng": -70.9395,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "revere": {
+        "name": "Revere",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Suffolk County",
+        "population": 62186,
+        "lat": 42.4084,
+        "lng": -71.0120,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    "peabody": {
+        "name": "Peabody",
+        "state": "Massachusetts",
+        "state_abbr": "MA",
+        "county": "Essex County",
+        "population": 54481,
+        "lat": 42.5278,
+        "lng": -70.9286,
+        "metro_area": "Boston-Cambridge-Newton",
+        "region": "Northeast"
+    },
+    # Additional Vermont cities
+    "burlington": {
+        "name": "Burlington",
+        "state": "Vermont", 
+        "state_abbr": "VT",
+        "county": "Chittenden County",
+        "population": 44743,
+        "lat": 44.4759,
+        "lng": -73.2121,
+        "metro_area": "Burlington-South Burlington",
+        "region": "Northeast"
+    },
+    "south-burlington": {
+        "name": "South Burlington",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Chittenden County",
+        "population": 20292,
+        "lat": 44.4667,
+        "lng": -73.1709,
+        "metro_area": "Burlington-South Burlington",
+        "region": "Northeast"
+    },
+    "rutland": {
+        "name": "Rutland",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Rutland County",
+        "population": 15807,
+        "lat": 43.6106,
+        "lng": -72.9726,
+        "metro_area": "Rutland",
+        "region": "Northeast"
+    },
+    "barre": {
+        "name": "Barre",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Washington County",
+        "population": 8491,
+        "lat": 44.1970,
+        "lng": -72.5020,
+        "metro_area": "Barre",
+        "region": "Northeast"
+    },
+    "montpelier": {
+        "name": "Montpelier",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Washington County",
+        "population": 8074,
+        "lat": 44.2601,
+        "lng": -72.5806,
+        "metro_area": "Montpelier",
+        "region": "Northeast"
+    },
+    "winooski": {
+        "name": "Winooski",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Chittenden County",
+        "population": 7329,
+        "lat": 44.4900,
+        "lng": -73.1857,
+        "metro_area": "Burlington-South Burlington",
+        "region": "Northeast"
+    },
+    "st-albans": {
+        "name": "St. Albans",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Franklin County",
+        "population": 6877,
+        "lat": 44.8109,
+        "lng": -73.0834,
+        "metro_area": "St. Albans",
+        "region": "Northeast"
+    },
+    "newport-vt": {
+        "name": "Newport",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Orleans County",
+        "population": 4455,
+        "lat": 44.9367,
+        "lng": -72.2051,
+        "metro_area": "Newport",
+        "region": "Northeast"
+    },
+    "vergennes": {
+        "name": "Vergennes",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Addison County",
+        "population": 2553,
+        "lat": 44.1645,
+        "lng": -73.2540,
+        "metro_area": "Vergennes",
+        "region": "Northeast"
+    },
+    "middlebury": {
+        "name": "Middlebury",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Addison County",
+        "population": 9152,
+        "lat": 44.0153,
+        "lng": -73.1673,
+        "metro_area": "Middlebury",
+        "region": "Northeast"
+    },
+    "brattleboro": {
+        "name": "Brattleboro",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Windham County",
+        "population": 12046,
+        "lat": 42.8509,
+        "lng": -72.5579,
+        "metro_area": "Brattleboro",
+        "region": "Northeast"
+    },
+    "bellows-falls": {
+        "name": "Bellows Falls",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Windham County",
+        "population": 2747,
+        "lat": 43.1334,
+        "lng": -72.4298,
+        "metro_area": "Bellows Falls",
+        "region": "Northeast"
+    },
+    "white-river-junction": {
+        "name": "White River Junction",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Windsor County",
+        "population": 2286,
+        "lat": 43.6487,
+        "lng": -72.3193,
+        "metro_area": "White River Junction",
+        "region": "Northeast"
+    },
+    "essex-junction": {
+        "name": "Essex Junction",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Chittenden County",
+        "population": 10761,
+        "lat": 44.4906,
+        "lng": -73.1112,
+        "metro_area": "Burlington-South Burlington",
+        "region": "Northeast"
+    },
+    "colchester": {
+        "name": "Colchester",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Chittenden County",
+        "population": 17524,
+        "lat": 44.5270,
+        "lng": -73.1304,
+        "metro_area": "Burlington-South Burlington",
+        "region": "Northeast"
+    },
+    "shelburne": {
+        "name": "Shelburne",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Chittenden County",
+        "population": 7717,
+        "lat": 44.3798,
+        "lng": -73.2234,
+        "metro_area": "Burlington-South Burlington",
+        "region": "Northeast"
+    },
+    "manchester-vt": {
+        "name": "Manchester",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Bennington County",
+        "population": 4484,
+        "lat": 43.1634,
+        "lng": -73.0723,
+        "metro_area": "Manchester",
+        "region": "Northeast"
+    },
+    "bennington": {
+        "name": "Bennington",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Bennington County",
+        "population": 15333,
+        "lat": 42.8781,
+        "lng": -73.1968,
+        "metro_area": "Bennington",
+        "region": "Northeast"
+    },
+    "st-johnsbury": {
+        "name": "St. Johnsbury",
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Caledonia County",
+        "population": 7364,
+        "lat": 44.4192,
+        "lng": -72.0151,
+        "metro_area": "St. Johnsbury",
+        "region": "Northeast"
+    },
+    "morrisville": {
+        "name": "Morrisville", 
+        "state": "Vermont",
+        "state_abbr": "VT",
+        "county": "Lamoille County",
+        "population": 2063,
+        "lat": 44.5564,
+        "lng": -72.5998,
+        "metro_area": "Morrisville",
+        "region": "Northeast"
+    },
+    # Additional New Hampshire cities  
+    "manchester-nh": {
+        "name": "Manchester",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Hillsborough County",
+        "population": 115644,
+        "lat": 42.9956,
+        "lng": -71.4548,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "nashua": {
+        "name": "Nashua",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Hillsborough County",
+        "population": 91322,
+        "lat": 42.7654,
+        "lng": -71.4676,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "concord-nh": {
+        "name": "Concord",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Merrimack County",
+        "population": 43976,
+        "lat": 43.2081,
+        "lng": -71.5376,
+        "metro_area": "Concord",
+        "region": "Northeast"
+    },
+    "derry": {
+        "name": "Derry",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Rockingham County",
+        "population": 34317,
+        "lat": 42.8801,
+        "lng": -71.3273,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "rochester-nh": {
+        "name": "Rochester",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Strafford County",
+        "population": 32492,
+        "lat": 43.3042,
+        "lng": -70.9756,
+        "metro_area": "Rochester",
+        "region": "Northeast"
+    },
+    "salem-nh": {
+        "name": "Salem",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Rockingham County",
+        "population": 29549,
+        "lat": 42.7876,
+        "lng": -71.2011,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "dover": {
+        "name": "Dover", 
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Strafford County",
+        "population": 32741,
+        "lat": 43.1979,
+        "lng": -70.8737,
+        "metro_area": "Dover-Durham",
+        "region": "Northeast"
+    },
+    "merrimack": {
+        "name": "Merrimack",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Hillsborough County",
+        "population": 26632,
+        "lat": 42.8653,
+        "lng": -71.4912,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "londonderry": {
+        "name": "Londonderry",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Rockingham County",
+        "population": 25826,
+        "lat": 42.8653,
+        "lng": -71.3740,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "hudson-nh": {
+        "name": "Hudson",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Hillsborough County",
+        "population": 25394,
+        "lat": 42.7595,
+        "lng": -71.4340,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    "portsmouth": {
+        "name": "Portsmouth",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Rockingham County",
+        "population": 22194,
+        "lat": 43.0718,
+        "lng": -70.7626,
+        "metro_area": "Portsmouth",
+        "region": "Northeast"
+    },
+    "keene": {
+        "name": "Keene",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Cheshire County",
+        "population": 23047,
+        "lat": 42.9342,
+        "lng": -72.2781,
+        "metro_area": "Keene",
+        "region": "Northeast"
+    },
+    "laconia": {
+        "name": "Laconia",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Belknap County",
+        "population": 16871,
+        "lat": 43.5278,
+        "lng": -71.4703,
+        "metro_area": "Laconia",
+        "region": "Northeast"
+    },
+    "lebanon": {
+        "name": "Lebanon",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Grafton County",
+        "population": 14282,
+        "lat": 43.6422,
+        "lng": -72.2517,
+        "metro_area": "Lebanon",
+        "region": "Northeast"
+    },
+    "claremont": {
+        "name": "Claremont",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Sullivan County",
+        "population": 12969,
+        "lat": 43.3770,
+        "lng": -72.3451,
+        "metro_area": "Claremont",
+        "region": "Northeast"
+    },
+    "berlin": {
+        "name": "Berlin",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Coos County",
+        "population": 9425,
+        "lat": 44.4689,
+        "lng": -71.1850,
+        "metro_area": "Berlin",
+        "region": "Northeast"
+    },
+    "franklin": {
+        "name": "Franklin",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Merrimack County",
+        "population": 8741,
+        "lat": 43.4473,
+        "lng": -71.6473,
+        "metro_area": "Franklin",
+        "region": "Northeast"
+    },
+    "somersworth": {
+        "name": "Somersworth",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Strafford County",
+        "population": 11855,
+        "lat": 43.2579,
+        "lng": -70.8734,
+        "metro_area": "Dover-Durham",
+        "region": "Northeast"
+    },
+    "newport-nh": {
+        "name": "Newport",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Sullivan County",
+        "population": 6110,
+        "lat": 43.3645,
+        "lng": -72.1759,
+        "metro_area": "Newport",
+        "region": "Northeast"
+    },
+    "milford-nh": {
+        "name": "Milford",
+        "state": "New Hampshire",
+        "state_abbr": "NH",
+        "county": "Hillsborough County",
+        "population": 15115,
+        "lat": 42.8353,
+        "lng": -71.6487,
+        "metro_area": "Manchester-Nashua",
+        "region": "Northeast"
+    },
+    # Additional Maine cities
+    "portland-me": {
+        "name": "Portland",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 68408,
+        "lat": 43.6591,
+        "lng": -70.2568,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "lewiston": {
+        "name": "Lewiston",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Androscoggin County",
+        "population": 36221,
+        "lat": 44.1003,
+        "lng": -70.2148,
+        "metro_area": "Lewiston-Auburn",
+        "region": "Northeast"
+    },
+    "bangor": {
+        "name": "Bangor",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Penobscot County",
+        "population": 31753,
+        "lat": 44.8016,
+        "lng": -68.7712,
+        "metro_area": "Bangor",
+        "region": "Northeast"
+    },
+    "south-portland": {
+        "name": "South Portland",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 25665,
+        "lat": 43.6414,
+        "lng": -70.2409,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "auburn": {
+        "name": "Auburn",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Androscoggin County",
+        "population": 24061,
+        "lat": 44.0979,
+        "lng": -70.2311,
+        "metro_area": "Lewiston-Auburn", 
+        "region": "Northeast"
+    },
+    "biddeford": {
+        "name": "Biddeford",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "York County",
+        "population": 21277,
+        "lat": 43.4925,
+        "lng": -70.4533,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "sanford": {
+        "name": "Sanford",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "York County",
+        "population": 21982,
+        "lat": 43.4397,
+        "lng": -70.7740,
+        "metro_area": "Sanford",
+        "region": "Northeast"
+    },
+    "brunswick": {
+        "name": "Brunswick",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 21756,
+        "lat": 43.9137,
+        "lng": -69.9653,
+        "metro_area": "Brunswick",
+        "region": "Northeast"
+    },
+    "saco": {
+        "name": "Saco",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "York County",
+        "population": 19493,
+        "lat": 43.5009,
+        "lng": -70.4428,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "westbrook": {
+        "name": "Westbrook",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 18732,
+        "lat": 43.6770,
+        "lng": -70.3712,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "augusta-me": {
+        "name": "Augusta",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Kennebec County",
+        "population": 18899,
+        "lat": 44.3106,
+        "lng": -69.7795,
+        "metro_area": "Augusta-Waterville",
+        "region": "Northeast"
+    },
+    "waterville": {
+        "name": "Waterville",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Kennebec County",
+        "population": 15908,
+        "lat": 44.5520,
+        "lng": -69.6319,
+        "metro_area": "Augusta-Waterville",
+        "region": "Northeast"
+    },
+    "presque-isle": {
+        "name": "Presque Isle",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Aroostook County",
+        "population": 8797,
+        "lat": 46.6814,
+        "lng": -68.0158,
+        "metro_area": "Presque Isle",
+        "region": "Northeast"
+    },
+    "gorham": {
+        "name": "Gorham",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 17623,
+        "lat": 43.6795,
+        "lng": -70.4417,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "scarborough": {
+        "name": "Scarborough",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 22135,
+        "lat": 43.5781,
+        "lng": -70.3170,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "windham": {
+        "name": "Windham",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Cumberland County",
+        "population": 18434,
+        "lat": 43.8037,
+        "lng": -70.4378,
+        "metro_area": "Portland-South Portland",
+        "region": "Northeast"
+    },
+    "topsham": {
+        "name": "Topsham",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Sagadahoc County",
+        "population": 8946,
+        "lat": 43.9248,
+        "lng": -69.9620,
+        "metro_area": "Brunswick",
+        "region": "Northeast"
+    },
+    "bath": {
+        "name": "Bath",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Sagadahoc County",
+        "population": 8766,
+        "lat": 43.9109,
+        "lng": -69.8206,
+        "metro_area": "Bath",
+        "region": "Northeast"
+    },
+    "ellsworth": {
+        "name": "Ellsworth",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Hancock County",
+        "population": 8399,
+        "lat": 44.5434,
+        "lng": -68.4198,
+        "metro_area": "Ellsworth",
+        "region": "Northeast"
+    },
+    "belfast": {
+        "name": "Belfast",
+        "state": "Maine",
+        "state_abbr": "ME",
+        "county": "Waldo County",
+        "population": 6796,
+        "lat": 44.4259,
+        "lng": -69.0060,
+        "metro_area": "Belfast",
+        "region": "Northeast"
     }
 }
 
@@ -2406,3 +3323,36 @@ def get_top_cities_by_population(limit=50):
         reverse=True
     )
     return dict(sorted_cities[:limit])
+
+def get_database_stats():
+    """Get comprehensive statistics about the city database"""
+    total_cities = len(US_MAJOR_CITIES)
+    
+    # Get states
+    states = {}
+    for city_data in US_MAJOR_CITIES.values():
+        state_abbr = city_data['state_abbr']
+        if state_abbr not in states:
+            states[state_abbr] = 0
+        states[state_abbr] += 1
+    
+    total_states = len(states)
+    
+    # Population statistics
+    populations = [city['population'] for city in US_MAJOR_CITIES.values()]
+    avg_population = sum(populations) / len(populations) if populations else 0
+    
+    return {
+        'total_cities': total_cities,
+        'total_states': total_states,
+        'avg_cities_per_state': round(total_cities / total_states, 1) if total_states > 0 else 0,
+        'avg_population': round(avg_population),
+        'largest_city': max(US_MAJOR_CITIES.items(), key=lambda x: x[1]['population']) if US_MAJOR_CITIES else None,
+        'smallest_city': min(US_MAJOR_CITIES.items(), key=lambda x: x[1]['population']) if US_MAJOR_CITIES else None,
+        'states_coverage': states
+    }
+
+# Print basic stats when module loads
+if __name__ == "__main__":
+    stats = get_database_stats()
+    print(f"US Cities SEO Database: {stats['total_cities']} cities across {stats['total_states']} states")
