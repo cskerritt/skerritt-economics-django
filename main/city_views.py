@@ -3,7 +3,8 @@ City-specific views for local SEO
 """
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
-from .city_data import get_city_by_slug, get_all_cities, CITY_DATA
+from django.http import Http404
+from .us_cities_seo_data import US_MAJOR_CITIES, get_city_by_slug, get_nearby_cities
 
 class CityLandingView(TemplateView):
     """Base view for city landing pages"""

@@ -67,6 +67,10 @@ urlpatterns = [
 # Add city-specific URLs
 urlpatterns += city_urlpatterns
 
+# Import and add SEO city URL patterns
+from .city_seo_urls import city_seo_urlpatterns
+urlpatterns += city_seo_urlpatterns
+
 # Import and add improved URL patterns
 from .improved_urls import all_improved_urls
 urlpatterns += all_improved_urls

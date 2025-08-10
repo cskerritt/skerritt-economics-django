@@ -1,0 +1,514 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{# Dynamic SEO Meta Tags #}
+{% block title %}Forensic Economist {{ city.name }}, {{ city.state_abbr }} | Economic Expert Witness | Skerritt Economics{% endblock %}
+{% block meta_description %}Top-rated forensic economist in {{ city.name }}, {{ city.state_abbr }}. Expert economic damage calculations, lost earnings analysis & business valuation for attorneys. Free consultation: (203) 605-2814{% endblock %}
+{% block meta_keywords %}forensic economist {{ city.name }}, economic expert witness {{ city.name }} {{ city.state_abbr }}, economic damages {{ city.name }}, lost earnings expert {{ city.name }}, business valuation {{ city.name }}, {{ city.name }} economic consultant, forensic economics {{ city.county }}, expert witness {{ city.metro_area }}{% endblock %}
+
+{# Open Graph & Social Media Tags #}
+{% block extra_head %}
+<!-- Canonical URL -->
+<link rel="canonical" href="https://skerritteconomics.com/forensic-economist/{{ city.state_abbr|lower }}/{{ city_slug }}/">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Forensic Economist {{ city.name }}, {{ city.state_abbr }} | Economic Damages Expert">
+<meta property="og:description" content="Expert forensic economist serving {{ city.name }} & {{ city.metro_area }}. Economic damages, lost earnings & business valuation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skerritteconomics.com/forensic-economist/{{ city.state_abbr|lower }}/{{ city_slug }}/">
+<meta property="og:site_name" content="Skerritt Economics">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forensic Economist {{ city.name }}, {{ city.state_abbr }}">
+<meta name="twitter:description" content="Expert economic analysis for legal cases in {{ city.name }}">
+
+<!-- Geo Meta Tags for Local SEO -->
+<meta name="geo.region" content="US-{{ city.state_abbr }}">
+<meta name="geo.placename" content="{{ city.name }}">
+<meta name="geo.position" content="{{ city.lat }};{{ city.lng }}">
+<meta name="ICBM" content="{{ city.lat }}, {{ city.lng }}">
+
+<!-- Additional SEO Tags -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="Christopher Skerritt, M.Ed, MBA, CRC, CLCP">
+<meta name="rating" content="general">
+<meta name="distribution" content="global">
+{% endblock %}
+
+{# Structured Data / Schema Markup #}
+{% block structured_data %}
+{{ block.super }}
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Skerritt Economics - Forensic Economist {{ city.name }}",
+    "description": "Expert forensic economist providing economic damage calculations and expert witness testimony in {{ city.name }}, {{ city.state_abbr }}",
+    "url": "https://skerritteconomics.com/forensic-economist/{{ city.state_abbr|lower }}/{{ city_slug }}/",
+    "telephone": "+1-203-605-2814",
+    "email": "chris@skerritteconomics.com",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ city.name }}",
+        "addressRegion": "{{ city.state_abbr }}",
+        "addressCountry": "US"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": {{ city.lat }},
+        "longitude": {{ city.lng }}
+    },
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "{{ city.name }}",
+            "containedInPlace": {
+                "@type": "State",
+                "name": "{{ city.state }}"
+            }
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "{{ city.county }}"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "{{ city.metro_area }}"
+        }
+    ],
+    "priceRange": "$$$$",
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+    },
+    "founder": {
+        "@type": "Person",
+        "name": "Christopher Skerritt",
+        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F",
+        "jobTitle": "Forensic Economist",
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Bryant University"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Springfield College"
+            }
+        ]
+    },
+    "sameAs": [
+        "https://www.linkedin.com/in/christopher-skerritt/",
+        "https://www.a-r-e-a.org/"
+    ]
+}
+</script>
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Forensic Economics",
+    "provider": {
+        "@type": "Person",
+        "name": "Christopher Skerritt"
+    },
+    "areaServed": {
+        "@type": "City",
+        "name": "{{ city.name }}",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "{{ city.state }}"
+        }
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Forensic Economics Services in {{ city.name }}",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Economic Damage Calculations",
+                    "description": "Lost earnings and economic loss analysis for {{ city.name }} legal cases"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Expert Witness Testimony",
+                    "description": "Court testimony for economic damages in {{ city.county }} courts"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Business Valuation",
+                    "description": "Business appraisal services for {{ city.metro_area }} area"
+                }
+            }
+        ]
+    }
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://skerritteconomics.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Locations",
+            "item": "https://skerritteconomics.com/locations/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ city.state }}",
+            "item": "https://skerritteconomics.com/locations/{{ city.state|slugify }}/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Forensic Economist {{ city.name }}",
+            "item": "https://skerritteconomics.com/forensic-economist/{{ city.state_abbr|lower }}/{{ city_slug }}/"
+        }
+    ]
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What does a forensic economist do in {{ city.name }}?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A forensic economist in {{ city.name }} calculates economic damages for legal cases including personal injury, wrongful death, and business disputes. They analyze lost earnings, future income potential, and provide expert testimony in {{ city.county }} courts."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does a forensic economist cost in {{ city.name }}, {{ city.state_abbr }}?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forensic economist fees in {{ city.name }} typically range from $250-$500 per hour for analysis and $500-$1000 per hour for testimony. Most cases require 20-40 hours of work. Contact us for a specific quote for your {{ city.metro_area }} case."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you provide expert witness testimony in {{ city.name }} courts?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we provide expert witness testimony in all {{ city.name }} and {{ city.county }} courts, including state and federal jurisdictions. We also offer deposition testimony and can appear remotely when appropriate."
+            }
+        }
+    ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'location' city.state|slugify %}">{{ city.state }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ city.name }}</li>
+        </ol>
+    </nav>
+
+    <!-- Hero Section with Local Keywords -->
+    <section class="hero-section mb-4">
+        <h1>Forensic Economist in {{ city.name }}, {{ city.state_abbr }}</h1>
+        <p class="lead">Expert Economic Damage Analysis & Testimony for {{ city.metro_area }} Attorneys</p>
+        
+        <div class="hero-cta mt-3">
+            <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                <i class="fas fa-phone"></i> (203) 605-2814
+            </a>
+            <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn-primary btn-lg">
+                Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Local Introduction -->
+            <section class="content-section mb-4">
+                <h2>Expert Forensic Economics Services in {{ city.name }}</h2>
+                <p><strong>Skerritt Economics & Consulting</strong> provides comprehensive forensic economic services to attorneys, insurance companies, and businesses throughout <strong>{{ city.name }}</strong>, <strong>{{ city.county }}</strong>, and the greater <strong>{{ city.metro_area }}</strong> metropolitan area. With over 20 years of experience and extensive expert witness testimony in both state and federal courts, Christopher Skerritt delivers reliable, defensible economic analyses that help resolve complex legal matters.</p>
+                
+                <p>Whether you need economic damage calculations for a personal injury case in {{ city.name }} Superior Court, business valuation for a {{ city.county }} divorce proceeding, or lost earnings analysis for employment litigation, we provide thorough, objective assessments backed by sound economic methodology and local market knowledge.</p>
+            </section>
+
+            <!-- Services Section -->
+            <section class="content-section mb-4">
+                <h2>Forensic Economic Services for {{ city.name }} Legal Cases</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Personal Injury & Wrongful Death</h3>
+                        <ul>
+                            <li>Lost earnings and earning capacity</li>
+                            <li>Future medical costs projections</li>
+                            <li>Household services valuation</li>
+                            <li>Life care planning costs</li>
+                            <li>Present value calculations</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Business & Employment</h3>
+                        <ul>
+                            <li>Business valuation and appraisal</li>
+                            <li>Lost profits analysis</li>
+                            <li>Wrongful termination damages</li>
+                            <li>Partnership disputes</li>
+                            <li>Commercial damages assessment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>All economic analyses incorporate {{ city.name }}-specific data including local wage rates, employment patterns, cost of living factors, and regional economic conditions to ensure accuracy and relevance for {{ city.county }} legal proceedings.</p>
+            </section>
+
+            <!-- Local Expertise Section -->
+            <section class="content-section mb-4">
+                <h2>Local {{ city.name }} Market Knowledge</h2>
+                <p>Understanding the local economy is crucial for accurate economic damage calculations. Our analyses incorporate:</p>
+                <ul>
+                    <li><strong>{{ city.metro_area }} Labor Market Data:</strong> Current employment rates, wage trends, and industry-specific compensation in the {{ city.name }} area</li>
+                    <li><strong>{{ city.county }} Cost of Living:</strong> Local housing costs, healthcare expenses, and consumer price indices specific to {{ city.name }}</li>
+                    <li><strong>Regional Economic Factors:</strong> {{ city.state }} tax rates, workers' compensation schedules, and state-specific regulations</li>
+                    <li><strong>Industry Presence:</strong> Major employers and economic drivers in the {{ city.metro_area }} region</li>
+                </ul>
+            </section>
+
+            <!-- Court Experience Section -->
+            <section class="content-section mb-4">
+                <h2>Court Experience in {{ city.name }} & {{ city.state }}</h2>
+                <p>We provide expert testimony and litigation support for cases in:</p>
+                <ul>
+                    <li>{{ city.county }} Superior Court</li>
+                    <li>{{ city.state }} State Courts</li>
+                    <li>Federal District Courts</li>
+                    <li>Workers' Compensation Boards</li>
+                    <li>Arbitration and Mediation Proceedings</li>
+                </ul>
+                
+                <p>Our reports meet all admissibility standards including Daubert and Frye requirements, ensuring your economic evidence will withstand scrutiny in {{ city.name }} legal proceedings.</p>
+            </section>
+
+            <!-- Why Choose Section -->
+            <section class="content-section mb-4">
+                <h2>Why {{ city.name }} Attorneys Choose Skerritt Economics</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <h4><i class="fas fa-certificate"></i> Extensive Credentials</h4>
+                            <p>M.Ed, MBA, CRC, CLCP, ABVE/F and 15+ professional certifications</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <h4><i class="fas fa-clock"></i> Rapid Response</h4>
+                            <p>Quick turnaround for {{ city.name }} cases with expedited services available</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <h4><i class="fas fa-chart-line"></i> Local Data</h4>
+                            <p>{{ city.metro_area }} specific economic analysis and market knowledge</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-box">
+                            <h4><i class="fas fa-gavel"></i> Court Ready</h4>
+                            <p>Experienced testimony in {{ city.state }} state and federal courts</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Types Section -->
+            <section class="content-section mb-4">
+                <h2>Types of Cases We Handle in {{ city.name }}</h2>
+                <h3>Personal Injury Cases</h3>
+                <ul>
+                    <li>Motor vehicle accidents on {{ city.name }} highways and roads</li>
+                    <li>Workplace injuries at {{ city.metro_area }} businesses</li>
+                    <li>Medical malpractice at {{ city.name }} hospitals and clinics</li>
+                    <li>Slip and fall accidents at local properties</li>
+                    <li>Product liability cases</li>
+                </ul>
+
+                <h3>Employment & Business Disputes</h3>
+                <ul>
+                    <li>Wrongful termination from {{ city.name }} employers</li>
+                    <li>Business valuation for {{ city.county }} divorce proceedings</li>
+                    <li>Partnership disputes in local businesses</li>
+                    <li>Commercial damages and lost profits</li>
+                    <li>Employment discrimination cases</li>
+                </ul>
+            </section>
+
+            <!-- Process Section -->
+            <section class="content-section mb-4">
+                <h2>Our Process for {{ city.name }} Cases</h2>
+                <ol>
+                    <li><strong>Initial Consultation:</strong> Free case review to understand your {{ city.name }} legal matter</li>
+                    <li><strong>Document Review:</strong> Analysis of medical records, employment history, and financial documents</li>
+                    <li><strong>Economic Research:</strong> Gathering {{ city.metro_area }} wage data and economic indicators</li>
+                    <li><strong>Damage Calculations:</strong> Detailed analysis using accepted economic methodologies</li>
+                    <li><strong>Report Preparation:</strong> Comprehensive report suitable for {{ city.county }} court submission</li>
+                    <li><strong>Expert Testimony:</strong> Deposition and trial testimony as needed</li>
+                </ol>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="content-section mb-4">
+                <h2>Frequently Asked Questions - {{ city.name }} Forensic Economics</h2>
+                
+                <div class="faq-item">
+                    <h4>What does a forensic economist do in {{ city.name }}?</h4>
+                    <p>A forensic economist in {{ city.name }} calculates economic damages for legal cases including personal injury, wrongful death, and business disputes. They analyze lost earnings, future income potential, and provide expert testimony in {{ city.county }} courts.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How much does a forensic economist cost in {{ city.name }}, {{ city.state_abbr }}?</h4>
+                    <p>Forensic economist fees in {{ city.name }} typically range from $250-$500 per hour for analysis and $500-$1000 per hour for testimony. Most cases require 20-40 hours of work. Contact us for a specific quote for your {{ city.metro_area }} case.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do you provide expert witness testimony in {{ city.name }} courts?</h4>
+                    <p>Yes, we provide expert witness testimony in all {{ city.name }} and {{ city.county }} courts, including state and federal jurisdictions. We also offer deposition testimony and can appear remotely when appropriate.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How quickly can you complete an economic analysis for a {{ city.name }} case?</h4>
+                    <p>Standard turnaround is 2-3 weeks for a comprehensive economic report. Rush services are available for urgent {{ city.name }} cases, with preliminary analyses possible within 48-72 hours.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Contact Card -->
+            <div class="card mb-4 sticky-top" style="top: 20px;">
+                <div class="card-body">
+                    <h3>Contact Our {{ city.name }} Office</h3>
+                    <p><strong>Christopher Skerritt</strong><br>
+                    M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+                    
+                    <p><i class="fas fa-phone"></i> <a href="tel:+12036052814">(203) 605-2814</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+                    
+                    <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn-primary btn-block mb-2">
+                        Request Free Consultation
+                    </a>
+                    
+                    <hr>
+                    
+                    <h4>Service Areas</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> {{ city.name }}, {{ city.state_abbr }}</li>
+                        <li><i class="fas fa-map-marker-alt"></i> {{ city.county }}</li>
+                        <li><i class="fas fa-map-marker-alt"></i> {{ city.metro_area }}</li>
+                    </ul>
+                    
+                    <hr>
+                    
+                    <h4>Practice Areas</h4>
+                    <ul class="list-unstyled small">
+                        <li>• Personal Injury Economics</li>
+                        <li>• Wrongful Death Damages</li>
+                        <li>• Business Valuation</li>
+                        <li>• Lost Earnings Analysis</li>
+                        <li>• Life Care Planning</li>
+                        <li>• Employment Damages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nearby Cities Section -->
+    {% if nearby_cities %}
+    <section class="nearby-cities mb-4">
+        <h2>Also Serving Nearby {{ city.state }} Cities</h2>
+        <p>In addition to {{ city.name }}, we provide forensic economics services throughout the {{ city.metro_area }} area including:</p>
+        <div class="row">
+            {% for nearby in nearby_cities %}
+            <div class="col-md-4 col-sm-6 mb-2">
+                <a href="{% url 'city_forensic_economist' city_slug=nearby.slug %}" 
+                   title="Forensic Economist {{ nearby.name }}, {{ nearby.state_abbr }}">
+                    Forensic Economist {{ nearby.name }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- CTA Section -->
+    <section class="cta-section text-center py-5 bg-light">
+        <h2>Need a Forensic Economist in {{ city.name }}?</h2>
+        <p class="lead">Get expert economic analysis for your {{ city.county }} legal case</p>
+        <div class="cta-buttons">
+            <a href="tel:+12036052814" class="btn btn-warning btn-lg mx-2">
+                <i class="fas fa-phone"></i> Call (203) 605-2814
+            </a>
+            <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn-primary btn-lg mx-2">
+                Schedule Free Consultation
+            </a>
+        </div>
+        <p class="mt-3">Serving attorneys throughout {{ city.name }}, {{ city.metro_area }}, and all of {{ city.state }}</p>
+    </section>
+</div>
+
+<!-- Local Business Markup -->
+<div itemscope itemtype="https://schema.org/ProfessionalService" style="display:none;">
+    <span itemprop="name">Skerritt Economics - Forensic Economist {{ city.name }}</span>
+    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="addressLocality">{{ city.name }}</span>,
+        <span itemprop="addressRegion">{{ city.state_abbr }}</span>
+    </div>
+    <span itemprop="telephone">(203) 605-2814</span>
+    <span itemprop="email">chris@skerritteconomics.com</span>
+    <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+        <meta itemprop="latitude" content="{{ city.lat }}">
+        <meta itemprop="longitude" content="{{ city.lng }}">
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Add any city-specific JavaScript here
+console.log('Forensic Economist {{ city.name }}, {{ city.state_abbr }} page loaded');
+</script>
+{% endblock %}

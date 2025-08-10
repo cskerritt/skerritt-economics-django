@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Forensic Economist Services in All US Cities | Nationwide Coverage{% endblock %}
+{% block meta_description %}Expert forensic economist services available in {{ total_cities }}+ major US cities. Economic damage calculations, business valuation & expert witness testimony nationwide. Free consultation.{% endblock %}
+{% block meta_keywords %}forensic economist United States, economic expert witness nationwide, forensic economics all cities, business valuation expert USA, economic damages consultant{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Skerritt Economics - Nationwide Forensic Economics",
+    "description": "Expert forensic economist services available in all major US cities",
+    "url": "https://skerritteconomics.com/forensic-economist/",
+    "telephone": "+1-203-605-2814",
+    "email": "chris@skerritteconomics.com",
+    "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+    },
+    "provider": {
+        "@type": "Person",
+        "name": "Christopher Skerritt",
+        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F"
+    }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Forensic Economist Services - All US Cities</h1>
+    <p class="lead">Expert economic damage analysis and testimony available nationwide in {{ total_cities }}+ major cities</p>
+    
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <p>Skerritt Economics provides comprehensive forensic economic services throughout the United States. Select your city below to learn more about our local services, or call <strong>(203) 605-2814</strong> for immediate assistance.</p>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3>Free Consultation</h3>
+                    <p><a href="tel:+12036052814" class="btn btn-warning btn-lg">(203) 605-2814</a></p>
+                    <p><a href="{% url 'contact' %}" class="btn btn-primary">Request Online</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Select Your State</h2>
+    
+    <div class="state-directory">
+        {% for state, cities in cities_by_state.items %}
+        <div class="card mb-3">
+            <div class="card-header">
+                <h3>{{ state }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for city in cities %}
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <a href="{% url 'city_forensic_economist' state_abbr=city.state_abbr|lower city_slug=city.slug %}" 
+                           title="Forensic Economist {{ city.name }}, {{ city.state_abbr }}">
+                            <i class="fas fa-map-marker-alt"></i> {{ city.name }}
+                        </a>
+                        <small class="text-muted d-block">{{ city.metro_area }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <section class="mt-5">
+        <h2>Our Nationwide Services</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Forensic Economics</h3>
+                <ul>
+                    <li>Lost earnings calculations</li>
+                    <li>Wrongful death economic loss</li>
+                    <li>Personal injury damages</li>
+                    <li>Future medical costs</li>
+                    <li>Household services valuation</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Business Valuation</h3>
+                <ul>
+                    <li>Fair market value analysis</li>
+                    <li>Business damage assessments</li>
+                    <li>Lost profits calculations</li>
+                    <li>Partnership disputes</li>
+                    <li>Divorce business valuation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section text-center py-5 bg-light mt-5">
+        <h2>Need a Forensic Economist?</h2>
+        <p class="lead">Available for cases nationwide with local expertise in your area</p>
+        <a href="tel:+12036052814" class="btn btn-warning btn-lg mx-2">
+            <i class="fas fa-phone"></i> (203) 605-2814
+        </a>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mx-2">
+            Free Consultation
+        </a>
+    </section>
+</div>
+{% endblock %}
