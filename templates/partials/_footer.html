@@ -45,7 +45,14 @@
             
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p><strong>Skerritt Economics & Consulting</strong></p>
+                {% load static %}
+                <div class="footer-logo mb-3">
+                    <img src="{% static 'images/SEC_LOGO.png' %}" 
+                         alt="Skerritt Economics and Consulting" 
+                         class="footer-logo-img"
+                         width="180" 
+                         height="72">
+                </div>
                 <p>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</p>
                 <p>Smithfield, Rhode Island</p>
                 <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>

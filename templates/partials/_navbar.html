@@ -3,7 +3,12 @@
     <div class="container">
         <div class="navbar-brand">
             <a href="{% url 'home' %}" class="logo-link">
-                <span class="navbar-text">Skerritt Economics & Consulting</span>
+                <img src="{% static 'images/SEC_LOGO.png' %}" 
+                     alt="Skerritt Economics and Consulting - SEC Logo" 
+                     class="navbar-logo"
+                     width="200" 
+                     height="80">
+                <span class="sr-only">Skerritt Economics & Consulting</span>
             </a>
         </div>
         <ul class="navbar-menu">
