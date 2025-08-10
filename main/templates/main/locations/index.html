@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Locations We Serve - Nationwide Forensic Economics & Business Valuation{% endblock %}
+{% block meta_description %}Skerritt Economics provides expert witness services throughout all 50 states. Find forensic economics and business valuation services in your area.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Locations We Serve</h1>
+    <p class="lead">Expert forensic economics and business valuation services available nationwide</p>
+    
+    <section class="mb-5">
+        <h2>Primary Service Area</h2>
+        <div class="card">
+            <div class="card-body">
+                <h3>New England Region</h3>
+                <p>Based in Smithfield, Rhode Island, we provide immediate, in-person service throughout New England:</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4><a href="{% url 'location' state='rhode-island' %}">Rhode Island</a></h4>
+                        <ul>
+                            <li>Providence</li>
+                            <li>Warwick</li>
+                            <li>Cranston</li>
+                            <li>Pawtucket</li>
+                            <li>Newport</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4><a href="{% url 'location' state='massachusetts' %}">Massachusetts</a></h4>
+                        <ul>
+                            <li>Boston</li>
+                            <li>Worcester</li>
+                            <li>Springfield</li>
+                            <li>Cambridge</li>
+                            <li>Lowell</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4><a href="{% url 'location' state='connecticut' %}">Connecticut</a></h4>
+                        <ul>
+                            <li>Hartford</li>
+                            <li>New Haven</li>
+                            <li>Stamford</li>
+                            <li>Bridgeport</li>
+                            <li>Waterbury</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <h4><a href="{% url 'location' state='new-hampshire' %}">New Hampshire</a></h4>
+                        <ul>
+                            <li>Manchester</li>
+                            <li>Nashua</li>
+                            <li>Concord</li>
+                            <li>Portsmouth</li>
+                            <li>Dover</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4><a href="{% url 'location' state='vermont' %}">Vermont</a></h4>
+                        <ul>
+                            <li>Burlington</li>
+                            <li>Montpelier</li>
+                            <li>Rutland</li>
+                            <li>Brattleboro</li>
+                            <li>Bennington</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4><a href="{% url 'location' state='maine' %}">Maine</a></h4>
+                        <ul>
+                            <li>Portland</li>
+                            <li>Lewiston</li>
+                            <li>Bangor</li>
+                            <li>Augusta</li>
+                            <li>Biddeford</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mb-5">
+        <h2>Nationwide Coverage</h2>
+        <p>We provide expert witness services and remote testimony throughout all 50 states. Select your state below:</p>
+        
+        <div class="states-grid">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h4>A-D</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'location' state='alabama' %}">Alabama</a></li>
+                        <li><a href="{% url 'location' state='alaska' %}">Alaska</a></li>
+                        <li><a href="{% url 'location' state='arizona' %}">Arizona</a></li>
+                        <li><a href="{% url 'location' state='arkansas' %}">Arkansas</a></li>
+                        <li><a href="{% url 'location' state='california' %}">California</a></li>
+                        <li><a href="{% url 'location' state='colorado' %}">Colorado</a></li>
+                        <li><a href="{% url 'location' state='connecticut' %}">Connecticut</a></li>
+                        <li><a href="{% url 'location' state='delaware' %}">Delaware</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h4>F-K</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'location' state='florida' %}">Florida</a></li>
+                        <li><a href="{% url 'location' state='georgia' %}">Georgia</a></li>
+                        <li><a href="{% url 'location' state='hawaii' %}">Hawaii</a></li>
+                        <li><a href="{% url 'location' state='idaho' %}">Idaho</a></li>
+                        <li><a href="{% url 'location' state='illinois' %}">Illinois</a></li>
+                        <li><a href="{% url 'location' state='indiana' %}">Indiana</a></li>
+                        <li><a href="{% url 'location' state='iowa' %}">Iowa</a></li>
+                        <li><a href="{% url 'location' state='kansas' %}">Kansas</a></li>
+                        <li><a href="{% url 'location' state='kentucky' %}">Kentucky</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h4>L-N</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'location' state='louisiana' %}">Louisiana</a></li>
+                        <li><a href="{% url 'location' state='maine' %}">Maine</a></li>
+                        <li><a href="{% url 'location' state='maryland' %}">Maryland</a></li>
+                        <li><a href="{% url 'location' state='massachusetts' %}">Massachusetts</a></li>
+                        <li><a href="{% url 'location' state='michigan' %}">Michigan</a></li>
+                        <li><a href="{% url 'location' state='minnesota' %}">Minnesota</a></li>
+                        <li><a href="{% url 'location' state='mississippi' %}">Mississippi</a></li>
+                        <li><a href="{% url 'location' state='missouri' %}">Missouri</a></li>
+                        <li><a href="{% url 'location' state='montana' %}">Montana</a></li>
+                        <li><a href="{% url 'location' state='nebraska' %}">Nebraska</a></li>
+                        <li><a href="{% url 'location' state='nevada' %}">Nevada</a></li>
+                        <li><a href="{% url 'location' state='new-hampshire' %}">New Hampshire</a></li>
+                        <li><a href="{% url 'location' state='new-jersey' %}">New Jersey</a></li>
+                        <li><a href="{% url 'location' state='new-mexico' %}">New Mexico</a></li>
+                        <li><a href="{% url 'location' state='new-york' %}">New York</a></li>
+                        <li><a href="{% url 'location' state='north-carolina' %}">North Carolina</a></li>
+                        <li><a href="{% url 'location' state='north-dakota' %}">North Dakota</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h4>O-W</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'location' state='ohio' %}">Ohio</a></li>
+                        <li><a href="{% url 'location' state='oklahoma' %}">Oklahoma</a></li>
+                        <li><a href="{% url 'location' state='oregon' %}">Oregon</a></li>
+                        <li><a href="{% url 'location' state='pennsylvania' %}">Pennsylvania</a></li>
+                        <li><a href="{% url 'location' state='rhode-island' %}">Rhode Island</a></li>
+                        <li><a href="{% url 'location' state='south-carolina' %}">South Carolina</a></li>
+                        <li><a href="{% url 'location' state='south-dakota' %}">South Dakota</a></li>
+                        <li><a href="{% url 'location' state='tennessee' %}">Tennessee</a></li>
+                        <li><a href="{% url 'location' state='texas' %}">Texas</a></li>
+                        <li><a href="{% url 'location' state='utah' %}">Utah</a></li>
+                        <li><a href="{% url 'location' state='vermont' %}">Vermont</a></li>
+                        <li><a href="{% url 'location' state='virginia' %}">Virginia</a></li>
+                        <li><a href="{% url 'location' state='washington' %}">Washington</a></li>
+                        <li><a href="{% url 'location' state='west-virginia' %}">West Virginia</a></li>
+                        <li><a href="{% url 'location' state='wisconsin' %}">Wisconsin</a></li>
+                        <li><a href="{% url 'location' state='wyoming' %}">Wyoming</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mb-5">
+        <h2>Major Metropolitan Areas</h2>
+        <p>We provide specialized services in major metropolitan areas across the United States:</p>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Northeast</h4>
+                <ul>
+                    <li><a href="{% url 'city_forensic_economics' 'new-york-ny' %}">New York City</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'boston-ma' %}">Boston</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'philadelphia-pa' %}">Philadelphia</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'washington-dc' %}">Washington DC</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Southeast & Southwest</h4>
+                <ul>
+                    <li><a href="{% url 'city_forensic_economics' 'atlanta-ga' %}">Atlanta</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'miami-fl' %}">Miami</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'houston-tx' %}">Houston</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'dallas-tx' %}">Dallas</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'phoenix-az' %}">Phoenix</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Midwest & West</h4>
+                <ul>
+                    <li><a href="{% url 'city_forensic_economics' 'chicago-il' %}">Chicago</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'detroit-mi' %}">Detroit</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'minneapolis-mn' %}">Minneapolis</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'denver-co' %}">Denver</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'los-angeles-ca' %}">Los Angeles</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'san-francisco-ca' %}">San Francisco</a></li>
+                    <li><a href="{% url 'city_forensic_economics' 'seattle-wa' %}">Seattle</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mb-5">
+        <h2>How We Serve You</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Local Service (New England)</h3>
+                <ul>
+                    <li>In-person meetings and consultations</li>
+                    <li>Direct court appearances</li>
+                    <li>On-site document review</li>
+                    <li>Face-to-face depositions</li>
+                    <li>Immediate response times</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Remote Service (Nationwide)</h3>
+                <ul>
+                    <li>Video conference consultations</li>
+                    <li>Remote deposition testimony</li>
+                    <li>Electronic document review</li>
+                    <li>Virtual trial testimony</li>
+                    <li>24-hour case evaluation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta text-center mt-5">
+        <h2>Need Expert Services in Your Area?</h2>
+        <p>We provide forensic economics and business valuation services throughout the United States</p>
+        <p class="lead">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Request Consultation</a>
+    </section>
+</div>
+{% endblock %}

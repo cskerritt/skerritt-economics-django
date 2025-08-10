@@ -1,0 +1,47 @@
+{% if breadcrumbs %}
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{% url 'home' %}" itemprop="item">
+                <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </li>
+        {% for crumb in breadcrumbs %}
+        <li class="breadcrumb-item{% if forloop.last %} active{% endif %}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            {% if not forloop.last %}
+            <a href="{{ crumb.url }}" itemprop="item">
+                <span itemprop="name">{{ crumb.name }}</span>
+            </a>
+            {% else %}
+            <span itemprop="name">{{ crumb.name }}</span>
+            {% endif %}
+            <meta itemprop="position" content="{{ forloop.counter|add:1 }}" />
+        </li>
+        {% endfor %}
+    </ol>
+</nav>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://skerritteconomics.com/"
+        }{% if breadcrumbs %},{% endif %}
+        {% for crumb in breadcrumbs %}
+        {
+            "@type": "ListItem",
+            "position": {{ forloop.counter|add:1 }},
+            "name": "{{ crumb.name }}"{% if not forloop.last %},
+            "item": "https://skerritteconomics.com{{ crumb.url }}"{% endif %}
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
+</script>
+{% endif %}

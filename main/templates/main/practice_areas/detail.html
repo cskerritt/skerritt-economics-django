@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ practice_area.name }} Expert - Skerritt Economics{% endblock %}
+{% block meta_description %}Expert forensic economic analysis for {{ practice_area.name|lower }} cases. {{ practice_area.description }}. Free consultation with experienced economist.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ practice_area.name }} Economic Expert</h1>
+    <p class="lead">{{ practice_area.description }}</p>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <section class="card mb-3">
+                <h2>Expert {{ practice_area.name }} Economic Analysis</h2>
+                <p>Skerritt Economics & Consulting provides comprehensive forensic economic analysis for {{ practice_area.name|lower }} cases throughout the United States. Our expertise ensures accurate damage calculations that stand up to scrutiny in court.</p>
+                
+                {% if 'personal-injury' in practice_area.slug or 'wrongful-death' in practice_area.slug %}
+                <h3>Our Analysis Includes:</h3>
+                <ul>
+                    <li>Lost earnings and earning capacity</li>
+                    <li>Loss of employee benefits</li>
+                    <li>Loss of household services</li>
+                    <li>Future medical costs</li>
+                    <li>Present value calculations</li>
+                    <li>Life care planning (when applicable)</li>
+                </ul>
+                
+                {% elif 'medical' in practice_area.slug or 'malpractice' in practice_area.slug %}
+                <h3>Medical Case Economic Analysis:</h3>
+                <ul>
+                    <li>Future medical care costs</li>
+                    <li>Lost earning capacity</li>
+                    <li>Life care planning</li>
+                    <li>Assistive technology needs</li>
+                    <li>Home modification costs</li>
+                    <li>Long-term care expenses</li>
+                </ul>
+                
+                {% elif 'employment' in practice_area.slug or 'discrimination' in practice_area.slug %}
+                <h3>Employment Case Damages:</h3>
+                <ul>
+                    <li>Back pay calculations</li>
+                    <li>Front pay projections</li>
+                    <li>Lost benefits valuation</li>
+                    <li>Mitigation analysis</li>
+                    <li>Pension loss calculations</li>
+                    <li>Statistical discrimination analysis</li>
+                </ul>
+                
+                {% elif 'business' in practice_area.slug or 'commercial' in practice_area.slug %}
+                <h3>Business Damage Analysis:</h3>
+                <ul>
+                    <li>Lost profits calculations</li>
+                    <li>Business valuation</li>
+                    <li>Lost business value</li>
+                    <li>Extra expense analysis</li>
+                    <li>Mitigation cost assessment</li>
+                    <li>Market share analysis</li>
+                </ul>
+                
+                {% elif 'divorce' in practice_area.slug or 'marital' in practice_area.slug %}
+                <h3>Marital Dissolution Services:</h3>
+                <ul>
+                    <li>Business valuation for divorce</li>
+                    <li>Professional practice valuation</li>
+                    <li>Income analysis for support</li>
+                    <li>Marital asset tracing</li>
+                    <li>Standard of living analysis</li>
+                    <li>Separate property analysis</li>
+                </ul>
+                
+                {% else %}
+                <h3>Comprehensive Economic Analysis:</h3>
+                <ul>
+                    <li>Economic loss quantification</li>
+                    <li>Present value calculations</li>
+                    <li>Statistical analysis</li>
+                    <li>Industry-specific research</li>
+                    <li>Expert report preparation</li>
+                    <li>Deposition and trial testimony</li>
+                </ul>
+                {% endif %}
+            </section>
+            
+            <section class="card mb-3">
+                <h2>Why Choose Skerritt Economics?</h2>
+                <ul>
+                    <li><strong>Extensive Experience:</strong> 20+ years in forensic economics</li>
+                    <li><strong>Comprehensive Credentials:</strong> CRC, CLCP, MBA certifications</li>
+                    <li><strong>Court-Tested:</strong> Extensive deposition and trial testimony experience</li>
+                    <li><strong>Rapid Response:</strong> 1-business-day case evaluation</li>
+                    <li><strong>Clear Communication:</strong> Reports that juries understand</li>
+                    <li><strong>Defensible Methodology:</strong> Analysis that withstands cross-examination</li>
+                </ul>
+            </section>
+            
+            <section class="card mb-3">
+                <h2>Nationwide {{ practice_area.name }} Expert Services</h2>
+                <p>While based in Smithfield, Rhode Island, we provide expert witness services for {{ practice_area.name|lower }} cases throughout the United States. Our services include:</p>
+                <ul>
+                    <li>Comprehensive economic damage reports</li>
+                    <li>Deposition testimony</li>
+                    <li>Trial testimony</li>
+                    <li>Mediation and arbitration support</li>
+                    <li>Case strategy consultation</li>
+                    <li>Rebuttal analysis</li>
+                </ul>
+            </section>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <h3>Free Case Evaluation</h3>
+                <p>Get expert analysis for your {{ practice_area.name|lower }} case.</p>
+                <p><strong>Chris Skerritt, CRC, CLCP, MBA</strong></p>
+                <p>Phone: <a href="tel:+12036052814">(203) 605-2814</a></p>
+                <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+                <a href="{% url 'contact' %}" class="btn btn-primary">Request Consultation</a>
+            </div>
+            
+            <div class="card mb-3">
+                <h3>Related Practice Areas</h3>
+                <ul>
+                    {% for area in all_practice_areas|slice:":8" %}
+                    {% if area.slug != practice_area.slug %}
+                    <li><a href="{% url 'practice_area_detail' area.slug %}">{{ area.name }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'practice_areas_index' %}">View All Practice Areas →</a>
+            </div>
+            
+            <div class="card mb-3">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
+                    <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
+                    <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
+                    <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+                </ul>
+            </div>
+            
+            <div class="card mb-3">
+                <h3>Coverage Areas</h3>
+                <p><strong>Primary:</strong> New England</p>
+                <p><strong>National:</strong> All 50 States</p>
+                <p>Remote testimony available nationwide</p>
+            </div>
+        </div>
+    </div>
+    
+    <section class="cta text-center mt-3">
+        <h2>Need Expert Economic Analysis for Your {{ practice_area.name }} Case?</h2>
+        <p>Schedule a free consultation to discuss your case requirements.</p>
+        <p class="lead">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Schedule Consultation</a>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Expert Services - Skerritt Economics & Consulting{% endblock %}
+{% block meta_description %}Forensic economics, business valuation, vocational expert, and life care planning services for attorneys. Expert witness testimony nationwide.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Expert Economic Services for Litigation Support</h1>
+    <p class="lead">Comprehensive forensic economics and valuation services for attorneys throughout New England and nationwide.</p>
+    
+    <div class="services-grid">
+        <div class="card">
+            <h2>⚖️ Forensic Economics</h2>
+            <p>Expert economic damage analysis for personal injury, wrongful death, and employment cases.</p>
+            <ul>
+                <li>Lost earnings calculations</li>
+                <li>Loss of benefits analysis</li>
+                <li>Household services valuation</li>
+                <li>Present value determinations</li>
+                <li>Wrongful death economic loss</li>
+            </ul>
+            <a href="{% url 'service_forensic' %}" class="btn btn-primary">Learn More →</a>
+        </div>
+        
+        <div class="card">
+            <h2>💼 Business Valuation</h2>
+            <p>Comprehensive business valuations for litigation, divorce, and dispute resolution.</p>
+            <ul>
+                <li>Fair market value analysis</li>
+                <li>Business interruption losses</li>
+                <li>Shareholder disputes</li>
+                <li>Marital dissolution valuations</li>
+                <li>Lost profits calculations</li>
+            </ul>
+            <a href="{% url 'service_valuation' %}" class="btn btn-primary">Learn More →</a>
+        </div>
+        
+        <div class="card">
+            <h2>🏢 Vocational Expert</h2>
+            <p>Professional vocational assessments and earning capacity evaluations.</p>
+            <ul>
+                <li>Employability assessments</li>
+                <li>Transferable skills analysis</li>
+                <li>Labor market surveys</li>
+                <li>Earning capacity evaluation</li>
+                <li>Vocational rehabilitation planning</li>
+            </ul>
+            <a href="{% url 'service_vocational' %}" class="btn btn-primary">Learn More →</a>
+        </div>
+        
+        <div class="card">
+            <h2>🏥 Life Care Planning</h2>
+            <p>Detailed life care plans for catastrophic injury and medical malpractice cases.</p>
+            <ul>
+                <li>Future medical cost projections</li>
+                <li>Assistive technology needs</li>
+                <li>Home modification requirements</li>
+                <li>Long-term care planning</li>
+                <li>Medical cost analysis</li>
+            </ul>
+            <a href="{% url 'service_lifecare' %}" class="btn btn-primary">Learn More →</a>
+        </div>
+    </div>
+    
+    <section class="mt-3">
+        <h2>Why Choose Skerritt Economics?</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <h3>⚡ Rapid Response</h3>
+                    <p>1-business-day case evaluation with expedited services available for urgent matters.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3>📊 Defensible Analysis</h3>
+                    <p>Comprehensive reports that are both jury-friendly and technically sound.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3>🎓 Expert Credentials</h3>
+                    <p>CRC, CLCP, MBA certifications with extensive court testimony experience.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3>⚖️ Court-Tested</h3>
+                    <p>Proven track record in state and federal courts throughout New England.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta text-center mt-3">
+        <h2>Need Expert Economic Analysis?</h2>
+        <p>Schedule a free consultation to discuss your case requirements.</p>
+        <p class="lead">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Request Consultation</a>
+    </section>
+</div>
+{% endblock %}

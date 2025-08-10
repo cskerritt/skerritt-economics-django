@@ -1,0 +1,55 @@
+# Robots.txt for Skerritt Economics & Consulting
+# https://skerritteconomics.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://skerritteconomics.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /api/
+Disallow: /static/admin/
+Disallow: /media/private/
+
+# Allow search engines to index everything else
+Allow: /services/
+Allow: /about/
+Allow: /contact/
+Allow: /locations/
+Allow: /practice-areas/
+Allow: /resources/
+Allow: /blog/
+Allow: /case-studies/
+Allow: /tools/
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

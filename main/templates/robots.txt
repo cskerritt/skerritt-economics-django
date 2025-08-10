@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /media/
+Allow: /
+
+Sitemap: https://skerritteconomics.com/sitemap.xml

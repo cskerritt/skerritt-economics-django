@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Site Map - Skerritt Economics & Consulting{% endblock %}
+{% block meta_description %}Complete site map for Skerritt Economics & Consulting. Find all pages for forensic economics, business valuation, and expert witness services.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Site Map</h1>
+    <p class="lead">Complete directory of all pages on Skerritt Economics & Consulting</p>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <h2>Main Pages</h2>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
+                <li><a href="{% url 'blog:list' %}">Blog</a></li>
+                <li><a href="/sitemap.xml">XML Sitemap</a></li>
+            </ul>
+            
+            <h2>Services</h2>
+            <ul>
+                <li><a href="{% url 'services_index' %}">All Services</a></li>
+                <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
+                <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
+                <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
+                <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+            </ul>
+            
+            <h2>Tools & Calculators</h2>
+            <ul>
+                <li><a href="{% url 'tools:index' %}">All Tools</a></li>
+                <li><a href="{% url 'tools:life_expectancy' %}">Life Expectancy Calculator</a></li>
+                <li><a href="{% url 'tools:present_value' %}">Present Value Calculator</a></li>
+                <li><a href="{% url 'tools:wage_growth' %}">Wage Growth Calculator</a></li>
+                <li><a href="{% url 'tools:household_services' %}">Household Services Valuation</a></li>
+                <li><a href="{% url 'tools:business_valuation' %}">Business Valuation Calculator</a></li>
+                <li><a href="{% url 'tools:medical_costs' %}">Medical Cost Projector</a></li>
+            </ul>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <h2>Practice Areas</h2>
+            <ul>
+                <li><a href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
+                <li><a href="{% url 'practice_personal_injury' %}">Personal Injury</a></li>
+                <li><a href="{% url 'practice_area_detail' 'wrongful-death' %}">Wrongful Death</a></li>
+                <li><a href="{% url 'practice_medical' %}">Medical Malpractice</a></li>
+                <li><a href="{% url 'practice_employment' %}">Employment Litigation</a></li>
+                <li><a href="{% url 'practice_commercial' %}">Commercial Disputes</a></li>
+                <li><a href="{% url 'practice_valuation' %}">Business Valuation</a></li>
+                <li><a href="{% url 'practice_vocational' %}">Vocational Expert</a></li>
+                <li><a href="{% url 'practice_lifecare' %}">Life Care Planning</a></li>
+                <li><a href="{% url 'practice_consulting' %}">Business Consulting</a></li>
+                <li><a href="{% url 'practice_area_detail' 'business-interruption' %}">Business Interruption</a></li>
+                <li><a href="{% url 'practice_area_detail' 'construction-defects' %}">Construction Defects</a></li>
+                <li><a href="{% url 'practice_area_detail' 'intellectual-property' %}">Intellectual Property</a></li>
+                <li><a href="{% url 'practice_area_detail' 'product-liability' %}">Product Liability</a></li>
+                <li><a href="{% url 'practice_area_detail' 'professional-malpractice' %}">Professional Malpractice</a></li>
+                <li><a href="{% url 'practice_area_detail' 'securities-fraud' %}">Securities Fraud</a></li>
+                <li><a href="{% url 'practice_area_detail' 'shareholder-disputes' %}">Shareholder Disputes</a></li>
+                <li><a href="{% url 'practice_area_detail' 'trade-secrets' %}">Trade Secrets</a></li>
+                <li><a href="{% url 'practice_area_detail' 'trucking-accidents' %}">Trucking Accidents</a></li>
+                <li><a href="{% url 'practice_area_detail' 'workers-compensation' %}">Workers' Compensation</a></li>
+                <li><a href="{% url 'practice_area_detail' 'divorce-business-valuation' %}">Divorce Business Valuation</a></li>
+                <li><a href="{% url 'practice_area_detail' 'estate-litigation' %}">Estate Litigation</a></li>
+                <li><a href="{% url 'practice_area_detail' 'insurance-claims' %}">Insurance Claims</a></li>
+                <li><a href="{% url 'practice_area_detail' 'maritime-injuries' %}">Maritime Injuries</a></li>
+                <li><a href="{% url 'practice_area_detail' 'premises-liability' %}">Premises Liability</a></li>
+                <li><a href="{% url 'practice_area_detail' 'toxic-torts' %}">Toxic Torts</a></li>
+            </ul>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <h2>Locations</h2>
+            <h3>Primary Service Areas</h3>
+            <ul>
+                <li><a href="{% url 'locations_index' %}">All Locations</a></li>
+                <li><a href="{% url 'location' state='rhode-island' %}">Rhode Island</a></li>
+                <li><a href="{% url 'location' state='massachusetts' %}">Massachusetts</a></li>
+                <li><a href="{% url 'location' state='connecticut' %}">Connecticut</a></li>
+                <li><a href="{% url 'location' state='new-hampshire' %}">New Hampshire</a></li>
+                <li><a href="{% url 'location' state='vermont' %}">Vermont</a></li>
+                <li><a href="{% url 'location' state='maine' %}">Maine</a></li>
+            </ul>
+            
+            <h3>Major Markets</h3>
+            <ul>
+                <li><a href="{% url 'city_forensic_economics' 'new-york-ny' %}">New York City</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'boston-ma' %}">Boston</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'philadelphia-pa' %}">Philadelphia</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'chicago-il' %}">Chicago</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'los-angeles-ca' %}">Los Angeles</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'houston-tx' %}">Houston</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'miami-fl' %}">Miami</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'atlanta-ga' %}">Atlanta</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'dallas-tx' %}">Dallas</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'phoenix-az' %}">Phoenix</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'san-francisco-ca' %}">San Francisco</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'seattle-wa' %}">Seattle</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'denver-co' %}">Denver</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'detroit-mi' %}">Detroit</a></li>
+                <li><a href="{% url 'city_forensic_economics' 'minneapolis-mn' %}">Minneapolis</a></li>
+            </ul>
+            
+            <h3>All States</h3>
+            <p><a href="{% url 'locations_index' %}">View all 50 states →</a></p>
+        </div>
+    </div>
+    
+    <section class="mt-5">
+        <h2>Additional Resources</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>For Attorneys</h3>
+                <ul>
+                    <li><a href="{% url 'contact' %}">Request Case Evaluation</a></li>
+                    <li><a href="{% url 'case_studies' %}">View Case Examples</a></li>
+                    <li><a href="{% url 'about' %}">Expert Credentials</a></li>
+                    <li><a href="{% url 'service_forensic' %}">Forensic Economics Services</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="/robots.txt">Robots.txt</a></li>
+                    <li><a href="/sitemap.xml">XML Sitemap</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Information</a></li>
+                    <li><a href="{% url 'about' %}">About Chris Skerritt</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

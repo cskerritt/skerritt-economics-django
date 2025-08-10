@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Business Consulting Services | Strategic Advisory | Skerritt Economics{% endblock %}
+{% block meta_description %}Expert business consulting services in Rhode Island & New England. Strategic planning, operational efficiency, financial analysis, and management consulting. MBA consultant. Free consultation: (203) 605-2814{% endblock %}
+{% block meta_keywords %}business consulting Rhode Island, management consultant, strategic planning, business advisor, operational efficiency, financial analysis consultant, MBA consultant, Christopher Skerritt{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Business Consulting Services",
+    "description": "Strategic business consulting and advisory services for companies throughout New England",
+    "provider": {
+        "@type": "Person",
+        "name": "Christopher Skerritt",
+        "honorificSuffix": "M.Ed, MBA",
+        "jobTitle": "Business Consultant",
+        "telephone": "+1-203-605-2814",
+        "email": "christophertskerritt@gmail.com",
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Bryant University",
+                "department": "MBA Program"
+            }
+        ],
+        "knowsAbout": ["Business Strategy", "Financial Analysis", "Operations Management", "Strategic Planning", "Business Development"]
+    },
+    "areaServed": {
+        "@type": "State",
+        "name": ["Rhode Island", "Massachusetts", "Connecticut", "New Hampshire", "Vermont", "Maine"]
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Business Consulting Services",
+        "itemListElement": [
+            {
+                "@type": "Service",
+                "name": "Strategic Planning"
+            },
+            {
+                "@type": "Service",
+                "name": "Financial Analysis"
+            },
+            {
+                "@type": "Service",
+                "name": "Operations Optimization"
+            },
+            {
+                "@type": "Service",
+                "name": "Business Development"
+            }
+        ]
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What business consulting services do you provide?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide strategic planning, financial analysis, operational efficiency improvements, business development, market analysis, and management consulting services for businesses of all sizes throughout New England."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What industries do you serve?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We work with manufacturing, healthcare, professional services, retail, technology, and construction companies. Our MBA-level analysis adapts to any industry's specific needs and challenges."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does business consulting differ from business valuation?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Business consulting focuses on improving operations and strategy for ongoing businesses, while business valuation determines fair market value for transactions or litigation. We offer both services and they often complement each other."
+            }
+        }
+    ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section with CTA -->
+    <section class="hero-section bg-primary text-white p-5 rounded mb-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4">Business Consulting Services</h1>
+                <p class="lead">Strategic advisory and management consulting to help your business thrive. MBA-level analysis with practical, implementable solutions.</p>
+                <div class="hero-features mt-3">
+                    <span class="badge bg-light text-dark me-2">✓ Strategic Planning</span>
+                    <span class="badge bg-light text-dark me-2">✓ Financial Analysis</span>
+                    <span class="badge bg-light text-dark me-2">✓ Operations Optimization</span>
+                    <span class="badge bg-light text-dark me-2">✓ MBA Consultant</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="cta-box bg-white text-dark p-4 rounded">
+                    <h3>Free Consultation</h3>
+                    <p class="mb-3">Discuss your business challenges with an MBA consultant</p>
+                    <a href="tel:+12036052814" class="btn btn-primary btn-lg mb-2 w-100">(203) 605-2814</a>
+                    <a href="{% url 'contact' %}?service=consulting" class="btn btn-outline-primary w-100">Schedule Meeting</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="col-md-8">
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h2>Professional Business Consulting Services</h2>
+                    <p>Skerritt Economics & Consulting provides comprehensive business advisory services to companies throughout New England. With an MBA from Bryant University and extensive experience in financial analysis and operations management, we deliver practical strategies that drive measurable results.</p>
+                    
+                    <h3>Core Consulting Services</h3>
+                    <ul>
+                        <li><strong>Strategic Planning:</strong> Long-term vision, competitive positioning, and growth strategies</li>
+                        <li><strong>Financial Analysis:</strong> Profitability improvement, cost reduction, and financial modeling</li>
+                        <li><strong>Operations Optimization:</strong> Process improvement, efficiency analysis, and workflow design</li>
+                        <li><strong>Business Development:</strong> Market expansion, partnership strategies, and revenue growth</li>
+                        <li><strong>Performance Management:</strong> KPI development, dashboards, and accountability systems</li>
+                        <li><strong>Organizational Development:</strong> Structure optimization and change management</li>
+                        <li><strong>Risk Management:</strong> Risk assessment and mitigation strategies</li>
+                        <li><strong>Turnaround Management:</strong> Business recovery and restructuring</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h2>Industries We Serve</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Manufacturing & Distribution</h4>
+                            <ul>
+                                <li>Supply chain optimization</li>
+                                <li>Inventory management</li>
+                                <li>Production efficiency</li>
+                                <li>Quality improvement</li>
+                                <li>Cost reduction strategies</li>
+                            </ul>
+                            
+                            <h4>Healthcare & Medical</h4>
+                            <ul>
+                                <li>Practice management</li>
+                                <li>Revenue cycle optimization</li>
+                                <li>Compliance strategies</li>
+                                <li>Patient flow improvement</li>
+                                <li>Cost containment</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h4>Professional Services</h4>
+                            <ul>
+                                <li>Service delivery optimization</li>
+                                <li>Client retention strategies</li>
+                                <li>Pricing optimization</li>
+                                <li>Capacity planning</li>
+                                <li>Partnership structures</li>
+                            </ul>
+                            
+                            <h4>Technology & Software</h4>
+                            <ul>
+                                <li>Product strategy</li>
+                                <li>Market positioning</li>
+                                <li>Scaling strategies</li>
+                                <li>Customer acquisition</li>
+                                <li>Operational efficiency</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h2>Our Consulting Approach</h2>
+                    
+                    <h4>1. Discovery & Assessment</h4>
+                    <ul>
+                        <li>Comprehensive business analysis</li>
+                        <li>Stakeholder interviews</li>
+                        <li>Financial review</li>
+                        <li>Market assessment</li>
+                        <li>SWOT analysis</li>
+                    </ul>
+                    
+                    <h4>2. Strategy Development</h4>
+                    <ul>
+                        <li>Goal setting and prioritization</li>
+                        <li>Strategic options evaluation</li>
+                        <li>Resource planning</li>
+                        <li>Risk assessment</li>
+                        <li>Implementation roadmap</li>
+                    </ul>
+                    
+                    <h4>3. Implementation Support</h4>
+                    <ul>
+                        <li>Project management</li>
+                        <li>Change management</li>
+                        <li>Team training</li>
+                        <li>Progress monitoring</li>
+                        <li>Adjustment strategies</li>
+                    </ul>
+                    
+                    <h4>4. Performance Monitoring</h4>
+                    <ul>
+                        <li>KPI tracking</li>
+                        <li>Regular reviews</li>
+                        <li>Course corrections</li>
+                        <li>Continuous improvement</li>
+                        <li>Success measurement</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h2>Specialized Consulting Services</h2>
+                    
+                    <h4>Financial Consulting</h4>
+                    <ul>
+                        <li><strong>Financial Modeling:</strong> Projections, scenarios, and sensitivity analysis</li>
+                        <li><strong>Capital Planning:</strong> Investment analysis and funding strategies</li>
+                        <li><strong>Cost Management:</strong> Activity-based costing and cost reduction</li>
+                        <li><strong>Pricing Strategy:</strong> Competitive analysis and margin optimization</li>
+                        <li><strong>Working Capital:</strong> Cash flow management and optimization</li>
+                    </ul>
+                    
+                    <h4>Operations Consulting</h4>
+                    <ul>
+                        <li><strong>Process Improvement:</strong> Lean methodologies and Six Sigma</li>
+                        <li><strong>Supply Chain:</strong> Vendor management and logistics optimization</li>
+                        <li><strong>Quality Systems:</strong> Quality control and assurance programs</li>
+                        <li><strong>Technology Integration:</strong> Systems selection and implementation</li>
+                        <li><strong>Capacity Planning:</strong> Resource optimization and scalability</li>
+                    </ul>
+                    
+                    <h4>Strategic Consulting</h4>
+                    <ul>
+                        <li><strong>Market Analysis:</strong> Competitive intelligence and positioning</li>
+                        <li><strong>Growth Strategy:</strong> Organic and acquisition strategies</li>
+                        <li><strong>Business Model:</strong> Innovation and transformation</li>
+                        <li><strong>Partnership Development:</strong> Strategic alliances and joint ventures</li>
+                        <li><strong>Exit Planning:</strong> Succession and transition strategies</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h2>Engagement Models</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h4>Project-Based Consulting</h4>
+                                    <p>Focused engagement for specific initiatives with defined scope and timeline.</p>
+                                    <ul>
+                                        <li>Strategic planning sessions</li>
+                                        <li>Financial analysis projects</li>
+                                        <li>Process improvement initiatives</li>
+                                        <li>Market research studies</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h4>Ongoing Advisory</h4>
+                                    <p>Continuous support and guidance for sustained improvement.</p>
+                                    <ul>
+                                        <li>Monthly advisory meetings</li>
+                                        <li>Quarterly business reviews</li>
+                                        <li>Board advisory services</li>
+                                        <li>Executive coaching</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h2>Why Choose Our Business Consulting Services?</h2>
+                    <ul>
+                        <li><strong>MBA-Level Expertise:</strong> Advanced business education from Bryant University</li>
+                        <li><strong>Practical Experience:</strong> Real-world business operations knowledge</li>
+                        <li><strong>Analytical Rigor:</strong> Data-driven insights and recommendations</li>
+                        <li><strong>Implementation Focus:</strong> Actionable strategies, not just reports</li>
+                        <li><strong>Local Knowledge:</strong> Understanding of New England business environment</li>
+                        <li><strong>Cross-Industry Insights:</strong> Best practices from multiple sectors</li>
+                        <li><strong>Results-Oriented:</strong> Focus on measurable business improvements</li>
+                        <li><strong>Confidential Service:</strong> Complete discretion and professionalism</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Schedule Consultation</h3>
+                    <p>Discuss your business challenges</p>
+                    <p><strong>Christopher Skerritt, MBA</strong></p>
+                    <p>Business Consultant</p>
+                    <p>Phone: <a href="tel:+12036052814">(203) 605-2814</a></p>
+                    <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+                    <a href="{% url 'contact' %}?service=consulting" class="btn btn-primary">Request Consultation</a>
+                </div>
+            </div>
+            
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Consulting Areas</h3>
+                    <ul class="list-unstyled">
+                        <li>✓ Strategic Planning</li>
+                        <li>✓ Financial Analysis</li>
+                        <li>✓ Operations Management</li>
+                        <li>✓ Business Development</li>
+                        <li>✓ Performance Improvement</li>
+                        <li>✓ Risk Management</li>
+                        <li>✓ Change Management</li>
+                        <li>✓ Turnaround Strategies</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Industries</h3>
+                    <ul>
+                        <li>Manufacturing</li>
+                        <li>Healthcare</li>
+                        <li>Professional Services</li>
+                        <li>Technology</li>
+                        <li>Retail</li>
+                        <li>Construction</li>
+                        <li>Non-Profit</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Related Services</h3>
+                    <ul>
+                        <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
+                        <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
+                        <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
+                        <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Typical Timeline</h3>
+                    <ul>
+                        <li><strong>Initial Assessment:</strong> 1-2 weeks</li>
+                        <li><strong>Strategy Development:</strong> 2-4 weeks</li>
+                        <li><strong>Implementation:</strong> 3-6 months</li>
+                        <li><strong>Ongoing Support:</strong> As needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section bg-light p-5 rounded text-center mt-5">
+        <h2>Ready to Transform Your Business?</h2>
+        <p class="lead">Get expert business consulting from an experienced MBA consultant</p>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="cta-feature">
+                            <h3>📊</h3>
+                            <h4>Data-Driven</h4>
+                            <p>MBA-level analysis with actionable insights</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="cta-feature">
+                            <h3>🎯</h3>
+                            <h4>Results-Focused</h4>
+                            <p>Measurable improvements to your bottom line</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="cta-feature">
+                            <h3>🤝</h3>
+                            <h4>Partnership Approach</h4>
+                            <p>Working alongside you for success</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <a href="tel:+12036052814" class="btn btn-primary btn-lg me-3">Call (203) 605-2814</a>
+            <a href="{% url 'contact' %}?service=consulting" class="btn btn-secondary btn-lg">Schedule Consultation</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

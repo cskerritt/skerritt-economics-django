@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Case Studies - Forensic Economics & Business Valuation - Skerritt Economics{% endblock %}
+{% block meta_description %}Real-world case studies demonstrating our forensic economics expertise in personal injury, wrongful death, business valuation, and employment litigation cases.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Case Studies</h1>
+    <p class="lead">Real-world examples of our forensic economic analysis and expert witness testimony across various types of litigation.</p>
+    
+    <!-- Featured Case Studies -->
+    <section class="mb-5">
+        <h2>Featured Cases</h2>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">Wrongful Death</span>
+                        <h3 class="card-title">Construction Site Fatality Economic Analysis</h3>
+                        <p class="card-text"><strong>Challenge:</strong> A 42-year-old construction foreman was killed in a crane collapse, leaving behind a spouse and three minor children.</p>
+                        <p class="card-text"><strong>Analysis:</strong> Calculated lost earnings capacity of $3.2 million based on work-life expectancy, projected promotions, and union benefits. Quantified household services value at $450,000 and loss of employer-provided health insurance at $380,000.</p>
+                        <p class="card-text"><strong>Outcome:</strong> Settlement of $4.1 million based on comprehensive economic report that withstood opposing expert scrutiny.</p>
+                        <p class="text-muted"><small>Note: Case details modified to protect client confidentiality</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-2">Business Valuation</span>
+                        <h3 class="card-title">Restaurant Chain Breach of Contract Damages</h3>
+                        <p class="card-text"><strong>Challenge:</strong> Multi-location restaurant franchise claimed $8 million in lost profits due to franchisor's breach of territorial exclusivity agreement.</p>
+                        <p class="card-text"><strong>Analysis:</strong> Performed lost profits analysis using "but-for" methodology, examining 5 years of financial data, market analysis, and comparable restaurant performance metrics.</p>
+                        <p class="card-text"><strong>Outcome:</strong> Jury awarded $5.7 million after trial testimony established causation and reasonable certainty of damages.</p>
+                        <p class="text-muted"><small>Note: Case details modified to protect client confidentiality</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Personal Injury</span>
+                        <h3 class="card-title">Traumatic Brain Injury - Young Professional</h3>
+                        <p class="card-text"><strong>Challenge:</strong> 28-year-old software engineer suffered TBI in auto accident, resulting in cognitive impairments affecting career trajectory.</p>
+                        <p class="card-text"><strong>Analysis:</strong> Collaborated with vocational expert to assess residual earning capacity. Calculated $2.8 million in lost earnings based on pre-injury career path versus post-injury limitations. Included analysis of lost stock options and reduced advancement opportunities.</p>
+                        <p class="card-text"><strong>Outcome:</strong> Case settled for undisclosed amount after deposition testimony demonstrated clear economic impact methodology.</p>
+                        <p class="text-muted"><small>Note: Case details modified to protect client confidentiality</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <span class="badge bg-warning mb-2">Medical Malpractice</span>
+                        <h3 class="card-title">Birth Injury Life Care Planning</h3>
+                        <p class="card-text"><strong>Challenge:</strong> Infant suffered severe birth injuries due to delayed C-section, resulting in cerebral palsy requiring lifetime care.</p>
+                        <p class="card-text"><strong>Analysis:</strong> Developed comprehensive life care plan with medical team input. Projected lifetime medical costs of $8.7 million including therapies, medications, equipment, and home modifications. Calculated present value using appropriate discount rates.</p>
+                        <p class="card-text"><strong>Outcome:</strong> Structured settlement providing lifetime care funding based on detailed economic projections.</p>
+                        <p class="text-muted"><small>Note: Case details modified to protect client confidentiality</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Case Types Section -->
+    <section class="mb-5">
+        <h2>Cases by Practice Area</h2>
+        
+        <div class="accordion" id="caseTypesAccordion">
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="headingPI">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePI">
+                        Personal Injury & Wrongful Death
+                    </button>
+                </h3>
+                <div id="collapsePI" class="accordion-collapse collapse show" data-bs-parent="#caseTypesAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Motor Vehicle Accidents:</strong> Lost earnings, medical costs, and household services valuation</li>
+                            <li><strong>Premises Liability:</strong> Slip/fall and negligent security economic damages</li>
+                            <li><strong>Product Liability:</strong> Defective product injury economic analysis</li>
+                            <li><strong>Construction Accidents:</strong> Work-life expectancy and union benefit calculations</li>
+                            <li><strong>Maritime Injuries:</strong> Jones Act and maintenance/cure calculations</li>
+                            <li><strong>Aviation Accidents:</strong> High-earner lost earnings capacity analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="headingBV">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBV">
+                        Business Valuation & Commercial Damages
+                    </button>
+                </h3>
+                <div id="collapseBV" class="accordion-collapse collapse" data-bs-parent="#caseTypesAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Breach of Contract:</strong> Lost profits and consequential damages</li>
+                            <li><strong>Business Interruption:</strong> COVID-19 and natural disaster loss quantification</li>
+                            <li><strong>Shareholder Disputes:</strong> Fair value determinations and oppression remedies</li>
+                            <li><strong>Intellectual Property:</strong> Patent and trademark infringement damages</li>
+                            <li><strong>Franchise Disputes:</strong> Territory violations and fee miscalculations</li>
+                            <li><strong>Partnership Dissolution:</strong> Buy-out valuations and asset division</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="headingEmp">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmp">
+                        Employment Litigation
+                    </button>
+                </h3>
+                <div id="collapseEmp" class="accordion-collapse collapse" data-bs-parent="#caseTypesAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Wrongful Termination:</strong> Back pay, front pay, and benefit loss calculations</li>
+                            <li><strong>Discrimination Claims:</strong> Statistical analysis and economic loss quantification</li>
+                            <li><strong>Wage & Hour Violations:</strong> Unpaid overtime and meal break calculations</li>
+                            <li><strong>Non-Compete Violations:</strong> Business damages from unfair competition</li>
+                            <li><strong>Whistleblower Retaliation:</strong> Career damage and lost earnings analysis</li>
+                            <li><strong>Sexual Harassment:</strong> Economic consequences and mitigation analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="headingDiv">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiv">
+                        Marital Dissolution
+                    </button>
+                </h3>
+                <div id="collapseDiv" class="accordion-collapse collapse" data-bs-parent="#caseTypesAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Business Valuation:</strong> Closely-held business and professional practice valuations</li>
+                            <li><strong>Income Analysis:</strong> Support calculations and earning capacity assessments</li>
+                            <li><strong>Asset Tracing:</strong> Separate vs. marital property analysis</li>
+                            <li><strong>Hidden Assets:</strong> Forensic accounting and lifestyle analysis</li>
+                            <li><strong>Stock Options:</strong> Valuation of restricted stock and deferred compensation</li>
+                            <li><strong>Pension Division:</strong> QDRO calculations and present value analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Attorney Testimonials -->
+    <section class="mb-5">
+        <h2>What Attorneys Say</h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <blockquote class="blockquote">
+                    <p>"The economic analysis provided thorough documentation and methodology that withstood rigorous examination during the case proceedings."</p>
+                    <footer class="blockquote-footer">Attorney, Personal Injury Case</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-6 mb-3">
+                <blockquote class="blockquote">
+                    <p>"The business valuation report included detailed financial analysis with clear explanations of complex economic concepts for the court."</p>
+                    <footer class="blockquote-footer">Attorney, Commercial Litigation</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta text-center mt-5">
+        <h2>Need Economic Analysis for Your Case?</h2>
+        <p class="lead">Get a free case evaluation within 24 hours</p>
+        <p>Call: <a href="tel:+12036052814">(203) 605-2814</a> | Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Request Case Consultation</a>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap accordion if needed
+    var accordionElements = document.querySelectorAll('.accordion-button');
+    accordionElements.forEach(function(element) {
+        element.addEventListener('click', function() {
+            // Accordion functionality handled by Bootstrap
+        });
+    });
+});
+</script>
+{% endblock %}
