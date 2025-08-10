@@ -56,7 +56,7 @@ urlpatterns = [
     path('locations/rhode-island-forensic-economist/', views.RhodeIslandForensicEconomistView.as_view(), name='ri_forensic_economist'),
     path('locations/new-england-economic-expert/', views.NewEnglandEconomicExpertView.as_view(), name='ne_economic_expert'),
     
-    # City pages for each service type
+    # City pages for each service type (legacy URLs - maintain for SEO)
     path('locations/cities/<slug:city_slug>.html', views.CityPageView.as_view(), name='city_page'),
     path('locations/business-valuation/<slug:city_slug>.html', views.CityBusinessValuationView.as_view(), name='city_business_valuation'),
     path('locations/forensic-economics/<slug:city_slug>.html', views.CityForensicEconomicsView.as_view(), name='city_forensic_economics'),
@@ -66,3 +66,7 @@ urlpatterns = [
 
 # Add city-specific URLs
 urlpatterns += city_urlpatterns
+
+# Import and add improved URL patterns
+from .improved_urls import all_improved_urls
+urlpatterns += all_improved_urls

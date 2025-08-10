@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>{{ service.title }} Services in {{ state_name }}</h1>
+    <p class="lead">Expert {{ service.description|lower }} throughout {{ state_name }}. Serving {{ total_cities }} major cities.</p>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Major {{ state_name }} Cities We Serve</h2>
+            <div class="row">
+                {% for city in cities %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ city.name }}</h5>
+                            <p class="card-text">{{ city.county }}</p>
+                            <a href="{% url 'city_service_page' service_slug=service_slug state_slug=state_slug city_slug=city.slug %}" class="btn btn-primary btn-sm">
+                                View {{ service.title }} Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Contact Expert</h3>
+                    <p><strong>Christopher Skerritt, M.Ed, MBA</strong></p>
+                    <p>Phone: <a href="tel:+12036052814">(203) 605-2814</a></p>
+                    <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

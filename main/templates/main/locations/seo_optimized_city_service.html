@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{# SEO Meta Tags - Character Limited #}
+{% block title %}{{ seo_meta.title|truncatechars:60 }}{% endblock %}
+{% block meta_description %}{{ seo_meta.description|truncatechars:160 }}{% endblock %}
+{% block meta_keywords %}{{ seo_meta.keywords }}{% endblock %}
+
+{# Additional SEO Meta Tags #}
+{% block extra_head %}
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ seo_meta.canonical_url }}">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ seo_meta.og_title }}">
+<meta property="og:description" content="{{ seo_meta.og_description }}">
+<meta property="og:type" content="{{ seo_meta.og_type }}">
+<meta property="og:url" content="{{ seo_meta.canonical_url }}">
+<meta property="og:image" content="{% static 'images/seo/'|add:service_slug|add:'-'|add:city_slug|add:'.webp' %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Skerritt Economics & Consulting">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo_meta.og_title }}">
+<meta name="twitter:description" content="{{ seo_meta.og_description }}">
+<meta name="twitter:image" content="{% static 'images/seo/'|add:service_slug|add:'-'|add:city_slug|add:'.webp' %}">
+
+<!-- Geo Meta Tags -->
+<meta name="geo.region" content="US-{{ state_abbr }}">
+<meta name="geo.placename" content="{{ city }}">
+<meta name="geo.position" content="{{ lat }};{{ lng }}">
+<meta name="ICBM" content="{{ lat }}, {{ lng }}">
+
+<!-- Additional SEO Tags -->
+<meta name="robots" content="{{ seo_meta.robots }}">
+<meta name="author" content="{{ seo_meta.author }}">
+<meta name="publisher" content="Skerritt Economics & Consulting">
+<meta name="copyright" content="© {% now 'Y' %} Skerritt Economics">
+<meta name="rating" content="general">
+<meta name="distribution" content="global">
+
+<!-- Preconnect for Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="preload" as="font" href="{% static 'fonts/main-font.woff2' %}" crossorigin>
+
+<!-- Mobile Optimization -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=yes">
+
+<!-- Critical CSS -->
+<style>
+/* Critical above-the-fold CSS */
+.hero-section{min-height:400px;background:#003366;color:#fff;padding:3rem 0}
+.hero-section h1{font-size:2.5rem;font-weight:700;margin-bottom:1rem}
+.hero-section .lead{font-size:1.25rem;margin-bottom:2rem}
+.btn-primary{background:#0066cc;color:#fff;padding:12px 24px;text-decoration:none;border-radius:4px;display:inline-block;font-weight:600}
+.btn-warning{background:#ffc107;color:#000;padding:12px 24px;text-decoration:none;border-radius:4px;display:inline-block;font-weight:600}
+@media(max-width:768px){
+  .hero-section h1{font-size:1.75rem}
+  .hero-section .lead{font-size:1.1rem}
+}
+</style>
+{% endblock %}
+
+{# Structured Data / Schema Markup #}
+{% block structured_data %}
+{{ block.super }}
+{% for schema in schema_markup %}
+<script type="application/ld+json">
+{{ schema|safe }}
+</script>
+{% endfor %}
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for crumb in technical_seo.breadcrumbs %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "name": "{{ crumb.name }}",
+      "item": "https://skerritteconomics.com{{ crumb.url }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<!-- WebPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ seo_meta.canonical_url }}#webpage",
+  "url": "{{ seo_meta.canonical_url }}",
+  "name": "{{ seo_meta.title }}",
+  "description": "{{ seo_meta.description }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Skerritt Economics & Consulting"
+  },
+  "datePublished": "{% now 'c' %}",
+  "dateModified": "{% now 'c' %}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ seo_meta.canonical_url }}"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<main id="main-content" itemscope itemtype="https://schema.org/Service">
+  <!-- Semantic HTML5 Structure -->
+  <article>
+    <!-- Hero Section with Optimized H1 -->
+    <section class="hero-section">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            {% for crumb in technical_seo.breadcrumbs %}
+            <li class="breadcrumb-item{% if forloop.last %} active{% endif %}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              {% if not forloop.last %}
+              <a href="{{ crumb.url }}" itemprop="item">
+                <span itemprop="name">{{ crumb.name }}</span>
+              </a>
+              {% else %}
+              <span itemprop="name">{{ crumb.name }}</span>
+              {% endif %}
+              <meta itemprop="position" content="{{ forloop.counter }}">
+            </li>
+            {% endfor %}
+          </ol>
+        </nav>
+        
+        <!-- Single H1 with Primary Keyword -->
+        <h1 itemprop="name">{{ page_content.h1 }}</h1>
+        
+        <!-- Lead Paragraph with Primary Keyword in First 100 Words -->
+        <div class="lead" itemprop="description">
+          {{ page_content.intro|safe }}
+        </div>
+        
+        <!-- Strong CTAs Above the Fold -->
+        <div class="cta-buttons">
+          <a href="tel:+12036052814" class="btn btn-warning btn-lg" aria-label="Call for free consultation">
+            <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
+          </a>
+          <a href="{% url 'contact' %}" class="btn btn-primary btn-lg" aria-label="Request consultation online">
+            Free Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content with Semantic Sections -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Content Sections with Proper Heading Hierarchy -->
+          {% for section in page_content.sections %}
+          <section class="content-section mb-5">
+            <h2>{{ section.h2 }}</h2>
+            {{ section.content|safe }}
+          </section>
+          {% endfor %}
+          
+          <!-- Internal Links Section -->
+          <section class="internal-links mb-5">
+            <h2>Related Resources</h2>
+            <ul>
+              {% for link in technical_seo.internal_links %}
+              <li>
+                <a href="{{ link.url }}" title="{{ link.anchor|capfirst }}">
+                  {{ link.anchor|capfirst }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+          
+          <!-- External Authority Links -->
+          <section class="external-resources mb-5">
+            <h3>Additional Resources</h3>
+            <ul>
+              {% for link in technical_seo.external_links %}
+              <li>
+                <a href="{{ link.url }}" rel="{{ link.rel }}" target="_blank" 
+                   title="{{ link.anchor }} (opens in new window)">
+                  {{ link.anchor }} <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+        </div>
+        
+        <!-- Sidebar with Additional CTAs -->
+        <aside class="col-lg-4">
+          <div class="sticky-top" style="top: 20px;">
+            <!-- Contact Card with Schema -->
+            <div class="card mb-4" itemscope itemtype="https://schema.org/Person">
+              <div class="card-body">
+                <h3>Contact Expert</h3>
+                <!-- Optimized Image with Alt Text -->
+                <img src="{% static 'images/christopher-skerritt.webp' %}" 
+                     alt="{{ seo_meta.author }}" 
+                     class="img-fluid rounded-circle mb-3"
+                     width="150" 
+                     height="150"
+                     loading="lazy"
+                     itemprop="image">
+                <h4 itemprop="name">Christopher Skerritt</h4>
+                <p itemprop="honorificSuffix">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+                <p itemprop="jobTitle">{{ service_name }}</p>
+                
+                <!-- Click-to-Call with Tel Schema -->
+                <p>
+                  <a href="tel:+12036052814" class="btn btn-primary btn-block" itemprop="telephone">
+                    <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
+                  </a>
+                </p>
+                
+                <!-- Email with Mailto Schema -->
+                <p>
+                  <a href="mailto:chris@skerritteconomics.com" itemprop="email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
+                  </a>
+                </p>
+              </div>
+            </div>
+            
+            <!-- Service Areas -->
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3>Service Areas</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ city }}, {{ state_abbr }}</li>
+                  <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ county }}</li>
+                  <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ state_name }}</li>
+                  <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Nationwide via Remote</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Trust Signals -->
+            <div class="card">
+              <div class="card-body">
+                <h3>Why Choose Us</h3>
+                <ul class="list-unstyled">
+                  <li>✓ 20+ Years Experience</li>
+                  <li>✓ Court-Qualified Expert</li>
+                  <li>✓ 15+ Certifications</li>
+                  <li>✓ Fast Response Time</li>
+                  <li>✓ Free Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Strong CTA Section -->
+    <section class="cta-section bg-primary text-white py-5">
+      <div class="container text-center">
+        {{ page_content.cta|safe }}
+      </div>
+    </section>
+    
+    <!-- Nearby Cities for Local SEO -->
+    {% if nearby_cities %}
+    <section class="nearby-cities py-4 bg-light">
+      <div class="container">
+        <h2>Also Serving Nearby {{ state_name }} Cities</h2>
+        <div class="row">
+          {% for nearby in nearby_cities %}
+          <div class="col-md-2 col-sm-4 col-6 mb-2">
+            <a href="{% url 'city_service_page' service_slug=service_slug state_slug=state_slug city_slug=nearby.slug %}"
+               title="{{ service_name }} in {{ nearby.name }}, {{ state_abbr }}">
+              {{ nearby.name }}
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  </article>
+</main>
+
+<!-- Performance Scripts -->
+<script>
+// Lazy load images
+if ('loading' in HTMLImageElement.prototype) {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  images.forEach(img => {
+    img.src = img.dataset.src;
+  });
+} else {
+  // Fallback for browsers that don't support lazy loading
+  const script = document.createElement('script');
+  script.src = '{% static "js/lazysizes.min.js" %}';
+  document.body.appendChild(script);
+}
+
+// Add Web Vitals monitoring
+if ('PerformanceObserver' in window) {
+  try {
+    const po = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        // Log to analytics
+        if (window.gtag) {
+          gtag('event', 'web_vitals', {
+            'event_category': 'Web Vitals',
+            'event_label': entry.name,
+            'value': Math.round(entry.value)
+          });
+        }
+      }
+    });
+    po.observe({type: 'largest-contentful-paint', buffered: true});
+    po.observe({type: 'first-input', buffered: true});
+    po.observe({type: 'layout-shift', buffered: true});
+  } catch (e) {}
+}
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Minified and Deferred JavaScript -->
+<script defer src="{% static 'js/main.min.js' %}"></script>
+{% endblock %}

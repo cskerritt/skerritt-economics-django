@@ -1,0 +1,411 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}forensic economist {{ city.name }}, economic expert witness {{ city.state_abbr }}, lost earnings calculator {{ city.name }}, personal injury economist {{ city.county }}, wrongful death economic damages {{ city.state_name }}{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "{{ structured_data.service_name }}",
+    "description": "Expert forensic economist providing economic damage calculations in {{ structured_data.city_name }}, {{ structured_data.state_name }}",
+    "provider": {
+        "@type": "Person",
+        "name": "Christopher Skerritt",
+        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC",
+        "jobTitle": "Forensic Economist",
+        "telephone": "+1-203-605-2814",
+        "email": "chris@skerritteconomics.com"
+    },
+    "areaServed": {
+        "@type": "City",
+        "name": "{{ structured_data.city_name }}",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "{{ structured_data.state_name }}"
+        }
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": {{ structured_data.latitude }},
+        "longitude": {{ structured_data.longitude }}
+    },
+    "offers": {
+        "@type": "Offer",
+        "name": "Free Case Consultation",
+        "description": "Initial consultation for forensic economics cases"
+    }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Hero Section -->
+    <div class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Forensic Economist in {{ city.name }}, {{ city.state_name }}</h1>
+                    <p class="lead mb-4">Expert economic damage analysis and court testimony for attorneys throughout {{ city.county }} and {{ city.state_name }}. Over 20 years of litigation support experience.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                            <i class="fas fa-phone"></i> (203) 605-2814
+                        </a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                            Free Consultation
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="bg-white text-dark p-4 rounded shadow">
+                            <h3>Quick Facts</h3>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success"></i> Court-qualified expert witness</li>
+                                <li><i class="fas fa-check text-success"></i> 15+ professional certifications</li>
+                                <li><i class="fas fa-check text-success"></i> Nationwide testimony available</li>
+                                <li><i class="fas fa-check text-success"></i> Same-day response guaranteed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <!-- Breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'service_locations_index' service_slug='forensic-economics' %}">Forensic Economics</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'state_service_index' service_slug='forensic-economics' state_slug=state_slug %}">{{ state_name }}</a></li>
+                <li class="breadcrumb-item active">{{ city.name }}</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Main Content -->
+                <section class="mb-5">
+                    <h2>Economic Damage Analysis Services in {{ city.name }}</h2>
+                    <p>Christopher Skerritt provides comprehensive forensic economics services to legal professionals throughout <strong>{{ city.name }}</strong> and <strong>{{ city.county }}</strong>, {{ city.state_name }}. Our economic damage calculations are backed by rigorous methodology and extensive court experience.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4><i class="fas fa-user-injured text-primary"></i> Personal Injury & Wrongful Death</h4>
+                                    <ul>
+                                        <li>Lost earnings and earning capacity analysis</li>
+                                        <li>Fringe benefits valuation</li>
+                                        <li>Household services loss calculations</li>
+                                        <li>Present value determinations</li>
+                                        <li>Life care plan economic integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4><i class="fas fa-briefcase text-primary"></i> Employment & Business Litigation</h4>
+                                    <ul>
+                                        <li>Wrongful termination damages</li>
+                                        <li>Employment discrimination losses</li>
+                                        <li>Business interruption claims</li>
+                                        <li>Lost profits analysis</li>
+                                        <li>Partnership and shareholder disputes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Expert Qualifications -->
+                <section class="mb-5">
+                    <h2>Why {{ city.name }} Attorneys Choose Christopher Skerritt</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Education & Experience</h4>
+                            <ul>
+                                <li><strong>M.Ed</strong> - Springfield College</li>
+                                <li><strong>MBA Healthcare Leadership</strong> - Bryant University</li>
+                                <li><strong>20+ years</strong> litigation support experience</li>
+                                <li><strong>President-Elect</strong> - American Rehabilitation Economics Association</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Professional Certifications</h4>
+                            <ul class="list-unstyled">
+                                <li><span class="badge badge-primary">CRC</span> Certified Rehabilitation Counselor</li>
+                                <li><span class="badge badge-primary">CLCP</span> Certified Life Care Planner</li>
+                                <li><span class="badge badge-primary">ABVE/F</span> Board Certified Vocational Expert</li>
+                                <li><span class="badge badge-primary">CVE</span> Certified Vocational Evaluator</li>
+                                <li><span class="badge badge-primary">+11 More</span> Additional Certifications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Local Market Knowledge -->
+                <section class="mb-5">
+                    <h2>{{ city.name }} Economic Data & Labor Market Analysis</h2>
+                    <p>Accurate forensic economics requires deep understanding of local economic conditions. Our {{ city.name }} damage calculations incorporate:</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
+                                <h5>Local Wage Data</h5>
+                                <p>{{ city.county }} employment statistics and industry-specific wage trends</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-building fa-2x text-primary mb-2"></i>
+                                <h5>Labor Market</h5>
+                                <p>{{ city.state_name }} employment conditions and job availability analysis</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="fas fa-dollar-sign fa-2x text-primary mb-2"></i>
+                                <h5>Cost of Living</h5>
+                                <p>Regional adjustments for {{ city.name }} area living costs</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Case Types -->
+                <section class="mb-5">
+                    <h2>Types of Cases We Handle in {{ city.name }}</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-car-crash fa-2x text-danger mb-3"></i>
+                                    <h5>Motor Vehicle Accidents</h5>
+                                    <p>Economic losses from auto, truck, and motorcycle accidents in {{ city.county }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-stethoscope fa-2x text-primary mb-3"></i>
+                                    <h5>Medical Malpractice</h5>
+                                    <p>Damages from medical errors at {{ city.name }} area healthcare facilities</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-hard-hat fa-2x text-warning mb-3"></i>
+                                    <h5>Workplace Injuries</h5>
+                                    <p>Lost earnings from construction and industrial accidents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- FAQ Section -->
+                <section class="mb-5">
+                    <h2>Frequently Asked Questions - {{ city.name }} Forensic Economics</h2>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#faq1">
+                                        Do you provide testimony in {{ city.name }} courts?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="faq1" class="collapse show" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Yes, we provide expert witness testimony in {{ city.county }} courts and throughout {{ city.state_name }}. Both in-person and remote testimony options are available.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#faq2">
+                                        How quickly can you complete a {{ city.name }} case analysis?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="faq2" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Standard turnaround is 2-3 weeks from receipt of complete documentation. Rush service available for urgent {{ city.name }} cases within 5-7 business days.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#faq3">
+                                        What makes your {{ city.state_name }} economic analysis reliable?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="faq3" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Our analysis follows established forensic economics methodology, incorporates local {{ city.state_name }} data, and is backed by extensive court experience and professional certifications.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 20px;">
+                    <!-- Contact Card -->
+                    <div class="card mb-4 border-primary">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-phone"></i> Free {{ city.name }} Consultation</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead text-center">Get expert economic analysis for your case</p>
+                            <div class="text-center mb-3">
+                                <img src="{% static 'images/christopher-skerritt.jpg' %}" alt="Christopher Skerritt" class="rounded-circle" width="100">
+                                <h5 class="mt-2">Christopher Skerritt</h5>
+                                <p class="text-muted">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="tel:+12036052814" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-phone"></i> (203) 605-2814
+                                </a>
+                                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary">
+                                    <i class="fas fa-envelope"></i> Email Expert
+                                </a>
+                                <a href="{% url 'contact' %}" class="btn btn-secondary">
+                                    Request Consultation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services Card -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>Our Complete Services</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><a href="{% url 'service_forensic' %}"><i class="fas fa-calculator"></i> Forensic Economics</a></li>
+                                <li><a href="{% url 'service_valuation' %}"><i class="fas fa-chart-bar"></i> Business Valuation</a></li>
+                                <li><a href="{% url 'service_vocational' %}"><i class="fas fa-user-tie"></i> Vocational Expert</a></li>
+                                <li><a href="{% url 'service_lifecare' %}"><i class="fas fa-medical-kit"></i> Life Care Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Credentials Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Professional Credentials</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-6 mb-2">
+                                    <div class="border rounded p-2">
+                                        <small><strong>M.Ed</strong><br>Springfield College</small>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="border rounded p-2">
+                                        <small><strong>MBA</strong><br>Bryant University</small>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="border rounded p-2">
+                                        <small><strong>CRC</strong><br>Certified</small>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <div class="border rounded p-2">
+                                        <small><strong>CLCP</strong><br>Certified</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center mt-2"><small>+11 Additional Professional Certifications</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if nearby_cities %}
+        <!-- Nearby Cities -->
+        <section class="mt-5 py-4 bg-light">
+            <h2 class="text-center mb-4">Also Serving Nearby {{ city.state_name }} Cities</h2>
+            <p class="text-center">Expert forensic economics services throughout {{ city.state_name }}:</p>
+            <div class="row">
+                {% for nearby in nearby_cities %}
+                <div class="col-md-2 col-sm-4 col-6 mb-2">
+                    <a href="{% url 'city_service_page' service_slug='forensic-economics' state_slug=state_slug city_slug=nearby.slug %}" 
+                       class="btn btn-outline-primary btn-sm btn-block">
+                        {{ nearby.name }}
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Call to Action -->
+        <section class="text-center py-5 bg-primary text-white mt-5">
+            <div class="container">
+                <h2>Need Expert Economic Analysis in {{ city.name }}?</h2>
+                <p class="lead">Get professional forensic economics services from a court-qualified expert witness</p>
+                <p>Serving {{ city.county }} and all of {{ city.state_name }}</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                        <i class="fas fa-phone"></i> Call (203) 605-2814
+                    </a>
+                    <a href="{% url 'contact' %}?city={{ city.name }}" class="btn btn-light btn-lg">
+                        Request Free Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Do you provide forensic economics services in {{ city.name }}, {{ city.state_abbr }}?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Christopher Skerritt provides comprehensive forensic economics services to attorneys and insurance companies throughout {{ city.name }} and {{ city.county }}, {{ city.state_name }}."
+            }
+        },
+        {
+            "@type": "Question", 
+            "name": "What economic damages do you calculate for {{ city.name }} cases?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We calculate lost earnings, benefits, household services, future medical costs, business losses, and all economic damages for {{ city.name }} litigation cases."
+            }
+        }
+    ]
+}
+</script>
+{% endblock %}
