@@ -53,6 +53,8 @@ urlpatterns = [
     path('case-studies/', views.CaseStudiesView.as_view(), name='case_studies'),
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('contact/thank-you/', views.ContactThankYouView.as_view(), name='contact_thank_you'),
+    path('referral/', views.ReferralView.as_view(), name='referral'),
+    path('referral/thank-you/', views.ReferralThankYouView.as_view(), name='referral_thank_you'),
     path('sitemap/', views.SitemapView.as_view(), name='sitemap_html'),
     
     # Location pages - state level

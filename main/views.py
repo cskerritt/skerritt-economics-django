@@ -4,8 +4,8 @@ from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from django.contrib import messages
 from django.urls import reverse_lazy
-from .forms import ContactForm
-from .models import Testimonial, FAQ
+from .forms import ContactForm, ReferralForm
+from .models import Testimonial, FAQ, Referral
 from blog.models import Post, CaseStudy
 
 # Import additional views
@@ -81,6 +81,83 @@ class ContactView(TemplateView):
 
 class ContactThankYouView(TemplateView):
     template_name = 'main/contact_thank_you.html'
+
+
+class ReferralView(FormView):
+    template_name = 'main/referral.html'
+    form_class = ReferralForm
+    success_url = reverse_lazy('referral_thank_you')
+    
+    def form_valid(self, form):
+        # Save the referral
+        referral = form.save()
+        
+        # Send email notification
+        try:
+            subject = f'New Expert Referral: {referral.referrer_name} - {referral.get_case_type_display()}'
+            
+            message = f"""
+New expert referral received:
+
+REFERRER INFORMATION:
+Name: {referral.referrer_name}
+Email: {referral.referrer_email}
+Phone: {referral.referrer_phone}
+Firm: {referral.referrer_firm}
+Title: {referral.referrer_title}
+Location: {referral.referrer_location}
+
+REFERRAL TYPE: {referral.get_referral_type_display()}
+
+CASE INFORMATION:
+Type: {referral.get_case_type_display()}
+Caption: {referral.case_caption}
+Court: {referral.court_jurisdiction}
+Case #: {referral.case_number}
+
+EXPERT SERVICES NEEDED:
+{referral.expert_needed_for}
+
+Opposing Expert: {referral.opposing_expert}
+
+TIMELINE:
+Urgency: {referral.get_urgency_display()}
+Trial Date: {referral.trial_date}
+Discovery Deadline: {referral.discovery_deadline}
+
+DAMAGES ESTIMATE: {referral.damages_estimate}
+
+CASE DESCRIPTION:
+{referral.case_description}
+
+ADDITIONAL REQUIREMENTS:
+{referral.specific_requirements}
+
+CONTACT PREFERENCE:
+Method: {referral.get_preferred_contact_method_display()}
+Best Time: {referral.best_time_to_contact}
+
+---
+Submitted: {referral.created_date.strftime('%Y-%m-%d %H:%M')}
+"""
+            
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                ['chris@skerritteconomics.com'],
+                fail_silently=True,
+            )
+        except Exception as e:
+            # Log error but don't fail the form submission
+            print(f"Error sending referral email: {e}")
+        
+        messages.success(self.request, 'Thank you for your referral. We will review it and contact you shortly.')
+        return super().form_valid(form)
+
+
+class ReferralThankYouView(TemplateView):
+    template_name = 'main/referral_thank_you.html'
 
 class SitemapView(TemplateView):
     template_name = 'main/sitemap.html'
