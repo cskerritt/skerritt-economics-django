@@ -14,6 +14,11 @@ urlpatterns = [
     
     # Redirects for old URLs to maintain SEO
     path('locations/', views.LocationsIndexView.as_view(), name='locations_index'),
+    
+    # Regional location pages
+    path('locations/massachusetts-forensic-economist/', views.MassachusettsForensicEconomistView.as_view(), name='massachusetts_forensic_economist'),
+    path('locations/rhode-island-forensic-economist/', views.RhodeIslandForensicEconomistView.as_view(), name='rhode_island_forensic_economist'),
+    path('locations/new-england-economic-expert/', views.NewEnglandEconomicExpertView.as_view(), name='new_england_economic_expert'),
     path('services/', views.ServicesIndexView.as_view(), name='services_index'),
     path('practice-areas/', views.PracticeAreasIndexView.as_view(), name='practice_areas_index'),
     path('resources/', views.ResourcesView.as_view(), name='resources'),
