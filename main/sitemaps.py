@@ -26,6 +26,9 @@ class StaticViewSitemap(Sitemap):
             'service_lifecare',
             'vocational_expert',
             'life_care_planning',
+            'massachusetts_forensic_economist',
+            'rhode_island_forensic_economist',
+            'new_england_economic_expert',
             'practice_personal_injury',
             'practice_medical',
             'practice_employment',
@@ -113,37 +116,32 @@ class CitySitemap(Sitemap):
     priority = 0.8
     
     def items(self):
-        from .city_data import get_all_cities
+        from .us_cities_seo_data import US_MAJOR_CITIES
         
         # Generate URLs for all cities
         city_pages = []
-        cities = get_all_cities()
         services = ['forensic-economist', 'business-valuation', 'vocational-expert', 'life-care-planner']
         
-        for city in cities:
-            state_slug = city['state']
-            city_slug = city['slug']
-            
+        for city_slug, city_data in US_MAJOR_CITIES.items():
             for service in services:
                 city_pages.append({
-                    'state': state_slug,
-                    'city': city_slug,
+                    'city_slug': city_slug,
                     'service': service,
-                    'city_name': city['name'],
-                    'state_name': city['state_name']
+                    'city_name': city_data['name'],
+                    'state': city_data['state_abbr']
                 })
         
         return city_pages
     
     def location(self, item):
-        return f"/{item['state']}/{item['city']}/{item['service']}/"
+        return f"/{item['service']}/{item['city_slug']}/"
     
     def lastmod(self, item):
         return datetime.now()
     
     def priority(self, item):
         # Higher priority for larger cities
-        if item['city'] in ['boston', 'providence', 'hartford', 'manchester', 'burlington', 'portland']:
+        if item['city_slug'] in ['boston', 'providence', 'hartford', 'new-york', 'los-angeles', 'chicago']:
             return 0.9
         return 0.8
 
