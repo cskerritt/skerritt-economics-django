@@ -31,8 +31,10 @@ curl -I http://localhost:80
 
 ### Step 1: SSH into the AWS Server
 ```bash
-ssh bitnami@54.243.84.130
+ssh bitnami@skerritteconomics.com
 # Or use your SSH key:
+ssh -i your-key.pem bitnami@skerritteconomics.com
+# Or use IP if domain is not working:
 ssh -i your-key.pem bitnami@54.243.84.130
 ```
 
@@ -111,7 +113,7 @@ sudo docker-compose ps
 sudo docker exec skerritt_django curl -f http://localhost:8000/health/
 
 # Check the website
-curl -I http://54.243.84.130
+curl -I https://skerritteconomics.com
 
 # View logs if there are issues
 sudo docker-compose logs django --tail=50
@@ -249,13 +251,13 @@ sudo docker stats
 ### Test Endpoints
 ```bash
 # Health check
-curl http://54.243.84.130/health/
+curl https://skerritteconomics.com/health/
 
 # Homepage
-curl -I http://54.243.84.130
+curl -I https://skerritteconomics.com
 
 # Admin panel
-curl -I http://54.243.84.130/admin/
+curl -I https://skerritteconomics.com/admin/
 ```
 
 ## Backup Procedures
