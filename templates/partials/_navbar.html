@@ -20,27 +20,14 @@
                     <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
                     <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
                     <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li><a href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
                 </ul>
             </li>
-            <li class="has-dropdown">
-                <a href="{% url 'practice_areas_index' %}">Practice Areas</a>
-                <ul class="dropdown-menu">
-                    <li><a href="{% url 'practice_personal_injury' %}">Personal Injury & Wrongful Death</a></li>
-                    <li><a href="{% url 'practice_medical' %}">Medical Malpractice</a></li>
-                    <li><a href="{% url 'practice_employment' %}">Employment Litigation</a></li>
-                    <li><a href="{% url 'practice_commercial' %}">Commercial Disputes</a></li>
-                    <li><a href="{% url 'practice_valuation' %}">Business Valuation</a></li>
-                    <li><a href="{% url 'practice_vocational' %}">Vocational Expert</a></li>
-                    <li><a href="{% url 'practice_lifecare' %}">Life Care Planning</a></li>
-                    <li><a href="{% url 'practice_consulting' %}">Business Consulting</a></li>
-                </ul>
-            </li>
-            <li><a href="{% url 'locations_index' %}">Locations</a></li>
-            <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'blog:list' %}">Blog</a></li>
+            <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
+            <li><a href="{% url 'calculator:login' %}">Calculator</a></li>
             <li><a href="{% url 'resources' %}">Resources</a></li>
-            <li><a href="{% url 'referral' %}">Referrals</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </div>
