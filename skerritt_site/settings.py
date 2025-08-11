@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'main',
     'blog',
     'tools',
+    'calculator',
 ]
 
 MIDDLEWARE = [
@@ -80,12 +81,26 @@ WSGI_APPLICATION = 'skerritt_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# For local development - switch to PostgreSQL for production
+import os
+if os.environ.get('USE_POSTGRES', 'False') == 'True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME', default='economic_damages'),
+            'USER': config('DB_USER', default='postgres'),
+            'PASSWORD': config('DB_PASSWORD', default='postgres'),
+            'HOST': config('DB_HOST', default='localhost'),
+            'PORT': config('DB_PORT', default='5432'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -146,3 +161,13 @@ ADMIN_EMAIL = config('ADMIN_EMAIL', default='chris@skerritteconomics.com')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication settings
+LOGIN_URL = '/calculator/login/'
+LOGIN_REDIRECT_URL = '/calculator/'
+LOGOUT_REDIRECT_URL = '/calculator/login/'
+
+# HTTPS/SSL Settings for production
+# Since we're behind Caddy proxy, trust the X-Forwarded-Proto header
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True

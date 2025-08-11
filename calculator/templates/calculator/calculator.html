@@ -1,0 +1,456 @@
+{% extends 'calculator/base.html' %}
+{% load static %}
+
+{% block title %}
+{% if scenario %}Edit Scenario - {{ scenario.label }}{% else %}New Scenario{% endif %} - Economic Damages Calculator
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <form method="post" id="scenarioForm">
+        {% csrf_token %}
+        
+        <!-- Header Controls -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>{% if scenario %}Edit: {{ scenario.label }}{% else %}New Scenario{% endif %}</h1>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Save Scenario</button>
+                {% if scenario %}
+                <button type="button" class="btn btn-primary" id="calculateBtn">Calculate</button>
+                <button type="button" class="btn btn-outline-secondary" id="exportScenarioBtn">Export Scenario</button>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Front Matter -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Case Front-Matter</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Plaintiff</label>
+                        {{ form.plaintiff }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Date of Birth</label>
+                        {{ form.date_of_birth }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Date of Injury</label>
+                        {{ form.date_of_injury }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Report/Trial Date</label>
+                        {{ form.report_date }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Residence</label>
+                        {{ form.residence }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">CSA</label>
+                        {{ form.csa }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Education</label>
+                        {{ form.education }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Marital Status</label>
+                        {{ form.marital_status }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Scenario Label</label>
+                        {{ form.label }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Display Decimals</label>
+                        {{ form.display_decimals }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Jurisdiction Preset</label>
+                        {{ form.jurisdiction_preset }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Methodology Controls -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Methodology Controls</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Growth Timing</label>
+                        {{ form.growth_timing }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Discount Timing</label>
+                        {{ form.discount_timing }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Day-Count Basis</label>
+                        {{ form.day_count_basis }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="form-check mt-4">
+                            {{ form.discount_post_injury }}
+                            <label class="form-check-label">Discount Post-injury</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pediatric Options -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Pediatric Options (Workforce Entry)</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="form-check">
+                            {{ form.is_pediatric }}
+                            <label class="form-check-label">Pediatric case</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Starting Age for Earnings</label>
+                        {{ form.starting_age }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Workforce Entry Date</label>
+                        {{ form.workforce_entry_date }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Ramp Year 1 AIF%</label>
+                        {{ form.ramp_year1 }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Ramp Year 2 AIF%</label>
+                        {{ form.ramp_year2 }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Ramp Year 3 AIF%</label>
+                        {{ form.ramp_year3 }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wages -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Base (But-for) & Offset (Post-injury) Earnings</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Base Annual Earnings ($)</label>
+                        {{ form.base_annual_earnings }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Offset Annual Earnings ($)</label>
+                        {{ form.offset_annual_earnings }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Past Growth (Base) %/yr</label>
+                        {{ form.past_growth_base }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Future Growth (Base) %/yr</label>
+                        {{ form.future_growth_base }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Past Growth (Offset) %/yr</label>
+                        {{ form.past_growth_offset }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Future Growth (Offset) %/yr</label>
+                        {{ form.future_growth_offset }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Discount Rate %/yr</label>
+                        {{ form.discount_rate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Durations -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Durations & Derived Dates</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Life Expectancy (yrs from injury)</label>
+                        {{ form.life_expectancy }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Work-Life Expectancy (yrs from injury)</label>
+                        {{ form.work_life_expectancy }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Retirement Age (yrs)</label>
+                        {{ form.retirement_age }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Years to Final Separation</label>
+                        {{ form.years_to_final_separation }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Factors -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Factors (Tinari) — AEF / AIF</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">WLF — Work-Life Factor (%)</label>
+                        {{ form.wlf }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">UF — Unemployment Factor (%)</label>
+                        {{ form.uf }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">TR — Combined Effective Tax (%)</label>
+                        {{ form.tr }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">FB — Fringe Benefits (%)</label>
+                        {{ form.fb }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Personal Consumption — Past (%)</label>
+                        {{ form.pc_past }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Personal Consumption — Future (%)</label>
+                        {{ form.pc_future }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Assumptions -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Assumption Register</h5>
+            </div>
+            <div class="card-body">
+                {{ form.assumptions }}
+                <small class="text-muted">Notes on sources, rationale, and any deviations from standard practice.</small>
+            </div>
+        </div>
+    </form>
+    
+    {% if scenario %}
+    <!-- Results Section -->
+    <div id="resultsSection" style="display:none;">
+        <!-- Summary KPIs -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="mb-0">Summary</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="kpi-label">Pre-injury Total</div>
+                            <div class="kpi-value" id="kpiPre">—</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="kpi-label">Post-injury Total</div>
+                            <div class="kpi-value" id="kpiPost">—</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="kpi-label">Post-injury Present Value</div>
+                            <div class="kpi-value" id="kpiPV">—</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="kpi-label">Grand Total</div>
+                            <div class="kpi-value" id="kpiGrand">—</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tables -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Year-by-Year Wage Loss</h5>
+            </div>
+            <div class="card-body">
+                <h6>Pre-Injury (Injury → Report)</h6>
+                <div class="table-responsive mb-4">
+                    <table class="table table-dark table-sm" id="preInjuryTable">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Portion</th>
+                                <th>Base Gross</th>
+                                <th>Offset Gross</th>
+                                <th>Adj Base</th>
+                                <th>Adj Offset</th>
+                                <th>Net Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6"><strong>Pre-injury Total</strong></td>
+                                <td><strong id="sumPre">—</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <h6>Post-Injury (Report → End)</h6>
+                <div class="table-responsive">
+                    <table class="table table-dark table-sm" id="postInjuryTable">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Portion</th>
+                                <th>Base Gross</th>
+                                <th>Offset Gross</th>
+                                <th>Adj Base</th>
+                                <th>Adj Offset</th>
+                                <th>Net Loss</th>
+                                <th>Present Value</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6"><strong>Post-injury Totals</strong></td>
+                                <td><strong id="sumPost">—</strong></td>
+                                <td><strong id="sumPV">—</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <div class="mt-3">
+                    <a href="{% url 'calculator:export_csv' scenario.id 'pre' %}" class="btn btn-outline-secondary">Export Pre-Injury CSV</a>
+                    <a href="{% url 'calculator:export_csv' scenario.id 'post' %}" class="btn btn-outline-secondary">Export Post-Injury CSV</a>
+                    <a href="{% url 'calculator:export_csv' scenario.id 'factors' %}" class="btn btn-outline-secondary">Export Factors CSV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% if scenario %}
+<script>
+document.getElementById('calculateBtn').addEventListener('click', function() {
+    // Save form first
+    const formData = new FormData(document.getElementById('scenarioForm'));
+    
+    fetch("{% url 'calculator:calculate_api' scenario.id %}", {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displayResults(data.results);
+        } else {
+            alert('Calculation error: ' + data.error);
+        }
+    })
+    .catch(error => {
+        alert('Error: ' + error);
+    });
+});
+
+function displayResults(results) {
+    document.getElementById('resultsSection').style.display = 'block';
+    
+    // Update KPIs
+    const fmt = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
+    document.getElementById('kpiPre').textContent = fmt.format(results.summary.pre_injury_total);
+    document.getElementById('kpiPost').textContent = fmt.format(results.summary.post_injury_total);
+    document.getElementById('kpiPV').textContent = fmt.format(results.summary.post_injury_present_value);
+    document.getElementById('kpiGrand').textContent = fmt.format(results.summary.grand_total);
+    
+    document.getElementById('sumPre').textContent = fmt.format(results.summary.pre_injury_total);
+    document.getElementById('sumPost').textContent = fmt.format(results.summary.post_injury_total);
+    document.getElementById('sumPV').textContent = fmt.format(results.summary.post_injury_present_value);
+    
+    // Build pre-injury table
+    const preBody = document.querySelector('#preInjuryTable tbody');
+    preBody.innerHTML = '';
+    results.pre_injury_table.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${row.year}</td>
+            <td>${row.portion}%</td>
+            <td>${fmt.format(row.base_gross)}</td>
+            <td>${fmt.format(row.offset_gross)}</td>
+            <td>${fmt.format(row.adj_base)}</td>
+            <td>${fmt.format(row.adj_offset)}</td>
+            <td>${fmt.format(row.net_loss)}</td>
+        `;
+        preBody.appendChild(tr);
+    });
+    
+    // Build post-injury table
+    const postBody = document.querySelector('#postInjuryTable tbody');
+    postBody.innerHTML = '';
+    results.post_injury_table.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${row.year}</td>
+            <td>${row.portion}%</td>
+            <td>${fmt.format(row.base_gross)}</td>
+            <td>${fmt.format(row.offset_gross_calc)}</td>
+            <td>${fmt.format(row.adj_base)}</td>
+            <td>${fmt.format(row.adj_offset)}</td>
+            <td>${fmt.format(row.net_loss)}</td>
+            <td>${fmt.format(row.present_value)}</td>
+        `;
+        postBody.appendChild(tr);
+    });
+}
+
+document.getElementById('exportScenarioBtn').addEventListener('click', function() {
+    window.location.href = "{% url 'calculator:export_scenario' scenario.id %}";
+});
+</script>
+{% endif %}
+{% endblock %}
