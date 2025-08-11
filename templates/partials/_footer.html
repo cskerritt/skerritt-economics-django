@@ -64,7 +64,12 @@
         <div class="footer-bottom">
             <p>&copy; {% now "Y" %} Skerritt Economics & Consulting. All rights reserved.</p>
             <p>Expert Forensic Economics & Business Valuation Services</p>
-            <p><a href="{% url 'sitemap_html' %}">Site Map</a> | <a href="/sitemap.xml">XML Sitemap</a> | <a href="{% url 'locations_index' %}">Service Areas</a></p>
+            <p>
+                <a href="{% url 'sitemap_html' %}">Site Map</a> | 
+                <a href="/sitemap.xml">XML Sitemap</a> | 
+                <a href="{% url 'locations_index' %}">Service Areas</a> | 
+                <a href="{% url 'calculator:login' %}">Calculator Login</a>
+            </p>
         </div>
     </div>
 </footer>

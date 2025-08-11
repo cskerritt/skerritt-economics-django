@@ -9,12 +9,14 @@ import json
 class StaticViewSitemap(Sitemap):
     priority = 0.9
     changefreq = 'weekly'
+    protocol = 'https'
     
     def items(self):
         return [
             'home',
             'about',
             'contact',
+            'referral',
             'services_index',
             'practice_areas_index',
             'locations_index',
@@ -51,6 +53,7 @@ class StaticViewSitemap(Sitemap):
 class BlogSitemap(Sitemap):
     changefreq = 'weekly'
     priority = 0.7
+    protocol = 'https'
     
     def items(self):
         return Post.objects.filter(status='published')
@@ -61,6 +64,7 @@ class BlogSitemap(Sitemap):
 class CaseStudySitemap(Sitemap):
     changefreq = 'monthly'
     priority = 0.6
+    protocol = 'https'
     
     def items(self):
         return CaseStudy.objects.filter(published=True)
@@ -71,6 +75,7 @@ class CaseStudySitemap(Sitemap):
 class LocationSitemap(Sitemap):
     changefreq = 'monthly'
     priority = 0.8
+    protocol = 'https'
     
     def items(self):
         # Main state pages
@@ -114,6 +119,7 @@ class CitySitemap(Sitemap):
     """
     changefreq = 'weekly'
     priority = 0.8
+    protocol = 'https'
     
     def items(self):
         from .us_cities_seo_data import US_MAJOR_CITIES
@@ -151,6 +157,7 @@ class PracticeAreaSitemap(Sitemap):
     """
     changefreq = 'monthly'
     priority = 0.7
+    protocol = 'https'
     
     def items(self):
         return [area['slug'] for area in PRACTICE_AREAS]
