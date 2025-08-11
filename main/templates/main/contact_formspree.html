@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact - Skerritt Economics & Consulting{% endblock %}
+{% block meta_description %}Contact Skerritt Economics for expert forensic economics and business valuation services. Schedule a free consultation.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Contact Us</h1>
+    <p class="lead">Schedule a free consultation to discuss your case requirements.</p>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-title">
+                    <h2>Request Consultation</h2>
+                </div>
+                
+                <div id="form-status"></div>
+                
+                <form action="https://formspree.io/f/mnnvgzgd" method="POST" id="contact-form" class="contact-form needs-validation" accept-charset="UTF-8">
+                    
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Law Firm/Organization</label>
+                        <input type="text" class="form-control" id="organization" name="organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="case_type">Case Type *</label>
+                        <select class="form-control" id="case_type" name="case_type" required>
+                            <option value="">-- Select Case Type --</option>
+                            <option value="Personal Injury">Personal Injury</option>
+                            <option value="Medical Malpractice">Medical Malpractice</option>
+                            <option value="Wrongful Death">Wrongful Death</option>
+                            <option value="Employment">Employment/Wrongful Termination</option>
+                            <option value="Business Valuation">Business Valuation</option>
+                            <option value="Divorce">Divorce/Family Law</option>
+                            <option value="Commercial Litigation">Commercial Litigation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jurisdiction">Jurisdiction</label>
+                        <select class="form-control" id="jurisdiction" name="jurisdiction">
+                            <option value="">-- Select Jurisdiction --</option>
+                            <option value="State Court">State Court</option>
+                            <option value="Federal Court">Federal Court</option>
+                            <option value="Workers Compensation">Workers' Compensation</option>
+                            <option value="Arbitration">Arbitration/Mediation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeline">Timeline</label>
+                        <select class="form-control" id="timeline" name="timeline">
+                            <option value="">-- Select Timeline --</option>
+                            <option value="Urgent">Urgent (Within 1 week)</option>
+                            <option value="Soon">Soon (Within 1 month)</option>
+                            <option value="Standard">Standard (1-3 months)</option>
+                            <option value="Planning">Planning Phase</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="case_details">Case Details</label>
+                        <textarea class="form-control" id="case_details" name="case_details" rows="5" 
+                                  placeholder="Please provide a brief description of your case and how we can assist you..."></textarea>
+                    </div>
+                    
+                    <!-- Honeypot field for spam protection -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <!-- Subject line for email -->
+                    <input type="hidden" name="_subject" value="New Consultation Request - Skerritt Economics">
+                    
+                    <button type="submit" class="btn btn-primary">Submit Consultation Request</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <h3>Direct Contact</h3>
+                <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
+                <p>
+                    <strong>Email:</strong><br>
+                    <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a>
+                </p>
+                <p>
+                    <strong>Phone:</strong><br>
+                    <a href="tel:+12036052814">(203) 605-2814</a>
+                </p>
+                <p>
+                    <strong>Office Hours:</strong><br>
+                    Monday - Friday: 9:00 AM - 5:00 PM EST<br>
+                    Weekend consultations available by appointment
+                </p>
+            </div>
+            
+            <div class="card mt-3">
+                <h3>Response Time</h3>
+                <p>We typically respond to all inquiries within 24 hours during business days.</p>
+                <p>For urgent matters, please call directly or indicate urgency in your message.</p>
+            </div>
+            
+            <div class="card mt-3">
+                <h3>Service Areas</h3>
+                <p><strong>Primary Coverage:</strong> All New England states</p>
+                <p><strong>National:</strong> Available for cases throughout the United States</p>
+                <p><strong>Remote Services:</strong> Video consultations and remote testimony available</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Handle form submission with AJAX for better UX
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var form = e.target;
+    var data = new FormData(form);
+    var statusDiv = document.getElementById('form-status');
+    
+    // Show loading message
+    statusDiv.innerHTML = '<div class="alert alert-info">Sending your message...</div>';
+    
+    fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            statusDiv.innerHTML = '<div class="alert alert-success">Thank you for your inquiry! We will contact you within 24 hours.</div>';
+            form.reset();
+        } else {
+            response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                    statusDiv.innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again or contact us directly.</div>';
+                } else {
+                    statusDiv.innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again.</div>';
+                }
+            })
+        }
+    }).catch(error => {
+        statusDiv.innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again or contact us directly at chris@skerritteconomics.com</div>';
+    });
+});
+</script>
+{% endblock %}

@@ -75,52 +75,9 @@ class CaseStudiesView(TemplateView):
         context['case_studies'] = CaseStudy.objects.filter(published=True)
         return context
 
-class ContactView(FormView):
-    template_name = 'main/contact.html'
-    form_class = ContactForm
-    success_url = reverse_lazy('contact_thank_you')
-    
-    def form_valid(self, form):
-        # Save the inquiry
-        inquiry = form.save()
-        
-        # Prepare email
-        subject = f"New Case Consultation Request - {inquiry.get_case_type_display()}"
-        message = f"""
-        New consultation request received:
-        
-        Name: {inquiry.name}
-        Email: {inquiry.email}
-        Phone: {inquiry.phone}
-        Organization: {inquiry.organization or 'Not provided'}
-        
-        Case Type: {inquiry.get_case_type_display()}
-        Jurisdiction: {inquiry.get_jurisdiction_display()}
-        Timeline: {inquiry.get_timeline_display()}
-        
-        Case Details:
-        {inquiry.case_details}
-        
-        ---
-        This inquiry was submitted on {inquiry.created_date.strftime('%B %d, %Y at %I:%M %p')}
-        """
-        
-        # Send email
-        try:
-            email = EmailMessage(
-                subject=subject,
-                body=message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[settings.ADMIN_EMAIL],
-                reply_to=[inquiry.email]
-            )
-            email.send()
-            messages.success(self.request, "Thank you for your inquiry. We'll respond within 24 hours.")
-        except Exception as e:
-            print(f"Error sending email: {e}")
-            messages.warning(self.request, "Your inquiry was received but there was an issue sending the notification. We'll still respond within 24 hours.")
-        
-        return super().form_valid(form)
+class ContactView(TemplateView):
+    """Contact form using Formspree for email handling"""
+    template_name = 'main/contact_formspree.html'
 
 class ContactThankYouView(TemplateView):
     template_name = 'main/contact_thank_you.html'
