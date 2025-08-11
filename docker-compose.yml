@@ -8,6 +8,7 @@ services:
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
+      - db_volume:/app/db
     expose:
       - 8000
     env_file:
@@ -44,6 +45,7 @@ volumes:
   media_volume:
   caddy_data:
   caddy_config:
+  db_volume:
 
 networks:
   skerritt_network:
