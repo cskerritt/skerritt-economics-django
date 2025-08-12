@@ -14,7 +14,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=skerritt_site.settings_production
       - DJANGO_ALLOWED_HOSTS=skerritteconomics.com,www.skerritteconomics.com,localhost
-      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY:-your-secret-key-here}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
       - DJANGO_DEBUG=False
     env_file:
       - .env

@@ -8,8 +8,13 @@ from .settings import *
 # Override development settings for production
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-# Security settings
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-production-key-change-this')
+# Security settings - SECRET_KEY is required in production
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError(
+        "DJANGO_SECRET_KEY environment variable must be set in production. "
+        "Generate a secure key using: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'"
+    )
 
 # Parse ALLOWED_HOSTS, handling empty strings and whitespace
 allowed_hosts_env = os.environ.get('DJANGO_ALLOWED_HOSTS', 'skerritteconomics.com,www.skerritteconomics.com,localhost')
