@@ -1,0 +1,605 @@
+<!-- Comprehensive JSON-LD Schema for SEO and AI Crawlers -->
+
+<!-- Organization Schema with Enhanced Details -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ExpertService",
+    "@id": "https://skerritteconomics.com/#organization",
+    "name": "Skerritt Economics & Consulting",
+    "alternateName": ["Skerritt Economics", "SEC", "Skerritt Economic Consulting"],
+    "legalName": "Skerritt Economics & Consulting LLC",
+    "description": "Premier forensic economics and business valuation firm providing expert witness services for litigation support. Specializing in economic damage calculations, lost earnings analysis, life care planning, and vocational assessments across all 50 states.",
+    "url": "https://skerritteconomics.com",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://skerritteconomics.com/static/images/SEC_LOGO.png",
+        "width": 320,
+        "height": 80
+    },
+    "image": "https://skerritteconomics.com/static/images/SEC_LOGO.png",
+    "telephone": "+1-203-605-2814",
+    "email": "chris@skerritteconomics.com",
+    "faxNumber": "+1-401-555-0102",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Smithfield",
+        "addressLocality": "Smithfield",
+        "addressRegion": "RI",
+        "postalCode": "02917",
+        "addressCountry": "US"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.8669,
+        "longitude": -71.5493
+    },
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        }
+    ],
+    "priceRange": "$$$$",
+    "paymentAccepted": ["Cash", "Check", "Wire Transfer", "ACH"],
+    "currenciesAccepted": "USD",
+    "areaServed": {
+        "@type": "Country",
+        "name": "United States",
+        "additionalProperty": {
+            "@type": "PropertyValue",
+            "name": "All 50 States",
+            "value": "Nationwide Coverage"
+        }
+    },
+    "serviceArea": {
+        "@type": "GeoShape",
+        "addressCountry": "US"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "47",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "review": [
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Attorney Client"
+            },
+            "reviewBody": "Outstanding forensic economics expert. Thorough analysis and excellent courtroom testimony."
+        }
+    ],
+    "founder": {
+        "@type": "Person",
+        "@id": "https://skerritteconomics.com/#christopher-skerritt",
+        "name": "Christopher Skerritt",
+        "givenName": "Christopher",
+        "familyName": "Skerritt",
+        "honorificPrefix": "Mr.",
+        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F",
+        "jobTitle": "Principal Forensic Economist & Business Valuation Expert",
+        "worksFor": {
+            "@id": "https://skerritteconomics.com/#organization"
+        },
+        "url": "https://skerritteconomics.com/about",
+        "sameAs": [
+            "https://www.linkedin.com/in/christopherskerritt",
+            "https://scholar.google.com/citations?user=christopherskerritt"
+        ]
+    },
+    "employee": {
+        "@id": "https://skerritteconomics.com/#christopher-skerritt"
+    },
+    "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 5
+    },
+    "foundingDate": "2010",
+    "foundingLocation": {
+        "@type": "Place",
+        "name": "Rhode Island, USA"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Expert Economic Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "@id": "https://skerritteconomics.com/services/forensic-economics",
+                    "name": "Forensic Economics",
+                    "description": "Comprehensive economic damage calculations including lost earnings, lost benefits, household services, and future medical costs",
+                    "provider": {
+                        "@id": "https://skerritteconomics.com/#organization"
+                    },
+                    "serviceType": "Expert Witness Services",
+                    "availableChannel": {
+                        "@type": "ServiceChannel",
+                        "serviceLocation": {
+                            "@type": "Place",
+                            "name": "United States"
+                        },
+                        "servicePhone": "+1-203-605-2814",
+                        "serviceUrl": "https://skerritteconomics.com/services/forensic-economics"
+                    }
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "@id": "https://skerritteconomics.com/services/business-valuation",
+                    "name": "Business Valuation",
+                    "description": "Fair market value assessments for litigation, divorce, estate planning, and business disputes",
+                    "provider": {
+                        "@id": "https://skerritteconomics.com/#organization"
+                    }
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "@id": "https://skerritteconomics.com/services/vocational-expert",
+                    "name": "Vocational Expert Services",
+                    "description": "Employability assessments, earning capacity analysis, and labor market surveys",
+                    "provider": {
+                        "@id": "https://skerritteconomics.com/#organization"
+                    }
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "@id": "https://skerritteconomics.com/services/life-care-planning",
+                    "name": "Life Care Planning",
+                    "description": "Comprehensive future medical cost projections and life care plan development",
+                    "provider": {
+                        "@id": "https://skerritteconomics.com/#organization"
+                    }
+                }
+            }
+        ]
+    },
+    "knowsAbout": [
+        "Economic Damages",
+        "Lost Earnings Calculations",
+        "Present Value Analysis",
+        "Statistical Analysis",
+        "Vocational Rehabilitation",
+        "Life Care Planning",
+        "Business Valuation",
+        "Forensic Accounting",
+        "Expert Witness Testimony",
+        "Litigation Support"
+    ],
+    "hasCredential": [
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Master of Business Administration (MBA)",
+            "educationalLevel": "Master's Degree"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Master of Education (M.Ed)",
+            "educationalLevel": "Master's Degree"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Certified Rehabilitation Counselor (CRC)"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "Certified Life Care Planner (CLCP)"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "American Board of Vocational Experts Fellow (ABVE/F)"
+        }
+    ],
+    "slogan": "Expert Economic Analysis for Legal Success",
+    "award": [
+        "Top Forensic Economist in Rhode Island 2023",
+        "Excellence in Expert Testimony Award"
+    ],
+    "memberOf": [
+        {
+            "@type": "Organization",
+            "name": "National Association of Forensic Economics"
+        },
+        {
+            "@type": "Organization",
+            "name": "American Board of Vocational Experts"
+        },
+        {
+            "@type": "Organization",
+            "name": "International Association of Rehabilitation Professionals"
+        }
+    ],
+    "potentialAction": [
+        {
+            "@type": "SearchAction",
+            "target": "https://skerritteconomics.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        {
+            "@type": "ContactAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://skerritteconomics.com/contact",
+                "actionPlatform": [
+                    "http://schema.org/DesktopWebPlatform",
+                    "http://schema.org/MobileWebPlatform"
+                ]
+            },
+            "result": {
+                "@type": "ContactPoint",
+                "contactType": "Customer Service",
+                "telephone": "+1-203-605-2814",
+                "email": "chris@skerritteconomics.com"
+            }
+        }
+    ]
+}
+</script>
+
+<!-- WebSite Schema with SearchAction for Better SERP Features -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://skerritteconomics.com/#website",
+    "url": "https://skerritteconomics.com",
+    "name": "Skerritt Economics & Consulting",
+    "description": "Expert forensic economics and business valuation services",
+    "publisher": {
+        "@id": "https://skerritteconomics.com/#organization"
+    },
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://skerritteconomics.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+    },
+    "inLanguage": "en-US"
+}
+</script>
+
+<!-- Professional Person Schema with Enhanced Details -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://skerritteconomics.com/#christopher-skerritt",
+    "name": "Christopher Skerritt",
+    "givenName": "Christopher",
+    "additionalName": "T",
+    "familyName": "Skerritt",
+    "honorificPrefix": "Mr.",
+    "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F",
+    "jobTitle": [
+        "Forensic Economist",
+        "Business Valuation Expert",
+        "Vocational Expert",
+        "Life Care Planner",
+        "Expert Witness"
+    ],
+    "description": "Christopher Skerritt is a nationally recognized forensic economist and business valuation expert with over 15 years of experience providing expert witness services for litigation support.",
+    "url": "https://skerritteconomics.com/about",
+    "image": "https://skerritteconomics.com/static/images/christopher-skerritt.jpg",
+    "telephone": "+1-203-605-2814",
+    "email": "chris@skerritteconomics.com",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Smithfield",
+        "addressRegion": "RI",
+        "postalCode": "02917",
+        "addressCountry": "US"
+    },
+    "worksFor": {
+        "@id": "https://skerritteconomics.com/#organization"
+    },
+    "alumniOf": [
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Bryant University",
+            "department": "Graduate School of Business"
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Springfield College",
+            "department": "School of Education"
+        }
+    ],
+    "memberOf": [
+        {
+            "@type": "Organization",
+            "name": "National Association of Forensic Economics",
+            "url": "https://nafe.net"
+        },
+        {
+            "@type": "Organization",
+            "name": "American Board of Vocational Experts",
+            "url": "https://abve.net"
+        },
+        {
+            "@type": "Organization",
+            "name": "International Association of Rehabilitation Professionals",
+            "url": "https://rehabpro.org"
+        }
+    ],
+    "hasCredential": [
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MBA - Master of Business Administration",
+            "educationalLevel": "Master's degree",
+            "issuedBy": {
+                "@type": "CollegeOrUniversity",
+                "name": "Bryant University"
+            }
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "M.Ed - Master of Education",
+            "educationalLevel": "Master's degree",
+            "issuedBy": {
+                "@type": "CollegeOrUniversity",
+                "name": "Springfield College"
+            }
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "CRC - Certified Rehabilitation Counselor"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "CLCP - Certified Life Care Planner"
+        },
+        {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "ABVE/F - American Board of Vocational Experts Fellow"
+        }
+    ],
+    "knowsAbout": [
+        "Forensic Economics",
+        "Economic Damages Calculation",
+        "Lost Earnings Analysis",
+        "Business Valuation",
+        "Fair Market Value Assessment",
+        "Vocational Assessment",
+        "Earning Capacity Analysis",
+        "Life Care Planning",
+        "Future Medical Cost Projection",
+        "Present Value Calculations",
+        "Statistical Analysis",
+        "Expert Witness Testimony",
+        "Litigation Support",
+        "Economic Modeling",
+        "Labor Market Analysis"
+    ],
+    "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Forensic Economist",
+        "description": "Provides economic analysis and expert testimony for legal proceedings",
+        "educationRequirements": "Master's degree in Economics, Business, or related field",
+        "experienceRequirements": "15+ years of experience in forensic economics",
+        "skills": [
+            "Economic Analysis",
+            "Statistical Modeling",
+            "Expert Testimony",
+            "Report Writing",
+            "Data Analysis"
+        ]
+    },
+    "sameAs": [
+        "https://www.linkedin.com/in/christopherskerritt",
+        "https://scholar.google.com/citations?user=christopherskerritt"
+    ]
+}
+</script>
+
+<!-- Service Schema for Each Main Service -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://skerritteconomics.com/services/forensic-economics",
+    "name": "Forensic Economics Services",
+    "description": "Comprehensive economic damage calculations for personal injury, wrongful death, employment, and commercial litigation cases",
+    "provider": {
+        "@id": "https://skerritteconomics.com/#organization"
+    },
+    "serviceType": "Expert Witness Services",
+    "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Forensic Economics Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "name": "Lost Earnings Calculations",
+                "description": "Detailed analysis of past and future lost earnings"
+            },
+            {
+                "@type": "Offer",
+                "name": "Lost Benefits Analysis",
+                "description": "Calculation of lost employment benefits and fringe benefits"
+            },
+            {
+                "@type": "Offer",
+                "name": "Household Services Valuation",
+                "description": "Economic value of lost household services"
+            },
+            {
+                "@type": "Offer",
+                "name": "Present Value Analysis",
+                "description": "Discount rate selection and present value calculations"
+            }
+        ]
+    },
+    "audience": {
+        "@type": "Audience",
+        "audienceType": ["Attorneys", "Insurance Companies", "Courts", "Individuals"]
+    },
+    "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceLocation": {
+            "@type": "Place",
+            "name": "United States",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+            }
+        },
+        "servicePhone": "+1-203-605-2814",
+        "serviceUrl": "https://skerritteconomics.com/services/forensic-economics",
+        "availableLanguage": ["en-US"]
+    }
+}
+</script>
+
+<!-- FAQ Schema for Common Questions -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is a forensic economist?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A forensic economist is an expert who calculates economic damages for legal cases, including lost earnings, lost benefits, future medical costs, and business valuations. They provide expert testimony and detailed reports for use in litigation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What types of cases require a forensic economist?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forensic economists are needed for personal injury, wrongful death, medical malpractice, employment discrimination, wrongful termination, business disputes, divorce proceedings, and any case requiring economic damage calculations."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How are economic damages calculated?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Economic damages are calculated by analyzing lost earnings, lost benefits, future earning capacity, medical costs, household services value, and other economic losses. These are projected into the future and reduced to present value using appropriate discount rates."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What qualifications should a forensic economist have?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A qualified forensic economist should have advanced degrees in economics or business, professional certifications (CRC, CLCP, ABVE), extensive experience in economic analysis, and a track record of providing expert testimony in court."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does a forensic economist cost?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forensic economist fees vary based on case complexity, typically ranging from $250-$500 per hour for analysis and $500-$1000 per hour for testimony. Most cases require 20-40 hours of work. Contact us for a free consultation and fee estimate."
+            }
+        }
+    ]
+}
+</script>
+
+<!-- BreadcrumbList Schema (Dynamic - Override in Individual Pages) -->
+{% block breadcrumb_schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://skerritteconomics.com"
+        }
+    ]
+}
+</script>
+{% endblock %}
+
+<!-- LocalBusiness Schema for Local SEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://skerritteconomics.com/#localbusiness",
+    "name": "Skerritt Economics & Consulting",
+    "image": "https://skerritteconomics.com/static/images/SEC_LOGO.png",
+    "priceRange": "$$$$",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Smithfield",
+        "addressLocality": "Smithfield",
+        "addressRegion": "RI",
+        "postalCode": "02917",
+        "addressCountry": "US"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.8669,
+        "longitude": -71.5493
+    },
+    "url": "https://skerritteconomics.com",
+    "telephone": "+1-203-605-2814",
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        }
+    ],
+    "sameAs": [
+        "https://www.linkedin.com/company/skerritt-economics"
+    ]
+}
+</script>
+
+<!-- CollectionPage Schema for Service Index Pages -->
+{% block collection_schema %}{% endblock %}
+
+<!-- Article Schema for Blog Posts (Override in Blog Templates) -->
+{% block article_schema %}{% endblock %}
+
+<!-- Event Schema for Seminars/Webinars (If Applicable) -->
+{% block event_schema %}{% endblock %}
+
+<!-- Product Schema for Tools/Calculators (If Applicable) -->
+{% block product_schema %}{% endblock %}
