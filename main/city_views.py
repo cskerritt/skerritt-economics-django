@@ -4,7 +4,7 @@ City-specific views for local SEO
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import Http404
-from .us_cities_seo_data import US_MAJOR_CITIES
+from .city_data import get_city_by_slug, get_state_cities
 
 class CityLandingView(TemplateView):
     """Base view for city landing pages"""
@@ -13,14 +13,12 @@ class CityLandingView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         city_slug = kwargs.get('city_slug')
+        state_slug = kwargs.get('state_slug')
         
-        # Get city data from US_MAJOR_CITIES
-        city = US_MAJOR_CITIES.get(city_slug)
+        # Get city data using the new city_data module
+        city = get_city_by_slug(city_slug, state_slug)
         if not city:
             raise Http404(f"City {city_slug} not found")
-        
-        # Add the slug to city data
-        city['slug'] = city_slug
         
         context.update({
             'city': city,
@@ -50,10 +48,11 @@ class CityLandingView(TemplateView):
         current_state = city.get('state')
         current_slug = city.get('slug')
         
-        for slug, city_data in US_MAJOR_CITIES.items():
-            if city_data.get('state') == current_state and slug != current_slug:
+        state_cities = get_state_cities(current_state)
+        for city_data in state_cities:
+            if city_data.get('slug') != current_slug:
                 nearby.append({
-                    'slug': slug,
+                    'slug': city_data['slug'],
                     'name': city_data['name'],
                     'state_abbr': city_data['state_abbr']
                 })

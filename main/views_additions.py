@@ -9,7 +9,44 @@ from .us_cities_data import US_STATES, PRACTICE_AREAS
 
 # Index Pages
 class LocationsIndexView(TemplateView):
-    template_name = 'main/locations/index.html'
+    template_name = 'main/locations/all_locations.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        from .city_data import CITY_DATA
+        
+        # Organize states by region for better display
+        regions = {
+            'Northeast': ['connecticut', 'maine', 'massachusetts', 'new-hampshire', 'new-jersey', 
+                         'new-york', 'pennsylvania', 'rhode-island', 'vermont'],
+            'Southeast': ['alabama', 'arkansas', 'delaware', 'florida', 'georgia', 'kentucky', 
+                         'louisiana', 'maryland', 'mississippi', 'north-carolina', 'south-carolina', 
+                         'tennessee', 'virginia', 'west-virginia'],
+            'Midwest': ['illinois', 'indiana', 'iowa', 'kansas', 'michigan', 'minnesota', 
+                       'missouri', 'nebraska', 'north-dakota', 'ohio', 'south-dakota', 'wisconsin'],
+            'Southwest': ['arizona', 'new-mexico', 'oklahoma', 'texas'],
+            'West': ['alaska', 'california', 'colorado', 'hawaii', 'idaho', 'montana', 
+                    'nevada', 'oregon', 'utah', 'washington', 'wyoming']
+        }
+        
+        # Add city data organized by region
+        context['regions'] = {}
+        for region_name, state_slugs in regions.items():
+            context['regions'][region_name] = []
+            for state_slug in state_slugs:
+                if state_slug in CITY_DATA:
+                    state_data = CITY_DATA[state_slug]
+                    context['regions'][region_name].append({
+                        'slug': state_slug,
+                        'name': state_data['state_name'],
+                        'abbr': state_data['state_abbr'],
+                        'cities': state_data['cities']
+                    })
+        
+        context['total_cities'] = sum(len(state['cities']) for state in CITY_DATA.values())
+        context['total_pages'] = context['total_cities'] * 4  # 4 services per city
+        
+        return context
 
 class ServicesIndexView(TemplateView):
     template_name = 'main/services/index.html'
