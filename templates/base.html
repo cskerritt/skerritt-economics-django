@@ -216,9 +216,13 @@
     <script src="{% static 'js/main.js' %}"></script>
     {% block extra_js %}{% endblock %}
     
-    <!-- Google Analytics (placeholder) -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-363244994"></script>
     <script>
-        // Google Analytics tracking code would go here
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-363244994');
     </script>
 </body>
 </html>
