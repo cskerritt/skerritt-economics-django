@@ -59,36 +59,61 @@ jobs:
     
     steps:
     - name: Deploy to Lightsail via SSH
-      uses: appleboy/ssh-action@v1.2.0
-      with:
-        host: ${{ secrets.LIGHTSAIL_HOST }}
-        username: ${{ secrets.LIGHTSAIL_USERNAME }}
-        key: ${{ secrets.LIGHTSAIL_KEY }}
-        port: ${{ secrets.LIGHTSAIL_PORT }}
-        script: |
-          echo "🚀 Starting deployment..."
+      env:
+        LIGHTSAIL_HOST: ${{ secrets.LIGHTSAIL_HOST }}
+        LIGHTSAIL_USERNAME: ${{ secrets.LIGHTSAIL_USERNAME }}
+        LIGHTSAIL_KEY: ${{ secrets.LIGHTSAIL_KEY }}
+        LIGHTSAIL_PORT: ${{ secrets.LIGHTSAIL_PORT }}
+      run: |
+        echo "🚀 Starting deployment to Lightsail..."
+        
+        # Create SSH key file
+        echo "$LIGHTSAIL_KEY" > lightsail_key
+        chmod 600 lightsail_key
+        
+        # Add host to known hosts
+        mkdir -p ~/.ssh
+        ssh-keyscan -H -p ${LIGHTSAIL_PORT:-22} $LIGHTSAIL_HOST >> ~/.ssh/known_hosts 2>/dev/null
+        
+        # Deploy using SSH
+        ssh -i lightsail_key -p ${LIGHTSAIL_PORT:-22} ${LIGHTSAIL_USERNAME}@${LIGHTSAIL_HOST} << 'ENDSSH'
+          set -e
+          echo "📦 Updating application..."
           
           # Navigate to app directory
-          cd /home/bitnami/skerritt-economics-django
-          
-          # Log in to GitHub Container Registry
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          cd /home/bitnami/skerritt-economics-django || cd /opt/skerritt-economics || cd ~/skerritt-economics-django
           
           # Pull latest changes from git
           git pull origin main
           
-          # Run deployment script
+          # Run deployment script or docker compose
           if [ -f "/usr/local/bin/deploy_app.sh" ]; then
             echo "Running deployment script..."
             /usr/local/bin/deploy_app.sh
-          else
-            echo "Deployment script not found, running docker compose directly..."
+          elif [ -f "docker-compose.yml" ]; then
+            echo "Deploying with Docker Compose..."
             docker compose pull
-            docker compose up -d
+            docker compose down
+            docker compose up -d --build
             docker compose ps
+          else
+            echo "No deployment method found, attempting manual deployment..."
+            # If using virtual environment
+            if [ -f "venv/bin/activate" ]; then
+              source venv/bin/activate
+              pip install -r requirements.txt
+              python manage.py migrate --noinput
+              python manage.py collectstatic --noinput
+              sudo systemctl restart gunicorn || true
+              sudo systemctl restart nginx || true
+            fi
           fi
           
           echo "✅ Deployment complete!"
+        ENDSSH
+        
+        # Clean up
+        rm -f lightsail_key
         
     - name: Verify deployment
       env:
