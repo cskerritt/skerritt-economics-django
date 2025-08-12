@@ -86,3 +86,7 @@ urlpatterns += all_improved_urls
 # Import and add business consulting city URLs
 from .business_consulting_urls import business_consulting_city_urls
 urlpatterns += business_consulting_city_urls
+
+# Import and add expanded city URLs for maximum SEO coverage (863 cities x 5 services = 4,315 pages)
+from .expanded_city_urls import expanded_city_urlpatterns
+urlpatterns += expanded_city_urlpatterns

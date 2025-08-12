@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}business consulting {{ city.name }}, strategic planning {{ city.state_abbr }}, management consulting {{ city.name }}, business advisor {{ city.county }}, business strategy {{ city.state }}{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">
+{{ schema_markup|safe }}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Hero Section -->
+    <div class="hero-section bg-info text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-4">Strategic Business Consulting in {{ city.name }}, {{ city.state_abbr }}</h1>
+                    <p class="lead">Expert business consulting and strategic advisory services for {{ city.name }} companies. Transform your business with data-driven insights and proven strategies.</p>
+                    <div class="cta-buttons mt-4">
+                        <a href="#contact" class="btn btn-warning btn-lg me-3">Free Strategy Session</a>
+                        <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    {% if breadcrumb.url %}
+                        <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+                    {% else %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Services Section -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Business Consulting Services in {{ city.name }}, {{ city.state_abbr }}</h2>
+                <p>Professional business consulting services tailored for {{ city.name }} companies seeking growth, efficiency, and competitive advantage. Our data-driven approach helps businesses make informed strategic decisions.</p>
+                
+                <div class="services-list mt-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title text-info">Strategic Planning</h5>
+                                    <p class="card-text">Comprehensive strategic planning and business development for {{ city.name }} organizations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title text-info">Financial Analysis</h5>
+                                    <p class="card-text">In-depth financial performance analysis and optimization strategies for {{ city.county }} businesses.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title text-info">Market Research</h5>
+                                    <p class="card-text">Market analysis and competitive intelligence for {{ city.state }} market expansion.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title text-info">Operational Efficiency</h5>
+                                    <p class="card-text">Process improvement and operational optimization consulting for maximum efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Our Consulting Methodology for {{ city.name }} Businesses</h3>
+                <div class="methodology-steps">
+                    <div class="row">
+                        <div class="col-md-3 text-center mb-4">
+                            <div class="step-icon bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h5 mb-0">1</span>
+                            </div>
+                            <h6 class="mt-3">Assessment</h6>
+                            <p class="small">Comprehensive business analysis and current state evaluation.</p>
+                        </div>
+                        <div class="col-md-3 text-center mb-4">
+                            <div class="step-icon bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h5 mb-0">2</span>
+                            </div>
+                            <h6 class="mt-3">Strategy</h6>
+                            <p class="small">Develop customized strategies aligned with your business goals.</p>
+                        </div>
+                        <div class="col-md-3 text-center mb-4">
+                            <div class="step-icon bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h5 mb-0">3</span>
+                            </div>
+                            <h6 class="mt-3">Implementation</h6>
+                            <p class="small">Support execution with actionable plans and milestones.</p>
+                        </div>
+                        <div class="col-md-3 text-center mb-4">
+                            <div class="step-icon bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h5 mb-0">4</span>
+                            </div>
+                            <h6 class="mt-3">Monitoring</h6>
+                            <p class="small">Track progress and adjust strategies for optimal results.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Key Consulting Areas</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="text-info">Growth Strategy</h5>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item border-0 px-0">• Market expansion planning</li>
+                            <li class="list-group-item border-0 px-0">• Product/service development</li>
+                            <li class="list-group-item border-0 px-0">• Merger & acquisition analysis</li>
+                            <li class="list-group-item border-0 px-0">• Partnership strategies</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-info">Operational Excellence</h5>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item border-0 px-0">• Process optimization</li>
+                            <li class="list-group-item border-0 px-0">• Cost reduction strategies</li>
+                            <li class="list-group-item border-0 px-0">• Quality improvement</li>
+                            <li class="list-group-item border-0 px-0">• Technology integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Contact Card -->
+                <div class="card border-warning mb-4" id="contact">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">Free Strategy Consultation</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Discuss your {{ city.name }} business challenges and opportunities. Free initial strategy session.</p>
+                        <div class="contact-info">
+                            <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+                        </div>
+                        <a href="/contact/" class="btn btn-info w-100">Schedule Consultation</a>
+                    </div>
+                </div>
+
+                <!-- Industries Served -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6>Industries We Serve</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled small mb-0">
+                            <li>✓ Technology & Software</li>
+                            <li>✓ Healthcare Services</li>
+                            <li>✓ Manufacturing</li>
+                            <li>✓ Professional Services</li>
+                            <li>✓ Retail & E-commerce</li>
+                            <li>✓ Financial Services</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Success Metrics -->
+                <div class="card">
+                    <div class="card-header">
+                        <h6>Our Track Record</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-2">
+                            <h3 class="text-info mb-0">20+</h3>
+                            <small>Years Experience</small>
+                        </div>
+                        <div class="text-center mb-2">
+                            <h3 class="text-info mb-0">500+</h3>
+                            <small>Businesses Served</small>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-info mb-0">95%</h3>
+                            <small>Client Satisfaction</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Stories Section -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <h3 class="text-center mb-5">{{ city.name }} Business Success Stories</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">Manufacturing Company</h5>
+                            <p class="card-text">Helped a {{ city.county }} manufacturer increase efficiency by 35% and reduce costs by $2M annually.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">Tech Startup</h5>
+                            <p class="card-text">Strategic planning led to successful Series A funding of $5M for a {{ city.name }} technology company.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">Service Business</h5>
+                            <p class="card-text">Market expansion strategy resulted in 150% revenue growth over 18 months for {{ city.state }} service provider.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container py-5">
+        <h3>Business Consulting FAQs - {{ city.name }}</h3>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        How long does a typical consulting engagement last?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Consulting engagements typically range from 3-12 months, depending on the scope and complexity of your {{ city.name }} business needs. We tailor our approach to your specific timeline and objectives.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        What size businesses do you work with?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We work with businesses of all sizes in {{ city.name }}, from startups to established enterprises. Our approach is scalable and customized to fit your company's specific needs and resources.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}forensic economist {{ city.name }}, economic expert witness {{ city.state_abbr }}, lost earnings calculator {{ city.name }}, personal injury economist {{ city.county }}, wrongful death economic damages {{ city.state }}{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">
+{{ schema_markup|safe }}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Hero Section -->
+    <div class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-4">Expert Forensic Economist in {{ city.name }}, {{ city.state_abbr }}</h1>
+                    <p class="lead">Professional economic damage analysis and expert witness services for litigation in {{ city.name }}, {{ city.state }}. Specializing in personal injury, wrongful death, and commercial litigation economic calculations.</p>
+                    <div class="cta-buttons mt-4">
+                        <a href="#contact" class="btn btn-warning btn-lg me-3">Free Consultation</a>
+                        <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    {% if breadcrumb.url %}
+                        <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+                    {% else %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Services Section -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Forensic Economics Services in {{ city.name }}, {{ city.state_abbr }}</h2>
+                <p>As a certified forensic economist serving {{ city.name }} and surrounding areas in {{ city.county }}, I provide comprehensive economic damage analysis for legal professionals and their clients.</p>
+                
+                <div class="services-list mt-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Personal Injury Claims</h5>
+                                    <p class="card-text">Lost earnings and diminished earning capacity calculations for injury victims in {{ city.name }}.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Wrongful Death Cases</h5>
+                                    <p class="card-text">Comprehensive economic loss analysis for wrongful death litigation in {{ city.county }}.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Commercial Disputes</h5>
+                                    <p class="card-text">Business valuation and commercial damage analysis for {{ city.name }} businesses.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Expert Witness Testimony</h5>
+                                    <p class="card-text">Professional courtroom testimony and deposition services in {{ city.state }} courts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Why Choose Our Forensic Economics Services in {{ city.name }}?</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0 px-0">✓ Over 20 years of experience in economic damage analysis</li>
+                    <li class="list-group-item border-0 px-0">✓ Certified by multiple professional organizations</li>
+                    <li class="list-group-item border-0 px-0">✓ Familiar with {{ city.state }} legal standards and procedures</li>
+                    <li class="list-group-item border-0 px-0">✓ Fast turnaround times for {{ city.name }} area cases</li>
+                    <li class="list-group-item border-0 px-0">✓ Comprehensive reports that stand up in court</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Contact Card -->
+                <div class="card border-warning mb-4" id="contact">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">Free Case Consultation</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Get expert analysis for your {{ city.name }} case. Call today for a free consultation.</p>
+                        <div class="contact-info">
+                            <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+                        </div>
+                        <a href="/contact/" class="btn btn-primary w-100">Contact Form</a>
+                    </div>
+                </div>
+
+                <!-- Service Areas -->
+                <div class="card">
+                    <div class="card-header">
+                        <h6>Service Areas Near {{ city.name }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="small">Serving all of {{ city.county }} and surrounding areas in {{ city.state }}.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Christopher Skerritt Section -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3>About Christopher Skerritt - Your {{ city.name }} Forensic Economist</h3>
+                    <p>Christopher Skerritt brings over two decades of experience in forensic economics to serve clients throughout {{ city.name }} and {{ city.state }}. His extensive credentials and proven track record make him a trusted expert witness for attorneys handling complex economic damage cases.</p>
+                    <p><strong>Credentials:</strong> M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="{% static 'images/christopher-skerritt-headshot.jpg' %}" alt="Christopher Skerritt - Forensic Economist" class="img-fluid rounded-circle shadow" style="max-width: 200px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container py-5">
+        <h3>Frequently Asked Questions - Forensic Economics in {{ city.name }}</h3>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        What is a forensic economist?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        A forensic economist is an expert who calculates economic damages for legal cases. In {{ city.name }}, this includes analyzing lost earnings, medical costs, and other financial impacts for personal injury and wrongful death cases.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        How long does an economic damage analysis take?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Most economic damage reports for {{ city.name }} cases are completed within 2-3 weeks, depending on the complexity of the case and availability of financial records.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
