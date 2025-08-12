@@ -44,7 +44,7 @@ class LocationsIndexView(TemplateView):
                     })
         
         context['total_cities'] = sum(len(state['cities']) for state in CITY_DATA.values())
-        context['total_pages'] = context['total_cities'] * 4  # 4 services per city
+        context['total_pages'] = context['total_cities'] * 5  # 5 services per city (including business consulting)
         
         return context
 

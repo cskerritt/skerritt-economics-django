@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}All Service Locations - {{ total_cities }} Cities Nationwide | Forensic Economics{% endblock %}
-{% block meta_description %}Skerritt Economics provides expert witness services in {{ total_cities }} cities across all 50 states. Find forensic economics, business valuation, vocational expert, and life care planning services in your area.{% endblock %}
+{% block meta_description %}Skerritt Economics provides expert witness services in {{ total_cities }} cities across all 50 states. Find forensic economics, business valuation, business consulting, vocational expert, and life care planning services in your area.{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -97,21 +97,25 @@
                                         <h5 class="card-title">{{ city.name }}</h5>
                                         <p class="card-text small text-muted">{{ city.county }}</p>
                                         <div class="btn-group-vertical w-100" role="group">
-                                            <a href="/{{ state.slug }}/{{ city.slug }}/forensic-economist/" 
+                                            <a href="/locations/forensic-economics/{{ city.slug }}-{{ state.abbr|lower }}.html" 
                                                class="btn btn-sm btn-outline-primary text-start">
                                                 Forensic Economist
                                             </a>
-                                            <a href="/{{ state.slug }}/{{ city.slug }}/business-valuation/" 
+                                            <a href="/locations/business-valuation/{{ city.slug }}-{{ state.abbr|lower }}.html" 
                                                class="btn btn-sm btn-outline-primary text-start">
                                                 Business Valuation
                                             </a>
-                                            <a href="/{{ state.slug }}/{{ city.slug }}/vocational-expert/" 
+                                            <a href="/locations/business-consulting/{{ city.slug }}-{{ state.abbr|lower }}.html" 
+                                               class="btn btn-sm btn-outline-primary text-start">
+                                                Business Consulting
+                                            </a>
+                                            <a href="/locations/vocational-expert/{{ city.slug }}-{{ state.abbr|lower }}.html" 
                                                class="btn btn-sm btn-outline-primary text-start">
                                                 Vocational Expert
                                             </a>
-                                            <a href="/{{ state.slug }}/{{ city.slug }}/life-care-planner/" 
+                                            <a href="/locations/life-care-planning/{{ city.slug }}-{{ state.abbr|lower }}.html" 
                                                class="btn btn-sm btn-outline-primary text-start">
-                                                Life Care Planner
+                                                Life Care Planning
                                             </a>
                                         </div>
                                     </div>
