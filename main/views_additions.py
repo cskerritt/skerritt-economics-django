@@ -122,8 +122,16 @@ class BaseCityPageView(TemplateView):
         context['city_name'] = city_name
         context['state'] = state_abbr
         context['state_name'] = state_name
+        context['state_slug'] = state_name.lower().replace(' ', '-') if state_name else ''
         context['service_type'] = self.service_type
         context['city_slug'] = city_slug
+        
+        # Add city data for templates that expect it
+        context['city'] = {
+            'name': city_name,
+            'state': state_name,
+            'state_abbr': state_abbr
+        }
         
         # Add service-specific content
         if self.service_type == 'business_valuation':
