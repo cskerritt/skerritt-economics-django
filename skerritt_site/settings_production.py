@@ -85,9 +85,6 @@ CACHES = {
     }
 }
 
-# Add Gunicorn to installed apps
-INSTALLED_APPS += ['gunicorn']
-
 # Trusted origins for CSRF
 CSRF_TRUSTED_ORIGINS = [
     'https://skerritteconomics.com',
