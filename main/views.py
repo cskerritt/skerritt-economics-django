@@ -25,18 +25,58 @@ class HomeView(TemplateView):
 # Service Pages
 class ForensicEconomicsView(TemplateView):
     template_name = 'main/services/forensic_economics.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['service_name'] = 'Forensic Economics'
+        context['service_slug'] = 'forensic-economics'
+        context['service_title'] = 'Forensic Economist'
+        context['service_description'] = 'Economic damage analysis, lost earnings calculations, and expert witness testimony'
+        return context
 
 class BusinessValuationView(TemplateView):
     template_name = 'main/services/business_valuation.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['service_name'] = 'Business Valuation'
+        context['service_slug'] = 'business-valuation'
+        context['service_title'] = 'Business Valuation Expert'
+        context['service_description'] = 'Fair market value analysis, business appraisals, and shareholder dispute valuations'
+        return context
 
 class VocationalExpertView(TemplateView):
     template_name = 'main/services/vocational_expert.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['service_name'] = 'Vocational Expert'
+        context['service_slug'] = 'vocational-expert'
+        context['service_title'] = 'Vocational Expert'
+        context['service_description'] = 'Employability assessments, earning capacity evaluations, and vocational rehabilitation planning'
+        return context
 
 class LifeCarePlanningView(TemplateView):
     template_name = 'main/services/life_care_planning.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['service_name'] = 'Life Care Planning'
+        context['service_slug'] = 'life-care-planning'
+        context['service_title'] = 'Life Care Planner'
+        context['service_description'] = 'Future medical cost projections, catastrophic injury planning, and assistive technology needs'
+        return context
 
 class BusinessConsultingView(TemplateView):
     template_name = 'main/services/business_consulting.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['service_name'] = 'Business Consulting'
+        context['service_slug'] = 'business-consulting'
+        context['service_title'] = 'Business Consultant'
+        context['service_description'] = 'Strategic planning, operations improvement, and business transformation services'
+        return context
 
 # Practice Area Pages
 class PersonalInjuryView(TemplateView):

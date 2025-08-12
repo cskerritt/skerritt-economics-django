@@ -133,22 +133,32 @@ class BaseCityPageView(TemplateView):
             'state_abbr': state_abbr
         }
         
-        # Add service-specific content
+        # Add standardized service-specific content
         if self.service_type == 'business_valuation':
-            context['service_title'] = 'Business Valuation Analyst'
-            context['service_description'] = 'Expert business valuation services'
+            context['service_name'] = 'Business Valuation'
+            context['service_slug'] = 'business-valuation'
+            context['service_title'] = 'Business Valuation Expert'
+            context['service_description'] = 'Fair market value analysis, business appraisals, and shareholder dispute valuations'
         elif self.service_type == 'forensic_economics':
+            context['service_name'] = 'Forensic Economics'
+            context['service_slug'] = 'forensic-economics'
             context['service_title'] = 'Forensic Economist'
-            context['service_description'] = 'Economic damage analysis and expert testimony'
+            context['service_description'] = 'Economic damage analysis, lost earnings calculations, and expert witness testimony'
         elif self.service_type == 'life_care_planning':
+            context['service_name'] = 'Life Care Planning'
+            context['service_slug'] = 'life-care-planning'
             context['service_title'] = 'Life Care Planner'
-            context['service_description'] = 'Comprehensive life care planning services'
+            context['service_description'] = 'Future medical cost projections, catastrophic injury planning, and assistive technology needs'
         elif self.service_type == 'vocational_expert':
+            context['service_name'] = 'Vocational Expert'
+            context['service_slug'] = 'vocational-expert'
             context['service_title'] = 'Vocational Expert'
-            context['service_description'] = 'Vocational assessment and earning capacity evaluation'
+            context['service_description'] = 'Employability assessments, earning capacity evaluations, and vocational rehabilitation planning'
         elif self.service_type == 'business_consulting':
+            context['service_name'] = 'Business Consulting'
+            context['service_slug'] = 'business-consulting'
             context['service_title'] = 'Business Consultant'
-            context['service_description'] = 'Strategic business consulting and advisory services'
+            context['service_description'] = 'Strategic planning, operations improvement, and business transformation services'
         
         return context
 
