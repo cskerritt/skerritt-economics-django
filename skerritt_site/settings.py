@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'main',
     'blog',
     'tools',
-    'calculator',
 ]
 
 MIDDLEWARE = [
@@ -163,9 +162,9 @@ ADMIN_EMAIL = config('ADMIN_EMAIL', default='chris@skerritteconomics.com')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication settings
-LOGIN_URL = '/calculator/login/'
-LOGIN_REDIRECT_URL = '/calculator/'
-LOGOUT_REDIRECT_URL = '/calculator/login/'
+LOGIN_URL = '/admin/login/'
+LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = '/'
 
 # HTTPS/SSL Settings for production
 # Since we're behind Caddy proxy, trust the X-Forwarded-Proto header

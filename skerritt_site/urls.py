@@ -26,7 +26,6 @@ urlpatterns = [
     path('', include('main.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('tools/', include('tools.urls', namespace='tools')),
-    path('calculator/', include('calculator.urls', namespace='calculator')),
 ]
 
 # Serve media files in development
