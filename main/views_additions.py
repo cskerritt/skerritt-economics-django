@@ -138,6 +138,9 @@ class BaseCityPageView(TemplateView):
         elif self.service_type == 'vocational_expert':
             context['service_title'] = 'Vocational Expert'
             context['service_description'] = 'Vocational assessment and earning capacity evaluation'
+        elif self.service_type == 'business_consulting':
+            context['service_title'] = 'Business Consultant'
+            context['service_description'] = 'Strategic business consulting and advisory services'
         
         return context
 
@@ -157,3 +160,6 @@ class CityLifeCarePlanningView(BaseCityPageView):
 
 class CityVocationalExpertView(BaseCityPageView):
     service_type = 'vocational_expert'
+
+class CityBusinessConsultingView(BaseCityPageView):
+    service_type = 'business_consulting'

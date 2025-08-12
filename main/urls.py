@@ -69,6 +69,7 @@ urlpatterns = [
     path('locations/forensic-economics/<slug:city_slug>.html', views.CityForensicEconomicsView.as_view(), name='city_forensic_economics'),
     path('locations/life-care-planning/<slug:city_slug>.html', views.CityLifeCarePlanningView.as_view(), name='city_life_care'),
     path('locations/vocational-expert/<slug:city_slug>.html', views.CityVocationalExpertView.as_view(), name='city_vocational'),
+    path('locations/business-consulting/<slug:city_slug>.html', views.CityBusinessConsultingView.as_view(), name='city_business_consulting'),
 ]
 
 # Add city-specific URLs
@@ -81,3 +82,7 @@ urlpatterns += city_seo_urlpatterns
 # Import and add improved URL patterns
 from .improved_urls import all_improved_urls
 urlpatterns += all_improved_urls
+
+# Import and add business consulting city URLs
+from .business_consulting_urls import business_consulting_city_urls
+urlpatterns += business_consulting_city_urls
