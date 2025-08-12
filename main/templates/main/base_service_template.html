@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %}
+STANDARDIZED SERVICE PAGE TEMPLATE
+This is the base template for all service pages to ensure consistent formatting.
+Variables needed:
+- service_name: Name of the service (e.g., "Forensic Economics")
+- service_slug: URL slug (e.g., "forensic-economics")
+- service_description: Short description for meta tags
+- service_title: Professional title (e.g., "Forensic Economist")
+{% endcomment %}
+
+{% block title %}{{ service_name }} Expert | {{ service_title }} | Skerritt Economics{% endblock %}
+{% block meta_description %}{{ service_description }} Expert witness services by Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F. Free consultation: (203) 605-2814{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ service_name }}",
+  "description": "{{ service_description }}",
+  "provider": {
+    "@type": "Person",
+    "name": "Christopher Skerritt",
+    "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F",
+    "telephone": "+1-203-605-2814",
+    "email": "chris@skerritteconomics.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Smithfield",
+      "addressRegion": "RI",
+      "postalCode": "02917",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "url": "https://skerritteconomics.com/services/{{ service_slug }}/"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+    <!-- Hero Section with Consistent Styling -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-white-50">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'services_index' %}" class="text-white-50">Services</a></li>
+                    <li class="breadcrumb-item active text-white">{{ service_name }}</li>
+                </ol>
+            </nav>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">{{ service_name }} Expert</h1>
+                    <p class="lead mb-4">{{ service_description }}</p>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-md-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-certificate fa-2x me-2"></i>
+                                <div>
+                                    <small class="d-block">Certified</small>
+                                    <strong>Expert Witness</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-balance-scale fa-2x me-2"></i>
+                                <div>
+                                    <small class="d-block">Court</small>
+                                    <strong>Testimony</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-clock fa-2x me-2"></i>
+                                <div>
+                                    <small class="d-block">Rapid</small>
+                                    <strong>Response</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marked-alt fa-2x me-2"></i>
+                                <div>
+                                    <small class="d-block">Nationwide</small>
+                                    <strong>Coverage</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Primary CTAs -->
+                    <div class="d-grid gap-2 d-md-block">
+                        <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                            <i class="fas fa-phone me-2"></i>(203) 605-2814
+                        </a>
+                        <a href="{% url 'contact' %}?service={{ service_slug }}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar-check me-2"></i>Schedule Consultation
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <!-- Contact Card -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-3">
+                                <i class="fas fa-user-tie text-primary me-2"></i>Christopher Skerritt
+                            </h5>
+                            <p class="small mb-2"><strong>Credentials:</strong></p>
+                            <p class="small">M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC</p>
+                            <hr>
+                            <p class="mb-2">
+                                <i class="fas fa-phone text-primary me-2"></i>
+                                <a href="tel:+12036052814" class="text-dark">(203) 605-2814</a>
+                            </p>
+                            <p class="mb-2">
+                                <i class="fas fa-envelope text-primary me-2"></i>
+                                <a href="mailto:chris@skerritteconomics.com" class="text-dark small">chris@skerritteconomics.com</a>
+                            </p>
+                            <p class="mb-0">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <small>Smithfield, RI</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content Column -->
+                <div class="col-lg-8">
+                    {% block service_content %}
+                    <!-- Service-specific content goes here -->
+                    {% endblock %}
+                    
+                    <!-- Standard FAQ Section -->
+                    <div class="card border-0 shadow-sm mt-5">
+                        <div class="card-body p-4">
+                            <h2 class="h3 mb-4">Frequently Asked Questions</h2>
+                            <div class="accordion" id="faqAccordion">
+                                {% block faq_items %}
+                                <!-- Service-specific FAQs go here -->
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar Column -->
+                <div class="col-lg-4">
+                    <!-- Related Services Card -->
+                    <div class="card border-0 shadow-sm mb-4 sticky-lg-top" style="top: 20px;">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-3">Our Services</h5>
+                            <div class="list-group list-group-flush">
+                                <a href="{% url 'service_forensic' %}" class="list-group-item list-group-item-action {% if service_slug == 'forensic-economics' %}active{% endif %}">
+                                    <i class="fas fa-chart-line me-2"></i>Forensic Economics
+                                </a>
+                                <a href="{% url 'service_valuation' %}" class="list-group-item list-group-item-action {% if service_slug == 'business-valuation' %}active{% endif %}">
+                                    <i class="fas fa-building me-2"></i>Business Valuation
+                                </a>
+                                <a href="{% url 'service_consulting' %}" class="list-group-item list-group-item-action {% if service_slug == 'business-consulting' %}active{% endif %}">
+                                    <i class="fas fa-handshake me-2"></i>Business Consulting
+                                </a>
+                                <a href="{% url 'service_vocational' %}" class="list-group-item list-group-item-action {% if service_slug == 'vocational-expert' %}active{% endif %}">
+                                    <i class="fas fa-user-md me-2"></i>Vocational Expert
+                                </a>
+                                <a href="{% url 'service_lifecare' %}" class="list-group-item list-group-item-action {% if service_slug == 'life-care-planning' %}active{% endif %}">
+                                    <i class="fas fa-heartbeat me-2"></i>Life Care Planning
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Contact Card -->
+                    <div class="card border-primary shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="card-title">Need Expert Analysis?</h5>
+                            <p class="card-text">Get a free case evaluation today</p>
+                            <a href="tel:+12036052814" class="btn btn-primary btn-lg w-100 mb-2">
+                                <i class="fas fa-phone me-2"></i>Call Now
+                            </a>
+                            <a href="{% url 'contact' %}?service={{ service_slug }}" class="btn btn-outline-primary w-100">
+                                Request Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom CTA Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="h3 mb-3">Ready to Discuss Your Case?</h2>
+            <p class="lead mb-4">Get expert {{ service_name|lower }} analysis from a certified professional</p>
+            <div class="d-grid gap-2 d-md-block">
+                <a href="{% url 'contact' %}?service={{ service_slug }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-calendar-check me-2"></i>Schedule Free Consultation
+                </a>
+                <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                    <i class="fas fa-phone me-2"></i>(203) 605-2814
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

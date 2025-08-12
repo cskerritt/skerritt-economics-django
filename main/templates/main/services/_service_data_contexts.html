@@ -1,0 +1,161 @@
+{% comment %}
+Service Data Contexts for Standardized Templates
+This file contains the data structures for each service type
+{% endcomment %}
+
+{% comment %} FORENSIC ECONOMICS DATA CONTEXT {% endcomment %}
+{% with forensic_economics_data=service_data %}
+{% endwith %}
+
+{% comment %} 
+FORENSIC ECONOMICS SERVICE DATA STRUCTURE:
+{
+    "name": "Forensic Economics",
+    "slug": "forensic-economics", 
+    "description": "Economic damage analysis and expert witness testimony",
+    "job_title": "Forensic Economist",
+    "icon": "fas fa-calculator",
+    "h1_title": "Forensic Economics Expert Witness Services",
+    "lead_description": "Expert economic damage calculations for personal injury, wrongful death, and commercial litigation cases",
+    "overview_title": "Professional Economic Loss Analysis",
+    "overview_content": "<p>Skerritt Economics & Consulting provides comprehensive forensic economic services to attorneys, insurance companies, and legal professionals. With extensive experience in economic damage calculations and expert testimony, we deliver reliable, defensible analyses that meet the highest professional standards.</p>",
+    "expertise": ["Economic damages", "Lost earnings", "Present value analysis", "Wrongful death economics", "Business valuation", "Vocational assessment", "Life care planning"],
+    "offers": [
+        {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service", 
+                "name": "Lost Earnings Calculations"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Present Value Analysis" 
+            }
+        }
+    ],
+    "core_services": [
+        {
+            "icon": "fas fa-chart-line",
+            "title": "Economic Damage Calculations", 
+            "items": [
+                "Lost earnings and earning capacity analysis",
+                "Present value determinations", 
+                "Fringe benefits valuation",
+                "Household services loss calculations",
+                "Life care plan economic integration"
+            ]
+        },
+        {
+            "icon": "fas fa-briefcase",
+            "title": "Commercial & Employment Damages",
+            "items": [
+                "Wrongful termination damages",
+                "Employment discrimination losses", 
+                "Business interruption claims",
+                "Lost profits analysis",
+                "Partnership and shareholder disputes"
+            ]
+        }
+    ],
+    "case_types": [
+        {
+            "icon": "fas fa-user-injured", 
+            "title": "Personal Injury",
+            "items": [
+                "Motor vehicle accidents",
+                "Medical malpractice",
+                "Product liability", 
+                "Workplace injuries",
+                "Slip and fall accidents",
+                "Construction accidents"
+            ]
+        },
+        {
+            "icon": "fas fa-heart-broken",
+            "title": "Wrongful Death", 
+            "items": [
+                "Fatal accidents",
+                "Medical malpractice death",
+                "Criminal acts",
+                "Product defects", 
+                "Professional negligence",
+                "Industrial accidents"
+            ]
+        },
+        {
+            "icon": "fas fa-gavel",
+            "title": "Employment Litigation",
+            "items": [
+                "Wrongful termination",
+                "Discrimination cases", 
+                "Wage and hour disputes", 
+                "Breach of employment contract",
+                "Non-compete violations",
+                "Executive compensation disputes"
+            ]
+        },
+        {
+            "icon": "fas fa-building",
+            "title": "Commercial Litigation",
+            "items": [
+                "Breach of contract",
+                "Business interruption",
+                "Intellectual property disputes",
+                "Antitrust damages", 
+                "Partnership disputes",
+                "Professional malpractice"
+            ]
+        }
+    ],
+    "methodology_content": "<h4>Income Analysis</h4><ul><li><strong>Historical Earnings Review:</strong> Analysis of tax returns, pay stubs, and employment records</li><li><strong>Career Progression:</strong> Growth patterns and advancement potential</li><li><strong>Education and Training:</strong> Impact on future earning capacity</li><li><strong>Industry Analysis:</strong> Sector-specific wage and employment trends</li></ul><h4>Economic Factors</h4><ul><li><strong>Work-Life Expectancy:</strong> Statistical analysis of working years remaining</li><li><strong>Discount Rates:</strong> Appropriate rates for present value calculations</li><li><strong>Growth Rates:</strong> Wage inflation and productivity adjustments</li><li><strong>Tax Considerations:</strong> After-tax income and tax gross-up calculations</li></ul>",
+    "faq_items": [
+        {
+            "question": "What is a forensic economist?",
+            "answer": "A forensic economist is an expert who calculates economic damages in legal cases, including lost earnings, future medical costs, and business losses. They provide expert testimony and detailed economic analysis for personal injury, wrongful death, and commercial litigation cases."
+        },
+        {
+            "question": "How are lost earnings calculated in personal injury cases?", 
+            "answer": "Lost earnings are calculated by analyzing past earnings history, future earning capacity, work-life expectancy, fringe benefits, and applying appropriate growth rates and discount rates to determine present value."
+        },
+        {
+            "question": "What types of cases require forensic economics expertise?",
+            "answer": "Forensic economists are needed for personal injury, wrongful death, medical malpractice, employment discrimination, wrongful termination, business interruption, breach of contract, and any case requiring economic damage calculations."
+        },
+        {
+            "question": "How much does a forensic economist cost?",
+            "answer": "Forensic economist fees vary based on case complexity, typically ranging from $250-$500 per hour for analysis and $500-$1000 per hour for testimony. Contact us for a specific quote based on your case needs."
+        }
+    ],
+    "benefits": [
+        "Lost wages and earnings",
+        "Lost fringe benefits", 
+        "Household services",
+        "Future medical costs",
+        "Business interruption",
+        "Lost profits",
+        "Mitigation analysis"
+    ],
+    "related_services": [
+        {
+            "name": "Business Valuation",
+            "url": "{% url 'service_valuation' %}",
+            "icon": "fas fa-chart-bar"
+        },
+        {
+            "name": "Vocational Expert", 
+            "url": "{% url 'service_vocational' %}",
+            "icon": "fas fa-user-tie"
+        },
+        {
+            "name": "Life Care Planning",
+            "url": "{% url 'service_lifecare' %}",
+            "icon": "fas fa-medical-kit"
+        }
+    ],
+    "cta_title": "Need Expert Economic Damage Analysis?",
+    "cta_subtitle": "Get professional forensic economics services from an experienced expert witness"
+}
+{% endcomment %}

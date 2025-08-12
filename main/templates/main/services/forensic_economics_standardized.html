@@ -1,0 +1,674 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Forensic Economics Expert Witness | Economic Damages Analysis | Rhode Island{% endblock %}
+{% block meta_description %}Expert forensic economist Christopher Skerritt provides economic damage calculations for personal injury, wrongful death & employment litigation in Rhode Island & New England. Court-qualified expert witness testimony.{% endblock %}
+{% block meta_keywords %}forensic economist Rhode Island, economic damages expert witness, lost earnings calculations, personal injury economist, wrongful death economic loss, present value analysis, future medical costs, household services valuation, employment litigation damages, Christopher Skerritt economist{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Forensic Economics Services",
+    "description": "Expert economic damage calculations for personal injury, wrongful death, and employment litigation cases",
+    "provider": {
+        "@type": "Person",
+        "name": "Christopher Skerritt",
+        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC",
+        "jobTitle": "Forensic Economist",
+        "telephone": "+1-203-605-2814",
+        "email": "chris@skerritteconomics.com",
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Bryant University"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Springfield College"
+            }
+        ],
+        "knowsAbout": ["Economic damages", "Lost earnings", "Present value analysis", "Wrongful death economics", "Business valuation", "Vocational assessment", "Life care planning"]
+    },
+    "areaServed": {
+        "@type": "State",
+        "name": ["Rhode Island", "Massachusetts", "Connecticut", "New Hampshire", "Vermont", "Maine", "All 50 States"]
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Forensic Economics Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Lost Earnings Calculations"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Present Value Analysis"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Household Services Valuation"
+                }
+            }
+        ]
+    }
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is a forensic economist?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A forensic economist is an expert who calculates economic damages in legal cases, including lost earnings, future medical costs, and business losses. They provide expert testimony and detailed economic analysis for personal injury, wrongful death, and commercial litigation cases."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How are lost earnings calculated in personal injury cases?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lost earnings are calculated by analyzing past earnings history, future earning capacity, work-life expectancy, fringe benefits, and applying appropriate growth rates and discount rates to determine present value. This includes both past lost wages and future earning capacity losses."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What types of cases require forensic economics expertise?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forensic economists are needed for personal injury, wrongful death, medical malpractice, employment discrimination, wrongful termination, business interruption, breach of contract, and any case requiring economic damage calculations."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does a forensic economist cost?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Forensic economist fees vary based on case complexity, typically ranging from $250-$500 per hour for analysis and $500-$1000 per hour for testimony. Most cases require 20-40 hours of work. Contact us for a specific quote based on your case needs."
+            }
+        }
+    ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'home' %}" class="text-light">
+                            <i class="fas fa-home" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'services_index' %}" class="text-light">Services</a>
+                    </li>
+                    <li class="breadcrumb-item active text-light" aria-current="page">
+                        Forensic Economics
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Forensic Economics Expert Witness Services</h1>
+                    <p class="lead mb-4">Expert economic damage calculations for personal injury, wrongful death, and commercial litigation cases</p>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="row mb-4">
+                        <div class="col-md-3 col-6 mb-2">
+                            <div class="d-flex align-items-center text-light">
+                                <i class="fas fa-award fa-2x me-2 text-warning" aria-hidden="true"></i>
+                                <div>
+                                    <div class="fw-bold">Court-Qualified</div>
+                                    <small>Expert Witness</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-2">
+                            <div class="d-flex align-items-center text-light">
+                                <i class="fas fa-certificate fa-2x me-2 text-warning" aria-hidden="true"></i>
+                                <div>
+                                    <div class="fw-bold">15+ Certifications</div>
+                                    <small>Professional</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-2">
+                            <div class="d-flex align-items-center text-light">
+                                <i class="fas fa-clock fa-2x me-2 text-warning" aria-hidden="true"></i>
+                                <div>
+                                    <div class="fw-bold">20+ Years</div>
+                                    <small>Experience</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-2">
+                            <div class="d-flex align-items-center text-light">
+                                <i class="fas fa-map-marker-alt fa-2x me-2 text-warning" aria-hidden="true"></i>
+                                <div>
+                                    <div class="fw-bold">All 50 States</div>
+                                    <small>Coverage</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Primary CTAs -->
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="tel:+12036052814" class="btn btn-warning btn-lg px-4 py-2">
+                            <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
+                        </a>
+                        <a href="{% url 'contact' %}?service=forensic" class="btn btn-outline-light btn-lg px-4 py-2">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i> Free Consultation
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="bg-white text-dark p-4 rounded-3 shadow-lg">
+                            <div class="mb-3">
+                                <img src="{% static 'images/christopher-skerritt.webp' %}" 
+                                     alt="Christopher Skerritt, Expert Witness"
+                                     class="rounded-circle mb-2"
+                                     width="100" 
+                                     height="100"
+                                     loading="lazy">
+                            </div>
+                            <h3 class="h5 mb-2">Christopher Skerritt</h3>
+                            <p class="mb-3"><strong>M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
+                            <div class="d-grid gap-2">
+                                <a href="tel:+12036052814" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+                                </a>
+                                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Service Overview -->
+                <section class="mb-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h3 mb-3 text-primary">
+                                <i class="fas fa-calculator" aria-hidden="true"></i>
+                                Professional Economic Loss Analysis
+                            </h2>
+                            <div class="service-content">
+                                <p>Skerritt Economics & Consulting provides comprehensive forensic economic services to attorneys, insurance companies, and legal professionals. With extensive experience in economic damage calculations and expert testimony, we deliver reliable, defensible analyses that meet the highest professional standards set by the <a href="https://www.nafe.net/" target="_blank" rel="noopener">National Association of Forensic Economics</a> and the <a href="https://www.aeaweb.org/" target="_blank" rel="noopener">American Economic Association</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Core Services -->
+                <section class="mb-5">
+                    <h2 class="h3 mb-4">Core Forensic Economics Services</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h5 text-primary">
+                                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                                        Economic Damage Calculations
+                                    </h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Lost earnings and earning capacity analysis
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Present value determinations
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Fringe benefits valuation
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Household services loss calculations
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Life care plan economic integration
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h5 text-primary">
+                                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                                        Commercial & Employment Damages
+                                    </h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Wrongful termination damages
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Employment discrimination losses
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Business interruption claims
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Lost profits analysis
+                                        </li>
+                                        <li class="mb-1">
+                                            <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                                            Partnership and shareholder disputes
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Case Types -->
+                <section class="mb-5">
+                    <h2 class="h3 mb-4">Case Types We Handle</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h5 text-primary">
+                                        <i class="fas fa-user-injured" aria-hidden="true"></i>
+                                        Personal Injury
+                                    </h4>
+                                    <ul class="mb-0">
+                                        <li>Motor vehicle accidents</li>
+                                        <li>Medical malpractice</li>
+                                        <li>Product liability</li>
+                                        <li>Workplace injuries</li>
+                                        <li>Slip and fall accidents</li>
+                                        <li>Construction accidents</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h5 text-primary">
+                                        <i class="fas fa-heart-broken" aria-hidden="true"></i>
+                                        Wrongful Death
+                                    </h4>
+                                    <ul class="mb-0">
+                                        <li>Fatal accidents</li>
+                                        <li>Medical malpractice death</li>
+                                        <li>Criminal acts</li>
+                                        <li>Product defects</li>
+                                        <li>Professional negligence</li>
+                                        <li>Industrial accidents</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h5 text-primary">
+                                        <i class="fas fa-gavel" aria-hidden="true"></i>
+                                        Employment Litigation
+                                    </h4>
+                                    <ul class="mb-0">
+                                        <li>Wrongful termination</li>
+                                        <li>Discrimination cases</li>
+                                        <li>Wage and hour disputes</li>
+                                        <li>Breach of employment contract</li>
+                                        <li>Non-compete violations</li>
+                                        <li>Executive compensation disputes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h5 text-primary">
+                                        <i class="fas fa-building" aria-hidden="true"></i>
+                                        Commercial Litigation
+                                    </h4>
+                                    <ul class="mb-0">
+                                        <li>Breach of contract</li>
+                                        <li>Business interruption</li>
+                                        <li>Intellectual property disputes</li>
+                                        <li>Antitrust damages</li>
+                                        <li>Partnership disputes</li>
+                                        <li>Professional malpractice</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Methodology/Process -->
+                <section class="mb-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h3 mb-4 text-primary">Our Forensic Economics Process</h2>
+                            <div class="methodology-content">
+                                <h4 class="h6 text-primary mb-3">Income Analysis</h4>
+                                <ul class="mb-4">
+                                    <li><strong>Historical Earnings Review:</strong> Analysis of tax returns, pay stubs, and employment records</li>
+                                    <li><strong>Career Progression:</strong> Growth patterns and advancement potential</li>
+                                    <li><strong>Education and Training:</strong> Impact on future earning capacity</li>
+                                    <li><strong>Industry Analysis:</strong> Sector-specific wage and employment trends</li>
+                                </ul>
+                                
+                                <h4 class="h6 text-primary mb-3">Economic Factors</h4>
+                                <ul class="mb-4">
+                                    <li><strong>Work-Life Expectancy:</strong> Statistical analysis of working years remaining</li>
+                                    <li><strong>Discount Rates:</strong> Appropriate rates for present value calculations</li>
+                                    <li><strong>Growth Rates:</strong> Wage inflation and productivity adjustments</li>
+                                    <li><strong>Tax Considerations:</strong> After-tax income and tax gross-up calculations</li>
+                                </ul>
+
+                                <h4 class="h6 text-primary mb-3">Data Sources</h4>
+                                <ul class="mb-0">
+                                    <li><a href="https://www.bls.gov/" target="_blank" rel="noopener">Bureau of Labor Statistics</a> wage data</li>
+                                    <li><a href="https://www.census.gov/" target="_blank" rel="noopener">Census Bureau</a> employment statistics</li>
+                                    <li><a href="https://www.ssa.gov/oact/STATS/table4c6.html" target="_blank" rel="noopener">Social Security Administration</a> life tables</li>
+                                    <li><a href="https://www.dol.gov/" target="_blank" rel="noopener">Department of Labor</a> occupational projections</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="mb-5">
+                    <h2 class="h3 mb-4">Frequently Asked Questions</h2>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 shadow-sm mb-2">
+                            <h3 class="accordion-header" id="faq1">
+                                <button class="accordion-button" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#faqAnswer1"
+                                        aria-expanded="true" 
+                                        aria-controls="faqAnswer1">
+                                    What is a forensic economist?
+                                </button>
+                            </h3>
+                            <div id="faqAnswer1" 
+                                 class="accordion-collapse collapse show" 
+                                 aria-labelledby="faq1"
+                                 data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    A forensic economist is an expert who calculates economic damages in legal cases, including lost earnings, future medical costs, and business losses. They provide expert testimony and detailed economic analysis for personal injury, wrongful death, and commercial litigation cases.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm mb-2">
+                            <h3 class="accordion-header" id="faq2">
+                                <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#faqAnswer2"
+                                        aria-expanded="false" 
+                                        aria-controls="faqAnswer2">
+                                    How are lost earnings calculated in personal injury cases?
+                                </button>
+                            </h3>
+                            <div id="faqAnswer2" 
+                                 class="accordion-collapse collapse" 
+                                 aria-labelledby="faq2"
+                                 data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Lost earnings are calculated by analyzing past earnings history, future earning capacity, work-life expectancy, fringe benefits, and applying appropriate growth rates and discount rates to determine present value. This includes both past lost wages and future earning capacity losses.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm mb-2">
+                            <h3 class="accordion-header" id="faq3">
+                                <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#faqAnswer3"
+                                        aria-expanded="false" 
+                                        aria-controls="faqAnswer3">
+                                    What types of cases require forensic economics expertise?
+                                </button>
+                            </h3>
+                            <div id="faqAnswer3" 
+                                 class="accordion-collapse collapse" 
+                                 aria-labelledby="faq3"
+                                 data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Forensic economists are needed for personal injury, wrongful death, medical malpractice, employment discrimination, wrongful termination, business interruption, breach of contract, and any case requiring economic damage calculations.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h3 class="accordion-header" id="faq4">
+                                <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#faqAnswer4"
+                                        aria-expanded="false" 
+                                        aria-controls="faqAnswer4">
+                                    How much does a forensic economist cost?
+                                </button>
+                            </h3>
+                            <div id="faqAnswer4" 
+                                 class="accordion-collapse collapse" 
+                                 aria-labelledby="faq4"
+                                 data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Forensic economist fees vary based on case complexity, typically ranging from $250-$500 per hour for analysis and $500-$1000 per hour for testimony. Most cases require 20-40 hours of work. Contact us for a specific quote based on your case needs.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 20px;">
+                    <!-- Contact Card -->
+                    <div class="card border-primary shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h3 class="h5 mb-0">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                Free Case Consultation
+                            </h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <img src="{% static 'images/christopher-skerritt.webp' %}" 
+                                     alt="Christopher Skerritt"
+                                     class="rounded-circle mb-2"
+                                     width="80" 
+                                     height="80"
+                                     loading="lazy">
+                                <h4 class="h6 mb-1">Christopher Skerritt</h4>
+                                <p class="text-muted small mb-3">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <a href="tel:+12036052814" class="btn btn-primary">
+                                    <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
+                                </a>
+                                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
+                                </a>
+                                <a href="{% url 'contact' %}?service=forensic" class="btn btn-secondary">
+                                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Request Consultation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Benefits -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="h6 mb-0">Damage Types</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Lost wages and earnings
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Lost fringe benefits
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Household services
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Future medical costs
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Business interruption
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Lost profits
+                                </li>
+                                <li class="mb-0">
+                                    <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                                    Mitigation analysis
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Related Services -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="h6 mb-0">Related Services</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="{% url 'service_valuation' %}" class="text-decoration-none">
+                                        <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                                        Business Valuation
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="{% url 'service_vocational' %}" class="text-decoration-none">
+                                        <i class="fas fa-user-tie" aria-hidden="true"></i>
+                                        Vocational Expert
+                                    </a>
+                                </li>
+                                <li class="mb-0">
+                                    <a href="{% url 'service_lifecare' %}" class="text-decoration-none">
+                                        <i class="fas fa-medical-kit" aria-hidden="true"></i>
+                                        Life Care Planning
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Credentials -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-light">
+                            <h3 class="h6 mb-0">Professional Credentials</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center g-2">
+                                <div class="col-6">
+                                    <div class="border rounded p-2">
+                                        <strong class="d-block">M.Ed</strong>
+                                        <small class="text-muted">Springfield College</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2">
+                                        <strong class="d-block">MBA</strong>
+                                        <small class="text-muted">Bryant University</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2">
+                                        <strong class="d-block">CRC</strong>
+                                        <small class="text-muted">Certified</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2">
+                                        <strong class="d-block">CLCP</strong>
+                                        <small class="text-muted">Certified</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center text-muted small mt-2 mb-0">
+                                +11 Additional Professional Certifications
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section bg-primary text-white py-5">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="h3 mb-3">Need Expert Economic Damage Analysis?</h2>
+                    <p class="lead mb-4">Get professional forensic economics services from an experienced expert witness</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                            <i class="fas fa-phone" aria-hidden="true"></i> Call (203) 605-2814
+                        </a>
+                        <a href="{% url 'contact' %}?service=forensic" class="btn btn-light btn-lg">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i> Schedule Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
