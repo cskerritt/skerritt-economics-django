@@ -37,8 +37,17 @@ RUN mkdir -p /app/staticfiles /app/media /app/db && \
 
 USER django
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Note: collectstatic is run at runtime via entrypoint script
+# to ensure environment variables are available
 
-# Run gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "--threads", "4", "--worker-class", "gthread", "--worker-tmp-dir", "/dev/shm", "--log-file", "-", "--access-logfile", "-", "--error-logfile", "-", "skerritt_site.wsgi:application"]
+# Create entrypoint script
+RUN echo '#!/bin/bash\n\
+set -e\n\
+echo "Collecting static files..."\n\
+python manage.py collectstatic --noinput\n\
+echo "Starting Gunicorn..."\n\
+exec gunicorn --bind 0.0.0.0:8000 --workers 2 --threads 4 --worker-class gthread --worker-tmp-dir /dev/shm --log-file - --access-logfile - --error-logfile - skerritt_site.wsgi:application' > /app/entrypoint.sh && \
+chmod +x /app/entrypoint.sh
+
+# Run entrypoint script
+CMD ["/app/entrypoint.sh"]
