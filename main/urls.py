@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
 from . import views
-from .practice_areas_views import PracticeAreaDetailView
+from .practice_areas_views import PracticeAreaDetailView, PracticeAreasIndexView
 from .city_urls import city_urlpatterns
 from .health import health_check
 
@@ -20,7 +20,7 @@ urlpatterns = [
     path('locations/rhode-island-forensic-economist/', views.RhodeIslandForensicEconomistView.as_view(), name='rhode_island_forensic_economist'),
     path('locations/new-england-economic-expert/', views.NewEnglandEconomicExpertView.as_view(), name='new_england_economic_expert'),
     path('services/', views.ServicesIndexView.as_view(), name='services_index'),
-    path('practice-areas/', views.PracticeAreasIndexView.as_view(), name='practice_areas_index'),
+    path('practice-areas/', PracticeAreasIndexView.as_view(), name='practice_areas_index'),
     path('resources/', views.ResourcesView.as_view(), name='resources'),
     path('vocational-expert/', views.VocationalExpertServiceView.as_view(), name='vocational_expert'),
     path('life-care-planning/', views.LifeCarePlanningServiceView.as_view(), name='life_care_planning'),
