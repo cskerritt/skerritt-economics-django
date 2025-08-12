@@ -130,7 +130,19 @@ class BaseCityPageView(TemplateView):
         context['city'] = {
             'name': city_name,
             'state': state_name,
-            'state_abbr': state_abbr
+            'state_name': state_name,
+            'state_abbr': state_abbr,
+            'county': f'{city_name} County',  # Default county name
+            'slug': city_slug
+        }
+        
+        # Add structured data for SEO
+        context['structured_data'] = {
+            'city_name': city_name,
+            'state_name': state_name,
+            'service_name': 'Expert Services',  # Default, will be overridden by service-specific
+            'latitude': 40.7128,  # Default coordinates
+            'longitude': -74.0060
         }
         
         # Add standardized service-specific content
@@ -139,26 +151,41 @@ class BaseCityPageView(TemplateView):
             context['service_slug'] = 'business-valuation'
             context['service_title'] = 'Business Valuation Expert'
             context['service_description'] = 'Fair market value analysis, business appraisals, and shareholder dispute valuations'
+            context['meta_title'] = f'Business Valuation Expert in {city_name}, {state_abbr} | Skerritt Economics'
+            context['meta_description'] = f'Expert business valuation services in {city_name}, {state_name}. Professional business appraisal and valuation analysis. Call (203) 605-2814 for consultation.'
+            context['structured_data']['service_name'] = 'Business Valuation Services'
         elif self.service_type == 'forensic_economics':
             context['service_name'] = 'Forensic Economics'
             context['service_slug'] = 'forensic-economics'
             context['service_title'] = 'Forensic Economist'
             context['service_description'] = 'Economic damage analysis, lost earnings calculations, and expert witness testimony'
+            context['meta_title'] = f'Forensic Economist in {city_name}, {state_abbr} | Economic Expert Witness'
+            context['meta_description'] = f'Expert forensic economist in {city_name}, {state_name}. Economic damage calculations and expert witness testimony. Call (203) 605-2814 for consultation.'
+            context['structured_data']['service_name'] = 'Forensic Economics Services'
         elif self.service_type == 'life_care_planning':
             context['service_name'] = 'Life Care Planning'
             context['service_slug'] = 'life-care-planning'
             context['service_title'] = 'Life Care Planner'
             context['service_description'] = 'Future medical cost projections, catastrophic injury planning, and assistive technology needs'
+            context['meta_title'] = f'Life Care Planning Expert in {city_name}, {state_abbr} | Skerritt Economics'
+            context['meta_description'] = f'Certified life care planning services in {city_name}, {state_name}. Future medical cost analysis and catastrophic injury planning. Call (203) 605-2814.'
+            context['structured_data']['service_name'] = 'Life Care Planning Services'
         elif self.service_type == 'vocational_expert':
             context['service_name'] = 'Vocational Expert'
             context['service_slug'] = 'vocational-expert'
             context['service_title'] = 'Vocational Expert'
             context['service_description'] = 'Employability assessments, earning capacity evaluations, and vocational rehabilitation planning'
+            context['meta_title'] = f'Vocational Expert in {city_name}, {state_abbr} | Employability Assessment'
+            context['meta_description'] = f'Certified vocational expert services in {city_name}, {state_name}. Employability and earning capacity assessments. Call (203) 605-2814 for consultation.'
+            context['structured_data']['service_name'] = 'Vocational Expert Services'
         elif self.service_type == 'business_consulting':
             context['service_name'] = 'Business Consulting'
             context['service_slug'] = 'business-consulting'
             context['service_title'] = 'Business Consultant'
             context['service_description'] = 'Strategic planning, operations improvement, and business transformation services'
+            context['meta_title'] = f'Business Consulting Services in {city_name}, {state_abbr} | Expert Advisory'
+            context['meta_description'] = f'Professional business consulting services in {city_name}, {state_name}. Strategic planning and operations improvement. Call (203) 605-2814.'
+            context['structured_data']['service_name'] = 'Business Consulting Services'
         
         return context
 
