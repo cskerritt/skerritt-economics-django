@@ -1,0 +1,205 @@
+{
+  "site": {
+    "name": "Skerritt Economics & Consulting",
+    "url": "https://skerritteconomics.com",
+    "description": "Premier forensic economics and business valuation firm providing expert witness services for litigation support across all 50 US states",
+    "language": "en-US",
+    "last_updated": "2025-01-12",
+    "contact": {
+      "email": "chris@skerritteconomics.com",
+      "phone": "+1-203-605-2814",
+      "address": "Smithfield, RI 02917"
+    }
+  },
+  "owner": {
+    "name": "Christopher Skerritt",
+    "credentials": "M.Ed, MBA, CRC, CLCP, ABVE/F",
+    "title": "Principal Forensic Economist & Business Valuation Expert",
+    "expertise": [
+      "Forensic Economics",
+      "Business Valuation",
+      "Economic Damages",
+      "Lost Earnings Calculations",
+      "Life Care Planning",
+      "Vocational Assessment",
+      "Expert Witness Testimony"
+    ]
+  },
+  "services": {
+    "primary": [
+      {
+        "name": "Forensic Economics",
+        "url": "/services/forensic-economics",
+        "description": "Economic damage calculations for litigation including lost earnings, lost benefits, and household services",
+        "keywords": ["economic damages", "lost earnings", "present value", "litigation support"]
+      },
+      {
+        "name": "Business Valuation",
+        "url": "/services/business-valuation",
+        "description": "Fair market value assessments for business disputes, divorce, and estate planning",
+        "keywords": ["business appraisal", "fair market value", "business disputes", "divorce valuation"]
+      },
+      {
+        "name": "Vocational Expert",
+        "url": "/services/vocational-expert",
+        "description": "Employability and earning capacity analysis for disability and injury cases",
+        "keywords": ["earning capacity", "vocational assessment", "employability", "labor market"]
+      },
+      {
+        "name": "Life Care Planning",
+        "url": "/services/life-care-planning",
+        "description": "Future medical cost projections and comprehensive care plans",
+        "keywords": ["medical costs", "future care", "life care plan", "catastrophic injury"]
+      }
+    ]
+  },
+  "practice_areas": [
+    "Personal Injury",
+    "Medical Malpractice",
+    "Wrongful Death",
+    "Employment Litigation",
+    "Business Disputes",
+    "Divorce Proceedings",
+    "Workers' Compensation",
+    "Product Liability"
+  ],
+  "geographic_coverage": {
+    "primary_states": [
+      "Rhode Island",
+      "Massachusetts",
+      "Connecticut",
+      "New Hampshire",
+      "Vermont",
+      "Maine"
+    ],
+    "all_states_served": true,
+    "total_states": 50,
+    "city_pages": true,
+    "city_count": 500
+  },
+  "content_sections": {
+    "main": [
+      {
+        "section": "Home",
+        "url": "/",
+        "description": "Main landing page with overview of services"
+      },
+      {
+        "section": "About",
+        "url": "/about",
+        "description": "Background and qualifications of Christopher Skerritt"
+      },
+      {
+        "section": "Services",
+        "url": "/services",
+        "description": "Detailed information about all expert services offered"
+      },
+      {
+        "section": "Locations",
+        "url": "/locations",
+        "description": "Geographic service areas including all 50 states"
+      },
+      {
+        "section": "Practice Areas",
+        "url": "/practice-areas",
+        "description": "Specific types of cases and litigation support"
+      },
+      {
+        "section": "Case Studies",
+        "url": "/case-studies",
+        "description": "Examples of successful engagements and outcomes"
+      },
+      {
+        "section": "Resources",
+        "url": "/resources",
+        "description": "Educational content and tools"
+      },
+      {
+        "section": "Blog",
+        "url": "/blog",
+        "description": "Expert insights and industry updates"
+      },
+      {
+        "section": "Contact",
+        "url": "/contact",
+        "description": "Contact form and consultation scheduling"
+      }
+    ]
+  },
+  "structured_data": {
+    "formats": ["JSON-LD", "Schema.org"],
+    "types": [
+      "ExpertService",
+      "ProfessionalService",
+      "LocalBusiness",
+      "Person",
+      "FAQPage",
+      "BreadcrumbList",
+      "Service",
+      "WebSite"
+    ]
+  },
+  "seo_features": {
+    "robots_txt": "/robots.txt",
+    "sitemap_xml": "/sitemap.xml",
+    "ai_sitemap": "/ai-sitemap.json",
+    "structured_data": true,
+    "open_graph": true,
+    "twitter_cards": true,
+    "canonical_urls": true,
+    "hreflang_tags": true,
+    "meta_descriptions": true,
+    "schema_markup": true
+  },
+  "ai_crawling": {
+    "allowed": true,
+    "preferred_crawlers": [
+      "GPTBot",
+      "Claude-Web",
+      "Google-Extended",
+      "PerplexityBot",
+      "ChatGPT-User",
+      "CCBot"
+    ],
+    "crawl_delay": 0,
+    "full_access": true,
+    "api_available": false
+  },
+  "keywords": {
+    "primary": [
+      "forensic economist",
+      "business valuation expert",
+      "economic damages",
+      "expert witness",
+      "litigation support"
+    ],
+    "secondary": [
+      "lost earnings calculator",
+      "life care planner",
+      "vocational expert",
+      "present value analysis",
+      "earning capacity",
+      "future medical costs",
+      "household services valuation",
+      "wrongful death economics",
+      "personal injury damages",
+      "employment litigation expert"
+    ],
+    "location_based": [
+      "forensic economist Rhode Island",
+      "New England economic expert",
+      "Massachusetts business valuation",
+      "Connecticut expert witness",
+      "nationwide forensic economics"
+    ]
+  },
+  "update_frequency": {
+    "blog": "weekly",
+    "case_studies": "monthly",
+    "service_pages": "quarterly",
+    "location_pages": "as_needed"
+  },
+  "legal_disclaimer": "This website provides information about forensic economics and business valuation services. Content is for informational purposes only and does not constitute legal or financial advice.",
+  "privacy_policy_url": "/privacy",
+  "terms_of_service_url": "/terms"
+}

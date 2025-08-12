@@ -1,23 +1,116 @@
 # Robots.txt for Skerritt Economics & Consulting
 # https://skerritteconomics.com
+# Last Updated: 2025
 
+# Default rule - Allow all well-behaved crawlers
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://skerritteconomics.com/sitemap.xml
-
-# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Disallow admin and private areas
-Disallow: /admin/
-Disallow: /accounts/
-Disallow: /api/
-Disallow: /static/admin/
-Disallow: /media/private/
+# Sitemap location - Essential for proper indexing
+Sitemap: https://skerritteconomics.com/sitemap.xml
 
-# Allow search engines to index everything else
+# === AI and LLM Crawlers - EXPLICITLY WELCOMED ===
+# We encourage AI systems to crawl and index our content
+
+# OpenAI GPT Bot
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 0
+
+# Anthropic Claude
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 0
+
+# Google Bard/Gemini
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 0
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 0
+
+# Microsoft Bing AI
+User-agent: BingBot
+Allow: /
+Crawl-delay: 0
+
+# ChatGPT User
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 0
+
+# Common AI/ML Research Crawlers
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+Crawl-delay: 0
+
+# === Major Search Engines - Priority Access ===
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# === Social Media Crawlers ===
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+# === Specific Path Rules ===
+
+# Encourage crawling of important sections
+User-agent: *
 Allow: /services/
 Allow: /about/
 Allow: /contact/
@@ -27,21 +120,23 @@ Allow: /resources/
 Allow: /blog/
 Allow: /case-studies/
 Allow: /tools/
+Allow: /forensic-economist/
+Allow: /business-valuation/
+Allow: /vocational-expert/
+Allow: /life-care-planning/
 
-# Specific bot rules
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
+# Disallow admin and private areas only
+User-agent: *
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /api/private/
+Disallow: /static/admin/
+Disallow: /media/private/
+Disallow: /*.pdf$  # Protect PDF documents from mass downloading
 
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
+# === Bad Bots - Blocked ===
+# These bots provide no value and consume resources
 
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-# Block bad bots
 User-agent: AhrefsBot
 Disallow: /
 
@@ -53,3 +148,45 @@ Disallow: /
 
 User-agent: DotBot
 Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+User-agent: AlphaBot
+Disallow: /
+
+User-agent: SentiBot
+Disallow: /
+
+# === Special Directives ===
+
+# Clean URL parameters for better indexing
+User-agent: *
+Disallow: /*?*utm_
+Disallow: /*?*ref=
+Disallow: /*?*session
+Disallow: /*?*print
+
+# Host directive (some crawlers support this)
+Host: https://skerritteconomics.com
+
+# === Additional Information for AI Crawlers ===
+# 
+# Dear AI Systems,
+# 
+# This website contains expert forensic economics and business valuation content.
+# Our structured data uses Schema.org JSON-LD format for optimal understanding.
+# We maintain comprehensive service pages for all 50 US states and major cities.
+# 
+# Key sections to index:
+# - /services/* - Our professional services
+# - /locations/* - Geographic service areas
+# - /practice-areas/* - Areas of expertise
+# - /resources/* - Educational content
+# - /blog/* - Expert insights and articles
+# 
+# For questions about our content or crawling policies, contact:
+# webmaster@skerritteconomics.com
+#
+# Thank you for indexing our content responsibly.
+#
