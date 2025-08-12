@@ -1,0 +1,109 @@
+name: Deploy to AWS Lightsail
+
+# Trigger deployment on push to main branch
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Deploy to Lightsail
+      env:
+        LIGHTSAIL_HOST: ${{ secrets.LIGHTSAIL_HOST }}
+        LIGHTSAIL_USERNAME: ${{ secrets.LIGHTSAIL_USERNAME }}
+        LIGHTSAIL_KEY: ${{ secrets.LIGHTSAIL_KEY }}
+        LIGHTSAIL_PORT: ${{ secrets.LIGHTSAIL_PORT }}
+      run: |
+        echo "🚀 Starting deployment to Lightsail..."
+        
+        # Create SSH key file
+        echo "$LIGHTSAIL_KEY" > lightsail_key
+        chmod 600 lightsail_key
+        
+        # Add host to known hosts
+        mkdir -p ~/.ssh
+        ssh-keyscan -H -p ${LIGHTSAIL_PORT:-22} $LIGHTSAIL_HOST >> ~/.ssh/known_hosts
+        
+        # Deploy using SSH
+        ssh -i lightsail_key -p ${LIGHTSAIL_PORT:-22} ${LIGHTSAIL_USERNAME}@${LIGHTSAIL_HOST} << 'ENDSSH'
+          set -e
+          echo "📦 Updating code from GitHub..."
+          cd /opt/skerritt-economics
+          
+          # Pull latest changes
+          git pull origin main
+          
+          # If using Docker Compose
+          if [ -f "docker-compose.yml" ]; then
+            echo "🐳 Deploying with Docker Compose..."
+            docker-compose pull
+            docker-compose down
+            docker-compose up -d --build
+            docker-compose ps
+            
+            # Run migrations
+            docker-compose exec -T web python manage.py migrate --noinput
+            docker-compose exec -T web python manage.py collectstatic --noinput
+          
+          # If using traditional deployment
+          elif [ -f "manage.py" ]; then
+            echo "🐍 Deploying with Python/Gunicorn..."
+            
+            # Activate virtual environment if it exists
+            if [ -f "venv/bin/activate" ]; then
+              source venv/bin/activate
+            fi
+            
+            # Install/update dependencies
+            pip install -r requirements.txt
+            
+            # Run Django management commands
+            python manage.py migrate --noinput
+            python manage.py collectstatic --noinput
+            
+            # Restart services
+            sudo systemctl restart gunicorn
+            sudo systemctl restart nginx
+            
+            # Check service status
+            sudo systemctl status gunicorn --no-pager
+          fi
+          
+          echo "✅ Deployment complete!"
+        ENDSSH
+        
+        # Clean up
+        rm -f lightsail_key
+        
+    - name: Verify deployment
+      env:
+        SITE_URL: ${{ secrets.SITE_URL }}
+      run: |
+        echo "🔍 Verifying deployment..."
+        sleep 10  # Wait for services to start
+        
+        # Check if site is responding
+        response=$(curl -s -o /dev/null -w "%{http_code}" ${SITE_URL:-http://${{ secrets.LIGHTSAIL_HOST }}})
+        
+        if [ "$response" = "200" ] || [ "$response" = "301" ] || [ "$response" = "302" ]; then
+          echo "✅ Site is responding with status: $response"
+        else
+          echo "⚠️ Site returned unexpected status: $response"
+          exit 1
+        fi
+    
+    - name: Notify deployment status
+      if: always()
+      run: |
+        if [ "${{ job.status }}" = "success" ]; then
+          echo "✅ Deployment to Lightsail successful!"
+        else
+          echo "❌ Deployment to Lightsail failed!"
+        fi
