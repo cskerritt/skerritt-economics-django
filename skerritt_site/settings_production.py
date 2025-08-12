@@ -9,9 +9,11 @@ from .settings import *
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 # Security settings
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', SECRET_KEY)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-production-key-change-this')
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
+# Parse ALLOWED_HOSTS, handling empty strings and whitespace
+allowed_hosts_env = os.environ.get('DJANGO_ALLOWED_HOSTS', 'skerritteconomics.com,www.skerritteconomics.com,localhost')
+ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_env.split(',') if host.strip()]
 
 # Database - use SQLite for simplicity on Lightsail
 DATABASES = {
