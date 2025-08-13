@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
         <div class="navbar-brand">
             <a href="{% url 'home' %}" class="logo-link">
@@ -7,10 +7,19 @@
                      alt="Skerritt Economics and Consulting - SEC Logo" 
                      class="navbar-logo"
                      width="320" 
-                     height="80">
+                     height="80"
+                     loading="eager">
                 <span class="sr-only">Skerritt Economics & Consulting</span>
             </a>
         </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
         <ul class="navbar-menu">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li class="has-dropdown">

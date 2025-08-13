@@ -1,0 +1,90 @@
+{% load static %}
+<!-- Enhanced Meta Tags with SEO Optimization -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta Tags -->
+<meta name="title" content="{% block meta_title %}{{ page_title|default:'Expert Forensic Economist & Business Valuation | Skerritt Economics' }}{% endblock %}">
+<meta name="description" content="{% block meta_description %}{{ page_description|default:'Leading forensic economist providing economic damage analysis, business valuation, life care planning, and expert witness testimony. Serving New England with 20+ years experience.' }}{% endblock %}">
+<meta name="keywords" content="{% block meta_keywords %}{{ page_keywords|default:'forensic economist, business valuation expert, economic damages, lost earnings analysis, life care planning, vocational expert, expert witness, Christopher Skerritt, Rhode Island, Massachusetts, Connecticut' }}{% endblock %}">
+<meta name="author" content="Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<!-- Hreflang Tags for Regional Targeting -->
+<link rel="alternate" hreflang="en-US" href="https://skerritteconomics.com{{ request.path }}">
+<link rel="alternate" hreflang="x-default" href="https://skerritteconomics.com{{ request.path }}">
+
+{% if location_variations %}
+    {% for location in location_variations %}
+        <link rel="alternate" hreflang="en-{{ location.code }}" href="https://skerritteconomics.com{{ location.url }}">
+    {% endfor %}
+{% endif %}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{% block og_type %}website{% endblock %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:title" content="{{ page_title|default:'Expert Forensic Economist & Business Valuation | Skerritt Economics' }}">
+<meta property="og:description" content="{{ page_description|default:'Leading forensic economist providing economic damage analysis and expert witness testimony throughout New England.' }}">
+<meta property="og:image" content="https://skerritteconomics.com{% static 'images/seo-preview-1200x630.jpg' %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Skerritt Economics & Consulting - Expert Forensic Economics Services">
+<meta property="og:site_name" content="Skerritt Economics & Consulting">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="{{ page_title|default:'Expert Forensic Economist & Business Valuation' }}">
+<meta name="twitter:description" content="{{ page_description|default:'Economic damage analysis and expert witness testimony' }}">
+<meta name="twitter:image" content="https://skerritteconomics.com{% static 'images/twitter-card-1200x600.jpg' %}">
+<meta name="twitter:image:alt" content="Skerritt Economics & Consulting">
+
+<!-- LinkedIn -->
+<meta property="linkedin:card" content="summary">
+<meta property="linkedin:title" content="{{ page_title|default:'Skerritt Economics & Consulting' }}">
+<meta property="linkedin:description" content="{{ page_description|default:'Expert forensic economics and business valuation services' }}">
+
+<!-- Additional SEO Tags -->
+<meta name="geo.region" content="US-RI">
+<meta name="geo.placename" content="Rhode Island">
+<meta name="geo.position" content="41.8240;-71.4128">
+<meta name="ICBM" content="41.8240, -71.4128">
+
+<!-- Mobile App Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SEC Economics">
+<meta name="application-name" content="Skerritt Economics">
+<meta name="msapplication-TileColor" content="#1a3a4a">
+<meta name="msapplication-TileImage" content="{% static 'images/ms-icon-144x144.jpg' %}">
+<meta name="theme-color" content="#1a3a4a">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.jpg' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.jpg' %}">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-icon-180x180.jpg' %}">
+<link rel="manifest" href="{% static 'manifest.json' %}">
+
+<!-- Preconnect to External Domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+<!-- Resource Hints -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2">
+<link rel="preload" as="image" href="{% static 'images/SEC_LOGO.png' %}" type="image/png">
+
+<!-- Sitemap -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
