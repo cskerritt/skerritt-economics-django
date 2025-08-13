@@ -1,0 +1,100 @@
+{% load schema_tags %}
+<!-- Enhanced Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{% url 'home' %}" itemprop="item">
+                <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </li>
+        
+        {% if parent_page %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{{ parent_page.url }}" itemprop="item">
+                <span itemprop="name">{{ parent_page.name }}</span>
+            </a>
+            <meta itemprop="position" content="2" />
+        </li>
+        {% endif %}
+        
+        {% if current_page %}
+        <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+            <span itemprop="name">{{ current_page }}</span>
+            <meta itemprop="position" content="{% if parent_page %}3{% else %}2{% endif %}" />
+        </li>
+        {% endif %}
+    </ol>
+</nav>
+
+<!-- Generate breadcrumb schema -->
+{% if breadcrumb_items %}
+    {% breadcrumb_schema breadcrumb_items %}
+{% endif %}
+
+<style>
+.breadcrumb-nav {
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    padding: 0 0.5rem;
+    color: var(--text-light);
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .breadcrumb-nav {
+        padding: 0.75rem 0;
+        margin-bottom: 1rem;
+    }
+    
+    .breadcrumb-item {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .breadcrumb-nav {
+    background: linear-gradient(to right, var(--background-alt), var(--background));
+}
+
+[data-theme="dark"] .breadcrumb-item a {
+    color: var(--secondary-color);
+}
+</style>

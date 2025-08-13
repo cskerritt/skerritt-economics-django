@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('tools/', include('tools.urls', namespace='tools')),
+    path('locations/', include('main.location_urls', namespace='locations')),
 ]
 
 # Serve media files in development
