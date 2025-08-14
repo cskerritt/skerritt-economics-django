@@ -90,3 +90,11 @@ urlpatterns += business_consulting_city_urls
 # Import and add expanded city URLs for maximum SEO coverage (863 cities x 5 services = 4,315 pages)
 from .expanded_city_urls import expanded_city_urlpatterns
 urlpatterns += expanded_city_urlpatterns
+
+# Import and add comprehensive SEO location URLs (states, metros, counties, service combos)
+from .seo_location_urls import urlpatterns as seo_location_urlpatterns
+urlpatterns += seo_location_urlpatterns
+
+# Import and add ultra SEO expansion URLs (neighborhoods, industries, courts, practice areas)
+from .ultra_seo_urls import ultra_seo_urlpatterns
+urlpatterns += ultra_seo_urlpatterns

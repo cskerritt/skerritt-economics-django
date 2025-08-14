@@ -8,6 +8,14 @@ from django.urls import reverse
 from blog.models import Post, CaseStudy
 from .us_cities_data import US_STATES, PRACTICE_AREAS
 from .us_cities_seo_data import US_MAJOR_CITIES
+from .seo_location_system import (
+    CORE_SERVICES,
+    METRO_AREAS,
+    US_STATES as ALL_US_STATES,
+    MAJOR_COUNTIES
+)
+from .expanded_city_data import EXPANDED_CITY_DATA
+from .missing_states_data import MISSING_STATES_DATA
 
 
 def generate_sitemap_xml(request):
@@ -104,6 +112,42 @@ def generate_sitemap_xml(request):
         for service in services:
             priority = 0.9 if city_slug in priority_cities else 0.8
             add_url(f'/{service}/{city_slug}/', 'weekly', priority)
+    
+    # Add new SEO location pages
+    
+    # State pages
+    for state_slug in ALL_US_STATES.keys():
+        add_url(f'/forensic-economist-{state_slug}/', 'monthly', 0.8)
+        
+        # State + Service combinations (limited to avoid huge sitemap)
+        for service in CORE_SERVICES[:4]:  # Top 4 services
+            add_url(f'/{service["slug"]}-{state_slug}/', 'monthly', 0.7)
+    
+    # Metro area pages
+    for metro in METRO_AREAS:
+        add_url(f'/{metro["slug"]}-economist/', 'monthly', 0.8)
+        
+        # Metro + Service combinations
+        for service in CORE_SERVICES[:4]:
+            add_url(f'/{metro["slug"]}-{service["slug"]}/', 'monthly', 0.7)
+    
+    # Major county pages
+    for county in MAJOR_COUNTIES[:20]:  # Top 20 counties
+        add_url(f'/{county["slug"]}-economist/', 'monthly', 0.7)
+    
+    # Top cities with service combinations
+    all_cities = []
+    for state_slug, state_data in {**EXPANDED_CITY_DATA, **MISSING_STATES_DATA}.items():
+        for city in state_data.get('cities', []):
+            city['population'] = int(city.get('population', '0'))
+            all_cities.append(city)
+    
+    # Sort by population and take top 100
+    top_cities = sorted(all_cities, key=lambda x: x['population'], reverse=True)[:100]
+    
+    for city in top_cities:
+        for service in CORE_SERVICES[:4]:  # Top 4 services
+            add_url(f'/{service["slug"]}-{city["slug"]}/', 'monthly', 0.7)
     
     # Convert to string
     tree = ET.ElementTree(urlset)
