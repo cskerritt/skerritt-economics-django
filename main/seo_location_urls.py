@@ -6,8 +6,7 @@ Generates comprehensive location-based URL patterns
 from django.urls import path, include
 from . import seo_location_views
 from .seo_location_system import (
-    SEO_LOCATION_DATA, 
-    generate_all_location_urls,
+    SEO_LOCATION_DATA,
     CORE_SERVICES,
     METRO_AREAS,
     US_STATES,
@@ -15,6 +14,66 @@ from .seo_location_system import (
 )
 from .expanded_city_data import EXPANDED_CITY_DATA
 from .missing_states_data import MISSING_STATES_DATA
+
+def generate_all_location_urls():
+    """Generate all location-based URL patterns"""
+    urlpatterns = []
+    
+    # State-level pages
+    for state_slug, state_data in US_STATES.items():
+        urlpatterns.append(
+            path(f'forensic-economist-{state_slug}/', 
+                 seo_location_views.state_page, 
+                 {'state_slug': state_slug},
+                 name=f'state-{state_slug}')
+        )
+        
+        # State + Service combinations
+        for service in CORE_SERVICES:
+            urlpatterns.append(
+                path(f'{service["slug"]}-{state_slug}/', 
+                     seo_location_views.state_service_page,
+                     {'state_slug': state_slug, 'service_slug': service['slug']},
+                     name=f'{service["slug"]}-{state_slug}')
+            )
+    
+    # Metro area pages
+    for metro in METRO_AREAS:
+        urlpatterns.append(
+            path(f'{metro["slug"]}-economist/', 
+                 seo_location_views.metro_area_page,
+                 {'metro_slug': metro['slug']},
+                 name=f'metro-{metro["slug"]}')
+        )
+        
+        # Metro + Service combinations
+        for service in CORE_SERVICES:
+            urlpatterns.append(
+                path(f'{metro["slug"]}-{service["slug"]}/', 
+                     seo_location_views.metro_service_page,
+                     {'metro_slug': metro['slug'], 'service_slug': service['slug']},
+                     name=f'{metro["slug"]}-{service["slug"]}')
+            )
+    
+    # County pages
+    for county in MAJOR_COUNTIES:
+        urlpatterns.append(
+            path(f'{county["slug"]}-economist/', 
+                 seo_location_views.county_page,
+                 {'county_slug': county['slug']},
+                 name=f'county-{county["slug"]}')
+        )
+        
+        # County + Service combinations  
+        for service in CORE_SERVICES:
+            urlpatterns.append(
+                path(f'{county["slug"]}-{service["slug"]}/', 
+                     seo_location_views.county_service_page,
+                     {'county_slug': county['slug'], 'service_slug': service['slug']},
+                     name=f'{county["slug"]}-{service["slug"]}')
+            )
+    
+    return urlpatterns
 
 def generate_city_service_urls():
     """Generate city + service combination URLs"""
