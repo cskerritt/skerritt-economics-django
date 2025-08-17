@@ -2,15 +2,8 @@
 Dynamic URL generator using data files to reduce code duplication
 """
 
-import json
-import os
 from django.urls import path
-
-def load_location_data():
-    """Load location data from JSON file"""
-    data_file = os.path.join(os.path.dirname(__file__), 'data', 'locations.json')
-    with open(data_file, 'r') as f:
-        return json.load(f)
+from .utils import get_location_data, validate_unique_city_state_combinations
 
 def generate_service_area_urls():
     """Generate service area URLs from data file"""
@@ -21,16 +14,11 @@ def generate_service_area_urls():
         ServiceAreaBusinessValuationView
     )
     
-    data = load_location_data()
+    data = get_location_data()
     cities = data['cities']
     
     # Validate for duplicates
-    seen_combinations = set()
-    for city_data in cities:
-        combo_key = (city_data['city'], city_data['state'])
-        if combo_key in seen_combinations:
-            raise ValueError(f"Duplicate city-state combination: {combo_key}")
-        seen_combinations.add(combo_key)
+    validate_unique_city_state_combinations(cities)
     
     urlpatterns = []
     view_map = {
@@ -62,7 +50,7 @@ def generate_state_location_urls():
     """Generate state location URLs from data file"""
     from .location_hierarchy_views import StateLocationView
     
-    data = load_location_data()
+    data = get_location_data()
     states = data['states']
     
     urlpatterns = []
