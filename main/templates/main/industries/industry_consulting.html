@@ -1,0 +1,154 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }} | Skerritt Economics{% endblock %}
+
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <h1>{{ industry_name }} Business Consulting Services</h1>
+        <p class="lead">{{ industry_description }}</p>
+    </div>
+</section>
+
+<section class="industry-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Expert Economic Consulting for {{ industry_name }}</h2>
+                <p>
+                    Skerritt Economics provides specialized business consulting and economic analysis 
+                    services tailored to the {{ industry_name|lower }} industry. Our deep understanding 
+                    of industry-specific challenges, regulations, and economic factors ensures accurate 
+                    and relevant analysis for your business decisions and legal matters.
+                </p>
+                
+                <h3>{{ industry_name }} Industry Services</h3>
+                <div class="services-overview">
+                    <div class="service-block">
+                        <h4>Economic Analysis</h4>
+                        <p>
+                            Comprehensive economic analysis specific to {{ industry_name|lower }} operations, 
+                            including market conditions, competitive landscape, and industry trends that 
+                            affect valuations and damage calculations.
+                        </p>
+                    </div>
+                    
+                    <div class="service-block">
+                        <h4>Business Valuation</h4>
+                        <p>
+                            Industry-specific business valuations considering unique factors in 
+                            {{ industry_name|lower }}, including specialized assets, intellectual property, 
+                            regulatory compliance costs, and market position.
+                        </p>
+                    </div>
+                    
+                    <div class="service-block">
+                        <h4>Litigation Support</h4>
+                        <p>
+                            Expert testimony and litigation support for {{ industry_name|lower }} disputes, 
+                            including contract breaches, partnership disputes, unfair competition, and 
+                            regulatory compliance matters.
+                        </p>
+                    </div>
+                    
+                    <div class="service-block">
+                        <h4>Damage Calculations</h4>
+                        <p>
+                            Lost profits, business interruption, and economic damage calculations specific 
+                            to {{ industry_name|lower }} operations, accounting for industry cycles, 
+                            seasonality, and market dynamics.
+                        </p>
+                    </div>
+                </div>
+                
+                <h3>Common {{ industry_name }} Case Types</h3>
+                <ul>
+                    {% for case_type in case_types %}
+                    <li>{{ case_type }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <h3>Industry-Specific Expertise</h3>
+                <p>
+                    Our consultants understand the unique aspects of {{ industry_name|lower }}, including:
+                </p>
+                <ul>
+                    <li>Industry-specific regulations and compliance requirements</li>
+                    <li>Market dynamics and competitive factors</li>
+                    <li>Technology and innovation impacts</li>
+                    <li>Supply chain and operational considerations</li>
+                    <li>Customer acquisition and retention economics</li>
+                    <li>Capital requirements and financing structures</li>
+                    <li>Risk factors and mitigation strategies</li>
+                    <li>Industry-specific performance metrics and KPIs</li>
+                </ul>
+                
+                <h3>Our {{ industry_name }} Consulting Process</h3>
+                <ol>
+                    <li><strong>Initial Consultation:</strong> Understanding your specific needs and objectives</li>
+                    <li><strong>Industry Analysis:</strong> Examining relevant market conditions and trends</li>
+                    <li><strong>Data Collection:</strong> Gathering financial and operational information</li>
+                    <li><strong>Economic Modeling:</strong> Applying industry-appropriate valuation methods</li>
+                    <li><strong>Report Preparation:</strong> Delivering clear, defensible analysis</li>
+                    <li><strong>Expert Testimony:</strong> Presenting findings in depositions and trials</li>
+                </ol>
+                
+                <h3>Why Industry Specialization Matters</h3>
+                <p>
+                    {{ industry_name }} businesses face unique challenges and opportunities that require 
+                    specialized knowledge for accurate economic analysis. Our expertise in this sector 
+                    ensures that valuations, damage calculations, and economic opinions reflect the 
+                    true economic reality of your situation.
+                </p>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="cta-box">
+                        <h3>Need {{ industry_name }} Consulting?</h3>
+                        <p>Get expert economic analysis for your {{ industry_name|lower }} business.</p>
+                        <a href="/contact/" class="btn btn-primary">Contact Us Today</a>
+                    </div>
+                    
+                    <div class="credentials">
+                        <h4>Our Credentials</h4>
+                        <ul>
+                            <li>Ph.D. in Economics</li>
+                            <li>25+ years experience</li>
+                            <li>1000+ cases completed</li>
+                            <li>Expert testimony nationwide</li>
+                            <li>Published research</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="related-services">
+                        <h4>Related Services</h4>
+                        <ul>
+                            {% for service in related_services %}
+                            <li>
+                                <a href="{{ service.url }}">{{ service.name }}</a>
+                                <small>{{ service.description }}</small>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    <div class="other-industries">
+                        <h4>Other Industries</h4>
+                        <ul>
+                            <li><a href="/services/business-consulting/industries/healthcare-consulting/">Healthcare</a></li>
+                            <li><a href="/services/business-consulting/industries/technology-consulting/">Technology</a></li>
+                            <li><a href="/services/business-consulting/industries/manufacturing-consulting/">Manufacturing</a></li>
+                            <li><a href="/services/business-consulting/industries/professional-services-consulting/">Professional Services</a></li>
+                            <li><a href="/services/business-consulting/">All Industries</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
