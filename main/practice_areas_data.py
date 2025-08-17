@@ -697,6 +697,382 @@ PRACTICE_AREAS = {
                 ]
             }
         }
+    },
+    'toxic-torts': {
+        'name': 'Toxic Torts',
+        'slug': 'toxic-torts',
+        'description': 'Economic analysis for environmental and chemical exposure litigation',
+        'meta_description': 'Expert economic damage analysis for toxic tort cases including chemical exposure, environmental contamination, and mass tort litigation.',
+        'services': {
+            'forensic_economics': {
+                'title': 'Economic Damages in Toxic Tort Cases',
+                'applications': [
+                    'Medical monitoring cost projections',
+                    'Property value diminution analysis',
+                    'Lost wages from illness or disability',
+                    'Future medical expense calculations',
+                    'Quality of life impact valuation',
+                    'Environmental remediation costs',
+                    'Business interruption from contamination',
+                    'Class action damage models'
+                ]
+            },
+            'life_care_planning': {
+                'title': 'Life Care Planning for Toxic Exposure',
+                'applications': [
+                    'Long-term medical surveillance planning',
+                    'Specialized treatment protocols',
+                    'Environmental modification needs',
+                    'Detoxification therapy planning',
+                    'Respiratory therapy and equipment',
+                    'Cancer treatment cost projections',
+                    'Neurological care planning',
+                    'Immunological support services'
+                ]
+            },
+            'vocational_expert': {
+                'title': 'Vocational Assessment for Toxic Exposure',
+                'applications': [
+                    'Chemical sensitivity work restrictions',
+                    'Environmental exposure limitations',
+                    'Respiratory impairment assessment',
+                    'Neurological impact on employment',
+                    'Cancer treatment work capacity',
+                    'Immune system compromise evaluation',
+                    'Alternative occupation identification',
+                    'Workplace accommodation analysis'
+                ]
+            }
+        }
+    },
+    'business-interruption': {
+        'name': 'Business Interruption',
+        'slug': 'business-interruption',
+        'description': 'Economic analysis for business interruption insurance claims and litigation',
+        'meta_description': 'Expert business interruption loss calculations for insurance claims, natural disasters, and operational disruptions.',
+        'services': {
+            'forensic_economics': {
+                'title': 'Business Interruption Loss Analysis',
+                'applications': [
+                    'Lost revenue calculations',
+                    'Continuing expense identification',
+                    'Extra expense quantification',
+                    'Period of restoration determination',
+                    'Mitigation analysis',
+                    'Supply chain disruption impacts',
+                    'Customer loss valuation',
+                    'Make-up period analysis'
+                ]
+            },
+            'business_valuation': {
+                'title': 'Business Impact Valuation',
+                'applications': [
+                    'Pre-loss business valuation',
+                    'Post-loss value assessment',
+                    'Going concern impact analysis',
+                    'Goodwill impairment evaluation',
+                    'Customer relationship valuation',
+                    'Market share loss quantification',
+                    'Competitive advantage erosion',
+                    'Recovery timeline projection'
+                ]
+            },
+            'business_consulting': {
+                'title': 'Business Continuity Consulting',
+                'applications': [
+                    'Business continuity planning',
+                    'Risk assessment and mitigation',
+                    'Insurance coverage optimization',
+                    'Disaster recovery planning',
+                    'Supply chain resilience',
+                    'Crisis management protocols',
+                    'Revenue recovery strategies',
+                    'Operational efficiency restoration'
+                ]
+            }
+        }
+    },
+    'eminent-domain': {
+        'name': 'Eminent Domain',
+        'slug': 'eminent-domain',
+        'description': 'Valuation and economic analysis for eminent domain and condemnation proceedings',
+        'meta_description': 'Expert property valuation and economic loss analysis for eminent domain, condemnation, and inverse condemnation cases.',
+        'services': {
+            'business_valuation': {
+                'title': 'Property and Business Valuation',
+                'applications': [
+                    'Fair market value determination',
+                    'Highest and best use analysis',
+                    'Severance damage calculations',
+                    'Business relocation cost analysis',
+                    'Goodwill loss valuation',
+                    'Leasehold interest valuation',
+                    'Fixture and improvement valuation',
+                    'Development rights valuation'
+                ]
+            },
+            'forensic_economics': {
+                'title': 'Economic Loss in Condemnation',
+                'applications': [
+                    'Business income loss projections',
+                    'Relocation expense quantification',
+                    'Customer loss economic impact',
+                    'Employee turnover costs',
+                    'Market access loss valuation',
+                    'Temporary taking damages',
+                    'Inverse condemnation damages',
+                    'Project influence impact analysis'
+                ]
+            },
+            'business_consulting': {
+                'title': 'Eminent Domain Strategy',
+                'applications': [
+                    'Pre-condemnation planning',
+                    'Relocation site selection',
+                    'Business continuity during taking',
+                    'Negotiation strategy support',
+                    'Alternative property analysis',
+                    'Tax impact optimization',
+                    'Stakeholder communication planning',
+                    'Post-taking recovery strategies'
+                ]
+            }
+        }
+    },
+    'shareholder-disputes': {
+        'name': 'Shareholder Disputes',
+        'slug': 'shareholder-disputes',
+        'description': 'Valuation and economic analysis for shareholder litigation and corporate disputes',
+        'meta_description': 'Expert business valuation and economic damage analysis for shareholder disputes, oppression claims, and corporate litigation.',
+        'services': {
+            'business_valuation': {
+                'title': 'Shareholder Interest Valuation',
+                'applications': [
+                    'Fair value determination',
+                    'Fair market value analysis',
+                    'Minority discount assessment',
+                    'Marketability discount analysis',
+                    'Control premium valuation',
+                    'Oppressed shareholder remedy valuation',
+                    'Buy-sell agreement pricing',
+                    'Dissenting shareholder appraisal'
+                ]
+            },
+            'forensic_economics': {
+                'title': 'Economic Damages in Corporate Disputes',
+                'applications': [
+                    'Breach of fiduciary duty damages',
+                    'Corporate waste quantification',
+                    'Usurpation of corporate opportunity',
+                    'Self-dealing transaction analysis',
+                    'Executive compensation reasonableness',
+                    'Dividend policy impact analysis',
+                    'Dilution damage calculations',
+                    'Lost investment opportunity costs'
+                ]
+            },
+            'business_consulting': {
+                'title': 'Corporate Governance Consulting',
+                'applications': [
+                    'Shareholder agreement structuring',
+                    'Corporate governance best practices',
+                    'Board independence assessment',
+                    'Executive compensation design',
+                    'Succession planning strategies',
+                    'Exit strategy development',
+                    'Conflict resolution facilitation',
+                    'Corporate restructuring advice'
+                ]
+            }
+        }
+    },
+    'disability-claims': {
+        'name': 'Disability Claims',
+        'slug': 'disability-claims',
+        'description': 'Comprehensive analysis for disability insurance claims and Social Security disability cases',
+        'meta_description': 'Expert vocational and economic analysis for disability insurance claims, SSDI, and long-term disability litigation.',
+        'services': {
+            'vocational_expert': {
+                'title': 'Vocational Assessment for Disability',
+                'applications': [
+                    'Residual functional capacity analysis',
+                    'Transferable skills assessment',
+                    'Labor market survey',
+                    'Job accommodation analysis',
+                    'Any occupation vs. own occupation analysis',
+                    'Sedentary work capacity evaluation',
+                    'Social Security grid rule application',
+                    'Vocational rehabilitation feasibility'
+                ]
+            },
+            'forensic_economics': {
+                'title': 'Economic Analysis in Disability Claims',
+                'applications': [
+                    'Past and future benefit calculations',
+                    'Offset analysis (workers comp, SSDI)',
+                    'Cost of living adjustments',
+                    'Present value of benefits',
+                    'Mitigation earnings analysis',
+                    'Self-employment capacity evaluation',
+                    'Household services valuation',
+                    'Retirement benefit impact'
+                ]
+            },
+            'life_care_planning': {
+                'title': 'Life Care Planning for Disabled Individuals',
+                'applications': [
+                    'Ongoing medical treatment needs',
+                    'Assistive technology requirements',
+                    'Home modification specifications',
+                    'Personal care assistance planning',
+                    'Vocational rehabilitation services',
+                    'Psychological support services',
+                    'Transportation accommodation needs',
+                    'Medication management planning'
+                ]
+            }
+        }
+    },
+    'trade-secret-theft': {
+        'name': 'Trade Secret Theft',
+        'slug': 'trade-secret-theft',
+        'description': 'Economic analysis for trade secret misappropriation and unfair competition cases',
+        'meta_description': 'Expert economic damage calculations for trade secret theft, misappropriation, and unfair competition litigation.',
+        'services': {
+            'forensic_economics': {
+                'title': 'Economic Damages from Trade Secret Theft',
+                'applications': [
+                    'Lost profits from misappropriation',
+                    'Unjust enrichment calculations',
+                    'Head start period valuation',
+                    'Development cost savings analysis',
+                    'Market advantage quantification',
+                    'Customer diversion damages',
+                    'Price erosion impact',
+                    'Remedial measures costs'
+                ]
+            },
+            'business_valuation': {
+                'title': 'Trade Secret Valuation',
+                'applications': [
+                    'Trade secret asset valuation',
+                    'Competitive advantage valuation',
+                    'Research and development valuation',
+                    'Customer list valuation',
+                    'Manufacturing process valuation',
+                    'Software and algorithm valuation',
+                    'Formula and recipe valuation',
+                    'Business method valuation'
+                ]
+            },
+            'business_consulting': {
+                'title': 'Trade Secret Protection Consulting',
+                'applications': [
+                    'Trade secret identification',
+                    'Protection protocol development',
+                    'Employee training programs',
+                    'Non-disclosure agreement review',
+                    'Competitive intelligence policies',
+                    'Information security assessment',
+                    'Exit interview procedures',
+                    'Trade secret audit services'
+                ]
+            }
+        }
+    },
+    'pharmaceutical-liability': {
+        'name': 'Pharmaceutical Liability',
+        'slug': 'pharmaceutical-liability',
+        'description': 'Economic and medical analysis for drug and medical device litigation',
+        'meta_description': 'Expert economic damage analysis and life care planning for pharmaceutical liability, drug injury, and medical device failure cases.',
+        'services': {
+            'life_care_planning': {
+                'title': 'Life Care Planning for Drug Injuries',
+                'applications': [
+                    'Ongoing medical monitoring',
+                    'Revision surgery planning',
+                    'Alternative medication costs',
+                    'Organ damage treatment planning',
+                    'Addiction treatment services',
+                    'Neurological care requirements',
+                    'Cardiac monitoring and treatment',
+                    'Psychological trauma counseling'
+                ]
+            },
+            'forensic_economics': {
+                'title': 'Economic Damages in Pharma Cases',
+                'applications': [
+                    'Medical expense projections',
+                    'Lost earnings calculations',
+                    'Future treatment cost analysis',
+                    'Medical monitoring economics',
+                    'Quality of life valuations',
+                    'Wrongful death damages',
+                    'Class action damage models',
+                    'Punitive damage support analysis'
+                ]
+            },
+            'vocational_expert': {
+                'title': 'Vocational Impact of Drug Injuries',
+                'applications': [
+                    'Medication side effect work impact',
+                    'Cognitive impairment assessment',
+                    'Physical limitation evaluation',
+                    'Treatment schedule work conflicts',
+                    'Fatigue and concentration analysis',
+                    'FDA warning compliance requirements',
+                    'Alternative career planning',
+                    'Disability determination support'
+                ]
+            }
+        }
+    },
+    'nursing-home-abuse': {
+        'name': 'Nursing Home Abuse',
+        'slug': 'nursing-home-abuse',
+        'description': 'Economic and care analysis for nursing home abuse and neglect cases',
+        'meta_description': 'Expert economic damage analysis and life care planning for nursing home abuse, elder neglect, and long-term care facility litigation.',
+        'services': {
+            'life_care_planning': {
+                'title': 'Life Care Planning for Abuse Victims',
+                'applications': [
+                    'Remedial medical care planning',
+                    'Psychological trauma treatment',
+                    'Enhanced supervision needs',
+                    'Wound care and healing protocols',
+                    'Nutritional rehabilitation planning',
+                    'Physical therapy requirements',
+                    'Alternative care facility costs',
+                    'Family counseling services'
+                ]
+            },
+            'forensic_economics': {
+                'title': 'Economic Damages in Elder Abuse',
+                'applications': [
+                    'Additional medical expenses',
+                    'Alternative care facility costs',
+                    'Pain and suffering valuation',
+                    'Loss of life expectancy damages',
+                    'Family caregiving costs',
+                    'Wrongful death economic losses',
+                    'Punitive damage support',
+                    'Quality of life diminution'
+                ]
+            },
+            'business_valuation': {
+                'title': 'Nursing Home Operations Analysis',
+                'applications': [
+                    'Facility valuation for liability',
+                    'Understaffing cost analysis',
+                    'Corporate negligence evaluation',
+                    'Profit over care analysis',
+                    'Industry standard comparisons',
+                    'Regulatory compliance costs',
+                    'Quality measure valuations',
+                    'Corporate structure analysis'
+                ]
+            }
+        }
     }
 }
 
@@ -708,17 +1084,25 @@ PRACTICE_AREA_CATEGORIES = {
         'medical-malpractice',
         'premises-liability',
         'product-liability',
-        'wrongful-death'
+        'wrongful-death',
+        'toxic-torts',
+        'pharmaceutical-liability',
+        'nursing-home-abuse'
     ],
     'employment_related': [
         'employment-litigation',
         'workers-compensation',
-        'disability-insurance'
+        'disability-insurance',
+        'disability-claims'
     ],
     'business_related': [
         'professional-liability',
         'construction-defects',
-        'intellectual-property'
+        'intellectual-property',
+        'business-interruption',
+        'eminent-domain',
+        'shareholder-disputes',
+        'trade-secret-theft'
     ]
 }
 
