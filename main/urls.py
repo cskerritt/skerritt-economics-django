@@ -4,6 +4,7 @@ from . import views
 from .practice_areas_views import PracticeAreaDetailView, PracticeAreasIndexView
 from .city_urls import city_urlpatterns
 from .health import health_check
+from .rss_feed import BlogRSSFeed
 
 urlpatterns = [
     # Health check endpoint
@@ -11,6 +12,9 @@ urlpatterns = [
     
     # SEO files
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),
+    
+    # RSS Feed
+    path('blog/rss/', BlogRSSFeed(), name='blog_rss_feed'),
     
     # Redirects for old URLs to maintain SEO
     path('locations/', views.LocationsIndexView.as_view(), name='locations_index'),
@@ -98,3 +102,15 @@ urlpatterns += seo_location_urlpatterns
 # Import and add ultra SEO expansion URLs (neighborhoods, industries, courts, practice areas)
 from .ultra_seo_urls import ultra_seo_urlpatterns
 urlpatterns += ultra_seo_urlpatterns
+
+# Import and add service area URLs (vocational-expert/city-state format)
+from .service_area_urls import service_area_urlpatterns
+urlpatterns += service_area_urlpatterns
+
+# Import and add location hierarchy URLs (/locations/states/ and /locations/cities/)
+from .location_hierarchy_urls import location_hierarchy_urlpatterns
+urlpatterns += location_hierarchy_urlpatterns
+
+# Import and add industry-specific business consulting URLs
+from .industry_urls import industry_urlpatterns
+urlpatterns += industry_urlpatterns
