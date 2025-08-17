@@ -10,6 +10,7 @@ from .service_area_views import (
     ServiceAreaLifeCarePlannerView,
     ServiceAreaBusinessValuationView
 )
+from .utils import validate_unique_city_state_combinations
 
 # Major cities for each service
 MAJOR_CITIES = [
@@ -70,12 +71,7 @@ MAJOR_CITIES = [
 service_area_urlpatterns = []
 
 # Validate for duplicate city-state combinations
-seen_combinations = set()
-for city_data in MAJOR_CITIES:
-    combo_key = (city_data['city'], city_data['state'])
-    if combo_key in seen_combinations:
-        raise ValueError(f"Duplicate city-state combination found: {combo_key[0]}-{combo_key[1]}")
-    seen_combinations.add(combo_key)
+validate_unique_city_state_combinations(MAJOR_CITIES)
 
 # Generate URLs for each service and city combination
 for city_data in MAJOR_CITIES:
