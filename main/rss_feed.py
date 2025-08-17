@@ -5,7 +5,7 @@ RSS feed for blog and news content
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from django.utils import timezone
-from datetime import datetime
+from datetime import datetime, timedelta
 
 class BlogRSSFeed(Feed):
     """RSS feed for blog posts and economic insights"""
@@ -17,12 +17,13 @@ class BlogRSSFeed(Feed):
         """Return the latest blog items"""
         # Since we don't have a blog model yet, return sample items
         # In production, this would query actual blog posts
+        base_date = timezone.now()
         return [
             {
                 'id': 1,
                 'title': 'Understanding Economic Damages in Personal Injury Cases',
                 'description': 'A comprehensive guide to calculating economic damages in personal injury litigation, including lost wages, medical costs, and future care needs.',
-                'pub_date': timezone.now(),
+                'pub_date': base_date,
                 'author': 'Dr. Christopher Skerritt',
                 'categories': ['Forensic Economics', 'Personal Injury'],
                 'slug': 'understanding-economic-damages-personal-injury'
@@ -31,7 +32,7 @@ class BlogRSSFeed(Feed):
                 'id': 2,
                 'title': 'Business Valuation Methods for Litigation',
                 'description': 'Exploring different approaches to business valuation in legal disputes, including income, market, and asset-based methods.',
-                'pub_date': timezone.now(),
+                'pub_date': base_date - timedelta(days=3),
                 'author': 'Dr. Christopher Skerritt',
                 'categories': ['Business Valuation', 'Commercial Litigation'],
                 'slug': 'business-valuation-methods-litigation'
@@ -40,7 +41,7 @@ class BlogRSSFeed(Feed):
                 'id': 3,
                 'title': 'Life Care Planning: Essential Components',
                 'description': 'Key elements of comprehensive life care plans for catastrophic injury cases, including medical care, therapies, and assistive technologies.',
-                'pub_date': timezone.now(),
+                'pub_date': base_date - timedelta(days=7),
                 'author': 'Dr. Christopher Skerritt',
                 'categories': ['Life Care Planning', 'Medical Malpractice'],
                 'slug': 'life-care-planning-essential-components'
@@ -49,7 +50,7 @@ class BlogRSSFeed(Feed):
                 'id': 4,
                 'title': 'Vocational Assessment in Disability Cases',
                 'description': 'How vocational experts evaluate work capacity and earning potential in disability and workers compensation cases.',
-                'pub_date': timezone.now(),
+                'pub_date': base_date - timedelta(days=10),
                 'author': 'Dr. Christopher Skerritt',
                 'categories': ['Vocational Expert', 'Disability'],
                 'slug': 'vocational-assessment-disability-cases'
@@ -58,7 +59,7 @@ class BlogRSSFeed(Feed):
                 'id': 5,
                 'title': 'Economic Impact of Business Interruption',
                 'description': 'Analyzing lost profits and increased costs from business interruption events, including natural disasters and supply chain disruptions.',
-                'pub_date': timezone.now(),
+                'pub_date': base_date - timedelta(days=14),
                 'author': 'Dr. Christopher Skerritt',
                 'categories': ['Business Interruption', 'Economic Analysis'],
                 'slug': 'economic-impact-business-interruption'
