@@ -1,0 +1,19 @@
+{# Reusable service list component #}
+<div class="services-grid">
+    <div class="service-item">
+        <h4>Forensic Economics</h4>
+        <p>Economic damage calculations, lost earnings analysis, and expert testimony for {{ location_context|default:"legal proceedings" }}.</p>
+    </div>
+    <div class="service-item">
+        <h4>Business Valuation</h4>
+        <p>Professional business valuations for litigation, divorce, and partnership disputes {{ location_phrase|default:"" }}.</p>
+    </div>
+    <div class="service-item">
+        <h4>Life Care Planning</h4>
+        <p>Comprehensive life care plans and future medical cost projections for {{ case_context|default:"injury cases" }}.</p>
+    </div>
+    <div class="service-item">
+        <h4>Vocational Assessment</h4>
+        <p>Earning capacity evaluations and employability determinations for {{ disability_context|default:"disability cases" }}.</p>
+    </div>
+</div>

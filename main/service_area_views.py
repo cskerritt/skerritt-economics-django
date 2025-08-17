@@ -38,4 +38,4 @@ class ServiceAreaLifeCarePlannerView(ServiceAreaBaseView):
 class ServiceAreaBusinessValuationView(ServiceAreaBaseView):
     """View for business valuation service area pages"""
     service_type = 'business-valuation'
-    service_name = 'Business Valuation Expert'
+    service_name = 'Business Valuation'

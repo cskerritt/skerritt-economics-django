@@ -1,0 +1,55 @@
+{# Common sidebar for location pages #}
+<div class="sidebar">
+    <div class="cta-box">
+        <h3>{{ cta_title|default:"Need Expert Economic Analysis?" }}</h3>
+        <p>{{ cta_text|default:"Contact us for professional economic expert services." }}</p>
+        <a href="/contact/" class="btn btn-primary">{{ cta_button|default:"Contact Us" }}</a>
+    </div>
+    
+    {% if show_contact_info %}
+    <div class="contact-info">
+        <h4>Quick Contact</h4>
+        <p><strong>Phone:</strong> Call for consultation</p>
+        <p><strong>Email:</strong> Use contact form</p>
+        <p><strong>Response:</strong> Within 24 hours</p>
+    </div>
+    {% endif %}
+    
+    {% if related_services %}
+    <div class="related-services">
+        <h4>Related Services</h4>
+        <ul>
+            {% for service in related_services %}
+            <li>
+                <a href="{{ service.url }}">{{ service.name }}</a>
+                {% if service.description %}
+                <small>{{ service.description }}</small>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    
+    {% if other_locations %}
+    <div class="related-locations">
+        <h4>{{ location_heading|default:"Other Locations" }}</h4>
+        <ul>
+            {% for location in other_locations %}
+            <li><a href="{{ location.url }}">{{ location.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    
+    {% if other_industries %}
+    <div class="other-industries">
+        <h4>Other Industries</h4>
+        <ul>
+            {% for industry in other_industries %}
+            <li><a href="{{ industry.url }}">{{ industry.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>

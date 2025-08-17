@@ -127,48 +127,7 @@
             </div>
             
             <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="cta-box">
-                        <h3>Need a {{ service_name }} in {{ city_name }}?</h3>
-                        <p>Contact us today for expert analysis and testimony.</p>
-                        <a href="/contact/" class="btn btn-primary">Request Consultation</a>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <h4>Quick Contact</h4>
-                        <p><strong>Phone:</strong> Call for consultation</p>
-                        <p><strong>Email:</strong> Use contact form</p>
-                        <p><strong>Response:</strong> Within 24 hours</p>
-                    </div>
-                    
-                    <div class="other-services">
-                        <h4>Other Services in {{ city_name }}</h4>
-                        <ul>
-                            {% if service_slug != 'forensic-economist' %}
-                            <li><a href="/locations/cities/{{ city_slug }}-forensic-economist.html">Forensic Economist</a></li>
-                            {% endif %}
-                            {% if service_slug != 'business-valuation' %}
-                            <li><a href="/locations/cities/{{ city_slug }}-business-valuation.html">Business Valuation</a></li>
-                            {% endif %}
-                            {% if service_slug != 'life-care-planner' %}
-                            <li><a href="/locations/cities/{{ city_slug }}-life-care-planner.html">Life Care Planner</a></li>
-                            {% endif %}
-                            {% if service_slug != 'vocational-expert' %}
-                            <li><a href="/locations/cities/{{ city_slug }}-vocational-expert.html">Vocational Expert</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                    
-                    <div class="related-locations">
-                        <h4>Nearby Locations</h4>
-                        <ul>
-                            <li><a href="/locations/cities/{{ city_slug }}.html">All {{ city_name }} Services</a></li>
-                            <li><a href="/locations/states/{{ state_slug }}/">{{ state_name }} Services</a></li>
-                            <li><a href="/locations/">All Locations</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                {% include 'main/includes/location_sidebar.html' with cta_title="Need a "|add:service_name|add:" in "|add:city_name|add:"?" cta_text="Contact us today for expert analysis and testimony." cta_button="Request Consultation" show_contact_info=True other_locations=location_links %}
         </div>
     </div>
 </section>

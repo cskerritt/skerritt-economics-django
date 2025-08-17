@@ -69,6 +69,14 @@ MAJOR_CITIES = [
 
 service_area_urlpatterns = []
 
+# Validate for duplicate city-state combinations
+seen_combinations = set()
+for city_data in MAJOR_CITIES:
+    combo_key = (city_data['city'], city_data['state'])
+    if combo_key in seen_combinations:
+        raise ValueError(f"Duplicate city-state combination found: {combo_key[0]}-{combo_key[1]}")
+    seen_combinations.add(combo_key)
+
 # Generate URLs for each service and city combination
 for city_data in MAJOR_CITIES:
     city = city_data['city']

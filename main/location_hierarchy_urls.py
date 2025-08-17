@@ -126,10 +126,10 @@ for state in US_STATES:
 
 # City location pages under /locations/cities/
 for city in SAMPLE_CITIES:
-    # General city page
+    # General city page - standardized with trailing slash
     location_hierarchy_urlpatterns.append(
         path(
-            f'locations/cities/{city["slug"]}.html',
+            f'locations/cities/{city["slug"]}/',
             CityLocationView.as_view(),
             name=f'location_city_{city["slug"]}',
             kwargs={
@@ -141,11 +141,11 @@ for city in SAMPLE_CITIES:
         )
     )
     
-    # Service-specific city pages
+    # Service-specific city pages - standardized with trailing slash
     for service in SERVICES:
         location_hierarchy_urlpatterns.append(
             path(
-                f'locations/cities/{city["slug"]}-{service["slug"]}.html',
+                f'locations/cities/{city["slug"]}-{service["slug"]}/',
                 CityServiceLocationView.as_view(),
                 name=f'location_city_{city["slug"]}_{service["slug"].replace("-", "_")}',
                 kwargs={
