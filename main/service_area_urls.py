@@ -62,6 +62,9 @@ MAJOR_CITIES = [
     {'city': 'bridgeport', 'state': 'ct', 'city_name': 'Bridgeport', 'state_name': 'Connecticut'},
     {'city': 'buffalo', 'state': 'ny', 'city_name': 'Buffalo', 'state_name': 'New York'},
     {'city': 'albany', 'state': 'ny', 'city_name': 'Albany', 'state_name': 'New York'},
+    {'city': 'salem', 'state': 'nh', 'city_name': 'Salem', 'state_name': 'New Hampshire'},
+    {'city': 'charleston', 'state': 'wv', 'city_name': 'Charleston', 'state_name': 'West Virginia'},
+    {'city': 'winooski', 'state': 'vt', 'city_name': 'Winooski', 'state_name': 'Vermont'},
 ]
 
 service_area_urlpatterns = []
