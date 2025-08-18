@@ -87,9 +87,24 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
           
-          # Run deployment script or docker compose
-          if [ -f "/usr/local/bin/deploy_app.sh" ]; then
-            echo "Running deployment script..."
+          # Ensure .env file exists (copy from example if needed)
+          if [ ! -f ".env" ] && [ -f ".env.example" ]; then
+            echo "⚠️ Creating .env file from example..."
+            cp .env.example .env
+            # Generate a secure secret key if not set
+            if grep -q "MUST_BE_SET_IN_PRODUCTION" .env; then
+              SECRET_KEY=$(python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')
+              sed -i "s/MUST_BE_SET_IN_PRODUCTION/$SECRET_KEY/" .env
+            fi
+          fi
+          
+          # Check deployment method and deploy
+          if [ -f "deploy.sh" ]; then
+            echo "Running local deployment script..."
+            chmod +x deploy.sh
+            ./deploy.sh
+          elif [ -f "/usr/local/bin/deploy_app.sh" ]; then
+            echo "Running system deployment script..."
             /usr/local/bin/deploy_app.sh
           elif [ -f "docker-compose.yml" ]; then
             echo "Deploying with Docker Compose..."
@@ -97,17 +112,26 @@ jobs:
             docker compose down
             docker compose up -d --build
             docker compose ps
-          else
-            echo "No deployment method found, attempting manual deployment..."
-            # If using virtual environment
-            if [ -f "venv/bin/activate" ]; then
-              source venv/bin/activate
-              pip install -r requirements.txt
-              python manage.py migrate --noinput
-              python manage.py collectstatic --noinput
-              sudo systemctl restart gunicorn || true
-              sudo systemctl restart nginx || true
+          elif [ -f "venv/bin/activate" ]; then
+            echo "Deploying with virtual environment..."
+            source venv/bin/activate
+            pip install -r requirements.txt
+            python manage.py migrate --noinput
+            python manage.py collectstatic --noinput
+            
+            # Restart services
+            if systemctl is-active --quiet skerritt-economics; then
+              sudo systemctl restart skerritt-economics
+            elif systemctl is-active --quiet gunicorn; then
+              sudo systemctl restart gunicorn
             fi
+            
+            if systemctl is-active --quiet nginx; then
+              sudo systemctl reload nginx
+            fi
+          else
+            echo "❌ No valid deployment method found!"
+            exit 1
           fi
           
           echo "✅ Deployment complete!"
@@ -121,17 +145,40 @@ jobs:
         SITE_URL: ${{ secrets.SITE_URL }}
       run: |
         echo "🔍 Verifying deployment..."
-        sleep 10  # Wait for services to start
+        sleep 15  # Wait for services to fully start
         
-        # Check if site is responding
-        response=$(curl -s -o /dev/null -w "%{http_code}" ${SITE_URL:-http://${{ secrets.LIGHTSAIL_HOST }}})
+        # Determine URL to check
+        URL="${SITE_URL:-http://${{ secrets.LIGHTSAIL_HOST }}}"
+        echo "Checking URL: $URL"
         
-        if [ "$response" = "200" ] || [ "$response" = "301" ] || [ "$response" = "302" ]; then
-          echo "✅ Site is responding with status: $response"
-        else
-          echo "⚠️ Site returned unexpected status: $response"
-          exit 1
-        fi
+        # Check if site is responding (with retries)
+        MAX_RETRIES=3
+        RETRY_COUNT=0
+        
+        while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+          response=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+          
+          if [ "$response" = "200" ] || [ "$response" = "301" ] || [ "$response" = "302" ]; then
+            echo "✅ Site is responding with status: $response"
+            exit 0
+          elif [ "$response" = "500" ] || [ "$response" = "502" ] || [ "$response" = "503" ]; then
+            echo "⚠️ Server error detected (HTTP $response). Attempt $((RETRY_COUNT + 1))/$MAX_RETRIES"
+            if [ $RETRY_COUNT -eq $((MAX_RETRIES - 1)) ]; then
+              echo "❌ Deployment verification failed after $MAX_RETRIES attempts"
+              echo "Please check server logs for details"
+              exit 1
+            fi
+            sleep 10
+          else
+            echo "⚠️ Unexpected status: $response. Attempt $((RETRY_COUNT + 1))/$MAX_RETRIES"
+            sleep 10
+          fi
+          
+          RETRY_COUNT=$((RETRY_COUNT + 1))
+        done
+        
+        echo "❌ Site verification failed after $MAX_RETRIES attempts"
+        exit 1
     
     - name: Notify deployment status
       if: always()
