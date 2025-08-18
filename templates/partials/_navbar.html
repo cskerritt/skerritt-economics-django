@@ -1,43 +1,64 @@
 {% load static %}
-<nav class="navbar bg-base-100" role="navigation" aria-label="Main navigation">
-  <div class="container mx-auto px-4">
-    <div class="text-xl font-bold">
-      <a href="{% url 'home' %}" class="logo-link">
-        <img src="{% static 'images/SEC_LOGO.png' %}" 
-                     alt="Skerritt Economics and Consulting - SEC Logo" 
-                     class="navbar-logo"
-                     width="320" 
-                     height="80"
-                     loading="eager">
-        <span class="sr-only">Skerritt Economics & Consulting</span>
-      </a>
+<nav class="navbar bg-base-100 shadow-lg" role="navigation" aria-label="Main navigation">
+  <div class="navbar-start">
+    <div class="dropdown lg:hidden">
+      <label tabindex="0" class="btn btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </label>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>
+          <details>
+            <summary>Services</summary>
+            <ul class="p-2">
+              <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
+              <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
+              <li><a href="{% url 'service_consulting' %}">Business Consulting</a></li>
+              <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
+              <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+              <li><a href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
+        <li><a href="{% url 'resources' %}">Resources</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
     </div>
-    
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    
-    <ul class="navbar-menu">
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li class="has-dropdown">
-        <a href="{% url 'services_index' %}">Services</a>
-        <ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box">
+    <a href="{% url 'home' %}" class="btn btn-ghost normal-case text-xl p-0">
+      <img src="{% static 'images/SEC_LOGO.png' %}" 
+           alt="Skerritt Economics and Consulting - SEC Logo" 
+           class="h-16 w-auto"
+           loading="eager">
+    </a>
+  </div>
+  
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a href="{% url 'home' %}" class="btn btn-ghost">Home</a></li>
+      <li class="dropdown dropdown-hover">
+        <label tabindex="0" class="btn btn-ghost">Services</label>
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
           <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
           <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
           <li><a href="{% url 'service_consulting' %}">Business Consulting</a></li>
           <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
           <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
-          <li class="dropdown-divider"></li>
+          <li class="divider"></li>
           <li><a href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
         </ul>
       </li>
-      <li><a href="{% url 'about' %}">About</a></li>
-      <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
-      <li><a href="{% url 'resources' %}">Resources</a></li>
-      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="{% url 'about' %}" class="btn btn-ghost">About</a></li>
+      <li><a href="{% url 'case_studies' %}" class="btn btn-ghost">Case Studies</a></li>
+      <li><a href="{% url 'resources' %}" class="btn btn-ghost">Resources</a></li>
+      <li><a href="{% url 'contact' %}" class="btn btn-ghost">Contact</a></li>
     </ul>
+  </div>
+  
+  <div class="navbar-end">
+    <a href="{% url 'contact' %}" class="btn btn-primary btn-sm">Get Consultation</a>
   </div>
 </nav>
