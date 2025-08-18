@@ -36,14 +36,14 @@ def generate_ultra_seo_urls():
             for service in high_priority[:5]:  # Top 5 high priority services
                 urlpatterns.append(
                     path(
-                        f'{service["slug"]}-{neighborhood["slug"]}-{city_slug}/',
+                        f"{service['slug']}-{neighborhood['slug']}-{city_slug}/",
                         ultra_seo_views.neighborhood_service_page,
                         {
                             'neighborhood_slug': neighborhood['slug'],
                             'city_slug': city_slug,
                             'service_slug': service['slug']
                         },
-                        name=f'{service["slug"]}-{neighborhood["slug"]}'
+                        name=f"{service['slug']}-{neighborhood['slug']}"
                     )
                 )
     
@@ -107,13 +107,13 @@ def generate_ultra_seo_urls():
         for service in high_priority[:5]:
             urlpatterns.append(
                 path(
-                    f'{region["slug"]}-{service["slug"]}/',
+                    f"{region['slug']}-{service['slug']}/",
                     ultra_seo_views.region_service_page,
                     {
                         'region_slug': region['slug'],
                         'service_slug': service['slug']
                     },
-                    name=f'{region["slug"]}-{service["slug"]}'
+                    name=f"{region['slug']}-{service['slug']}"
                 )
             )
     
@@ -123,13 +123,13 @@ def generate_ultra_seo_urls():
             for service in high_priority[:5]:  # Top 5 services
                 urlpatterns.append(
                     path(
-                        f'{service["slug"]}-{city["slug"]}/',
+                        f"{service['slug']}-{city['slug']}/",
                         ultra_seo_views.city_service_page,
                         {
                             'city_slug': city['slug'],
                             'service_slug': service['slug']
                         },
-                        name=f'{service["slug"]}-{city["slug"]}'
+                        name=f"{service['slug']}-{city['slug']}"
                     )
                 )
     
@@ -149,13 +149,13 @@ def generate_ultra_seo_urls():
         for service in medium_priority[:10]:  # Medium priority services
             urlpatterns.append(
                 path(
-                    f'{service["slug"]}-{city["slug"]}/',
+                    f"{service['slug']}-{city['slug']}/",
                     ultra_seo_views.city_service_page,
                     {
                         'city_slug': city['slug'],
                         'service_slug': service['slug']
                     },
-                    name=f'{service["slug"]}-{city["slug"]}-med'
+                    name=f"{service['slug']}-{city['slug']}-med"
                 )
             )
     
