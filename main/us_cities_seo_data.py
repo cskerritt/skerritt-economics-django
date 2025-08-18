@@ -4465,4 +4465,4 @@ def get_database_stats():
 # Print basic stats when module loads
 if __name__ == "__main__":
     stats = get_database_stats()
-    print(f"US Cities SEO Database: {stats["total_cities"]} cities across {stats["total_states"]} states")
+    print(f"US Cities SEO Database: {stats['total_cities']} cities across {stats['total_states']} states")
