@@ -78,8 +78,8 @@ def generate_sitemap_xml():
     """Generate complete sitemap XML for city pages"""
     entries = generate_city_sitemap_entries()
     
-    xml_content = "<?xml version="1.0" encoding="UTF-8"?>\n"
-    xml_content += "<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n"
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     
     for entry in entries:
         xml_content += "  <url>\n"

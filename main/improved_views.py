@@ -15,7 +15,7 @@ class ImprovedCityServiceView(TemplateView):
     def get_template_names(self):
         service_slug = self.kwargs.get("service_slug")
         # Use service-specific template
-        return [f"main/locations/city_{service_slug.replace("-", "_")}.html"]
+        return [f"main/locations/city_{service_slug.replace('-', '_')}.html"]
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,7 +49,7 @@ class ImprovedCityServiceView(TemplateView):
             # Service info
             "service": service_info,
             "service_slug": service_slug,
-            "service_type": service_slug.replace("-", "_"),
+            "service_type": service_slug.replace('-', '_'),
             "service_name": service_info["name"],
             "service_title": service_info["title"],
             "service_description": service_info["description"],

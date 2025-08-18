@@ -67,11 +67,11 @@ class SecurityHeadersMiddleware:
         # Add CSP header (adjust based on your needs)
         csp = [
             "default-src 'self'",
-            "script-src "self" "unsafe-inline" https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com",
-            "style-src "self" "unsafe-inline" https://cdn.jsdelivr.net https://fonts.googleapis.com",
-            "font-src "self" https://fonts.gstatic.com https://cdnjs.cloudflare.com",
-            "img-src "self" data: https:",
-            "connect-src "self" https://www.google-analytics.com",
+            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com",
+            "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com",
+            "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
+            "img-src 'self' data: https:",
+            "connect-src 'self' https://www.google-analytics.com",
         ]
         response["Content-Security-Policy"] = "; ".join(csp)
         

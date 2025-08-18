@@ -55,7 +55,7 @@ class AdvancedSitemapGenerator:
             lastmod = ET.SubElement(sitemap, "lastmod")
             lastmod.text = current_date
         
-        xml_str = "<?xml version="1.0" encoding="UTF-8"?>\n"
+        xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n'
         xml_str += ET.tostring(sitemapindex, encoding="unicode", method="xml")
         
         return HttpResponse(xml_str, content_type="application/xml")
@@ -375,7 +375,7 @@ class AdvancedSitemapGenerator:
     
     def _generate_response(self, urlset):
         """Generate HTTP response from urlset"""
-        xml_str = "<?xml version="1.0" encoding="UTF-8"?>\n"
+        xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n'
         xml_str += ET.tostring(urlset, encoding="unicode", method="xml")
         return HttpResponse(xml_str, content_type="application/xml")
 

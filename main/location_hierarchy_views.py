@@ -27,8 +27,8 @@ class CityLocationView(TemplateView):
         context["city_name"] = kwargs.get("city_name", "")
         context["state_name"] = kwargs.get("state_name", "")
         context["state_slug"] = kwargs.get("state_slug", "")
-        context["page_title"] = f"Economic Expert Services in {context['city_name']}, {context["state_name"]}"
-        context["meta_description"] = f"Expert economic analysis and testimony services in {context['city_name']}, {context["state_name"]}. Forensic economics, business valuation, and more."
+        context["page_title"] = f"Economic Expert Services in {context['city_name']}, {context['state_name']}"
+        context["meta_description"] = f"Expert economic analysis and testimony services in {context['city_name']}, {context['state_name']}. Forensic economics, business valuation, and more."
         return context
 
 class CityServiceLocationView(TemplateView):
@@ -43,6 +43,6 @@ class CityServiceLocationView(TemplateView):
         context["state_slug"] = kwargs.get("state_slug", "")
         context["service_slug"] = kwargs.get("service_slug", "")
         context["service_name"] = kwargs.get("service_name", "")
-        context["page_title"] = f"{context['service_name']} in {context["city_name"]}, {context["state_name"]}"
-        context["meta_description"] = f"Professional {context['service_name'].lower()} services in {context["city_name"]}, {context["state_name"]}. Expert testimony and analysis."
+        context["page_title"] = f"{context['service_name']} in {context['city_name']}, {context['state_name']}"
+        context["meta_description"] = f"Professional {context['service_name'].lower()} services in {context['city_name']}, {context['state_name']}. Expert testimony and analysis."
         return context

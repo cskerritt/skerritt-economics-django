@@ -310,11 +310,11 @@ def generate_enhanced_sitemap_xml(request):
     xml_string = ET.tostring(urlset, encoding="unicode", method="xml")
     
     # Add XML declaration and format
-    xml_declaration = "<?xml version="1.0" encoding="UTF-8"?>\n"
+    xml_declaration = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml_string = xml_declaration + xml_string
     
     # Add stylesheet for better viewing in browsers
-    stylesheet = "<?xml-stylesheet type="text/xsl" href="/static/sitemap.xsl"?>\n"
+    stylesheet = '<?xml-stylesheet type="text/xsl" href="/static/sitemap.xsl"?>\n'
     xml_string = xml_declaration + stylesheet + xml_string[len(xml_declaration):]
     
     # Return HTTP response

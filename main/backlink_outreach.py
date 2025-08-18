@@ -240,9 +240,9 @@ class BacklinkOutreachManager:
         templates = {
             "resource_page": {
                 "subject": f"Resource Addition: Economic Damages Calculator Suite for {target_site['name']}",
-                "body": f"""Dear {target_site.get("contact_name", "Resource Manager")},
+                "body": f"""Dear {target_site.get('contact_name', 'Resource Manager')},
 
-I hope this email finds you well. I recently came across your excellent resource page at {target_site["url"]} and wanted to suggest a valuable addition for your visitors.
+I hope this email finds you well. I recently came across your excellent resource page at {target_site['url']} and wanted to suggest a valuable addition for your visitors.
 
 We've developed a comprehensive suite of economic damages calculators specifically designed for legal professionals. These free tools include:
 
@@ -278,9 +278,9 @@ P.S. We also offer complimentary consultations for complex cases if your visitor
             },
             "guest_post": {
                 "subject": f"Guest Post Proposal: Economic Expert Witness Insights for {target_site['name']}",
-                "body": f"""Dear {target_site.get("contact_name", "Editor")},
+                "body": f"""Dear {target_site.get('contact_name', 'Editor')},
 
-I"ve been following {target_site["name']} and appreciate your in-depth coverage of litigation support topics.
+I've been following {target_site['name']} and appreciate your in-depth coverage of litigation support topics.
 
 As a forensic economist with 15+ years of experience providing expert witness services, I'd like to contribute a guest post that would provide valuable insights for your readers. Here are three article ideas:
 
@@ -327,10 +327,10 @@ Professional Affiliations:
             },
             "broken_link": {
                 "subject": f"Broken Resource Found on {target_site['name']}",
-                "body": f"""Dear {target_site.get("contact_name", "Webmaster")},
+                "body": f"""Dear {target_site.get('contact_name', 'Webmaster')},
 
 While researching economic expert resources, I noticed a broken link on your page:
-{target_site.get("page_url", target_site["url"])}
+{target_site.get('page_url', target_site['url'])}
 
 The link to [Broken Resource] appears to return a 404 error.
 
@@ -357,9 +357,9 @@ Skerritt Economics & Consulting
             },
             "partnership": {
                 "subject": "Partnership Opportunity: Economic Expert Resources",
-                "body": f"""Dear {target_site.get("contact_name", "Partnership Team")},
+                "body": f"""Dear {target_site.get('contact_name', 'Partnership Team')},
 
-I"m reaching out to explore a potential partnership between {target_site["name']} and Skerritt Economics & Consulting.
+I'm reaching out to explore a potential partnership between {target_site['name']} and Skerritt Economics & Consulting.
 
 We specialize in forensic economics and frequently work with attorneys who use your platform. I believe we could provide valuable resources for your users:
 
@@ -615,7 +615,7 @@ class LocalSEOManager:
                 {"name": "Yellow Pages", "url": "https://www.yellowpages.com", "priority": "medium"},
                 {"name": "Better Business Bureau", "url": "https://www.bbb.org", "priority": "high"},
                 {"name": "Chamber of Commerce", "url": "local", "priority": "high"},
-                {"name": "Angie\"s List", "url": "https://www.angi.com", "priority": "low'},
+                {"name": "Angie's List", "url": "https://www.angi.com", "priority": "low"},
                 {"name": "Thumbtack", "url": "https://www.thumbtack.com", "priority": "low"},
             ],
             "data_aggregators": [

@@ -189,8 +189,8 @@ class SEOManager:
                 "title": "Comprehensive Industry Guides",
                 "topics": [
                     "Complete Guide to Forensic Economics",
-                    "Attorney\"s Guide to Economic Expert Witnesses',
-                    "Insurance Adjuster\"s Handbook for Economic Damages',
+                    "Attorney's Guide to Economic Expert Witnesses",
+                    "Insurance Adjuster's Handbook for Economic Damages",
                     "Life Care Planning Best Practices"
                 ]
             },
@@ -429,7 +429,7 @@ class BacklinkBuilder:
         templates = {
             "resource_page": {
                 "subject": "Resource Addition: Economic Damages Calculator for Legal Professionals",
-                "body": ""'Dear [Name],
+                "body": """Dear [Name],
 
 I noticed your excellent resource page for legal professionals at [URL] and wanted to suggest a valuable addition.
 
@@ -447,11 +447,11 @@ Would this be a valuable addition to your resource page? I'd be happy to provide
 Best regards,
 Christopher Skerritt
 Skerritt Economics & Consulting
-""'
+"""
             },
             "guest_post": {
                 "subject": "Guest Post Proposal: Economic Expert Witness Best Practices",
-                "body": ""'Dear [Name],
+                "body": """Dear [Name],
 
 I've been following [Website] and appreciate your coverage of litigation support topics.
 
@@ -469,11 +469,11 @@ Would any of these topics interest your readers?
 
 Best regards,
 Christopher Skerritt, MBA, CRC, CLCP
-""'
+"""
             },
             "broken_link": {
                 "subject": "Broken Link on [Page Title]",
-                "body": ""'Dear [Name],
+                "body": """Dear [Name],
 
 While researching economic expert resources, I noticed a broken link on your page [URL].
 
@@ -485,7 +485,7 @@ Hope this helps improve your valuable resource page!
 
 Best regards,
 Christopher Skerritt
-""'
+"""
             }
         }
         
