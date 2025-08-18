@@ -129,11 +129,11 @@ def generate_sitemap_xml(request):
         
         # Metro + Service combinations
         for service in CORE_SERVICES[:4]:
-            add_url(f"/{metro["slug"]}-{service["slug"]}/", "monthly", 0.7)
+            add_url(f"/{metro['slug']}-{service['slug']}/", "monthly", 0.7)
     
     # Major county pages
     for county in MAJOR_COUNTIES[:20]:  # Top 20 counties
-        add_url(f"/{county["slug"]}-economist/", "monthly", 0.7)
+        add_url(f"/{county['slug']}-economist/", "monthly", 0.7)
     
     # Top cities with service combinations
     all_cities = []
@@ -147,7 +147,7 @@ def generate_sitemap_xml(request):
     
     for city in top_cities:
         for service in CORE_SERVICES[:4]:  # Top 4 services
-            add_url(f"/{service["slug"]}-{city["slug"]}/", "monthly", 0.7)
+            add_url(f"/{service['slug']}-{city['slug']}/", "monthly", 0.7)
     
     # Convert to string
     tree = ET.ElementTree(urlset)
