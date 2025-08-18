@@ -1,40 +1,46 @@
 #!/bin/bash
 
 # Deployment script for AWS Lightsail
-# This script builds and deploys the Django application with Docker
+# This script pulls latest code from GitHub and redeploys the Django application with Docker
 
 set -e
 
 echo "🚀 Starting deployment to AWS Lightsail..."
+
+# Pull latest code from GitHub
+echo "📥 Pulling latest code from GitHub..."
+git pull origin main
 
 # Load environment variables
 if [ -f .env ]; then
     export $(cat .env | grep -v '^#' | xargs)
 fi
 
-# Build Docker images
-echo "📦 Building Docker images..."
-docker-compose build
+# Build Docker images with latest code
+echo "📦 Building Docker images with latest code..."
+docker build -t skerritt-django-local:latest .
 
 # Stop existing containers
 echo "🛑 Stopping existing containers..."
-docker-compose down
+docker compose down
 
-# Start new containers
+# Start new containers with updated image
 echo "🚀 Starting new containers..."
-docker-compose up -d
+docker compose up -d
 
-# Run migrations
-echo "🔄 Running database migrations..."
-docker-compose exec django python manage.py migrate
+# Wait for containers to be ready
+echo "⏳ Waiting for containers to be ready..."
+sleep 10
 
-# Collect static files
-echo "📁 Collecting static files..."
-docker-compose exec django python manage.py collectstatic --noinput
+# Run migrations (optional - already done in entrypoint)
+echo "🔄 Checking database migrations..."
+docker compose exec -T django python manage.py showmigrations --plan | head -5
 
-# Create superuser if needed
-echo "👤 Checking for superuser..."
-docker-compose exec django python manage.py shell -c "
+# Note: Static files are collected automatically in the entrypoint script
+
+# Create superuser if needed (optional)
+# echo "👤 Checking for superuser..."
+# docker compose exec -T django python manage.py shell -c "
 from django.contrib.auth import get_user_model
 User = get_user_model()
 if not User.objects.filter(is_superuser=True).exists():
@@ -46,14 +52,18 @@ else:
 
 # Check health
 echo "🏥 Checking application health..."
-sleep 5
-curl -f http://localhost/health/ || echo "Health check endpoint not configured"
+if curl -f -s -o /dev/null -w "%{http_code}" -H "Host: skerritteconomics.com" http://localhost | grep -q "308"; then
+    echo "✅ Site is responding correctly (redirecting to HTTPS)"
+else
+    echo "⚠️  Warning: Site may not be responding correctly"
+fi
 
-echo "✅ Deployment complete!"
-echo "🌐 Application running at http://localhost"
 echo ""
-echo "📝 Next steps:"
-echo "1. Configure your domain DNS to point to this server"
-echo "2. Update .env file with production values"
-echo "3. Change the default admin password"
-echo "4. Monitor logs with: docker-compose logs -f"
+echo "✅ Deployment complete!"
+echo "🌐 Application running at https://skerritteconomics.com"
+echo ""
+echo "📊 Container status:"
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+echo ""
+echo "📝 To monitor logs: docker compose logs -f"
+echo "🔄 To run this deployment again: ./deploy.sh"
