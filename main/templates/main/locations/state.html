@@ -26,8 +26,7 @@
                 </p>
                 
                 <h3>{{ state_name }} Services Include:</h3>
-                {% get_services as services_config %}
-                {% include 'main/includes/service_list.html' with location_context=state_name|add:" courts" location_phrase=" in "|add:state_name case_context=state_name|add:" injury cases" disability_context=state_name|add:" disability cases" %}
+                {% render_service_list location_context=state_name|add:" courts" location_phrase=" in "|add:state_name case_context=state_name|add:" injury cases" disability_context=state_name|add:" disability cases" %}
                 
                 <h3>Practice Areas in {{ state_name }}</h3>
                 <ul>
