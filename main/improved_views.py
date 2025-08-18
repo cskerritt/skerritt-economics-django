@@ -77,7 +77,7 @@ class ImprovedCityServiceView(TemplateView):
             
             # Structured data
             "structured_data": {
-                "service_name": f"{service_info['name']} Services in {city_data["name"]}",
+                "service_name": f"{service_info['name']} Services in {city_data['name']}",
                 "city_name": city_data['name'],
                 "state_name": state_data['name'],
                 "county": city_data["county"],
