@@ -197,11 +197,11 @@ Variables needed:
                         <div class="card-body p-4">
                             <h5 class="card-title text-center mb-3">Need Expert Analysis?</h5>
                             <p class="card-text text-center mb-4">Get a free case evaluation today</p>
-                            <div class="d-grid gap-2">
-                                <a href="tel:+12036052814" class="btn btn-primary btn-lg">
+                            <div class="d-flex flex-column align-items-center gap-2">
+                                <a href="tel:+12036052814" class="btn btn-primary btn-lg px-5">
                                     <i class="fas fa-phone me-2"></i>Call Now
                                 </a>
-                                <a href="{% url 'contact' %}?service={{ service_slug }}" class="btn btn-outline-primary">
+                                <a href="{% url 'contact' %}?service={{ service_slug }}" class="btn btn-outline-primary px-4">
                                     Request Consultation
                                 </a>
                             </div>
