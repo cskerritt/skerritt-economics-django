@@ -1,4 +1,17 @@
-# Use Python 3.11 slim image for smaller size
+# Multi-stage build for Tailwind CSS
+FROM node:20-alpine AS tailwind-builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json tailwind.config.js ./
+COPY static/css/tailwind-input.css ./static/css/
+
+# Install dependencies and build Tailwind
+RUN npm install && \
+    npx tailwindcss -i ./static/css/tailwind-input.css -o ./static/css/tailwind-output.css --minify
+
+# Main Python image
 FROM python:3.11-slim
 
 # Set environment variables
@@ -22,11 +35,14 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install gunicorn for production
-RUN pip install --no-cache-dir gunicorn
+# Install gunicorn for production and development tools
+RUN pip install --no-cache-dir gunicorn ruff
 
 # Copy project
 COPY . .
+
+# Copy built Tailwind CSS from builder stage
+COPY --from=tailwind-builder /app/static/css/tailwind-output.css /app/static/css/tailwind-output.css
 
 # Create user for security
 RUN useradd -m -u 1000 django && chown -R django:django /app

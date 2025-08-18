@@ -13,301 +13,301 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <!-- Hero Section -->
-    <div class="hero-section bg-secondary text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="display-4 mb-4">Certified Vocational Expert in {{ city.name }}, {{ city.state_abbr }}</h1>
-                    <p class="lead">Professional vocational assessment and expert witness services in {{ city.name }}. Certified vocational evaluation for disability, workers' compensation, and personal injury cases.</p>
-                    <div class="cta-buttons mt-4">
-                        <a href="#contact" class="btn btn-warning btn-lg me-3">Free Consultation</a>
-                        <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
-                    </div>
-                </div>
-            </div>
+<div class="w-full px-4">
+  <!-- Hero Section -->
+  <div class="hero-section bg-secondary text-white py-5">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4">
+        <div class="col-lg-8">
+          <h1 class="display-4 mb-4">Certified Vocational Expert in {{ city.name }}, {{ city.state_abbr }}</h1>
+          <p class="text-xl text-gray-600">Professional vocational assessment and expert witness services in {{ city.name }}. Certified vocational evaluation for disability, workers' compensation, and personal injury cases.</p>
+          <div class="cta-buttons mt-4">
+            <a href="#contact" class="btn btn btn-warning btn-lg mr-3">Free Consultation</a>
+            <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Breadcrumbs -->
-    <div class="container mt-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% for breadcrumb in breadcrumbs %}
-                    {% if breadcrumb.url %}
-                        <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
-                    {% else %}
-                        <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </nav>
-    </div>
+  <!-- Breadcrumbs -->
+  <div class="container mx-auto px-4 mt-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumbs">
+        {% for breadcrumb in breadcrumbs %}
+          {% if breadcrumb.url %}
+            <li class=""><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+          {% else %}
+            <li class="active" aria-current="page">{{ breadcrumb.name }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
 
-    <!-- Services Section -->
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2>Vocational Expert Services in {{ city.name }}, {{ city.state_abbr }}</h2>
-                <p>Certified vocational expert providing comprehensive employability assessments and expert witness testimony for {{ city.name }} legal and insurance professionals. Specialized in disability evaluation, workers' compensation, and personal injury cases.</p>
-                
-                <div class="services-list mt-4">
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-secondary">
-                                <div class="card-body">
-                                    <h5 class="card-title text-secondary">Disability Evaluations</h5>
-                                    <p class="card-text">Comprehensive employability assessments for Social Security Disability cases in {{ city.name }}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-secondary">
-                                <div class="card-body">
-                                    <h5 class="card-title text-secondary">Workers' Compensation</h5>
-                                    <p class="card-text">Vocational assessments and return-to-work planning for {{ city.county }} workers' comp cases.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-secondary">
-                                <div class="card-body">
-                                    <h5 class="card-title text-secondary">Personal Injury</h5>
-                                    <p class="card-text">Loss of earning capacity evaluations for personal injury litigation in {{ city.state }}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-secondary">
-                                <div class="card-body">
-                                    <h5 class="card-title text-secondary">Expert Witness</h5>
-                                    <p class="card-text">Professional testimony and deposition services in {{ city.state }} courts and hearings.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Services Section -->
+  <div class="container mx-auto px-4 py-5">
+    <div class="flex flex-wrap -mx-4">
+      <div class="col-lg-8">
+        <h2>Vocational Expert Services in {{ city.name }}, {{ city.state_abbr }}</h2>
+        <p>Certified vocational expert providing comprehensive employability assessments and expert witness testimony for {{ city.name }} legal and insurance professionals. Specialized in disability evaluation, workers' compensation, and personal injury cases.</p>
+        
+        <div class="services-list mt-4">
+          <div class="flex flex-wrap -mx-4">
+            <div class="md:w-1/2 px-4 mb-4">
+              <div class="card bg-base-100 shadow-xl h-full border-secondary">
+                <div class="card-body">
+                  <h5 class="card-title text-secondary">Disability Evaluations</h5>
+                  <p class="text-base">Comprehensive employability assessments for Social Security Disability cases in {{ city.name }}.</p>
                 </div>
-
-                <h3 class="mt-5">Vocational Assessment Process</h3>
-                <div class="assessment-process">
-                    <div class="row">
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h5 mb-0">1</span>
-                            </div>
-                            <h6 class="mt-3">Initial Evaluation</h6>
-                            <p class="small">Comprehensive review of medical records, work history, and educational background.</p>
-                        </div>
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h5 mb-0">2</span>
-                            </div>
-                            <h6 class="mt-3">Testing & Analysis</h6>
-                            <p class="small">Standardized vocational testing and functional capacity assessment.</p>
-                        </div>
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h5 mb-0">3</span>
-                            </div>
-                            <h6 class="mt-3">Report & Recommendations</h6>
-                            <p class="small">Detailed written report with employability conclusions and recommendations.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-5">Areas of Expertise</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5 class="text-secondary">Assessment Types</h5>
-                        <div class="list-unstyled mb-4">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Employability evaluations</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Functional capacity assessments</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Labor market surveys</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Job placement assistance</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="text-secondary">Case Types</h5>
-                        <div class="list-unstyled mb-4">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Social Security Disability</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Workers' Compensation</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Personal Injury Claims</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Long-term Disability</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="credentials-section mt-5">
-                    <h3>Professional Credentials & Certifications</h3>
-                    <p>Christopher Skerritt holds multiple certifications in vocational evaluation and rehabilitation counseling:</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="list-unstyled">
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Certified Rehabilitation Counselor (CRC)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• American Board of Vocational Experts Fellow (ABVE/F)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Certified Vocational Expert (CVE)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="list-unstyled">
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Forensic Vocational Expert (FVE)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Qualified Rehabilitation Counselor (QRC)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Master's in Education, MBA</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-
-            <div class="col-lg-4">
-                <!-- Contact Card -->
-                <div class="card border-warning mb-4" id="contact">
-                    <div class="card-header bg-warning text-dark">
-                        <h5 class="mb-0">Free Case Consultation</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>Discuss your {{ city.name }} vocational evaluation needs. Free initial case consultation.</p>
-                        <div class="contact-info">
-                            <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
-                            <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-                        </div>
-                        <a href="/contact/" class="btn btn-secondary w-100">Contact Form</a>
-                    </div>
+            <div class="md:w-1/2 px-4 mb-4">
+              <div class="card bg-base-100 shadow-xl h-full border-secondary">
+                <div class="card-body">
+                  <h5 class="card-title text-secondary">Workers' Compensation</h5>
+                  <p class="text-base">Vocational assessments and return-to-work planning for {{ city.county }} workers' comp cases.</p>
                 </div>
-
-                <!-- Service Areas -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h6>Service Coverage</h6>
-                    </div>
-                    <div class="card-body">
-                        <p class="small">Serving all of {{ city.county }} and surrounding areas. Available for testimony in {{ city.state }} courts and administrative hearings.</p>
-                    </div>
-                </div>
-
-                <!-- Quick Facts -->
-                <div class="card">
-                    <div class="card-header">
-                        <h6>Experience Summary</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center mb-2">
-                            <h4 class="text-secondary mb-0">20+</h4>
-                            <small>Years Experience</small>
-                        </div>
-                        <div class="text-center mb-2">
-                            <h4 class="text-secondary mb-0">1000+</h4>
-                            <small>Cases Evaluated</small>
-                        </div>
-                        <div class="text-center">
-                            <h4 class="text-secondary mb-0">200+</h4>
-                            <small>Expert Testimonies</small>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+            <div class="md:w-1/2 px-4 mb-4">
+              <div class="card bg-base-100 shadow-xl h-full border-secondary">
+                <div class="card-body">
+                  <h5 class="card-title text-secondary">Personal Injury</h5>
+                  <p class="text-base">Loss of earning capacity evaluations for personal injury litigation in {{ city.state }}.</p>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 px-4 mb-4">
+              <div class="card bg-base-100 shadow-xl h-full border-secondary">
+                <div class="card-body">
+                  <h5 class="card-title text-secondary">Expert Witness</h5>
+                  <p class="text-base">Professional testimony and deposition services in {{ city.state }} courts and hearings.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
 
-    <!-- Testimonials Section -->
-    <div class="bg-light py-5">
-        <div class="container">
-            <h3 class="text-center mb-5">What {{ city.name }} Legal Professionals Say</h3>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"Thorough, professional, and his testimony was crucial to our successful case outcome."</p>
-                            <small class="text-muted">- Personal Injury Attorney, {{ city.county }}</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"His vocational assessments are comprehensive and stand up well under cross-examination."</p>
-                            <small class="text-muted">- Workers' Comp Attorney, {{ city.state }}</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"Excellent communication with clients and very detailed in his evaluations and reports."</p>
-                            <small class="text-muted">- Disability Attorney, {{ city.name }}</small>
-                        </div>
-                    </div>
-                </div>
+        <h3 class="mt-5">Vocational Assessment Process</h3>
+        <div class="assessment-process">
+          <div class="flex flex-wrap -mx-4">
+            <div class="md:w-1/3 px-4 text-center mb-4">
+              <div class="step-icon bg-secondary text-white rounded-full d-inline-flex items-center justify-center" style="width: 60px; height: 60px;">
+                <span class="text-lg font-medium mb-0">1</span>
+              </div>
+              <h6 class="mt-3">Initial Evaluation</h6>
+              <p class="small">Comprehensive review of medical records, work history, and educational background.</p>
             </div>
+            <div class="md:w-1/3 px-4 text-center mb-4">
+              <div class="step-icon bg-secondary text-white rounded-full d-inline-flex items-center justify-center" style="width: 60px; height: 60px;">
+                <span class="text-lg font-medium mb-0">2</span>
+              </div>
+              <h6 class="mt-3">Testing & Analysis</h6>
+              <p class="small">Standardized vocational testing and functional capacity assessment.</p>
+            </div>
+            <div class="md:w-1/3 px-4 text-center mb-4">
+              <div class="step-icon bg-secondary text-white rounded-full d-inline-flex items-center justify-center" style="width: 60px; height: 60px;">
+                <span class="text-lg font-medium mb-0">3</span>
+              </div>
+              <h6 class="mt-3">Report & Recommendations</h6>
+              <p class="small">Detailed written report with employability conclusions and recommendations.</p>
+            </div>
+          </div>
         </div>
-    </div>
 
-    <!-- FAQ Section -->
-    <div class="container py-5">
-        <h3>Vocational Expert FAQs - {{ city.name }}</h3>
-        <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                        What is a vocational expert evaluation?
-                    </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        A vocational expert evaluation assesses an individual's employability and earning capacity considering their medical limitations, work history, education, and transferable skills. This is crucial for disability and personal injury cases in {{ city.name }}.
-                    </div>
-                </div>
+        <h3 class="mt-5">Areas of Expertise</h3>
+        <div class="flex flex-wrap -mx-4">
+          <div class="md:w-1/2 px-4">
+            <h5 class="text-secondary">Assessment Types</h5>
+            <div class="list-none mb-4">
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Employability evaluations</span>
+              </div>
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Functional capacity assessments</span>
+              </div>
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Labor market surveys</span>
+              </div>
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Job placement assistance</span>
+              </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                        How long does a vocational assessment take?
-                    </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Most vocational assessments are completed within 2-3 weeks from the initial referral, depending on the complexity of the case and availability of medical records and other documentation.
-                    </div>
-                </div>
+          </div>
+          <div class="md:w-1/2 px-4">
+            <h5 class="text-secondary">Case Types</h5>
+            <div class="list-none mb-4">
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Social Security Disability</span>
+              </div>
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Workers' Compensation</span>
+              </div>
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Personal Injury Claims</span>
+              </div>
+              <div class="flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
+                <span>Long-term Disability</span>
+              </div>
             </div>
+          </div>
         </div>
+
+        <div class="credentials-section mt-5">
+          <h3>Professional Credentials & Certifications</h3>
+          <p>Christopher Skerritt holds multiple certifications in vocational evaluation and rehabilitation counseling:</p>
+          <div class="flex flex-wrap -mx-4">
+            <div class="md:w-1/2 px-4">
+              <div class="list-none">
+                <div class="flex align-items-start mb-2">
+                  <span>• Certified Rehabilitation Counselor (CRC)</span>
+                </div>
+                <div class="flex align-items-start mb-2">
+                  <span>• American Board of Vocational Experts Fellow (ABVE/F)</span>
+                </div>
+                <div class="flex align-items-start mb-2">
+                  <span>• Certified Vocational Expert (CVE)</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 px-4">
+              <div class="list-none">
+                <div class="flex align-items-start mb-2">
+                  <span>• Forensic Vocational Expert (FVE)</span>
+                </div>
+                <div class="flex align-items-start mb-2">
+                  <span>• Qualified Rehabilitation Counselor (QRC)</span>
+                </div>
+                <div class="flex align-items-start mb-2">
+                  <span>• Master's in Education, MBA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:w-1/3 px-4">
+        <!-- Contact Card -->
+        <div class="card bg-base-100 shadow-xl border-warning mb-4" id="contact">
+          <div class="card-header bg-warning text-neutral">
+            <h5 class="mb-0">Free Case Consultation</h5>
+          </div>
+          <div class="card-body">
+            <p>Discuss your {{ city.name }} vocational evaluation needs. Free initial case consultation.</p>
+            <div class="contact-info">
+              <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
+              <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+            </div>
+            <a href="/contact/" class="btn btn btn-secondary w-full">Contact Form</a>
+          </div>
+        </div>
+
+        <!-- Service Areas -->
+        <div class="card bg-base-100 shadow-xl mb-4">
+          <div class="card-header">
+            <h6>Service Coverage</h6>
+          </div>
+          <div class="card-body">
+            <p class="small">Serving all of {{ city.county }} and surrounding areas. Available for testimony in {{ city.state }} courts and administrative hearings.</p>
+          </div>
+        </div>
+
+        <!-- Quick Facts -->
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-header">
+            <h6>Experience Summary</h6>
+          </div>
+          <div class="card-body">
+            <div class="text-center mb-2">
+              <h4 class="text-secondary mb-0">20+</h4>
+              <small>Years Experience</small>
+            </div>
+            <div class="text-center mb-2">
+              <h4 class="text-secondary mb-0">1000+</h4>
+              <small>Cases Evaluated</small>
+            </div>
+            <div class="text-center">
+              <h4 class="text-secondary mb-0">200+</h4>
+              <small>Expert Testimonies</small>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="bg-base-200 py-5">
+    <div class="container mx-auto px-4">
+      <h3 class="text-center mb-5">What {{ city.name }} Legal Professionals Say</h3>
+      <div class="flex flex-wrap -mx-4">
+        <div class="md:w-1/3 px-4 mb-4">
+          <div class="card bg-base-100 shadow-xl h-full">
+            <div class="card-body">
+              <p class="text-base">"Thorough, professional, and his testimony was crucial to our successful case outcome."</p>
+              <small class="text-gray-500">- Personal Injury Attorney, {{ city.county }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/3 px-4 mb-4">
+          <div class="card bg-base-100 shadow-xl h-full">
+            <div class="card-body">
+              <p class="text-base">"His vocational assessments are comprehensive and stand up well under cross-examination."</p>
+              <small class="text-gray-500">- Workers' Comp Attorney, {{ city.state }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/3 px-4 mb-4">
+          <div class="card bg-base-100 shadow-xl h-full">
+            <div class="card-body">
+              <p class="text-base">"Excellent communication with clients and very detailed in his evaluations and reports."</p>
+              <small class="text-gray-500">- Disability Attorney, {{ city.name }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="container mx-auto px-4 py-5">
+    <h3>Vocational Expert FAQs - {{ city.name }}</h3>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            What is a vocational expert evaluation?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            A vocational expert evaluation assesses an individual's employability and earning capacity considering their medical limitations, work history, education, and transferable skills. This is crucial for disability and personal injury cases in {{ city.name }}.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            How long does a vocational assessment take?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Most vocational assessments are completed within 2-3 weeks from the initial referral, depending on the complexity of the case and availability of medical records and other documentation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

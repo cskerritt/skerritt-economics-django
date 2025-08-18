@@ -6310,11 +6310,11 @@ def get_all_cities():
     """Get all cities across all states"""
     all_cities = []
     for state, data in CITY_DATA.items():
-        for city in data['cities']:
+        for city in data["cities"]:
             city_info = city.copy()
-            city_info['state'] = state
-            city_info['state_name'] = data['state_name']
-            city_info['state_abbr'] = data['state_abbr']
+            city_info["state"] = state
+            city_info["state_name"] = data["state_name"]
+            city_info["state_abbr"] = data["state_abbr"]
             all_cities.append(city_info)
     return all_cities
 
@@ -6323,12 +6323,12 @@ def get_city_by_slug(city_slug, state_slug=None):
     for state, data in CITY_DATA.items():
         if state_slug and state != state_slug:
             continue
-        for city in data['cities']:
-            if city['slug'] == city_slug:
+        for city in data["cities"]:
+            if city["slug"] == city_slug:
                 city_info = city.copy()
-                city_info['state'] = state
-                city_info['state_name'] = data['state_name']
-                city_info['state_abbr'] = data['state_abbr']
+                city_info["state"] = state
+                city_info["state_name"] = data["state_name"]
+                city_info["state_abbr"] = data["state_abbr"]
                 return city_info
     return None
 
@@ -6337,17 +6337,17 @@ def get_state_cities(state_slug):
     if state_slug in CITY_DATA:
         data = CITY_DATA[state_slug]
         cities = []
-        for city in data['cities']:
+        for city in data["cities"]:
             city_info = city.copy()
-            city_info['state'] = state_slug
-            city_info['state_name'] = data['state_name']
-            city_info['state_abbr'] = data['state_abbr']
+            city_info["state"] = state_slug
+            city_info["state_name"] = data["state_name"]
+            city_info["state_abbr"] = data["state_abbr"]
             cities.append(city_info)
         return cities
     return []
 
 def get_total_pages():
     """Calculate total number of pages that will be generated"""
-    services = ['forensic-economist', 'business-valuation', 'vocational-expert', 'life-care-planner']
-    total_cities = sum(len(data['cities']) for data in CITY_DATA.values())
+    services = ["forensic-economist", "business-valuation", "vocational-expert", "life-care-planner"]
+    total_cities = sum(len(data["cities"]) for data in CITY_DATA.values())
     return total_cities * len(services)

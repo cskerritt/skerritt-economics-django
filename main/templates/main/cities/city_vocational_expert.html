@@ -7,27 +7,27 @@ This template extends the base city template for consistent formatting
 {% endcomment %}
 
 {% block service_details %}
-<h4 class="h5 text-primary mb-3">Vocational Expert Services</h4>
+<h4 class="text-lg font-medium text-primary mb-3">Vocational Expert Services</h4>
 <p>Employability assessments, earning capacity evaluations, and vocational rehabilitation planning</p>
 
-<div class="row mt-4">
-    <div class="col-md-6">
-        <h5 class="h6 text-primary">Local Expertise</h5>
-        <ul class="small">
-            <li>Understanding of {{ city_name }} market conditions</li>
-            <li>Knowledge of {{ state_name }} state regulations</li>
-            <li>Experience with local court requirements</li>
-            <li>Regional economic analysis</li>
-        </ul>
-    </div>
-    <div class="col-md-6">
-        <h5 class="h6 text-primary">Service Coverage</h5>
-        <ul class="small">
-            <li>{{ city_name }} and surrounding areas</li>
-            <li>All {{ state_name }} counties</li>
-            <li>Federal court cases</li>
-            <li>Remote testimony available</li>
-        </ul>
-    </div>
+<div class="flex flex-wrap -mx-4 mt-4">
+  <div class="md:w-1/2 px-4">
+    <h5 class="h6 text-primary">Local Expertise</h5>
+    <ul class="small">
+      <li>Understanding of {{ city_name }} market conditions</li>
+      <li>Knowledge of {{ state_name }} state regulations</li>
+      <li>Experience with local court requirements</li>
+      <li>Regional economic analysis</li>
+    </ul>
+  </div>
+  <div class="md:w-1/2 px-4">
+    <h5 class="h6 text-primary">Service Coverage</h5>
+    <ul class="small">
+      <li>{{ city_name }} and surrounding areas</li>
+      <li>All {{ state_name }} counties</li>
+      <li>Federal court cases</li>
+      <li>Remote testimony available</li>
+    </ul>
+  </div>
 </div>
 {% endblock %}

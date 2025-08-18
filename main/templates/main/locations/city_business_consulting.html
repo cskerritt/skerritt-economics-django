@@ -20,14 +20,14 @@
   "url": "{{ request.build_absolute_uri }}",
   "telephone": "+12036052814",
   "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "{{ city_name }}",
-    "addressRegion": "{{ state }}",
-    "addressCountry": "US"
+  "@type": "PostalAddress",
+  "addressLocality": "{{ city_name }}",
+  "addressRegion": "{{ state }}",
+  "addressCountry": "US"
   },
   "areaServed": {
-    "@type": "City",
-    "name": "{{ city_name }}, {{ state }}"
+  "@type": "City",
+  "name": "{{ city_name }}, {{ state }}"
   },
   "priceRange": "$$$$",
   "openingHours": "Mo-Fr 08:00-18:00",
@@ -42,234 +42,234 @@
   "name": "Business Consulting {{ city_name }} - Christopher Skerritt",
   "serviceType": ["Business Consulting", "Strategic Planning", "Operations Consulting", "Financial Advisory", "Growth Strategy"],
   "provider": {
-    "@type": "Person",
-    "name": "Christopher Skerritt",
-    "jobTitle": "Business Consultant",
-    "alumniOf": "MBA",
-    "hasCredential": ["MBA", "CRC", "Business Strategy Certification"]
+  "@type": "Person",
+  "name": "Christopher Skerritt",
+  "jobTitle": "Business Consultant",
+  "alumniOf": "MBA",
+  "hasCredential": ["MBA", "CRC", "Business Strategy Certification"]
   },
   "areaServed": {
-    "@type": "City",
-    "name": "{{ city_name }}",
-    "containedInPlace": {
+  "@type": "City",
+  "name": "{{ city_name }}",
+  "containedInPlace": {
       "@type": "State",
       "name": "{{ state_name }}"
-    }
+  }
   }
 }
 </script>
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">{{ state_name }}</a></li>
-            <li class="breadcrumb-item active">{{ city_name }} Business Consulting</li>
-        </ol>
-    </nav>
+<div class="container mx-auto px-4">
+  <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumbs">
+      <li class=""><a href="{% url 'home' %}">Home</a></li>
+      <li class=""><a href="{% url 'locations_index' %}">Locations</a></li>
+      <li class=""><a href="{% url 'locations_index' %}">{{ state_name }}</a></li>
+      <li class="active">{{ city_name }} Business Consulting</li>
+    </ol>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section mb-5">
-        <h1 class="display-4">Business Consultant {{ city_name }}, {{ state }}</h1>
-        <p class="lead">Strategic Business Advisory & Operations Consulting in {{ city_name }}, {{ state_name }}</p>
-        
-        <div class="row mt-4">
-            <div class="col-md-8">
-                <div class="alert alert-success">
-                    <h2 class="h5">Expert Business Consulting Services in {{ city_name }}</h2>
-                    <p>Christopher Skerritt provides comprehensive business consulting services throughout the {{ city_name }} area. With an MBA and extensive experience in business strategy, operations, and financial analysis, we help businesses achieve sustainable growth and operational excellence.</p>
-                    <a href="{% url 'contact' %}?service=consulting&location={{ city_name }}" class="btn btn-primary btn-lg mt-3">Free Consultation for {{ city_name }} Businesses</a>
-                    <span class="d-block mt-2">📞 Direct: (203) 605-2814</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h3 class="h5">Service Area</h3>
-                        <ul class="list-unstyled">
-                            <li>📍 {{ city_name }}, {{ state }}</li>
-                            <li>📍 {{ state_name }} Region</li>
-                            <li>📍 Available Nationwide</li>
-                        </ul>
-                        <h3 class="h5 mt-3">Quick Contact</h3>
-                        <p class="mb-1">📞 (203) 605-2814</p>
-                        <p>✉️ christophertskerritt@gmail.com</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <section class="hero-section mb-5">
+    <h1 class="display-4">Business Consultant {{ city_name }}, {{ state }}</h1>
+    <p class="text-xl text-gray-600">Strategic Business Advisory & Operations Consulting in {{ city_name }}, {{ state_name }}</p>
+    
+    <div class="flex flex-wrap -mx-4 mt-4">
+      <div class="col-md-8">
+        <div class="alert alert alert-success">
+          <h2 class="text-lg font-medium">Expert Business Consulting Services in {{ city_name }}</h2>
+          <p>Christopher Skerritt provides comprehensive business consulting services throughout the {{ city_name }} area. With an MBA and extensive experience in business strategy, operations, and financial analysis, we help businesses achieve sustainable growth and operational excellence.</p>
+          <a href="{% url 'contact' %}?service=consulting&location={{ city_name }}" class="btn btn btn-primary btn-lg mt-3">Free Consultation for {{ city_name }} Businesses</a>
+          <span class="block mt-2">📞 Direct: (203) 605-2814</span>
         </div>
-    </section>
+      </div>
+      <div class="md:w-1/3 px-4">
+        <div class="card bg-base-100 shadow-xl bg-base-200">
+          <div class="card-body">
+            <h3 class="text-lg font-medium">Service Area</h3>
+            <ul class="list-none">
+              <li>📍 {{ city_name }}, {{ state }}</li>
+              <li>📍 {{ state_name }} Region</li>
+              <li>📍 Available Nationwide</li>
+            </ul>
+            <h3 class="text-lg font-medium mt-3">Quick Contact</h3>
+            <p class="mb-1">📞 (203) 605-2814</p>
+            <p>✉️ christophertskerritt@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section class="services-section mb-5">
-        <h2>Business Consulting Services in {{ city_name }}</h2>
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5">Strategic Planning</h3>
-                        <ul>
-                            <li>Business strategy development</li>
-                            <li>Market analysis and positioning</li>
-                            <li>Competitive advantage assessment</li>
-                            <li>Growth strategy formulation</li>
-                            <li>Strategic roadmap creation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5">Operations Improvement</h3>
-                        <ul>
-                            <li>Process optimization</li>
-                            <li>Efficiency enhancement</li>
-                            <li>Cost reduction strategies</li>
-                            <li>Quality management systems</li>
-                            <li>Performance metrics development</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5">Financial Advisory</h3>
-                        <ul>
-                            <li>Financial analysis and planning</li>
-                            <li>Budgeting and forecasting</li>
-                            <li>Cash flow management</li>
-                            <li>Profitability analysis</li>
-                            <li>Investment evaluation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5">Business Transformation</h3>
-                        <ul>
-                            <li>Digital transformation</li>
-                            <li>Change management</li>
-                            <li>Organizational restructuring</li>
-                            <li>Culture transformation</li>
-                            <li>Innovation strategy</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <!-- Services Section -->
+  <section class="services-section mb-5">
+    <h2>Business Consulting Services in {{ city_name }}</h2>
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
+          <div class="card-body">
+            <h3 class="text-lg font-medium">Strategic Planning</h3>
+            <ul>
+              <li>Business strategy development</li>
+              <li>Market analysis and positioning</li>
+              <li>Competitive advantage assessment</li>
+              <li>Growth strategy formulation</li>
+              <li>Strategic roadmap creation</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
+          <div class="card-body">
+            <h3 class="text-lg font-medium">Operations Improvement</h3>
+            <ul>
+              <li>Process optimization</li>
+              <li>Efficiency enhancement</li>
+              <li>Cost reduction strategies</li>
+              <li>Quality management systems</li>
+              <li>Performance metrics development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
+          <div class="card-body">
+            <h3 class="text-lg font-medium">Financial Advisory</h3>
+            <ul>
+              <li>Financial analysis and planning</li>
+              <li>Budgeting and forecasting</li>
+              <li>Cash flow management</li>
+              <li>Profitability analysis</li>
+              <li>Investment evaluation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
+          <div class="card-body">
+            <h3 class="text-lg font-medium">Business Transformation</h3>
+            <ul>
+              <li>Digital transformation</li>
+              <li>Change management</li>
+              <li>Organizational restructuring</li>
+              <li>Culture transformation</li>
+              <li>Innovation strategy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Industries Section -->
-    <section class="industries-section mb-5">
-        <h2>Industries Served in {{ city_name }}</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <h3 class="h6">Healthcare & Medical</h3>
-                <ul>
-                    <li>Medical practices</li>
-                    <li>Healthcare facilities</li>
-                    <li>Medical device companies</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h3 class="h6">Professional Services</h3>
-                <ul>
-                    <li>Law firms</li>
-                    <li>Accounting firms</li>
-                    <li>Consulting firms</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h3 class="h6">Manufacturing & Distribution</h3>
-                <ul>
-                    <li>Manufacturing companies</li>
-                    <li>Distribution centers</li>
-                    <li>Supply chain operations</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <h3 class="h6">Technology & Software</h3>
-                <ul>
-                    <li>Software companies</li>
-                    <li>Tech startups</li>
-                    <li>IT services firms</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h3 class="h6">Retail & E-commerce</h3>
-                <ul>
-                    <li>Retail businesses</li>
-                    <li>E-commerce companies</li>
-                    <li>Franchise operations</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h3 class="h6">Construction & Real Estate</h3>
-                <ul>
-                    <li>Construction companies</li>
-                    <li>Real estate firms</li>
-                    <li>Property management</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <!-- Industries Section -->
+  <section class="industries-section mb-5">
+    <h2>Industries Served in {{ city_name }}</h2>
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/3 px-4">
+        <h3 class="h6">Healthcare & Medical</h3>
+        <ul>
+          <li>Medical practices</li>
+          <li>Healthcare facilities</li>
+          <li>Medical device companies</li>
+        </ul>
+      </div>
+      <div class="md:w-1/3 px-4">
+        <h3 class="h6">Professional Services</h3>
+        <ul>
+          <li>Law firms</li>
+          <li>Accounting firms</li>
+          <li>Consulting firms</li>
+        </ul>
+      </div>
+      <div class="md:w-1/3 px-4">
+        <h3 class="h6">Manufacturing & Distribution</h3>
+        <ul>
+          <li>Manufacturing companies</li>
+          <li>Distribution centers</li>
+          <li>Supply chain operations</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-4 mt-3">
+      <div class="md:w-1/3 px-4">
+        <h3 class="h6">Technology & Software</h3>
+        <ul>
+          <li>Software companies</li>
+          <li>Tech startups</li>
+          <li>IT services firms</li>
+        </ul>
+      </div>
+      <div class="md:w-1/3 px-4">
+        <h3 class="h6">Retail & E-commerce</h3>
+        <ul>
+          <li>Retail businesses</li>
+          <li>E-commerce companies</li>
+          <li>Franchise operations</li>
+        </ul>
+      </div>
+      <div class="md:w-1/3 px-4">
+        <h3 class="h6">Construction & Real Estate</h3>
+        <ul>
+          <li>Construction companies</li>
+          <li>Real estate firms</li>
+          <li>Property management</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <!-- Why Choose Section -->
-    <section class="why-choose-section mb-5">
-        <h2>Why Choose Skerritt Economics for Business Consulting in {{ city_name }}?</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="h5">Expert Qualifications</h3>
-                <ul>
-                    <li>MBA in Business Administration</li>
-                    <li>Decades of consulting experience</li>
-                    <li>Proven track record of success</li>
-                    <li>Industry-specific expertise</li>
-                    <li>Data-driven approach</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3 class="h5">Our Approach</h3>
-                <ul>
-                    <li>Customized solutions for your business</li>
-                    <li>Practical, implementable strategies</li>
-                    <li>Focus on measurable results</li>
-                    <li>Collaborative partnership model</li>
-                    <li>Ongoing support and guidance</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <!-- Why Choose Section -->
+  <section class="why-choose-section mb-5">
+    <h2>Why Choose Skerritt Economics for Business Consulting in {{ city_name }}?</h2>
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4">
+        <h3 class="text-lg font-medium">Expert Qualifications</h3>
+        <ul>
+          <li>MBA in Business Administration</li>
+          <li>Decades of consulting experience</li>
+          <li>Proven track record of success</li>
+          <li>Industry-specific expertise</li>
+          <li>Data-driven approach</li>
+        </ul>
+      </div>
+      <div class="md:w-1/2 px-4">
+        <h3 class="text-lg font-medium">Our Approach</h3>
+        <ul>
+          <li>Customized solutions for your business</li>
+          <li>Practical, implementable strategies</li>
+          <li>Focus on measurable results</li>
+          <li>Collaborative partnership model</li>
+          <li>Ongoing support and guidance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section bg-light p-5 rounded mb-5">
-        <div class="text-center">
-            <h2>Ready to Transform Your {{ city_name }} Business?</h2>
-            <p class="lead">Get expert business consulting tailored to your needs</p>
-            <div class="mt-4">
-                <a href="{% url 'contact' %}?service=consulting&location={{ city_name }}" class="btn btn-primary btn-lg">Schedule Free Consultation</a>
-                <p class="mt-3">Or call directly: <strong>(203) 605-2814</strong></p>
-            </div>
-        </div>
-    </section>
+  <!-- CTA Section -->
+  <section class="cta-section bg-base-200 p-5 rounded mb-5">
+    <div class="text-center">
+      <h2>Ready to Transform Your {{ city_name }} Business?</h2>
+      <p class="text-xl text-gray-600">Get expert business consulting tailored to your needs</p>
+      <div class="mt-4">
+        <a href="{% url 'contact' %}?service=consulting&location={{ city_name }}" class="btn btn btn-primary btn-lg">Schedule Free Consultation</a>
+        <p class="mt-3">Or call directly: <strong>(203) 605-2814</strong></p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Local Content -->
-    <section class="local-content mb-5">
-        <h2>Business Consulting Services Throughout {{ state_name }}</h2>
-        <p>While based in Rhode Island, Christopher Skerritt provides business consulting services to companies throughout {{ state_name }}, including {{ city_name }} and surrounding areas. Our consulting services are available both in-person and virtually, ensuring accessibility for businesses across the region.</p>
-        
-        <h3 class="h5 mt-4">Serving All {{ city_name }} Business Districts</h3>
-        <p>We work with businesses throughout the {{ city_name }} metropolitan area, providing strategic advisory services to help companies achieve their growth objectives and operational excellence.</p>
-    </section>
+  <!-- Local Content -->
+  <section class="local-content mb-5">
+    <h2>Business Consulting Services Throughout {{ state_name }}</h2>
+    <p>While based in Rhode Island, Christopher Skerritt provides business consulting services to companies throughout {{ state_name }}, including {{ city_name }} and surrounding areas. Our consulting services are available both in-person and virtually, ensuring accessibility for businesses across the region.</p>
+    
+    <h3 class="text-lg font-medium mt-4">Serving All {{ city_name }} Business Districts</h3>
+    <p>We work with businesses throughout the {{ city_name }} metropolitan area, providing strategic advisory services to help companies achieve their growth objectives and operational excellence.</p>
+  </section>
 </div>
 {% endblock %}

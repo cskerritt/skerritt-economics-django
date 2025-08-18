@@ -8,12 +8,12 @@ from .city_data import get_city_by_slug, get_state_cities
 
 class CityLandingView(TemplateView):
     """Base view for city landing pages"""
-    template_name = 'main/locations/city_landing.html'
+    template_name = "main/locations/city_landing.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        city_slug = kwargs.get('city_slug')
-        state_slug = kwargs.get('state_slug')
+        city_slug = kwargs.get("city_slug")
+        state_slug = kwargs.get("state_slug")
         
         # Get city data using the new city_data module
         city = get_city_by_slug(city_slug, state_slug)
@@ -21,12 +21,12 @@ class CityLandingView(TemplateView):
             raise Http404(f"City {city_slug} not found")
         
         context.update({
-            'city': city,
-            'city_slug': city_slug,
-            'service_type': self.service_type if hasattr(self, 'service_type') else 'all',
-            'page_title': self.get_page_title(city),
-            'meta_description': self.get_meta_description(city),
-            'nearby_cities': self.get_nearby_cities(city),
+            "city": city,
+            "city_slug": city_slug,
+            "service_type": self.service_type if hasattr(self, "service_type") else "all",
+            "page_title": self.get_page_title(city),
+            "meta_description": self.get_meta_description(city),
+            "nearby_cities": self.get_nearby_cities(city),
         })
         return context
     
@@ -40,21 +40,21 @@ class CityLandingView(TemplateView):
     
     def get_nearby_cities(self, city):
         """Get nearby cities for internal linking"""
-        if not city or 'state' not in city:
+        if not city or "state" not in city:
             return []
         
         # Get cities from the same state
         nearby = []
-        current_state = city.get('state')
-        current_slug = city.get('slug')
+        current_state = city.get("state")
+        current_slug = city.get("slug")
         
         state_cities = get_state_cities(current_state)
         for city_data in state_cities:
-            if city_data.get('slug') != current_slug:
+            if city_data.get("slug") != current_slug:
                 nearby.append({
-                    'slug': city_data['slug'],
-                    'name': city_data['name'],
-                    'state_abbr': city_data['state_abbr']
+                    "slug": city_data["slug"],
+                    "name": city_data["name"],
+                    "state_abbr": city_data["state_abbr"]
                 })
                 if len(nearby) >= 5:
                     break
@@ -64,8 +64,8 @@ class CityLandingView(TemplateView):
 
 class ForensicEconomistCityView(CityLandingView):
     """Forensic economist city-specific pages"""
-    service_type = 'forensic-economist'
-    template_name = 'main/locations/city_forensic_economist.html'
+    service_type = "forensic-economist"
+    template_name = "main/locations/city_forensic_economist.html"
     
     def get_page_title(self, city):
         return f"Forensic Economist {city['name']}, {city['state_abbr']} | Economic Damages Expert | Christopher Skerritt"
@@ -76,8 +76,8 @@ class ForensicEconomistCityView(CityLandingView):
 
 class BusinessValuationCityView(CityLandingView):
     """Business valuation city-specific pages"""
-    service_type = 'business-valuation'
-    template_name = 'main/locations/city_business_valuation.html'
+    service_type = "business-valuation"
+    template_name = "main/locations/city_business_valuation.html"
     
     def get_page_title(self, city):
         return f"Business Valuation Expert {city['name']}, {city['state_abbr']} | Fair Market Value Analysis"
@@ -88,8 +88,8 @@ class BusinessValuationCityView(CityLandingView):
 
 class VocationalExpertCityView(CityLandingView):
     """Vocational expert city-specific pages"""
-    service_type = 'vocational-expert'
-    template_name = 'main/locations/city_vocational.html'
+    service_type = "vocational-expert"
+    template_name = "main/locations/city_vocational.html"
     
     def get_page_title(self, city):
         return f"Vocational Expert {city['name']}, {city['state_abbr']} | CVE ABVE/F | Earning Capacity"
@@ -100,8 +100,8 @@ class VocationalExpertCityView(CityLandingView):
 
 class LifeCarePlannerCityView(CityLandingView):
     """Life care planner city-specific pages"""
-    service_type = 'life-care-planner'
-    template_name = 'main/locations/city_lifecare.html'
+    service_type = "life-care-planner"
+    template_name = "main/locations/city_lifecare.html"
     
     def get_page_title(self, city):
         return f"Life Care Planner CLCP {city['name']}, {city['state_abbr']} | Future Medical Costs"

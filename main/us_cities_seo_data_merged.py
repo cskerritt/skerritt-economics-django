@@ -18,7 +18,7 @@ import sys
 import os
 
 # Add the project root to Python path to import the regional data files
-sys.path.append('/Users/chrisskerritt/skerritt_economics_django')
+sys.path.append("/Users/chrisskerritt/skerritt_economics_django")
 
 try:
     from western_states_cities_data import WESTERN_STATES_CITIES
@@ -163,20 +163,20 @@ def merge_regional_data():
     
     # Merge Midwest/Central data  
     for state_slug, state_data in MIDWEST_CENTRAL_CITIES.items():
-        if 'cities' in state_data:
-            for city in state_data['cities']:
-                city_slug = city['slug']
+        if "cities" in state_data:
+            for city in state_data["cities"]:
+                city_slug = city["slug"]
                 # Convert to standard format
                 city_data = {
-                    "name": city['name'],
-                    "state": state_data['name'], 
-                    "state_abbr": state_data['state_abbr'],
-                    "county": city['county'],
-                    "population": city['population'],
-                    "lat": city['lat'],
-                    "lng": city['lng'],
-                    "metro_area": city['metro_area'],
-                    "region": city['region']
+                    "name": city["name"],
+                    "state": state_data["name"], 
+                    "state_abbr": state_data["state_abbr"],
+                    "county": city["county"],
+                    "population": city["population"],
+                    "lat": city["lat"],
+                    "lng": city["lng"],
+                    "metro_area": city["metro_area"],
+                    "region": city["region"]
                 }
                 if city_slug not in US_MAJOR_CITIES:
                     US_MAJOR_CITIES[city_slug] = city_data
@@ -194,7 +194,7 @@ def merge_regional_data():
     
     print(f"Merged {cities_added} new cities")
     if duplicates:
-        print(f"Found {len(duplicates)} duplicates (kept original): {', '.join(duplicates[:10])}")
+        print(f"Found {len(duplicates)} duplicates (kept original): {", ".join(duplicates[:10])}")
         if len(duplicates) > 10:
             print(f"... and {len(duplicates) - 10} more")
 
@@ -579,14 +579,14 @@ def get_cities_by_state(state_abbr):
     """Get all cities in a specific state"""
     return {
         slug: city for slug, city in US_MAJOR_CITIES.items()
-        if city['state_abbr'] == state_abbr
+        if city["state_abbr"] == state_abbr
     }
 
 def get_cities_by_state_name(state_name):
     """Get all cities in a specific state by name"""
     return {
         slug: city for slug, city in US_MAJOR_CITIES.items()
-        if city['state'].lower() == state_name.lower()
+        if city["state"].lower() == state_name.lower()
     }
 
 def get_nearby_cities(city_slug, limit=6):
@@ -600,23 +600,23 @@ def get_nearby_cities(city_slug, limit=6):
     
     # First, add cities in same metro area
     for slug, other_city in US_MAJOR_CITIES.items():
-        if slug != city_slug and other_city.get('metro_area') == city.get('metro_area'):
+        if slug != city_slug and other_city.get("metro_area") == city.get("metro_area"):
             nearby.append({
-                'slug': slug,
-                'name': other_city['name'],
-                'state_abbr': other_city['state_abbr']
+                "slug": slug,
+                "name": other_city["name"],
+                "state_abbr": other_city["state_abbr"]
             })
             if len(nearby) >= limit:
                 return nearby[:limit]
     
     # Then add cities in same state
     for slug, other_city in US_MAJOR_CITIES.items():
-        if slug != city_slug and other_city['state_abbr'] == city['state_abbr']:
-            if not any(n['slug'] == slug for n in nearby):
+        if slug != city_slug and other_city["state_abbr"] == city["state_abbr"]:
+            if not any(n["slug"] == slug for n in nearby):
                 nearby.append({
-                    'slug': slug,
-                    'name': other_city['name'],
-                    'state_abbr': other_city['state_abbr']
+                    "slug": slug,
+                    "name": other_city["name"],
+                    "state_abbr": other_city["state_abbr"]
                 })
                 if len(nearby) >= limit:
                     return nearby[:limit]
@@ -627,7 +627,7 @@ def get_top_cities_by_population(limit=50):
     """Get top cities by population"""
     sorted_cities = sorted(
         US_MAJOR_CITIES.items(),
-        key=lambda x: x[1]['population'],
+        key=lambda x: x[1]["population"],
         reverse=True
     )
     return dict(sorted_cities[:limit])
@@ -636,22 +636,22 @@ def get_cities_by_region(region):
     """Get all cities in a specific region"""
     return {
         slug: city for slug, city in US_MAJOR_CITIES.items()
-        if city.get('region', '').lower() == region.lower()
+        if city.get("region", "").lower() == region.lower()
     }
 
 def get_states_list():
     """Get list of all states with cities in the database"""
     states = {}
     for city_data in US_MAJOR_CITIES.values():
-        state_abbr = city_data['state_abbr']
-        state_name = city_data['state']
+        state_abbr = city_data["state_abbr"]
+        state_name = city_data["state"]
         if state_abbr not in states:
             states[state_abbr] = {
-                'name': state_name,
-                'abbr': state_abbr,
-                'city_count': 0
+                "name": state_name,
+                "abbr": state_abbr,
+                "city_count": 0
             }
-        states[state_abbr]['city_count'] += 1
+        states[state_abbr]["city_count"] += 1
     
     return dict(sorted(states.items()))
 
@@ -662,24 +662,24 @@ def get_database_stats():
     total_states = len(states)
     
     # Population statistics
-    populations = [city['population'] for city in US_MAJOR_CITIES.values()]
+    populations = [city["population"] for city in US_MAJOR_CITIES.values()]
     avg_population = sum(populations) / len(populations) if populations else 0
     
     # Regional breakdown
     regions = {}
     for city in US_MAJOR_CITIES.values():
-        region = city.get('region', 'Unknown')
+        region = city.get("region", "Unknown")
         regions[region] = regions.get(region, 0) + 1
     
     return {
-        'total_cities': total_cities,
-        'total_states': total_states,
-        'avg_cities_per_state': round(total_cities / total_states, 1) if total_states > 0 else 0,
-        'avg_population': round(avg_population),
-        'largest_city': max(US_MAJOR_CITIES.items(), key=lambda x: x[1]['population']) if US_MAJOR_CITIES else None,
-        'smallest_city': min(US_MAJOR_CITIES.items(), key=lambda x: x[1]['population']) if US_MAJOR_CITIES else None,
-        'regional_breakdown': regions,
-        'states_coverage': states
+        "total_cities": total_cities,
+        "total_states": total_states,
+        "avg_cities_per_state": round(total_cities / total_states, 1) if total_states > 0 else 0,
+        "avg_population": round(avg_population),
+        "largest_city": max(US_MAJOR_CITIES.items(), key=lambda x: x[1]["population"]) if US_MAJOR_CITIES else None,
+        "smallest_city": min(US_MAJOR_CITIES.items(), key=lambda x: x[1]["population"]) if US_MAJOR_CITIES else None,
+        "regional_breakdown": regions,
+        "states_coverage": states
     }
 
 # Print statistics when module is imported
@@ -690,19 +690,19 @@ if __name__ == "__main__":
     print(f"States Covered: {stats['total_states']}/50")  
     print(f"Average Cities per State: {stats['avg_cities_per_state']}")
     print(f"Average Population: {stats['avg_population']:,}")
-    if stats['largest_city']:
-        print(f"Largest City: {stats['largest_city'][1]['name']}, {stats['largest_city'][1]['state_abbr']} ({stats['largest_city'][1]['population']:,})")
-    if stats['smallest_city']:
-        print(f"Smallest City: {stats['smallest_city'][1]['name']}, {stats['smallest_city'][1]['state_abbr']} ({stats['smallest_city'][1]['population']:,})")
+    if stats["largest_city"]:
+        print(f"Largest City: {stats["largest_city"][1]['name']}, {stats["largest_city"][1]["state_abbr"]} ({stats["largest_city"][1]["population"]:,})")
+    if stats["smallest_city"]:
+        print(f"Smallest City: {stats["smallest_city"][1]['name']}, {stats["smallest_city"][1]["state_abbr"]} ({stats["smallest_city"][1]["population"]:,})")
     
     print(f"\nRegional Coverage:")
-    for region, count in sorted(stats['regional_breakdown'].items()):
+    for region, count in sorted(stats["regional_breakdown"].items()):
         print(f"  {region}: {count} cities")
     
     print(f"\nState Coverage Summary:")
-    under_20 = [state for state, data in stats['states_coverage'].items() if data['city_count'] < 20]
+    under_20 = [state for state, data in stats["states_coverage"].items() if data["city_count"] < 20]
     if under_20:
-        print(f"States with <20 cities: {', '.join(under_20)}")
+        print(f"States with <20 cities: {", ".join(under_20)}")
     else:
         print("All states have 20+ cities ✓")
         

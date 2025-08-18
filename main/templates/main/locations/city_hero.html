@@ -1,69 +1,69 @@
 <!-- Hero Section Template for City Pages -->
-<section class="city-hero bg-gradient-primary text-white p-5 rounded-3 mb-4">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold">{{ service_title }} in {{ city.name }}, {{ city.state_abbr }}</h1>
-                <p class="lead mb-4">{{ service_description }}</p>
-                
-                <div class="hero-badges mb-4">
-                    <span class="badge bg-white text-primary me-2 p-2">📍 {{ city.county }}</span>
-                    <span class="badge bg-white text-primary me-2 p-2">⭐ Court-Qualified Expert</span>
-                    <span class="badge bg-white text-primary me-2 p-2">📚 15+ Certifications</span>
-                    <span class="badge bg-white text-primary me-2 p-2">⏱️ 20+ Years Experience</span>
-                </div>
-                
-                <div class="hero-credentials">
-                    <p class="mb-2"><strong>Christopher Skerritt</strong></p>
-                    <p class="small">M.Ed, MBA, CRC, LRC, FVE, IPEC, CVE, ABVE/F, REAS, CEAS I, CLCP, MSCC, CPRW, QRC</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="cta-card bg-white text-dark p-4 rounded-3 shadow">
-                    <h3 class="h4 mb-3">Free {{ city.name }} Consultation</h3>
-                    <p class="mb-3">Discuss your case with an expert</p>
-                    
-                    <a href="tel:+12036052814" class="btn btn-primary btn-lg w-100 mb-2">
-                        <i class="bi bi-telephone-fill"></i> (203) 605-2814
-                    </a>
-                    
-                    <a href="{% url 'contact' %}?city={{ city.name }}&service={{ service_type }}" class="btn btn-outline-primary w-100 mb-3">
-                        <i class="bi bi-calendar-check"></i> Schedule Meeting
-                    </a>
-                    
-                    <div class="text-center">
-                        <small class="text-muted">
-                            <i class="bi bi-clock"></i> Available Mon-Fri 8am-6pm<br>
-                            <i class="bi bi-geo-alt"></i> Serving all of {{ city.state_name }}
-                        </small>
-                    </div>
-                </div>
-            </div>
+<section class="city-hero bg-gradient-primary text-white p-5 rounded-lg mb-4">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap -mx-4 items-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold">{{ service_title }} in {{ city.name }}, {{ city.state_abbr }}</h1>
+        <p class="text-xl text-gray-600 mb-4">{{ service_description }}</p>
+        
+        <div class="hero-badges mb-4">
+          <span class="badge bg-white text-primary mr-2 p-2">📍 {{ city.county }}</span>
+          <span class="badge bg-white text-primary mr-2 p-2">⭐ Court-Qualified Expert</span>
+          <span class="badge bg-white text-primary mr-2 p-2">📚 15+ Certifications</span>
+          <span class="badge bg-white text-primary mr-2 p-2">⏱️ 20+ Years Experience</span>
         </div>
+        
+        <div class="hero-credentials">
+          <p class="mb-2"><strong>Christopher Skerritt</strong></p>
+          <p class="small">M.Ed, MBA, CRC, LRC, FVE, IPEC, CVE, ABVE/F, REAS, CEAS I, CLCP, MSCC, CPRW, QRC</p>
+        </div>
+      </div>
+      
+      <div class="lg:w-1/3 px-4">
+        <div class="cta-card bg-white text-neutral p-4 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-3">Free {{ city.name }} Consultation</h3>
+          <p class="mb-3">Discuss your case with an expert</p>
+          
+          <a href="tel:+12036052814" class="btn btn btn-primary btn-lg w-full mb-2">
+            <i class="bi bi-telephone-fill"></i> (203) 605-2814
+          </a>
+          
+          <a href="{% url 'contact' %}?city={{ city.name }}&service={{ service_type }}" class="btn btn btn-outline btn-primary w-full mb-3">
+            <i class="bi bi-calendar-check"></i> Schedule Meeting
+          </a>
+          
+          <div class="text-center">
+            <small class="text-gray-500">
+              <i class="bi bi-clock"></i> Available Mon-Fri 8am-6pm<br>
+              <i class="bi bi-geo-alt"></i> Serving all of {{ city.state_name }}
+            </small>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Trust Bar -->
-<section class="trust-bar bg-light p-3 rounded mb-4">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-6 col-md-3">
-                <strong class="d-block">{{ city.population|default:"50,000+" }}</strong>
-                <small class="text-muted">Population Served</small>
-            </div>
-            <div class="col-6 col-md-3">
-                <strong class="d-block">100+</strong>
-                <small class="text-muted">{{ city.name }} Cases</small>
-            </div>
-            <div class="col-6 col-md-3">
-                <strong class="d-block">15+</strong>
-                <small class="text-muted">Professional Certifications</small>
-            </div>
-            <div class="col-6 col-md-3">
-                <strong class="d-block">20+</strong>
-                <small class="text-muted">Years Experience</small>
-            </div>
-        </div>
+<section class="trust-bar bg-base-200 p-3 rounded mb-4">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap -mx-4 text-center">
+      <div class="col-6 md:w-1/4 px-4">
+        <strong class="block">{{ city.population|default:"50,000+" }}</strong>
+        <small class="text-gray-500">Population Served</small>
+      </div>
+      <div class="col-6 md:w-1/4 px-4">
+        <strong class="block">100+</strong>
+        <small class="text-gray-500">{{ city.name }} Cases</small>
+      </div>
+      <div class="col-6 md:w-1/4 px-4">
+        <strong class="block">15+</strong>
+        <small class="text-gray-500">Professional Certifications</small>
+      </div>
+      <div class="col-6 md:w-1/4 px-4">
+        <strong class="block">20+</strong>
+        <small class="text-gray-500">Years Experience</small>
+      </div>
     </div>
+  </div>
 </section>

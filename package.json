@@ -1,0 +1,25 @@
+{
+  "name": "skerritt-economics-django",
+  "version": "1.0.0",
+  "description": "Skerritt Economics & Consulting website",
+  "scripts": {
+    "dev": "concurrently \"npm:vite:dev\" \"npm:tailwind:watch\"",
+    "build": "npm run vite:build && npm run tailwind:build",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
+    "tailwind:watch": "tailwindcss -i ./static/css/tailwind-input.css -o ./static/css/tailwind-output.css --watch",
+    "tailwind:build": "tailwindcss -i ./static/css/tailwind-input.css -o ./static/css/tailwind-output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "daisyui": "^4.4.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "vite": "^5.0.0",
+    "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "htmx.org": "^1.9.10",
+    "alpinejs": "^3.13.0"
+  }
+}

@@ -1,12 +1,12 @@
 {# Data-driven reusable service list component #}
 {% load service_filters %}
 <div class="services-grid">
-    {% for service in services_config %}
-    <div class="service-item">
-        <h4>{{ service.name }}</h4>
-        <p>
-            {{ service.description }}{{ service.suffix_template|format_suffix:suffix_context }}
-        </p>
-    </div>
-    {% endfor %}
+  {% for service in services_config %}
+  <div class="service-item">
+    <h4>{{ service.name }}</h4>
+    <p>
+      {{ service.description }}{{ service.suffix_template|format_suffix:suffix_context }}
+    </p>
+  </div>
+  {% endfor %}
 </div>

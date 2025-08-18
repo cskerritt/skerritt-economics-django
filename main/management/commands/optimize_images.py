@@ -4,29 +4,29 @@ import os
 from pathlib import Path
 
 class Command(BaseCommand):
-    help = 'Optimize images and generate WebP versions'
+    help = "Optimize images and generate WebP versions"
 
     def add_arguments(self, parser):
         parser.add_argument(
-            '--path',
+            "--path",
             type=str,
-            default='static/images',
-            help='Path to images directory'
+            default="static/images",
+            help="Path to images directory"
         )
 
     def handle(self, *args, **options):
-        images_path = Path(options['path'])
+        images_path = Path(options["path"])
         
         if not images_path.exists():
             self.stdout.write(self.style.ERROR(f"Path {images_path} does not exist"))
             return
         
         # Process all images
-        image_extensions = ['.jpg', '.jpeg', '.png']
+        image_extensions = [".jpg", ".jpeg", ".png"]
         processed = 0
         
         for ext in image_extensions:
-            for image_file in images_path.glob(f'**/*{ext}'):
+            for image_file in images_path.glob(f"**/*{ext}"):
                 try:
                     self.optimize_image(image_file)
                     processed += 1
@@ -40,17 +40,17 @@ class Command(BaseCommand):
         img = Image.open(image_path)
         
         # Convert RGBA to RGB if necessary
-        if img.mode in ('RGBA', 'LA'):
-            background = Image.new('RGB', img.size, (255, 255, 255))
-            background.paste(img, mask=img.split()[-1] if img.mode == 'RGBA' else None)
+        if img.mode in ("RGBA", "LA"):
+            background = Image.new("RGB", img.size, (255, 255, 255))
+            background.paste(img, mask=img.split()[-1] if img.mode == "RGBA" else None)
             img = background
         
         # Save optimized original
         img.save(image_path, optimize=True, quality=85)
         
         # Create WebP version
-        webp_path = image_path.with_suffix('.webp')
-        img.save(webp_path, 'WEBP', optimize=True, quality=85)
+        webp_path = image_path.with_suffix(".webp")
+        img.save(webp_path, "WEBP", optimize=True, quality=85)
         
         # Create responsive sizes
         sizes = [320, 640, 768, 1024, 1280, 1920]
@@ -73,6 +73,6 @@ class Command(BaseCommand):
                 
                 # Save WebP format
                 webp_resized_path = parent_dir / f"{base_path}-{size}w.webp"
-                resized.save(webp_resized_path, 'WEBP', optimize=True, quality=85)
+                resized.save(webp_resized_path, "WEBP", optimize=True, quality=85)
         
         self.stdout.write(self.style.SUCCESS(f"Optimized: {image_path}"))

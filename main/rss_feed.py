@@ -20,66 +20,66 @@ class BlogRSSFeed(Feed):
         base_date = timezone.now()
         return [
             {
-                'id': 1,
-                'title': 'Understanding Economic Damages in Personal Injury Cases',
-                'description': 'A comprehensive guide to calculating economic damages in personal injury litigation, including lost wages, medical costs, and future care needs.',
-                'pub_date': base_date,
-                'author': 'Dr. Christopher Skerritt',
-                'categories': ['Forensic Economics', 'Personal Injury'],
-                'slug': 'understanding-economic-damages-personal-injury'
+                "id": 1,
+                "title": "Understanding Economic Damages in Personal Injury Cases",
+                "description": "A comprehensive guide to calculating economic damages in personal injury litigation, including lost wages, medical costs, and future care needs.",
+                "pub_date": base_date,
+                "author": "Dr. Christopher Skerritt",
+                "categories": ["Forensic Economics", "Personal Injury"],
+                "slug": "understanding-economic-damages-personal-injury"
             },
             {
-                'id': 2,
-                'title': 'Business Valuation Methods for Litigation',
-                'description': 'Exploring different approaches to business valuation in legal disputes, including income, market, and asset-based methods.',
-                'pub_date': base_date - timedelta(days=3),
-                'author': 'Dr. Christopher Skerritt',
-                'categories': ['Business Valuation', 'Commercial Litigation'],
-                'slug': 'business-valuation-methods-litigation'
+                "id": 2,
+                "title": "Business Valuation Methods for Litigation",
+                "description": "Exploring different approaches to business valuation in legal disputes, including income, market, and asset-based methods.",
+                "pub_date": base_date - timedelta(days=3),
+                "author": "Dr. Christopher Skerritt",
+                "categories": ["Business Valuation", "Commercial Litigation"],
+                "slug": "business-valuation-methods-litigation"
             },
             {
-                'id': 3,
-                'title': 'Life Care Planning: Essential Components',
-                'description': 'Key elements of comprehensive life care plans for catastrophic injury cases, including medical care, therapies, and assistive technologies.',
-                'pub_date': base_date - timedelta(days=7),
-                'author': 'Dr. Christopher Skerritt',
-                'categories': ['Life Care Planning', 'Medical Malpractice'],
-                'slug': 'life-care-planning-essential-components'
+                "id": 3,
+                "title": "Life Care Planning: Essential Components",
+                "description": "Key elements of comprehensive life care plans for catastrophic injury cases, including medical care, therapies, and assistive technologies.",
+                "pub_date": base_date - timedelta(days=7),
+                "author": "Dr. Christopher Skerritt",
+                "categories": ["Life Care Planning", "Medical Malpractice"],
+                "slug": "life-care-planning-essential-components"
             },
             {
-                'id': 4,
-                'title': 'Vocational Assessment in Disability Cases',
-                'description': 'How vocational experts evaluate work capacity and earning potential in disability and workers compensation cases.',
-                'pub_date': base_date - timedelta(days=10),
-                'author': 'Dr. Christopher Skerritt',
-                'categories': ['Vocational Expert', 'Disability'],
-                'slug': 'vocational-assessment-disability-cases'
+                "id": 4,
+                "title": "Vocational Assessment in Disability Cases",
+                "description": "How vocational experts evaluate work capacity and earning potential in disability and workers compensation cases.",
+                "pub_date": base_date - timedelta(days=10),
+                "author": "Dr. Christopher Skerritt",
+                "categories": ["Vocational Expert", "Disability"],
+                "slug": "vocational-assessment-disability-cases"
             },
             {
-                'id': 5,
-                'title': 'Economic Impact of Business Interruption',
-                'description': 'Analyzing lost profits and increased costs from business interruption events, including natural disasters and supply chain disruptions.',
-                'pub_date': base_date - timedelta(days=14),
-                'author': 'Dr. Christopher Skerritt',
-                'categories': ['Business Interruption', 'Economic Analysis'],
-                'slug': 'economic-impact-business-interruption'
+                "id": 5,
+                "title": "Economic Impact of Business Interruption",
+                "description": "Analyzing lost profits and increased costs from business interruption events, including natural disasters and supply chain disruptions.",
+                "pub_date": base_date - timedelta(days=14),
+                "author": "Dr. Christopher Skerritt",
+                "categories": ["Business Interruption", "Economic Analysis"],
+                "slug": "economic-impact-business-interruption"
             }
         ]
     
     def item_title(self, item):
-        return item['title']
+        return item["title"]
     
     def item_description(self, item):
-        return item['description']
+        return item["description"]
     
     def item_link(self, item):
         return f"/blog/{item['slug']}/"
     
     def item_pubdate(self, item):
-        return item['pub_date']
+        return item["pub_date"]
     
     def item_author_name(self, item):
-        return item['author']
+        return item["author"]
     
     def item_categories(self, item):
-        return item['categories']
+        return item["categories"]

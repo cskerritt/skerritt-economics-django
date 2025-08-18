@@ -7,7 +7,7 @@ from ..utils import get_services_config
 
 register = template.Library()
 
-@register.inclusion_tag('main/includes/service_list.html')
+@register.inclusion_tag("main/includes/service_list.html")
 def render_service_list(location_context="legal proceedings", 
                         location_phrase="", 
                         case_context="injury cases",
@@ -18,13 +18,13 @@ def render_service_list(location_context="legal proceedings",
     """
     # Create suffix context dictionary for the template
     suffix_context = {
-        'location_context': location_context,
-        'location_phrase': location_phrase,
-        'case_context': case_context,
-        'disability_context': disability_context
+        "location_context": location_context,
+        "location_phrase": location_phrase,
+        "case_context": case_context,
+        "disability_context": disability_context
     }
     
     return {
-        'services_config': get_services_config(),
-        'suffix_context': suffix_context
+        "services_config": get_services_config(),
+        "suffix_context": suffix_context
     }

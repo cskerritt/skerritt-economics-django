@@ -12,12 +12,12 @@ def faq_schema(faqs):
     Usage: {% faq_schema faqs %}
     """
     if not faqs:
-        return ''
+        return ""
     
     faq_list = []
     for faq in faqs:
-        question = getattr(faq, 'question', faq.get('question', ''))
-        answer = getattr(faq, 'answer', faq.get('answer', ''))
+        question = getattr(faq, "question", faq.get("question", ""))
+        answer = getattr(faq, "answer", faq.get("answer", ""))
         
         if question and answer:
             faq_list.append({
@@ -30,7 +30,7 @@ def faq_schema(faqs):
             })
     
     if not faq_list:
-        return ''
+        return ""
     
     schema = {
         "@context": "https://schema.org",
@@ -49,12 +49,12 @@ def breadcrumb_schema(items):
     Usage: {% breadcrumb_schema breadcrumb_items %}
     """
     if not items:
-        return ''
+        return ""
     
     item_list = []
     for i, item in enumerate(items, 1):
-        name = item.get('name', '')
-        url = item.get('url', '')
+        name = item.get("name", "")
+        url = item.get("url", "")
         
         if name and url:
             item_list.append({
@@ -65,7 +65,7 @@ def breadcrumb_schema(items):
             })
     
     if not item_list:
-        return ''
+        return ""
     
     schema = {
         "@context": "https://schema.org",

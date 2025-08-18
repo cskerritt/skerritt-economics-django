@@ -8006,19 +8006,19 @@ def get_all_expanded_cities():
     """Get all cities in a flat list for URL generation"""
     cities = []
     for state_slug, state_data in EXPANDED_CITY_DATA.items():
-        for city_info in state_data['cities']:
+        for city_info in state_data["cities"]:
             city = {
-                'name': city_info['name'],
-                'slug': city_info['slug'],
-                'state': state_data['state_name'],
-                'state_abbr': state_data['state_abbr'],
-                'state_slug': state_slug,
-                'county': city_info.get('county', ''),
-                'population': city_info.get('population', ''),
-                'lat': city_info.get('lat', 0.0),
-                'lng': city_info.get('lng', 0.0),
-                'metro_area': city_info.get('metro_area', ''),
-                'region': city_info.get('region', '')
+                "name": city_info["name"],
+                "slug": city_info["slug"],
+                "state": state_data["state_name"],
+                "state_abbr": state_data["state_abbr"],
+                "state_slug": state_slug,
+                "county": city_info.get("county", ""),
+                "population": city_info.get("population", ""),
+                "lat": city_info.get("lat", 0.0),
+                "lng": city_info.get("lng", 0.0),
+                "metro_area": city_info.get("metro_area", ""),
+                "region": city_info.get("region", "")
             }
             cities.append(city)
     return cities
@@ -8026,14 +8026,14 @@ def get_all_expanded_cities():
 def get_cities_by_state(state_slug):
     """Get all cities for a specific state"""
     if state_slug in EXPANDED_CITY_DATA:
-        return EXPANDED_CITY_DATA[state_slug]['cities']
+        return EXPANDED_CITY_DATA[state_slug]["cities"]
     return []
 
 def get_city_by_slug(city_slug, state_slug):
     """Get specific city data by slug and state"""
     cities = get_cities_by_state(state_slug)
     for city in cities:
-        if city['slug'] == city_slug:
+        if city["slug"] == city_slug:
             return city
     return None
 
@@ -8041,10 +8041,10 @@ def get_states_list():
     """Get list of all states with city data"""
     return [
         {
-            'slug': state_slug,
-            'name': state_data['state_name'],
-            'abbr': state_data['state_abbr'],
-            'city_count': len(state_data['cities'])
+            "slug": state_slug,
+            "name": state_data["state_name"],
+            "abbr": state_data["state_abbr"],
+            "city_count": len(state_data["cities"])
         }
         for state_slug, state_data in EXPANDED_CITY_DATA.items()
     ]
