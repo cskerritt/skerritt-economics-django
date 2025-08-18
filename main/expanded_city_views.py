@@ -46,15 +46,15 @@ class BaseCityServiceView(TemplateView):
             "life-care-planning": "Life Care Planning Services"
         }
         service_name = service_names.get(service, service.replace("-", " ").title())
-        return f"{service_name} in {city['name']}, {city["state_abbr"]} | Expert Services"
+        return f"{service_name} in {city['name']}, {city['state_abbr']} | Expert Services"
     
     def get_meta_description(self, city, service):
         """Generate SEO-optimized meta description"""
         service_descriptions = {
-            "forensic-economics": f"Expert forensic economist services in {city['name']}, {city["state_abbr"]}. Professional economic damage analysis for litigation support.",
-            "business-valuation": f"Professional business valuation services in {city['name']}, {city["state_abbr"]}. Expert business appraisal for litigation and transactions.",
-            "business-consulting": f"Strategic business consulting services in {city['name']}, {city["state_abbr"]}. Expert analysis and advisory for business decisions.",
-            "vocational-expert": f"Certified vocational expert services in {city['name']}, {city["state_abbr"]}. Professional vocational assessment and testimony.",
+            "forensic-economics": f"Expert forensic economist services in {city['name']}, {city['state_abbr']}. Professional economic damage analysis for litigation support.",
+            "business-valuation": f"Professional business valuation services in {city['name']}, {city['state_abbr']}. Expert business appraisal for litigation and transactions.",
+            "business-consulting": f"Strategic business consulting services in {city['name']}, {city['state_abbr']}. Expert analysis and advisory for business decisions.",
+            "vocational-expert": f"Certified vocational expert services in {city['name']}, {city['state_abbr']}. Professional vocational assessment and testimony.",
             "life-care-planning": f"Expert life care planning services in {city['name']}, {city["state_abbr"]}. Comprehensive medical and care cost analysis."
         }
         return service_descriptions.get(service, f"Expert {service.replace("-", " ")} services in {city["name"]}, {city["state_abbr"]}.")
