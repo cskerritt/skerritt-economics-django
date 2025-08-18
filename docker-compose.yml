@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   django:
-    image: ghcr.io/cskerritt/skerritt-economics-django:working
+    image: ghcr.io/cskerritt/skerritt-economics-django:latest
     container_name: skerritt_django
     restart: always
     volumes:
