@@ -2,6 +2,8 @@
 
 A professional Django web application for Skerritt Economics & Consulting, providing forensic economics and business valuation services.
 
+[![Deploy Status](https://github.com/cskerritt/skerritt-economics-django/actions/workflows/deploy.yml/badge.svg)](https://github.com/cskerritt/skerritt-economics-django/actions/workflows/deploy.yml)
+
 ## Features
 
 - **Service Pages**: Detailed information about forensic economics, business valuation, vocational expert, and life care planning services
