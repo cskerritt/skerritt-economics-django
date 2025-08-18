@@ -237,7 +237,7 @@ class LocationView(TemplateView):
             context["state_info"] = {
                 "name": state_data["name"],
                 "cities": state_data["cities"][:15],
-                "description": f"Expert forensic economics and business valuation services throughout {state_data["name"]}."
+                "description": f"Expert forensic economics and business valuation services throughout {state_data['name']}."
             }
         else:
             context["state"] = state_slug.replace("-", " ").title()
