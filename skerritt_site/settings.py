@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
+    # "django_vite",  # Temporarily disabled until properly installed
     "main",
     "blog",
     "tools",
@@ -145,6 +146,21 @@ STATICFILES_DIRS = [
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# Django-Vite Configuration
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG,
+        "dev_server_port": 3000,
+        "manifest_path": BASE_DIR / "static" / "vite" / "manifest.json" if not DEBUG else "",
+    }
+}
+
+# Add Vite assets directory
+if DEBUG:
+    DJANGO_VITE_ASSETS_PATH = BASE_DIR / "assets"
+else:
+    DJANGO_VITE_ASSETS_PATH = BASE_DIR / "static" / "vite"
 
 # Email configuration
 EMAIL_BACKEND = config("EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend")

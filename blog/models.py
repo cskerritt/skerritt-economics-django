@@ -87,7 +87,7 @@ class CaseStudy(models.Model):
     challenges = models.TextField(blank=True, help_text="Key challenges addressed")
     outcome = models.TextField(blank=True, help_text="Case outcome or result")
     
-    amount = models.CharField(max_length=100, blank=True, help_text="Economic value (e.g., "$2.3M")")
+    amount = models.CharField(max_length=100, blank=True, help_text="Economic value (e.g., $2.3M)")
     featured = models.BooleanField(default=False, help_text="Display on homepage")
     
     created_date = models.DateTimeField(default=timezone.now)

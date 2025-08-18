@@ -48,7 +48,7 @@ class ContactInquiry(models.Model):
         ordering = ["-created_date"]
     
     def __str__(self):
-        return f"{self.name} - {self.get_case_type_display()} ({self.created_date.strftime("%Y-%m-%d")})"
+        return f"{self.name} - {self.get_case_type_display()} ({self.created_date.strftime('%Y-%m-%d')})"
 
 
 class Testimonial(models.Model):
@@ -163,4 +163,4 @@ class Referral(models.Model):
         verbose_name_plural = "Expert Referrals"
     
     def __str__(self):
-        return f"{self.referrer_name} - {self.get_case_type_display()} - {self.created_date.strftime("%Y-%m-%d")}"
+        return f"{self.referrer_name} - {self.get_case_type_display()} - {self.created_date.strftime('%Y-%m-%d')}"

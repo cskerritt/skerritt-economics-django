@@ -1,0 +1,40 @@
+/**
+ * Main CSS file for Vite
+ * Import Tailwind and custom styles
+ */
+
+/* HTMX loading states */
+.htmx-request {
+  opacity: 0.5;
+  transition: opacity 300ms ease-in-out;
+}
+
+.htmx-request::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+/* Alpine.js transitions */
+[x-cloak] {
+  display: none !important;
+}
+
+/* Custom animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
