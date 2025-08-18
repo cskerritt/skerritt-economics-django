@@ -61,15 +61,15 @@ class BaseCityServiceView(TemplateView):
     
     def get_canonical_url(self, city, service):
         """Generate canonical URL for the page"""
-        return f"/{city['state_slug']}/{city["slug"]}/{service}/"
+        return f"/{city['state_slug']}/{city['slug']}/{service}/"
     
     def get_breadcrumbs(self, city, service):
         """Generate breadcrumb navigation"""
         return [
             {"name": "Home", "url": "/"},
             {"name": "Locations", "url": "/locations/"},
-            {"name": city["state"], "url": f"/locations/{city['state_slug']}/"},
-            {"name": city["name"], "url": f"/{city['state_slug']}/{city["slug"]}/"},
+            {"name": city['state'], "url": f"/locations/{city['state_slug']}/"},
+            {"name": city['name'], "url": f"/{city['state_slug']}/{city['slug']}/"},
             {"name": service.replace("-", " ").title(), "url": None}
         ]
     
@@ -78,7 +78,7 @@ class BaseCityServiceView(TemplateView):
         return {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            "name": f"{service.replace("-", " ").title()} in {city["name"]}, {city["state_abbr"]}",
+            "name": f"{service.replace('-', ' ').title()} in {city['name']}, {city['state_abbr']}",
             "description": self.get_meta_description(city, service),
             "areaServed": {
                 "@type": "City",
