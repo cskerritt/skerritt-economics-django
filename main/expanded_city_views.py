@@ -55,7 +55,7 @@ class BaseCityServiceView(TemplateView):
             "business-valuation": f"Professional business valuation services in {city['name']}, {city['state_abbr']}. Expert business appraisal for litigation and transactions.",
             "business-consulting": f"Strategic business consulting services in {city['name']}, {city['state_abbr']}. Expert analysis and advisory for business decisions.",
             "vocational-expert": f"Certified vocational expert services in {city['name']}, {city['state_abbr']}. Professional vocational assessment and testimony.",
-            "life-care-planning": f"Expert life care planning services in {city['name']}, {city["state_abbr"]}. Comprehensive medical and care cost analysis."
+            "life-care-planning": f"Expert life care planning services in {city['name']}, {city['state_abbr']}. Comprehensive medical and care cost analysis."
         }
         return service_descriptions.get(service, f"Expert {service.replace("-", " ")} services in {city["name"]}, {city["state_abbr"]}.")
     
