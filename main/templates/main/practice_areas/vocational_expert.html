@@ -5,13 +5,13 @@
 {% block meta_description %}Expert vocational assessment and earning capacity evaluation for personal injury, workers' compensation, and disability cases. Certified Rehabilitation Counselor (CRC) services.{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Vocational Expert Services</h1>
-  <p class="lead">Comprehensive vocational assessment and earning capacity analysis by a Certified Rehabilitation Counselor (CRC)</p>
+  <p class="text-xl text-gray-600">Comprehensive vocational assessment and earning capacity analysis by a Certified Rehabilitation Counselor (CRC)</p>
   
-  <div class="row">
+  <div class="flex flex-wrap -mx-4">
     <div class="col-md-8">
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Expert Vocational Assessment Services</h2>
           <p>As a Certified Rehabilitation Counselor (CRC), Chris Skerritt provides expert vocational assessment and earning capacity evaluation services for attorneys nationwide. Our comprehensive vocational analyses help quantify the economic impact of injuries and disabilities on an individual's ability to work and earn income.</p>
@@ -30,7 +30,7 @@
         </div>
       </section>
       
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Case Types We Handle</h2>
           
@@ -72,7 +72,7 @@
         </div>
       </section>
       
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Our Vocational Assessment Process</h2>
           
@@ -89,7 +89,7 @@
         </div>
       </section>
       
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Credentials & Qualifications</h2>
           <ul>
@@ -103,7 +103,7 @@
         </div>
       </section>
       
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Why Choose Our Vocational Expert Services?</h2>
           <ul>
@@ -118,22 +118,22 @@
       </section>
     </div>
     
-    <div class="col-md-4">
-      <div class="card mb-3">
+    <div class="md:w-1/3 px-4">
+      <div class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h3>Free Case Evaluation</h3>
           <p>Get expert vocational assessment for your case</p>
           <p><strong>Chris Skerritt, CRC, CLCP, MBA</strong></p>
           <p>Phone: <a href="tel:+12036052814">(203) 605-2814</a></p>
           <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-          <a href="{% url 'contact' %}?service=vocational" class="btn btn-primary">Request Consultation</a>
+          <a href="{% url 'contact' %}?service=vocational" class="btn btn btn-primary">Request Consultation</a>
         </div>
       </div>
       
-      <div class="card mb-3">
+      <div class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h3>Quick Facts</h3>
-          <ul class="list-unstyled">
+          <ul class="list-none">
             <li>✓ CRC Certified</li>
             <li>✓ 500+ vocational assessments</li>
             <li>✓ Court qualified expert</li>
@@ -144,7 +144,7 @@
         </div>
       </div>
       
-      <div class="card mb-3">
+      <div class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h3>Related Services</h3>
           <ul>
@@ -156,7 +156,7 @@
         </div>
       </div>
       
-      <div class="card mb-3">
+      <div class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h3>Download Resources</h3>
           <ul>
@@ -172,8 +172,8 @@
   <section class="cta text-center mt-5">
     <h2>Need a Vocational Expert for Your Case?</h2>
     <p>Schedule a free consultation to discuss your vocational assessment needs</p>
-    <p class="lead">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
-    <a href="{% url 'contact' %}?service=vocational" class="btn btn-primary btn-lg">Schedule Consultation</a>
+    <p class="text-xl text-gray-600">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
+    <a href="{% url 'contact' %}?service=vocational" class="btn btn btn-primary btn-lg">Schedule Consultation</a>
   </section>
 </div>
 {% endblock %}

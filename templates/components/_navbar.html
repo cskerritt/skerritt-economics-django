@@ -1,7 +1,7 @@
 {% load static %}
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <div class="navbar-brand">
+<nav class="navbar bg-base-100" role="navigation" aria-label="Main navigation">
+  <div class="container mx-auto px-4">
+    <div class="text-xl font-bold">
       <a href="{% url 'home' %}" class="logo-link">
         <img src="{% static 'images/SEC_LOGO.png' %}" 
                      alt="Skerritt Economics and Consulting - SEC Logo" 
@@ -24,7 +24,7 @@
       <li><a href="{% url 'home' %}">Home</a></li>
       <li class="has-dropdown">
         <a href="{% url 'services_index' %}">Services</a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box">
           <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
           <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
           <li><a href="{% url 'service_consulting' %}">Business Consulting</a></li>

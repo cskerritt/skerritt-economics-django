@@ -1,8 +1,8 @@
 {% load schema_tags %}
 <!-- Enhanced Breadcrumb Navigation -->
 <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a href="{% url 'home' %}" itemprop="item">
         <span itemprop="name">Home</span>
       </a>
@@ -10,7 +10,7 @@
     </li>
     
     {% if parent_page %}
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <li class="" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a href="{{ parent_page.url }}" itemprop="item">
         <span itemprop="name">{{ parent_page.name }}</span>
       </a>
@@ -19,7 +19,7 @@
     {% endif %}
     
     {% if current_page %}
-    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+    <li class="active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
       <span itemprop="name">{{ current_page }}</span>
       <meta itemprop="position" content="{% if parent_page %}3{% else %}2{% endif %}" />
     </li>

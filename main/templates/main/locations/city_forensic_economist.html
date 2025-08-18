@@ -230,33 +230,33 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <!-- Breadcrumb Navigation -->
   <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'location' city.state|slugify %}">{{ city.state }}</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{ city.name }}</li>
+    <ol class="breadcrumbs">
+      <li class=""><a href="{% url 'home' %}">Home</a></li>
+      <li class=""><a href="{% url 'locations_index' %}">Locations</a></li>
+      <li class=""><a href="{% url 'location' city.state|slugify %}">{{ city.state }}</a></li>
+      <li class="active" aria-current="page">{{ city.name }}</li>
     </ol>
   </nav>
 
   <!-- Hero Section with Local Keywords -->
   <section class="hero-section mb-4">
     <h1>Forensic Economist in {{ city.name }}, {{ city.state_abbr }}</h1>
-    <p class="lead">Expert Economic Damage Analysis & Testimony for {{ city.metro_area }} Attorneys</p>
+    <p class="text-xl text-gray-600">Expert Economic Damage Analysis & Testimony for {{ city.metro_area }} Attorneys</p>
     
     <div class="hero-cta mt-3">
-      <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+      <a href="tel:+12036052814" class="btn btn btn-warning btn-lg">
         <i class="fas fa-phone"></i> (203) 605-2814
       </a>
-      <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn-primary btn-lg">
+      <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn btn-primary btn-lg">
         Free Consultation
       </a>
     </div>
   </section>
 
-  <div class="row">
+  <div class="flex flex-wrap -mx-4">
     <div class="col-lg-8">
       <!-- Local Introduction -->
       <section class="content-section mb-4">
@@ -270,8 +270,8 @@
       <section class="content-section mb-4">
         <h2>Forensic Economic Services for {{ city.name }} Legal Cases</h2>
         
-        <div class="row">
-          <div class="col-md-6">
+        <div class="flex flex-wrap -mx-4">
+          <div class="md:w-1/2 px-4">
             <h3>Personal Injury & Wrongful Death</h3>
             <ul>
               <li>Lost earnings and earning capacity</li>
@@ -281,7 +281,7 @@
               <li>Present value calculations</li>
             </ul>
           </div>
-          <div class="col-md-6">
+          <div class="md:w-1/2 px-4">
             <h3>Business & Employment</h3>
             <ul>
               <li>Business valuation and appraisal</li>
@@ -326,26 +326,26 @@
       <!-- Why Choose Section -->
       <section class="content-section mb-4">
         <h2>Why {{ city.name }} Attorneys Choose Skerritt Economics</h2>
-        <div class="row">
-          <div class="col-md-6">
+        <div class="flex flex-wrap -mx-4">
+          <div class="md:w-1/2 px-4">
             <div class="feature-box">
               <h4><i class="fas fa-certificate"></i> Extensive Credentials</h4>
               <p>M.Ed, MBA, CRC, CLCP, ABVE/F and 15+ professional certifications</p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="md:w-1/2 px-4">
             <div class="feature-box">
               <h4><i class="fas fa-clock"></i> Rapid Response</h4>
               <p>Quick turnaround for {{ city.name }} cases with expedited services available</p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="md:w-1/2 px-4">
             <div class="feature-box">
               <h4><i class="fas fa-chart-line"></i> Local Data</h4>
               <p>{{ city.metro_area }} specific economic analysis and market knowledge</p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="md:w-1/2 px-4">
             <div class="feature-box">
               <h4><i class="fas fa-gavel"></i> Court Ready</h4>
               <p>Experienced testimony in {{ city.state }} state and federal courts</p>
@@ -416,9 +416,9 @@
     </div>
 
     <!-- Sidebar -->
-    <div class="col-lg-4">
+    <div class="lg:w-1/3 px-4">
       <!-- Contact Card -->
-      <div class="card mb-4 sticky-top" style="top: 20px;">
+      <div class="card bg-base-100 shadow-xl mb-4 sticky-top" style="top: 20px;">
         <div class="card-body">
           <h3>Contact Our {{ city.name }} Office</h3>
           <p><strong>Christopher Skerritt</strong><br>
@@ -427,14 +427,14 @@
           <p><i class="fas fa-phone"></i> <a href="tel:+12036052814">(203) 605-2814</a></p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
           
-          <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn-primary btn-block mb-2">
+          <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn btn-primary btn-block mb-2">
             Request Free Consultation
           </a>
           
           <hr>
           
           <h4>Service Areas</h4>
-          <ul class="list-unstyled">
+          <ul class="list-none">
             <li><i class="fas fa-map-marker-alt"></i> {{ city.name }}, {{ city.state_abbr }}</li>
             <li><i class="fas fa-map-marker-alt"></i> {{ city.county }}</li>
             <li><i class="fas fa-map-marker-alt"></i> {{ city.metro_area }}</li>
@@ -443,7 +443,7 @@
           <hr>
           
           <h4>Practice Areas</h4>
-          <ul class="list-unstyled small">
+          <ul class="list-none small">
             <li>• Personal Injury Economics</li>
             <li>• Wrongful Death Damages</li>
             <li>• Business Valuation</li>
@@ -461,9 +461,9 @@
   <section class="nearby-cities mb-4">
     <h2>Also Serving Nearby {{ city.state }} Cities</h2>
     <p>In addition to {{ city.name }}, we provide forensic economics services throughout the {{ city.metro_area }} area including:</p>
-    <div class="row">
+    <div class="flex flex-wrap -mx-4">
       {% for nearby in nearby_cities %}
-      <div class="col-md-4 col-sm-6 mb-2">
+      <div class="md:w-1/3 px-4 col-sm-6 mb-2">
         <a href="{% url 'city_forensic_economist' city_slug=nearby.slug %}" 
                    title="Forensic Economist {{ nearby.name }}, {{ nearby.state_abbr }}">
           Forensic Economist {{ nearby.name }}
@@ -475,14 +475,14 @@
   {% endif %}
 
   <!-- CTA Section -->
-  <section class="cta-section text-center py-5 bg-light">
+  <section class="cta-section text-center py-5 bg-base-200">
     <h2>Need a Forensic Economist in {{ city.name }}?</h2>
-    <p class="lead">Get expert economic analysis for your {{ city.county }} legal case</p>
+    <p class="text-xl text-gray-600">Get expert economic analysis for your {{ city.county }} legal case</p>
     <div class="cta-buttons">
-      <a href="tel:+12036052814" class="btn btn-warning btn-lg mx-2">
+      <a href="tel:+12036052814" class="btn btn btn-warning btn-lg mx-2">
         <i class="fas fa-phone"></i> Call (203) 605-2814
       </a>
-      <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn-primary btn-lg mx-2">
+      <a href="{% url 'contact' %}?city={{ city_slug }}" class="btn btn btn-primary btn-lg mx-2">
         Schedule Free Consultation
       </a>
     </div>

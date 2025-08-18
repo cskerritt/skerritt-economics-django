@@ -5,12 +5,12 @@
 {% block meta_description %}Forensic economics, business valuation, vocational expert, and life care planning services for attorneys. Expert witness testimony nationwide.{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Expert Economic Services for Litigation Support</h1>
-  <p class="lead">Comprehensive forensic economics and valuation services for attorneys throughout New England and nationwide.</p>
+  <p class="text-xl text-gray-600">Comprehensive forensic economics and valuation services for attorneys throughout New England and nationwide.</p>
   
   <div class="services-grid">
-    <div class="card">
+    <div class="card bg-base-100 shadow-xl">
       <h2>⚖️ Forensic Economics</h2>
       <p>Expert economic damage analysis for personal injury, wrongful death, and employment cases.</p>
       <ul>
@@ -20,10 +20,10 @@
         <li>Present value determinations</li>
         <li>Wrongful death economic loss</li>
       </ul>
-      <a href="{% url 'service_forensic' %}" class="btn btn-primary">Learn More →</a>
+      <a href="{% url 'service_forensic' %}" class="btn btn btn-primary">Learn More →</a>
     </div>
     
-    <div class="card">
+    <div class="card bg-base-100 shadow-xl">
       <h2>💼 Business Valuation</h2>
       <p>Comprehensive business valuations for litigation, divorce, and dispute resolution.</p>
       <ul>
@@ -33,10 +33,10 @@
         <li>Marital dissolution valuations</li>
         <li>Lost profits calculations</li>
       </ul>
-      <a href="{% url 'service_valuation' %}" class="btn btn-primary">Learn More →</a>
+      <a href="{% url 'service_valuation' %}" class="btn btn btn-primary">Learn More →</a>
     </div>
     
-    <div class="card">
+    <div class="card bg-base-100 shadow-xl">
       <h2>📈 Business Consulting</h2>
       <p>Strategic business advisory and operational consulting services.</p>
       <ul>
@@ -46,10 +46,10 @@
         <li>Business transformation</li>
         <li>Performance optimization</li>
       </ul>
-      <a href="{% url 'service_consulting' %}" class="btn btn-primary">Learn More →</a>
+      <a href="{% url 'service_consulting' %}" class="btn btn btn-primary">Learn More →</a>
     </div>
     
-    <div class="card">
+    <div class="card bg-base-100 shadow-xl">
       <h2>🏢 Vocational Expert</h2>
       <p>Professional vocational assessments and earning capacity evaluations.</p>
       <ul>
@@ -59,10 +59,10 @@
         <li>Earning capacity evaluation</li>
         <li>Vocational rehabilitation planning</li>
       </ul>
-      <a href="{% url 'service_vocational' %}" class="btn btn-primary">Learn More →</a>
+      <a href="{% url 'service_vocational' %}" class="btn btn btn-primary">Learn More →</a>
     </div>
     
-    <div class="card">
+    <div class="card bg-base-100 shadow-xl">
       <h2>🏥 Life Care Planning</h2>
       <p>Detailed life care plans for catastrophic injury and medical malpractice cases.</p>
       <ul>
@@ -72,33 +72,33 @@
         <li>Long-term care planning</li>
         <li>Medical cost analysis</li>
       </ul>
-      <a href="{% url 'service_lifecare' %}" class="btn btn-primary">Learn More →</a>
+      <a href="{% url 'service_lifecare' %}" class="btn btn btn-primary">Learn More →</a>
     </div>
   </div>
   
   <section class="mt-3">
     <h2>Why Choose Skerritt Economics?</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4">
+        <div class="card bg-base-100 shadow-xl">
           <h3>⚡ Rapid Response</h3>
           <p>1-business-day case evaluation with expedited services available for urgent matters.</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card">
+      <div class="md:w-1/2 px-4">
+        <div class="card bg-base-100 shadow-xl">
           <h3>📊 Defensible Analysis</h3>
           <p>Comprehensive reports that are both jury-friendly and technically sound.</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card">
+      <div class="md:w-1/2 px-4">
+        <div class="card bg-base-100 shadow-xl">
           <h3>🎓 Expert Credentials</h3>
           <p>CRC, CLCP, MBA certifications with extensive court testimony experience.</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card">
+      <div class="md:w-1/2 px-4">
+        <div class="card bg-base-100 shadow-xl">
           <h3>⚖️ Court-Tested</h3>
           <p>Proven track record in state and federal courts throughout New England.</p>
         </div>
@@ -109,8 +109,8 @@
   <section class="cta text-center mt-3">
     <h2>Need Expert Economic Analysis?</h2>
     <p>Schedule a free consultation to discuss your case requirements.</p>
-    <p class="lead">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
-    <a href="{% url 'contact' %}" class="btn btn-primary">Request Consultation</a>
+    <p class="text-xl text-gray-600">Call: <a href="tel:+12036052814">(203) 605-2814</a></p>
+    <a href="{% url 'contact' %}" class="btn btn btn-primary">Request Consultation</a>
   </section>
 </div>
 {% endblock %}

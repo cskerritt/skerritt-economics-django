@@ -5,13 +5,13 @@
 {% block meta_description %}Contact Skerritt Economics for expert forensic economics and business valuation services. Schedule a free consultation.{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Contact Us</h1>
-  <p class="lead">Schedule a free consultation to discuss your case requirements.</p>
+  <p class="text-xl text-gray-600">Schedule a free consultation to discuss your case requirements.</p>
   
-  <div class="row">
+  <div class="flex flex-wrap -mx-4">
     <div class="col-md-8">
-      <div class="card">
+      <div class="card bg-base-100 shadow-xl">
         <div class="card-title">
           <h2>Request Consultation</h2>
         </div>
@@ -27,7 +27,7 @@
         <form method="post" class="contact-form needs-validation" onsubmit="trackFormSubmission('consultation_request');">
           {% csrf_token %}
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.name.label_tag }}
             {{ form.name }}
             {% if form.name.errors %}
@@ -35,7 +35,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.email.label_tag }}
             {{ form.email }}
             {% if form.email.errors %}
@@ -43,7 +43,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.phone.label_tag }}
             {{ form.phone }}
             {% if form.phone.errors %}
@@ -51,7 +51,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.organization.label_tag }}
             {{ form.organization }}
             {% if form.organization.errors %}
@@ -59,7 +59,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.case_type.label_tag }}
             {{ form.case_type }}
             {% if form.case_type.errors %}
@@ -67,7 +67,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.jurisdiction.label_tag }}
             {{ form.jurisdiction }}
             {% if form.jurisdiction.errors %}
@@ -75,7 +75,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.timeline.label_tag }}
             {{ form.timeline }}
             {% if form.timeline.errors %}
@@ -83,7 +83,7 @@
             {% endif %}
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             {{ form.case_details.label_tag }}
             {{ form.case_details }}
             {% if form.case_details.errors %}
@@ -91,13 +91,13 @@
             {% endif %}
           </div>
           
-          <button type="submit" class="btn btn-primary">Submit Consultation Request</button>
+          <button type="submit" class="btn btn btn-primary">Submit Consultation Request</button>
         </form>
       </div>
     </div>
     
-    <div class="col-md-4">
-      <div class="card">
+    <div class="md:w-1/3 px-4">
+      <div class="card bg-base-100 shadow-xl">
         <h3>Direct Contact</h3>
         <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
         <p>
@@ -115,13 +115,13 @@
         </p>
       </div>
       
-      <div class="card mt-3">
+      <div class="card bg-base-100 shadow-xl mt-3">
         <h3>Response Time</h3>
         <p>We typically respond to all inquiries within 24 hours during business days.</p>
         <p>For urgent matters, please call directly or indicate urgency in your message.</p>
       </div>
       
-      <div class="card mt-3">
+      <div class="card bg-base-100 shadow-xl mt-3">
         <h3>Service Areas</h3>
         <p><strong>Primary Coverage:</strong> All New England states</p>
         <p><strong>National:</strong> Available for cases throughout the United States</p>

@@ -6,14 +6,14 @@
 {% block meta_keywords %}forensic economics resources, business valuation resources, vocational expert resources, economic data sources, professional associations, government statistics, industry standards{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Professional Resources & Industry Links</h1>
-  <p class="lead">Authoritative sources for economic data, professional standards, and industry information</p>
+  <p class="text-xl text-gray-600">Authoritative sources for economic data, professional standards, and industry information</p>
   
-  <div class="row">
+  <div class="flex flex-wrap -mx-4">
     <div class="col-md-8">
       <!-- Professional Organizations -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Professional Organizations & Associations</h2>
           
@@ -51,7 +51,7 @@
       </section>
       
       <!-- Government Data Sources -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Government Data Sources</h2>
           
@@ -92,7 +92,7 @@
       </section>
       
       <!-- Legal Resources -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Legal Resources & Standards</h2>
           
@@ -115,7 +115,7 @@
       </section>
       
       <!-- Professional Standards -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Professional Standards & Guidelines</h2>
           
@@ -141,7 +141,7 @@
       </section>
       
       <!-- Educational Resources -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Educational Institutions & Programs</h2>
           
@@ -164,7 +164,7 @@
       </section>
       
       <!-- Industry Publications -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Industry Publications & Journals</h2>
           
@@ -187,7 +187,7 @@
       </section>
       
       <!-- Regional Resources -->
-      <section class="card mb-3">
+      <section class="card bg-base-100 shadow-xl mb-3">
         <div class="card-body">
           <h2>Regional & State Resources</h2>
           
@@ -211,12 +211,12 @@
       </section>
     </div>
     
-    <div class="col-md-4">
+    <div class="md:w-1/3 px-4">
       <!-- Quick Links Sidebar -->
-      <div class="card mb-3 sticky-top" style="top: 20px;">
+      <div class="card bg-base-100 shadow-xl mb-3 sticky-top" style="top: 20px;">
         <div class="card-body">
           <h3>Quick Links</h3>
-          <ul class="list-unstyled">
+          <ul class="list-none">
             <li><a href="#professional-organizations">Professional Organizations</a></li>
             <li><a href="#government-data">Government Data</a></li>
             <li><a href="#legal-resources">Legal Resources</a></li>
@@ -230,7 +230,7 @@
           
           <h4>Need Expert Services?</h4>
           <p>Contact us for forensic economics, business valuation, or vocational expert services.</p>
-          <a href="{% url 'contact' %}" class="btn btn-primary btn-block">Contact Us</a>
+          <a href="{% url 'contact' %}" class="btn btn btn-primary btn-block">Contact Us</a>
           <p class="mt-2">Or call: <a href="tel:+12036052814">(203) 605-2814</a></p>
         </div>
       </div>

@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  /* Button styles */
+  .btn-primary-custom {
+    @apply btn btn-primary text-white hover:bg-blue-700 transition-colors;
+  }
+  
+  .btn-secondary-custom {
+    @apply btn btn-secondary hover:bg-gray-600 transition-colors;
+  }
+  
+  /* Card styles */
+  .service-card {
+    @apply card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow;
+  }
+  
+  /* Navigation styles */
+  .navbar-custom {
+    @apply navbar bg-base-100 shadow-lg;
+  }
+  
+  .navbar-menu {
+    @apply menu menu-horizontal px-1;
+  }
+  
+  /* Footer styles */
+  .footer-custom {
+    @apply footer p-10 bg-neutral text-neutral-content;
+  }
+  
+  /* Hero section */
+  .hero-custom {
+    @apply hero min-h-[50vh] bg-gradient-to-br from-primary to-secondary;
+  }
+  
+  /* Form styles */
+  .form-control-custom {
+    @apply form-control w-full;
+  }
+  
+  .input-custom {
+    @apply input input-bordered w-full;
+  }
+  
+  .textarea-custom {
+    @apply textarea textarea-bordered w-full;
+  }
+  
+  /* Typography */
+  .section-title {
+    @apply text-3xl font-bold mb-6 text-neutral;
+  }
+  
+  .subsection-title {
+    @apply text-2xl font-semibold mb-4 text-neutral;
+  }
+  
+  /* Container */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Grid layouts */
+  .services-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  /* Responsive utilities */
+  .mobile-menu-toggle {
+    @apply lg:hidden;
+  }
+  
+  .desktop-only {
+    @apply hidden lg:block;
+  }
+  
+  .mobile-only {
+    @apply block lg:hidden;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  /* Text shadows for better readability on images */
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text-shadow-sm {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Custom animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Override some DaisyUI defaults for professional look */
+.btn {
+  @apply font-medium;
+}
+
+.card {
+  @apply rounded-lg;
+}
+
+.navbar {
+  @apply border-b border-gray-200;
+}
+
+/* Ensure good typography defaults */
+.prose {
+  @apply prose-gray max-w-none;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  @apply font-bold text-neutral;
+}
+
+/* Accessibility improvements */
+.skip-link:focus {
+  @apply absolute top-0 left-0 bg-primary text-white p-4 z-50;
+}

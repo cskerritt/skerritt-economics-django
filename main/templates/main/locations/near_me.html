@@ -53,11 +53,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Find a Forensic Economist Near You</h1>
-  <p class="lead">Christopher Skerritt provides expert forensic economics services throughout New England. Select your state and city below to find local economic expert witness services near you.</p>
+  <p class="text-xl text-gray-600">Christopher Skerritt provides expert forensic economics services throughout New England. Select your state and city below to find local economic expert witness services near you.</p>
   
-  <div class="alert alert-success">
+  <div class="alert alert alert-success">
     <h3>📍 Available for Cases Throughout New England</h3>
     <p>📞 Free Consultation: <a href="tel:+12036052814">(203) 605-2814</a></p>
     <p>✉️ Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
@@ -66,9 +66,9 @@
   <section class="mb-4">
     <h2>Select Your Location</h2>
     
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/3 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
             <h3>🏛️ Rhode Island</h3>
             <p>Forensic economist serving all of Rhode Island</p>
@@ -80,13 +80,13 @@
               <li><a href="/rhode-island/newport/forensic-economist/">Newport</a></li>
               <li><a href="/rhode-island/smithfield/forensic-economist/">Smithfield</a></li>
             </ul>
-            <a href="{% url 'location' state='rhode-island' %}" class="btn btn-primary">All RI Cities →</a>
+            <a href="{% url 'location' state='rhode-island' %}" class="btn btn btn-primary">All RI Cities →</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
             <h3>🏛️ Massachusetts</h3>
             <p>Economic expert witness throughout MA</p>
@@ -98,13 +98,13 @@
               <li><a href="/massachusetts/lowell/forensic-economist/">Lowell</a></li>
               <li><a href="/massachusetts/new-bedford/forensic-economist/">New Bedford</a></li>
             </ul>
-            <a href="{% url 'location' state='massachusetts' %}" class="btn btn-primary">All MA Cities →</a>
+            <a href="{% url 'location' state='massachusetts' %}" class="btn btn btn-primary">All MA Cities →</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
             <h3>🏛️ Connecticut</h3>
             <p>Business valuation expert serving CT</p>
@@ -116,15 +116,15 @@
               <li><a href="/connecticut/waterbury/forensic-economist/">Waterbury</a></li>
               <li><a href="/connecticut/norwalk/forensic-economist/">Norwalk</a></li>
             </ul>
-            <a href="{% url 'location' state='connecticut' %}" class="btn btn-primary">All CT Cities →</a>
+            <a href="{% url 'location' state='connecticut' %}" class="btn btn btn-primary">All CT Cities →</a>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/3 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
             <h3>🏛️ New Hampshire</h3>
             <p>Life care planner throughout NH</p>
@@ -134,13 +134,13 @@
               <li><a href="/new-hampshire/concord/forensic-economist/">Concord</a></li>
               <li><a href="/new-hampshire/portsmouth/forensic-economist/">Portsmouth</a></li>
             </ul>
-            <a href="{% url 'location' state='new-hampshire' %}" class="btn btn-primary">All NH Cities →</a>
+            <a href="{% url 'location' state='new-hampshire' %}" class="btn btn btn-primary">All NH Cities →</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
             <h3>🏛️ Vermont</h3>
             <p>Vocational expert serving Vermont</p>
@@ -150,13 +150,13 @@
               <li><a href="/vermont/rutland/forensic-economist/">Rutland</a></li>
               <li><a href="/vermont/montpelier/forensic-economist/">Montpelier</a></li>
             </ul>
-            <a href="{% url 'location' state='vermont' %}" class="btn btn-primary">All VT Cities →</a>
+            <a href="{% url 'location' state='vermont' %}" class="btn btn btn-primary">All VT Cities →</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
             <h3>🏛️ Maine</h3>
             <p>Economic damages expert in Maine</p>
@@ -166,7 +166,7 @@
               <li><a href="/maine/bangor/forensic-economist/">Bangor</a></li>
               <li><a href="/maine/augusta/forensic-economist/">Augusta</a></li>
             </ul>
-            <a href="{% url 'location' state='maine' %}" class="btn btn-primary">All ME Cities →</a>
+            <a href="{% url 'location' state='maine' %}" class="btn btn btn-primary">All ME Cities →</a>
           </div>
         </div>
       </div>
@@ -175,9 +175,9 @@
 
   <section class="mb-4">
     <h2>Services Available Near You</h2>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="card">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl">
           <div class="card-body">
             <h3>Forensic Economics Near Me</h3>
             <p>Economic damage calculations for personal injury, wrongful death, and employment cases in your area.</p>
@@ -187,13 +187,13 @@
               <li>Household services valuation</li>
               <li>Present value calculations</li>
             </ul>
-            <a href="{% url 'service_forensic' %}" class="btn btn-outline-primary">Learn More</a>
+            <a href="{% url 'service_forensic' %}" class="btn btn btn-outline btn-primary">Learn More</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-6 mb-3">
-        <div class="card">
+      <div class="md:w-1/2 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl">
           <div class="card-body">
             <h3>Business Valuation Near Me</h3>
             <p>Fair market value assessments and business damage calculations for local businesses.</p>
@@ -203,13 +203,13 @@
               <li>Partnership disputes</li>
               <li>Shareholder buyouts</li>
             </ul>
-            <a href="{% url 'service_valuation' %}" class="btn btn-outline-primary">Learn More</a>
+            <a href="{% url 'service_valuation' %}" class="btn btn btn-outline btn-primary">Learn More</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-6 mb-3">
-        <div class="card">
+      <div class="md:w-1/2 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl">
           <div class="card-body">
             <h3>Vocational Expert Near Me</h3>
             <p>Employability assessments and earning capacity evaluations in your local labor market.</p>
@@ -219,13 +219,13 @@
               <li>Vocational rehabilitation planning</li>
               <li>Disability impact assessment</li>
             </ul>
-            <a href="{% url 'service_vocational' %}" class="btn btn-outline-primary">Learn More</a>
+            <a href="{% url 'service_vocational' %}" class="btn btn btn-outline btn-primary">Learn More</a>
           </div>
         </div>
       </div>
       
-      <div class="col-md-6 mb-3">
-        <div class="card">
+      <div class="md:w-1/2 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl">
           <div class="card-body">
             <h3>Life Care Planner Near Me</h3>
             <p>Future medical cost projections for catastrophic injuries in your area.</p>
@@ -235,7 +235,7 @@
               <li>Home modification costs</li>
               <li>Long-term care planning</li>
             </ul>
-            <a href="{% url 'service_lifecare' %}" class="btn btn-outline-primary">Learn More</a>
+            <a href="{% url 'service_lifecare' %}" class="btn btn btn-outline btn-primary">Learn More</a>
           </div>
         </div>
       </div>
@@ -244,8 +244,8 @@
 
   <section class="mb-4">
     <h2>Why Choose a Local Forensic Economist?</h2>
-    <div class="row">
-      <div class="col-md-6">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4">
         <ul>
           <li><strong>Local Court Experience:</strong> Familiar with your state's courts and procedures</li>
           <li><strong>Regional Economic Knowledge:</strong> Understanding of local wage rates and employment conditions</li>
@@ -253,7 +253,7 @@
           <li><strong>Quick Response:</strong> Faster turnaround for local cases</li>
         </ul>
       </div>
-      <div class="col-md-6">
+      <div class="md:w-1/2 px-4">
         <ul>
           <li><strong>Local References:</strong> Work with attorneys in your jurisdiction</li>
           <li><strong>State-Specific Expertise:</strong> Knowledge of state laws and requirements</li>
@@ -266,10 +266,10 @@
 
   <section class="cta text-center mt-5">
     <h2>Find Expert Economic Analysis Near You</h2>
-    <p class="lead">Get local forensic economics services from a court-qualified expert</p>
+    <p class="text-xl text-gray-600">Get local forensic economics services from a court-qualified expert</p>
     <p>Serving all of New England with in-person and remote testimony options</p>
-    <a href="tel:+12036052814" class="btn btn-primary btn-lg">Call (203) 605-2814</a>
-    <a href="{% url 'contact' %}" class="btn btn-secondary btn-lg">Request Consultation</a>
+    <a href="tel:+12036052814" class="btn btn btn-primary btn-lg">Call (203) 605-2814</a>
+    <a href="{% url 'contact' %}" class="btn btn btn-secondary btn-lg">Request Consultation</a>
   </section>
 </div>
 {% endblock %}

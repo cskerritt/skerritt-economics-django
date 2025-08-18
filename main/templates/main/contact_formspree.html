@@ -5,13 +5,13 @@
 {% block meta_description %}Contact Skerritt Economics for expert forensic economics and business valuation services. Schedule a free consultation.{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Contact Us</h1>
-  <p class="lead">Schedule a free consultation to discuss your case requirements.</p>
+  <p class="text-xl text-gray-600">Schedule a free consultation to discuss your case requirements.</p>
   
-  <div class="row">
+  <div class="flex flex-wrap -mx-4">
     <div class="col-md-8">
-      <div class="card">
+      <div class="card bg-base-100 shadow-xl">
         <div class="card-title">
           <h2>Request Consultation</h2>
         </div>
@@ -20,29 +20,29 @@
         
         <form action="https://formspree.io/f/mnnvgzgd" method="POST" id="contact-form" class="contact-form needs-validation" accept-charset="UTF-8">
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="name">Name *</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="text" class="input input-bordered w-full" id="name" name="name" required>
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="email">Email *</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <input type="email" class="input input-bordered w-full" id="email" name="email" required>
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="phone">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" name="phone">
+            <input type="tel" class="input input-bordered w-full" id="phone" name="phone">
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="organization">Law Firm/Organization</label>
-            <input type="text" class="form-control" id="organization" name="organization">
+            <input type="text" class="input input-bordered w-full" id="organization" name="organization">
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="case_type">Case Type *</label>
-            <select class="form-control" id="case_type" name="case_type" required>
+            <select class="input input-bordered w-full" id="case_type" name="case_type" required>
               <option value="">-- Select Case Type --</option>
               <option value="Personal Injury">Personal Injury</option>
               <option value="Medical Malpractice">Medical Malpractice</option>
@@ -55,9 +55,9 @@
             </select>
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="jurisdiction">Jurisdiction</label>
-            <select class="form-control" id="jurisdiction" name="jurisdiction">
+            <select class="input input-bordered w-full" id="jurisdiction" name="jurisdiction">
               <option value="">-- Select Jurisdiction --</option>
               <option value="State Court">State Court</option>
               <option value="Federal Court">Federal Court</option>
@@ -67,9 +67,9 @@
             </select>
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="timeline">Timeline</label>
-            <select class="form-control" id="timeline" name="timeline">
+            <select class="input input-bordered w-full" id="timeline" name="timeline">
               <option value="">-- Select Timeline --</option>
               <option value="Urgent">Urgent (Within 1 week)</option>
               <option value="Soon">Soon (Within 1 month)</option>
@@ -78,9 +78,9 @@
             </select>
           </div>
           
-          <div class="form-group">
+          <div class="form-control">
             <label for="case_details">Case Details</label>
-            <textarea class="form-control" id="case_details" name="case_details" rows="5" 
+            <textarea class="input input-bordered w-full" id="case_details" name="case_details" rows="5" 
                                   placeholder="Please provide a brief description of your case and how we can assist you..."></textarea>
           </div>
           
@@ -90,13 +90,13 @@
           <!-- Subject line for email -->
           <input type="hidden" name="_subject" value="New Consultation Request - Skerritt Economics">
           
-          <button type="submit" class="btn btn-primary">Submit Consultation Request</button>
+          <button type="submit" class="btn btn btn-primary">Submit Consultation Request</button>
         </form>
       </div>
     </div>
     
-    <div class="col-md-4">
-      <div class="card">
+    <div class="md:w-1/3 px-4">
+      <div class="card bg-base-100 shadow-xl">
         <h3>Direct Contact</h3>
         <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
         <p>
@@ -114,13 +114,13 @@
         </p>
       </div>
       
-      <div class="card mt-3">
+      <div class="card bg-base-100 shadow-xl mt-3">
         <h3>Response Time</h3>
         <p>We typically respond to all inquiries within 24 hours during business days.</p>
         <p>For urgent matters, please call directly or indicate urgency in your message.</p>
       </div>
       
-      <div class="card mt-3">
+      <div class="card bg-base-100 shadow-xl mt-3">
         <h3>Service Areas</h3>
         <p><strong>Primary Coverage:</strong> All New England states</p>
         <p><strong>National:</strong> Available for cases throughout the United States</p>
@@ -152,19 +152,19 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     }
   }).then(response => {
     if (response.ok) {
-      statusDiv.innerHTML = '<div class="alert alert-success">Thank you for your inquiry! We will contact you within 24 hours.</div>';
+      statusDiv.innerHTML = '<div class="alert alert alert-success">Thank you for your inquiry! We will contact you within 24 hours.</div>';
       form.reset();
     } else {
       response.json().then(data => {
         if (Object.hasOwn(data, 'errors')) {
-          statusDiv.innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again or contact us directly.</div>';
+          statusDiv.innerHTML = '<div class="alert alert alert-error">There was an error sending your message. Please try again or contact us directly.</div>';
         } else {
-          statusDiv.innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again.</div>';
+          statusDiv.innerHTML = '<div class="alert alert alert-error">There was an error sending your message. Please try again.</div>';
         }
       })
     }
   }).catch(error => {
-    statusDiv.innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again or contact us directly at chris@skerritteconomics.com</div>';
+    statusDiv.innerHTML = '<div class="alert alert alert-error">There was an error sending your message. Please try again or contact us directly at chris@skerritteconomics.com</div>';
   });
 });
 </script>

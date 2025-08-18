@@ -5,7 +5,7 @@
 {% block meta_description %}{{ post.meta_description|default:post.excerpt }}{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <article class="blog-detail">
     <h1>{{ post.title }}</h1>
     
@@ -33,11 +33,11 @@
     <hr class="mt-3 mb-3">
     
     <!-- Author Bio -->
-    <div class="author-bio card">
+    <div class="author-bio card bg-base-100 shadow-xl">
       <h3>About the Author</h3>
       <p><strong>{{ post.author }}</strong></p>
       <p>Christopher Skerritt is a certified forensic economist and business valuation expert providing comprehensive economic analysis for litigation support. With extensive professional certifications and decades of experience, he delivers reliable economic damage calculations and expert testimony.</p>
-      <p><a href="{% url 'about' %}" class="btn btn-secondary">Learn More About Christopher Skerritt</a></p>
+      <p><a href="{% url 'about' %}" class="btn btn btn-secondary">Learn More About Christopher Skerritt</a></p>
     </div>
     
     <!-- Related Posts -->
@@ -46,7 +46,7 @@
       <h3>Related Articles</h3>
       <div class="services-grid">
         {% for related in related_posts %}
-        <div class="card">
+        <div class="card bg-base-100 shadow-xl">
           <h4><a href="{{ related.get_absolute_url }}">{{ related.title }}</a></h4>
           <p>{{ related.excerpt|default:related.content|truncatewords:20|safe }}</p>
           <a href="{{ related.get_absolute_url }}">Read More →</a>
@@ -57,10 +57,10 @@
     {% endif %}
     
     <!-- Call to Action -->
-    <div class="cta card mt-3 text-center">
+    <div class="cta card bg-base-100 shadow-xl mt-3 text-center">
       <h3>Need Expert Economic Analysis?</h3>
       <p>Schedule a free consultation to discuss how our forensic economics services can support your case.</p>
-      <a href="{% url 'contact' %}" class="btn btn-primary">Schedule Consultation</a>
+      <a href="{% url 'contact' %}" class="btn btn btn-primary">Schedule Consultation</a>
     </div>
   </article>
 </div>

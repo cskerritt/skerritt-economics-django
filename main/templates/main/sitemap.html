@@ -5,12 +5,12 @@
 {% block meta_description %}Complete site map for Skerritt Economics & Consulting. Find all pages for forensic economics, business valuation, and expert witness services.{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <h1>Site Map</h1>
-  <p class="lead">Complete directory of all pages on Skerritt Economics & Consulting</p>
+  <p class="text-xl text-gray-600">Complete directory of all pages on Skerritt Economics & Consulting</p>
   
-  <div class="row">
-    <div class="col-md-4 mb-4">
+  <div class="flex flex-wrap -mx-4">
+    <div class="md:w-1/3 px-4 mb-4">
       <h2>Main Pages</h2>
       <ul>
         <li><a href="{% url 'home' %}">Home</a></li>
@@ -43,7 +43,7 @@
       </ul>
     </div>
     
-    <div class="col-md-4 mb-4">
+    <div class="md:w-1/3 px-4 mb-4">
       <h2>Practice Areas</h2>
       <ul>
         <li><a href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
@@ -75,7 +75,7 @@
       </ul>
     </div>
     
-    <div class="col-md-4 mb-4">
+    <div class="md:w-1/3 px-4 mb-4">
       <h2>Locations</h2>
       <h3>Primary Service Areas</h3>
       <ul>
@@ -114,8 +114,8 @@
   
   <section class="mt-5">
     <h2>Additional Resources</h2>
-    <div class="row">
-      <div class="col-md-6">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4">
         <h3>For Attorneys</h3>
         <ul>
           <li><a href="{% url 'contact' %}">Request Case Evaluation</a></li>
@@ -124,7 +124,7 @@
           <li><a href="{% url 'service_forensic' %}">Forensic Economics Services</a></li>
         </ul>
       </div>
-      <div class="col-md-6">
+      <div class="md:w-1/2 px-4">
         <h3>Information</h3>
         <ul>
           <li><a href="/robots.txt">Robots.txt</a></li>

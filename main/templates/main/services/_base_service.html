@@ -54,64 +54,64 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="w-full px-4">
   <!-- Hero Section -->
   <section class="hero-section bg-primary text-white py-5">
-    <div class="container">
+    <div class="container mx-auto px-4">
       <!-- Breadcrumbs -->
       <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb bg-transparent p-0 mb-0">
-          <li class="breadcrumb-item">
-            <a href="{% url 'home' %}" class="text-light">
+        <ol class="breadcrumbs bg-transparent p-0 mb-0">
+          <li class="">
+            <a href="{% url 'home' %}" class="text-base-content">
               <i class="fas fa-home" aria-hidden="true"></i> Home
             </a>
           </li>
-          <li class="breadcrumb-item">
-            <a href="{% url 'services_index' %}" class="text-light">Services</a>
+          <li class="">
+            <a href="{% url 'services_index' %}" class="text-base-content">Services</a>
           </li>
-          <li class="breadcrumb-item active text-light" aria-current="page">
+          <li class="active text-base-content" aria-current="page">
             {{ service_data.name }}
           </li>
         </ol>
       </nav>
 
-      <div class="row align-items-center">
+      <div class="flex flex-wrap -mx-4 items-center">
         <div class="col-lg-8">
           <h1 class="display-4 mb-3">{{ service_data.h1_title }}</h1>
-          <p class="lead mb-4">{{ service_data.lead_description }}</p>
+          <p class="text-xl text-gray-600 mb-4">{{ service_data.lead_description }}</p>
           
           <!-- Trust Indicators -->
-          <div class="row mb-4">
-            <div class="col-md-3 col-6 mb-2">
-              <div class="d-flex align-items-center text-light">
-                <i class="fas fa-award fa-2x me-2 text-warning"></i>
+          <div class="flex flex-wrap -mx-4 mb-4">
+            <div class="md:w-1/4 px-4 col-6 mb-2">
+              <div class="flex items-center text-base-content">
+                <i class="fas fa-award fa-2x mr-2 text-warning"></i>
                 <div>
                   <div class="fw-bold">Court-Qualified</div>
                   <small>Expert Witness</small>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6 mb-2">
-              <div class="d-flex align-items-center text-light">
-                <i class="fas fa-certificate fa-2x me-2 text-warning"></i>
+            <div class="md:w-1/4 px-4 col-6 mb-2">
+              <div class="flex items-center text-base-content">
+                <i class="fas fa-certificate fa-2x mr-2 text-warning"></i>
                 <div>
                   <div class="fw-bold">15+ Certifications</div>
                   <small>Professional</small>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6 mb-2">
-              <div class="d-flex align-items-center text-light">
-                <i class="fas fa-clock fa-2x me-2 text-warning"></i>
+            <div class="md:w-1/4 px-4 col-6 mb-2">
+              <div class="flex items-center text-base-content">
+                <i class="fas fa-clock fa-2x mr-2 text-warning"></i>
                 <div>
                   <div class="fw-bold">20+ Years</div>
                   <small>Experience</small>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6 mb-2">
-              <div class="d-flex align-items-center text-light">
-                <i class="fas fa-map-marker-alt fa-2x me-2 text-warning"></i>
+            <div class="md:w-1/4 px-4 col-6 mb-2">
+              <div class="flex items-center text-base-content">
+                <i class="fas fa-map-marker-alt fa-2x mr-2 text-warning"></i>
                 <div>
                   <div class="fw-bold">All 50 States</div>
                   <small>Coverage</small>
@@ -121,8 +121,8 @@
           </div>
 
           <!-- Primary CTAs -->
-          <div class="d-flex flex-wrap gap-3">
-            <a href="tel:+12036052814" class="btn btn-warning btn-lg px-4 py-2">
+          <div class="flex flex-wrap gap-3">
+            <a href="tel:+12036052814" class="btn btn btn-warning btn-lg px-4 py-2">
               <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
             </a>
             <a href="{% url 'contact' %}?service={{ service_data.slug }}" class="btn btn-outline-light btn-lg px-4 py-2">
@@ -131,24 +131,24 @@
           </div>
         </div>
         
-        <div class="col-lg-4">
+        <div class="lg:w-1/3 px-4">
           <div class="text-center">
-            <div class="bg-white text-dark p-4 rounded-3 shadow-lg">
+            <div class="bg-white text-neutral p-4 rounded-lg shadow-xl">
               <div class="mb-3">
                 <img src="{% static 'images/christopher-skerritt.webp' %}" 
                                      alt="Christopher Skerritt, Expert Witness"
-                                     class="rounded-circle mb-2"
+                                     class="rounded-full mb-2"
                                      width="100" 
                                      height="100"
                                      loading="lazy">
               </div>
-              <h3 class="h5 mb-2">Christopher Skerritt</h3>
+              <h3 class="text-lg font-medium mb-2">Christopher Skerritt</h3>
               <p class="mb-3"><strong>M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
               <div class="d-grid gap-2">
-                <a href="tel:+12036052814" class="btn btn-primary btn-sm">
+                <a href="tel:+12036052814" class="btn btn btn-primary btn-sm">
                   <i class="fas fa-phone" aria-hidden="true"></i> Call Now
                 </a>
-                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary btn-sm">
+                <a href="mailto:chris@skerritteconomics.com" class="btn btn btn-outline btn-primary btn-sm">
                   <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
                 </a>
               </div>
@@ -160,14 +160,14 @@
   </section>
 
   <!-- Main Content -->
-  <div class="container my-5">
-    <div class="row">
+  <div class="container mx-auto px-4 my-5">
+    <div class="flex flex-wrap -mx-4">
       <div class="col-lg-8">
         <!-- Service Overview -->
         <section class="mb-5">
-          <div class="card border-0 shadow-sm">
+          <div class="card bg-base-100 shadow-xl border-0 shadow">
             <div class="card-body p-4">
-              <h2 class="h3 mb-3 text-primary">
+              <h2 class="text-2xl font-semibold mb-3 text-primary">
                 <i class="{{ service_data.icon }}" aria-hidden="true"></i>
                 {{ service_data.overview_title }}
               </h2>
@@ -180,20 +180,20 @@
 
         <!-- Core Services -->
         <section class="mb-5">
-          <h2 class="h3 mb-4">Core {{ service_data.name }} Services</h2>
-          <div class="row">
+          <h2 class="text-2xl font-semibold mb-4">Core {{ service_data.name }} Services</h2>
+          <div class="flex flex-wrap -mx-4">
             {% for service in service_data.core_services %}
-            <div class="col-md-6 mb-3">
-              <div class="card h-100 border-0 shadow-sm">
+            <div class="md:w-1/2 px-4 mb-3">
+              <div class="card bg-base-100 shadow-xl h-full border-0 shadow">
                 <div class="card-body">
-                  <h4 class="h5 text-primary">
+                  <h4 class="text-lg font-medium text-primary">
                     <i class="{{ service.icon }}" aria-hidden="true"></i>
                     {{ service.title }}
                   </h4>
-                  <ul class="list-unstyled">
+                  <ul class="list-none">
                     {% for item in service.items %}
                     <li class="mb-1">
-                      <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                      <i class="fas fa-check text-success mr-2" aria-hidden="true"></i>
                       {{ item }}
                     </li>
                     {% endfor %}
@@ -207,13 +207,13 @@
 
         <!-- Case Types -->
         <section class="mb-5">
-          <h2 class="h3 mb-4">Case Types We Handle</h2>
-          <div class="row">
+          <h2 class="text-2xl font-semibold mb-4">Case Types We Handle</h2>
+          <div class="flex flex-wrap -mx-4">
             {% for category in service_data.case_types %}
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 border-0 shadow-sm">
+            <div class="md:w-1/2 px-4 mb-4">
+              <div class="card bg-base-100 shadow-xl h-full border-0 shadow">
                 <div class="card-body">
-                  <h4 class="h5 text-primary">
+                  <h4 class="text-lg font-medium text-primary">
                     <i class="{{ category.icon }}" aria-hidden="true"></i>
                     {{ category.title }}
                   </h4>
@@ -231,9 +231,9 @@
 
         <!-- Methodology/Process -->
         <section class="mb-5">
-          <div class="card border-0 shadow-sm">
+          <div class="card bg-base-100 shadow-xl border-0 shadow">
             <div class="card-body p-4">
-              <h2 class="h3 mb-4 text-primary">Our {{ service_data.name }} Process</h2>
+              <h2 class="text-2xl font-semibold mb-4 text-primary">Our {{ service_data.name }} Process</h2>
               <div class="methodology-content">
                 {{ service_data.methodology_content|safe }}
               </div>
@@ -243,10 +243,10 @@
 
         <!-- FAQ Section -->
         <section class="mb-5">
-          <h2 class="h3 mb-4">Frequently Asked Questions</h2>
+          <h2 class="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
           <div class="accordion" id="faqAccordion">
             {% for faq in service_data.faq_items %}
-            <div class="accordion-item border-0 shadow-sm mb-2">
+            <div class="accordion-item border-0 shadow mb-2">
               <h3 class="accordion-header" id="faq{{ forloop.counter }}">
                 <button class="accordion-button collapsed" type="button" 
                     data-bs-toggle="collapse" 
@@ -271,12 +271,12 @@
       </div>
 
       <!-- Sidebar -->
-      <div class="col-lg-4">
+      <div class="lg:w-1/3 px-4">
         <div class="sticky-top" style="top: 20px;">
           <!-- Contact Card -->
-          <div class="card border-primary shadow-sm mb-4">
+          <div class="card bg-base-100 shadow-xl border-primary shadow mb-4">
             <div class="card-header bg-primary text-white text-center">
-              <h3 class="h5 mb-0">
+              <h3 class="text-lg font-medium mb-0">
                 <i class="fas fa-phone" aria-hidden="true"></i>
                 Free Case Consultation
               </h3>
@@ -285,22 +285,22 @@
               <div class="mb-3">
                 <img src="{% static 'images/christopher-skerritt.webp' %}" 
                                      alt="Christopher Skerritt"
-                                     class="rounded-circle mb-2"
+                                     class="rounded-full mb-2"
                                      width="80" 
                                      height="80"
                                      loading="lazy">
                 <h4 class="h6 mb-1">Christopher Skerritt</h4>
-                <p class="text-muted small mb-3">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+                <p class="text-gray-500 small mb-3">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
               </div>
               
               <div class="d-grid gap-2">
-                <a href="tel:+12036052814" class="btn btn-primary">
+                <a href="tel:+12036052814" class="btn btn btn-primary">
                   <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
                 </a>
-                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary">
+                <a href="mailto:chris@skerritteconomics.com" class="btn btn btn-outline btn-primary">
                   <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
                 </a>
-                <a href="{% url 'contact' %}?service={{ service_data.slug }}" class="btn btn-secondary">
+                <a href="{% url 'contact' %}?service={{ service_data.slug }}" class="btn btn btn-secondary">
                   <i class="fas fa-calendar-check" aria-hidden="true"></i> Request Consultation
                 </a>
               </div>
@@ -308,15 +308,15 @@
           </div>
 
           <!-- Service Benefits -->
-          <div class="card border-0 shadow-sm mb-4">
-            <div class="card-header bg-light">
+          <div class="card bg-base-100 shadow-xl border-0 shadow mb-4">
+            <div class="card-header bg-base-200">
               <h3 class="h6 mb-0">{{ service_data.name }} Benefits</h3>
             </div>
             <div class="card-body">
-              <ul class="list-unstyled mb-0">
+              <ul class="list-none mb-0">
                 {% for benefit in service_data.benefits %}
                 <li class="mb-2">
-                  <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                  <i class="fas fa-check-circle text-success mr-2" aria-hidden="true"></i>
                   {{ benefit }}
                 </li>
                 {% endfor %}
@@ -325,12 +325,12 @@
           </div>
 
           <!-- Related Services -->
-          <div class="card border-0 shadow-sm mb-4">
-            <div class="card-header bg-light">
+          <div class="card bg-base-100 shadow-xl border-0 shadow mb-4">
+            <div class="card-header bg-base-200">
               <h3 class="h6 mb-0">Related Services</h3>
             </div>
             <div class="card-body">
-              <ul class="list-unstyled mb-0">
+              <ul class="list-none mb-0">
                 {% for related in service_data.related_services %}
                 <li class="mb-2">
                   <a href="{{ related.url }}" class="text-decoration-none">
@@ -344,38 +344,38 @@
           </div>
 
           <!-- Credentials -->
-          <div class="card border-0 shadow-sm">
-            <div class="card-header bg-light">
+          <div class="card bg-base-100 shadow-xl border-0 shadow">
+            <div class="card-header bg-base-200">
               <h3 class="h6 mb-0">Professional Credentials</h3>
             </div>
             <div class="card-body">
-              <div class="row text-center g-2">
+              <div class="flex flex-wrap -mx-4 text-center g-2">
                 <div class="col-6">
                   <div class="border rounded p-2">
-                    <strong class="d-block">M.Ed</strong>
-                    <small class="text-muted">Springfield College</small>
+                    <strong class="block">M.Ed</strong>
+                    <small class="text-gray-500">Springfield College</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="border rounded p-2">
-                    <strong class="d-block">MBA</strong>
-                    <small class="text-muted">Bryant University</small>
+                    <strong class="block">MBA</strong>
+                    <small class="text-gray-500">Bryant University</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="border rounded p-2">
-                    <strong class="d-block">CRC</strong>
-                    <small class="text-muted">Certified</small>
+                    <strong class="block">CRC</strong>
+                    <small class="text-gray-500">Certified</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="border rounded p-2">
-                    <strong class="d-block">CLCP</strong>
-                    <small class="text-muted">Certified</small>
+                    <strong class="block">CLCP</strong>
+                    <small class="text-gray-500">Certified</small>
                   </div>
                 </div>
               </div>
-              <p class="text-center text-muted small mt-2 mb-0">
+              <p class="text-center text-gray-500 small mt-2 mb-0">
                 +11 Additional Professional Certifications
               </p>
             </div>
@@ -387,13 +387,13 @@
 
   <!-- Call to Action Section -->
   <section class="cta-section bg-primary text-white py-5">
-    <div class="container text-center">
-      <div class="row justify-content-center">
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex flex-wrap -mx-4 justify-center">
         <div class="col-lg-8">
-          <h2 class="h3 mb-3">{{ service_data.cta_title }}</h2>
-          <p class="lead mb-4">{{ service_data.cta_subtitle }}</p>
-          <div class="d-flex flex-wrap justify-content-center gap-3">
-            <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+          <h2 class="text-2xl font-semibold mb-3">{{ service_data.cta_title }}</h2>
+          <p class="text-xl text-gray-600 mb-4">{{ service_data.cta_subtitle }}</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="tel:+12036052814" class="btn btn btn-warning btn-lg">
               <i class="fas fa-phone" aria-hidden="true"></i> Call (203) 605-2814
             </a>
             <a href="{% url 'contact' %}?service={{ service_data.slug }}" class="btn btn-light btn-lg">

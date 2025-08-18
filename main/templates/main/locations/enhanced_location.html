@@ -7,14 +7,14 @@
 {% block meta_description %}{{ page_description }}{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <!-- Breadcrumbs -->
   {% include 'partials/_breadcrumbs_enhanced.html' with breadcrumb_items=breadcrumb_items current_page=location.city %}
   
   <!-- Hero Section -->
   <section class="location-hero mb-4">
     <h1 class="animate-on-scroll">{{ location.city }} Forensic Economist & Business Valuation Expert</h1>
-    <p class="lead">{{ location.description }}</p>
+    <p class="text-xl text-gray-600">{{ location.description }}</p>
     
     <div class="hero-stats">
       <div class="stat-item">
@@ -32,8 +32,8 @@
     </div>
     
     <div class="hero-cta mt-4">
-      <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Schedule {{ location.city }} Consultation</a>
-      <a href="tel:+12036052814" class="btn btn-secondary btn-lg">Call (203) 605-2814</a>
+      <a href="{% url 'contact' %}" class="btn btn btn-primary btn-lg">Schedule {{ location.city }} Consultation</a>
+      <a href="tel:+12036052814" class="btn btn btn-secondary btn-lg">Call (203) 605-2814</a>
     </div>
   </section>
   
@@ -45,7 +45,7 @@
       <div class="service-card animate-on-scroll">
         <h3>{{ service }}</h3>
         <p>Expert economic analysis and testimony for {{ service|lower }} cases in {{ location.city }} and throughout {{ location.state }}.</p>
-        <a href="{% url 'services_index' %}" class="btn btn-outline-primary">Learn More →</a>
+        <a href="{% url 'services_index' %}" class="btn btn btn-outline btn-primary">Learn More →</a>
       </div>
       {% endfor %}
     </div>
@@ -146,7 +146,7 @@
       </div>
       
       <div class="text-center mt-4">
-        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact {{ location.city }} Office</a>
+        <a href="{% url 'contact' %}" class="btn btn btn-primary btn-lg">Contact {{ location.city }} Office</a>
       </div>
     </div>
   </section>

@@ -7,15 +7,15 @@
 
 {% block content %}
 <section class="hero-section">
-  <div class="container">
+  <div class="container mx-auto px-4">
     <h1>{{ service_name }} in {{ city_name }}, {{ state_name }}</h1>
-    <p class="lead">Professional {{ service_name|lower }} services for legal cases and disputes</p>
+    <p class="text-xl text-gray-600">Professional {{ service_name|lower }} services for legal cases and disputes</p>
   </div>
 </section>
 
 <section class="service-area-content">
-  <div class="container">
-    <div class="row">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap -mx-4">
       <div class="col-lg-8">
         <h2>Expert {{ service_name }} Services in {{ city_name }}</h2>
         <p>
@@ -64,12 +64,12 @@
         </ul>
       </div>
       
-      <div class="col-lg-4">
+      <div class="lg:w-1/3 px-4">
         <div class="sidebar">
           <div class="cta-box">
             <h3>Need a {{ service_name }}?</h3>
             <p>Contact us for expert analysis and testimony in {{ city_name }}.</p>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
+            <a href="/contact/" class="btn btn btn-primary">Get Started</a>
           </div>
           
           <div class="related-services">

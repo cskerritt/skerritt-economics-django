@@ -68,36 +68,36 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mx-auto px-4">
   <!-- Breadcrumbs -->
   <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'location' city.state|lower|slugify %}">{{ city.state }}</a></li>
-      <li class="breadcrumb-item active">{{ city.name }} Business Valuation</li>
+    <ol class="breadcrumbs">
+      <li class=""><a href="{% url 'home' %}">Home</a></li>
+      <li class=""><a href="{% url 'locations_index' %}">Locations</a></li>
+      <li class=""><a href="{% url 'location' city.state|lower|slugify %}">{{ city.state }}</a></li>
+      <li class="active">{{ city.name }} Business Valuation</li>
     </ol>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero-section mb-5">
     <h1 class="display-4">Business Valuation Expert {{ city.name }}, {{ city.state_abbr }}</h1>
-    <p class="lead">Professional Business Appraisals & Fair Market Value Analysis in {{ city.county }}, {{ city.state }}</p>
+    <p class="text-xl text-gray-600">Professional Business Appraisals & Fair Market Value Analysis in {{ city.county }}, {{ city.state }}</p>
     
-    <div class="row mt-4">
+    <div class="flex flex-wrap -mx-4 mt-4">
       <div class="col-md-8">
-        <div class="alert alert-success">
-          <h2 class="h5">Certified Business Valuation Expert Serving {{ city.name }}</h2>
+        <div class="alert alert alert-success">
+          <h2 class="text-lg font-medium">Certified Business Valuation Expert Serving {{ city.name }}</h2>
           <p>Christopher Skerritt provides comprehensive business valuation services throughout the {{ city.metro_area }} metro area. With an MBA and decades of experience, we deliver accurate, defensible business appraisals for legal, tax, and transaction purposes.</p>
-          <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mt-3">Free Consultation for {{ city.name }} Businesses</a>
-          <span class="d-block mt-2">📞 Direct: (203) 605-2814</span>
+          <a href="{% url 'contact' %}" class="btn btn btn-primary btn-lg mt-3">Free Consultation for {{ city.name }} Businesses</a>
+          <span class="block mt-2">📞 Direct: (203) 605-2814</span>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card bg-light">
+      <div class="md:w-1/3 px-4">
+        <div class="card bg-base-100 shadow-xl bg-base-200">
           <div class="card-body">
-            <h3 class="h5">Service Area</h3>
-            <ul class="list-unstyled">
+            <h3 class="text-lg font-medium">Service Area</h3>
+            <ul class="list-none">
               <li>📍 {{ city.name }}, {{ city.state_abbr }}</li>
               <li>📍 {{ city.county }}</li>
               <li>📍 {{ city.metro_area }} Metro</li>
@@ -113,11 +113,11 @@
   <!-- Services Section -->
   <section class="services-section mb-5">
     <h2>Business Valuation Services in {{ city.name }}</h2>
-    <div class="row">
-      <div class="col-md-6 mb-4">
-        <div class="card h-100">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h3 class="h4">Litigation Support Valuations</h3>
+            <h3 class="text-xl font-semibold">Litigation Support Valuations</h3>
             <ul>
               <li>Shareholder and partnership disputes</li>
               <li>Divorce business valuations</li>
@@ -129,10 +129,10 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h3 class="h4">Transaction Advisory</h3>
+            <h3 class="text-xl font-semibold">Transaction Advisory</h3>
             <ul>
               <li>Merger and acquisition valuations</li>
               <li>Buy-sell agreement pricing</li>
@@ -144,10 +144,10 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h3 class="h4">Tax & Compliance Valuations</h3>
+            <h3 class="text-xl font-semibold">Tax & Compliance Valuations</h3>
             <ul>
               <li>Estate and gift tax reporting</li>
               <li>409A valuations for stock options</li>
@@ -159,10 +159,10 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 mb-4">
-        <div class="card h-100">
+      <div class="md:w-1/2 px-4 mb-4">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h3 class="h4">Business Economic Analysis</h3>
+            <h3 class="text-xl font-semibold">Business Economic Analysis</h3>
             <ul>
               <li>Lost profits calculations</li>
               <li>Business interruption losses</li>
@@ -180,7 +180,7 @@
   <!-- Local Expertise Section -->
   <section class="local-expertise mb-5">
     <h2>{{ city.name }} Business Valuation Expert</h2>
-    <div class="row">
+    <div class="flex flex-wrap -mx-4">
       <div class="col-lg-8">
         <p>When businesses in {{ city.name }}, {{ city.state }} need accurate, defensible valuations, they trust Skerritt Economics. Our business valuation practice combines rigorous analytical methods with deep understanding of {{ city.state }} business law and local market conditions.</p>
         
@@ -195,8 +195,8 @@
 
         <h3>Industries We Value in {{ city.name }}</h3>
         <p>Our business valuation expertise spans all major industries in the {{ city.metro_area }} area, including:</p>
-        <div class="row">
-          <div class="col-md-6">
+        <div class="flex flex-wrap -mx-4">
+          <div class="md:w-1/2 px-4">
             <ul>
               <li>Manufacturing and distribution</li>
               <li>Professional services firms</li>
@@ -205,7 +205,7 @@
               <li>Retail and restaurants</li>
             </ul>
           </div>
-          <div class="col-md-6">
+          <div class="md:w-1/2 px-4">
             <ul>
               <li>Construction companies</li>
               <li>Real estate entities</li>
@@ -216,12 +216,12 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="card bg-primary text-white">
+      <div class="lg:w-1/3 px-4">
+        <div class="card bg-base-100 shadow-xl bg-primary text-white">
           <div class="card-body">
-            <h3 class="h4">Schedule a Valuation Consultation</h3>
+            <h3 class="text-xl font-semibold">Schedule a Valuation Consultation</h3>
             <p>Discuss your {{ city.name }} business valuation needs with an experienced expert.</p>
-            <ul class="list-unstyled text-white">
+            <ul class="list-none text-white">
               <li>✓ Free initial consultation</li>
               <li>✓ Valuation approach discussion</li>
               <li>✓ Fee estimate</li>
@@ -240,25 +240,25 @@
   <section class="valuation-methods mb-5">
     <h2>Business Valuation Methods Used in {{ city.name }}</h2>
     <div class="accordion" id="valuationMethodsAccordion">
-      <div class="card">
+      <div class="card bg-base-100 shadow-xl">
         <div class="card-header">
-          <h3 class="h5 mb-0">Income Approach</h3>
+          <h3 class="text-lg font-medium mb-0">Income Approach</h3>
         </div>
         <div class="card-body">
           <p>The income approach values {{ city.name }} businesses based on their ability to generate future economic benefits. We use discounted cash flow (DCF) analysis and capitalization of earnings methods, incorporating {{ city.metro_area }} market data and industry risk factors.</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card bg-base-100 shadow-xl">
         <div class="card-header">
-          <h3 class="h5 mb-0">Market Approach</h3>
+          <h3 class="text-lg font-medium mb-0">Market Approach</h3>
         </div>
         <div class="card-body">
           <p>The market approach compares your {{ city.name }} business to similar companies that have sold recently. We analyze transaction databases and public company data to identify appropriate multiples for businesses in the {{ city.state }} market.</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card bg-base-100 shadow-xl">
         <div class="card-header">
-          <h3 class="h5 mb-0">Asset Approach</h3>
+          <h3 class="text-lg font-medium mb-0">Asset Approach</h3>
         </div>
         <div class="card-body">
           <p>The asset approach values businesses based on their underlying assets. This method is particularly relevant for {{ city.name }} holding companies, real estate entities, and asset-intensive businesses in {{ city.county }}.</p>
@@ -270,51 +270,51 @@
   <!-- Common Purposes Section -->
   <section class="purposes-section mb-5">
     <h2>Common Business Valuation Needs in {{ city.name }}</h2>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="card h-100">
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/3 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h4 class="h5">Divorce Proceedings</h4>
+            <h4 class="text-lg font-medium">Divorce Proceedings</h4>
             <p>Business valuations for marital property division in {{ city.county }} divorce cases. We provide neutral, court-ready valuations.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h4 class="h5">Buy-Sell Agreements</h4>
+            <h4 class="text-lg font-medium">Buy-Sell Agreements</h4>
             <p>Valuation for partner buyouts and shareholder agreements for {{ city.name }} businesses.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h4 class="h5">Estate Planning</h4>
+            <h4 class="text-lg font-medium">Estate Planning</h4>
             <p>Business valuations for estate tax planning and wealth transfer strategies in {{ city.state }}.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h4 class="h5">Mergers & Acquisitions</h4>
+            <h4 class="text-lg font-medium">Mergers & Acquisitions</h4>
             <p>Fair market value analysis for {{ city.metro_area }} business sales and acquisitions.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h4 class="h5">Litigation Support</h4>
+            <h4 class="text-lg font-medium">Litigation Support</h4>
             <p>Expert testimony for business disputes in {{ city.name }} courts.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100">
+      <div class="md:w-1/3 px-4 mb-3">
+        <div class="card bg-base-100 shadow-xl h-full">
           <div class="card-body">
-            <h4 class="h5">Tax Compliance</h4>
+            <h4 class="text-lg font-medium">Tax Compliance</h4>
             <p>409A valuations and gift tax valuations meeting IRS requirements.</p>
           </div>
         </div>
@@ -325,19 +325,19 @@
   <!-- FAQ Section -->
   <section class="faq-section mb-5">
     <h2>Frequently Asked Questions - {{ city.name }} Business Valuation</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <h3 class="h5">What is business valuation?</h3>
+    <div class="flex flex-wrap -mx-4">
+      <div class="md:w-1/2 px-4">
+        <h3 class="text-lg font-medium">What is business valuation?</h3>
         <p>Business valuation determines the economic value of a business or ownership interest. In {{ city.name }}, valuations are needed for sales, divorces, estate planning, and litigation.</p>
         
-        <h3 class="h5">How long does a business valuation take?</h3>
+        <h3 class="text-lg font-medium">How long does a business valuation take?</h3>
         <p>Most {{ city.name }} business valuations are completed within 2-3 weeks. Complex valuations or those requiring extensive analysis may take 4-6 weeks.</p>
       </div>
-      <div class="col-md-6">
-        <h3 class="h5">What information is needed for valuation?</h3>
+      <div class="md:w-1/2 px-4">
+        <h3 class="text-lg font-medium">What information is needed for valuation?</h3>
         <p>We typically need 3-5 years of financial statements, tax returns, and information about the business operations and {{ city.metro_area }} market conditions.</p>
         
-        <h3 class="h5">How much does business valuation cost?</h3>
+        <h3 class="text-lg font-medium">How much does business valuation cost?</h3>
         <p>Business valuation fees vary based on complexity and purpose. {{ city.name }} valuations typically range from $5,000 to $25,000. We provide fixed fee quotes after initial consultation.</p>
       </div>
     </div>
@@ -363,10 +363,10 @@
   <section class="related-locations mb-5">
     <h2>Business Valuation Services Near {{ city.name }}</h2>
     <p>In addition to {{ city.name }}, we provide business valuation services throughout {{ city.state }} and the {{ city.region }} region:</p>
-    <div class="row">
+    <div class="flex flex-wrap -mx-4">
       {% for nearby_city in nearby_cities %}
-      <div class="col-md-4 col-sm-6 mb-3">
-        <a href="{% url 'city_business_valuation' nearby_city.slug %}" class="btn btn-outline-primary btn-block">
+      <div class="md:w-1/3 px-4 col-sm-6 mb-3">
+        <a href="{% url 'city_business_valuation' nearby_city.slug %}" class="btn btn btn-outline btn-primary btn-block">
           {{ nearby_city.name }}, {{ nearby_city.state_abbr }}
         </a>
       </div>
@@ -375,18 +375,18 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section text-center py-5 bg-light rounded">
+  <section class="cta-section text-center py-5 bg-base-200 rounded">
     <h2>Need a Business Valuation Expert in {{ city.name }}?</h2>
-    <p class="lead">Get professional business appraisal services for your {{ city.state }} business</p>
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-4">
-        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg btn-block">Schedule Consultation</a>
+    <p class="text-xl text-gray-600">Get professional business appraisal services for your {{ city.state }} business</p>
+    <div class="flex flex-wrap -mx-4 justify-center mt-4">
+      <div class="md:w-1/3 px-4">
+        <a href="{% url 'contact' %}" class="btn btn btn-primary btn-lg btn-block">Schedule Consultation</a>
       </div>
-      <div class="col-md-4">
-        <a href="tel:+12036052814" class="btn btn-success btn-lg btn-block">📞 (203) 605-2814</a>
+      <div class="md:w-1/3 px-4">
+        <a href="tel:+12036052814" class="btn btn btn-success btn-lg btn-block">📞 (203) 605-2814</a>
       </div>
-      <div class="col-md-4">
-        <a href="{% url 'service_valuation' %}" class="btn btn-info btn-lg btn-block">Learn More</a>
+      <div class="md:w-1/3 px-4">
+        <a href="{% url 'service_valuation' %}" class="btn btn btn-info btn-lg btn-block">Learn More</a>
       </div>
     </div>
   </section>

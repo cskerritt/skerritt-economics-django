@@ -36,63 +36,63 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid px-0">
+<div class="w-full px-4 px-0">
   <!-- Hero Section -->
   <section class="bg-primary text-white py-5">
-    <div class="container">
+    <div class="container mx-auto px-4">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent p-0">
-          <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-white-50">Home</a></li>
-          <li class="breadcrumb-item"><a href="{% url 'practice_areas_index' %}" class="text-white-50">Practice Areas</a></li>
-          <li class="breadcrumb-item active text-white">{{ practice_area.name }}</li>
+        <ol class="breadcrumbs bg-transparent p-0">
+          <li class=""><a href="{% url 'home' %}" class="text-white-50">Home</a></li>
+          <li class=""><a href="{% url 'practice_areas_index' %}" class="text-white-50">Practice Areas</a></li>
+          <li class="active text-white">{{ practice_area.name }}</li>
         </ol>
       </nav>
       
-      <div class="row align-items-center">
+      <div class="flex flex-wrap -mx-4 items-center">
         <div class="col-lg-8">
           <h1 class="display-4 mb-4">{{ practice_area.name }} Expert Services</h1>
-          <p class="lead mb-4">{{ practice_area.description }}</p>
+          <p class="text-xl text-gray-600 mb-4">{{ practice_area.description }}</p>
           
           <div class="d-grid gap-2 d-md-block">
-            <a href="tel:+12036052814" class="btn btn-warning btn-lg">
-              <i class="fas fa-phone me-2"></i>(203) 605-2814
+            <a href="tel:+12036052814" class="btn btn btn-warning btn-lg">
+              <i class="fas fa-phone mr-2"></i>(203) 605-2814
             </a>
             <a href="{% url 'contact' %}?practice_area={{ practice_area.slug }}" class="btn btn-outline-light btn-lg">
-              <i class="fas fa-calendar-check me-2"></i>Free Consultation
+              <i class="fas fa-calendar-check mr-2"></i>Free Consultation
             </a>
           </div>
         </div>
         
-        <div class="col-lg-4 mt-4 mt-lg-0">
-          <div class="card border-0 shadow-lg">
+        <div class="lg:w-1/3 px-4 mt-4 mt-lg-0">
+          <div class="card bg-base-100 shadow-xl border-0 shadow-xl">
             <div class="card-body p-4">
               <h5 class="card-title mb-3">
-                <i class="fas fa-balance-scale text-primary me-2"></i>Services Provided
+                <i class="fas fa-balance-scale text-primary mr-2"></i>Services Provided
               </h5>
-              <ul class="list-unstyled mb-0">
+              <ul class="list-none mb-0">
                 {% if 'forensic_economics' in practice_area.services %}
                 <li class="mb-2">
-                  <i class="fas fa-check text-success me-2"></i>Economic Damage Analysis
+                  <i class="fas fa-check text-success mr-2"></i>Economic Damage Analysis
                 </li>
                 {% endif %}
                 {% if 'vocational_expert' in practice_area.services %}
                 <li class="mb-2">
-                  <i class="fas fa-check text-success me-2"></i>Vocational Assessment
+                  <i class="fas fa-check text-success mr-2"></i>Vocational Assessment
                 </li>
                 {% endif %}
                 {% if 'life_care_planning' in practice_area.services %}
                 <li class="mb-2">
-                  <i class="fas fa-check text-success me-2"></i>Life Care Planning
+                  <i class="fas fa-check text-success mr-2"></i>Life Care Planning
                 </li>
                 {% endif %}
                 {% if 'business_valuation' in practice_area.services %}
                 <li class="mb-2">
-                  <i class="fas fa-check text-success me-2"></i>Business Valuation
+                  <i class="fas fa-check text-success mr-2"></i>Business Valuation
                 </li>
                 {% endif %}
                 {% if 'business_consulting' in practice_area.services %}
                 <li class="mb-2">
-                  <i class="fas fa-check text-success me-2"></i>Business Consulting
+                  <i class="fas fa-check text-success mr-2"></i>Business Consulting
                 </li>
                 {% endif %}
               </ul>
@@ -105,24 +105,24 @@
 
   <!-- Services Detail Section -->
   <section class="py-5">
-    <div class="container">
+    <div class="container mx-auto px-4">
       {% if 'forensic_economics' in practice_area.services %}
       <div class="mb-5">
-        <div class="row">
+        <div class="flex flex-wrap -mx-4">
           <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
+            <div class="card bg-base-100 shadow-xl border-0 shadow">
               <div class="card-body p-4">
-                <h2 class="h3 mb-4 text-primary">
-                  <i class="fas fa-chart-line me-2"></i>{{ practice_area.services.forensic_economics.title }}
+                <h2 class="text-2xl font-semibold mb-4 text-primary">
+                  <i class="fas fa-chart-line mr-2"></i>{{ practice_area.services.forensic_economics.title }}
                 </h2>
                 <p class="mb-3">Our forensic economics services for {{ practice_area.name|lower }} cases provide accurate, defensible economic damage calculations that stand up to scrutiny in court. We analyze all financial aspects of the case to determine fair compensation.</p>
                 
-                <h4 class="h5 mb-3">Specific Applications:</h4>
-                <div class="row">
+                <h4 class="text-lg font-medium mb-3">Specific Applications:</h4>
+                <div class="flex flex-wrap -mx-4">
                   {% for application in practice_area.services.forensic_economics.applications %}
-                  <div class="col-md-6 mb-2">
-                    <div class="d-flex align-items-start">
-                      <i class="fas fa-angle-right text-primary me-2 mt-1"></i>
+                  <div class="md:w-1/2 px-4 mb-2">
+                    <div class="flex align-items-start">
+                      <i class="fas fa-angle-right text-primary mr-2 mt-1"></i>
                       <span>{{ application }}</span>
                     </div>
                   </div>
@@ -137,21 +137,21 @@
 
       {% if 'vocational_expert' in practice_area.services %}
       <div class="mb-5">
-        <div class="row">
+        <div class="flex flex-wrap -mx-4">
           <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
+            <div class="card bg-base-100 shadow-xl border-0 shadow">
               <div class="card-body p-4">
-                <h2 class="h3 mb-4 text-success">
-                  <i class="fas fa-user-md me-2"></i>{{ practice_area.services.vocational_expert.title }}
+                <h2 class="text-2xl font-semibold mb-4 text-success">
+                  <i class="fas fa-user-md mr-2"></i>{{ practice_area.services.vocational_expert.title }}
                 </h2>
                 <p class="mb-3">Our vocational expert services for {{ practice_area.name|lower }} cases provide comprehensive employability assessments, earning capacity evaluations, and vocational rehabilitation planning based on medical evidence and labor market data.</p>
                 
-                <h4 class="h5 mb-3">Specific Applications:</h4>
-                <div class="row">
+                <h4 class="text-lg font-medium mb-3">Specific Applications:</h4>
+                <div class="flex flex-wrap -mx-4">
                   {% for application in practice_area.services.vocational_expert.applications %}
-                  <div class="col-md-6 mb-2">
-                    <div class="d-flex align-items-start">
-                      <i class="fas fa-angle-right text-success me-2 mt-1"></i>
+                  <div class="md:w-1/2 px-4 mb-2">
+                    <div class="flex align-items-start">
+                      <i class="fas fa-angle-right text-success mr-2 mt-1"></i>
                       <span>{{ application }}</span>
                     </div>
                   </div>
@@ -166,21 +166,21 @@
 
       {% if 'life_care_planning' in practice_area.services %}
       <div class="mb-5">
-        <div class="row">
+        <div class="flex flex-wrap -mx-4">
           <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
+            <div class="card bg-base-100 shadow-xl border-0 shadow">
               <div class="card-body p-4">
-                <h2 class="h3 mb-4 text-info">
-                  <i class="fas fa-heartbeat me-2"></i>{{ practice_area.services.life_care_planning.title }}
+                <h2 class="text-2xl font-semibold mb-4 text-info">
+                  <i class="fas fa-heartbeat mr-2"></i>{{ practice_area.services.life_care_planning.title }}
                 </h2>
                 <p class="mb-3">Our life care planning services for {{ practice_area.name|lower }} cases provide detailed, evidence-based projections of future medical and care needs, ensuring comprehensive coverage for lifetime care requirements.</p>
                 
-                <h4 class="h5 mb-3">Specific Applications:</h4>
-                <div class="row">
+                <h4 class="text-lg font-medium mb-3">Specific Applications:</h4>
+                <div class="flex flex-wrap -mx-4">
                   {% for application in practice_area.services.life_care_planning.applications %}
-                  <div class="col-md-6 mb-2">
-                    <div class="d-flex align-items-start">
-                      <i class="fas fa-angle-right text-info me-2 mt-1"></i>
+                  <div class="md:w-1/2 px-4 mb-2">
+                    <div class="flex align-items-start">
+                      <i class="fas fa-angle-right text-info mr-2 mt-1"></i>
                       <span>{{ application }}</span>
                     </div>
                   </div>
@@ -195,21 +195,21 @@
 
       {% if 'business_valuation' in practice_area.services %}
       <div class="mb-5">
-        <div class="row">
+        <div class="flex flex-wrap -mx-4">
           <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
+            <div class="card bg-base-100 shadow-xl border-0 shadow">
               <div class="card-body p-4">
-                <h2 class="h3 mb-4 text-warning">
-                  <i class="fas fa-building me-2"></i>{{ practice_area.services.business_valuation.title }}
+                <h2 class="text-2xl font-semibold mb-4 text-warning">
+                  <i class="fas fa-building mr-2"></i>{{ practice_area.services.business_valuation.title }}
                 </h2>
                 <p class="mb-3">Our business valuation services for {{ practice_area.name|lower }} cases provide accurate assessments of business value, lost profits, and commercial damages using accepted valuation methodologies.</p>
                 
-                <h4 class="h5 mb-3">Specific Applications:</h4>
-                <div class="row">
+                <h4 class="text-lg font-medium mb-3">Specific Applications:</h4>
+                <div class="flex flex-wrap -mx-4">
                   {% for application in practice_area.services.business_valuation.applications %}
-                  <div class="col-md-6 mb-2">
-                    <div class="d-flex align-items-start">
-                      <i class="fas fa-angle-right text-warning me-2 mt-1"></i>
+                  <div class="md:w-1/2 px-4 mb-2">
+                    <div class="flex align-items-start">
+                      <i class="fas fa-angle-right text-warning mr-2 mt-1"></i>
                       <span>{{ application }}</span>
                     </div>
                   </div>
@@ -224,21 +224,21 @@
 
       {% if 'business_consulting' in practice_area.services %}
       <div class="mb-5">
-        <div class="row">
+        <div class="flex flex-wrap -mx-4">
           <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
+            <div class="card bg-base-100 shadow-xl border-0 shadow">
               <div class="card-body p-4">
-                <h2 class="h3 mb-4 text-secondary">
-                  <i class="fas fa-handshake me-2"></i>{{ practice_area.services.business_consulting.title }}
+                <h2 class="text-2xl font-semibold mb-4 text-secondary">
+                  <i class="fas fa-handshake mr-2"></i>{{ practice_area.services.business_consulting.title }}
                 </h2>
                 <p class="mb-3">Our business consulting services related to {{ practice_area.name|lower }} provide strategic guidance, risk management, and operational improvements to prevent future issues and optimize outcomes.</p>
                 
-                <h4 class="h5 mb-3">Specific Applications:</h4>
-                <div class="row">
+                <h4 class="text-lg font-medium mb-3">Specific Applications:</h4>
+                <div class="flex flex-wrap -mx-4">
                   {% for application in practice_area.services.business_consulting.applications %}
-                  <div class="col-md-6 mb-2">
-                    <div class="d-flex align-items-start">
-                      <i class="fas fa-angle-right text-secondary me-2 mt-1"></i>
+                  <div class="md:w-1/2 px-4 mb-2">
+                    <div class="flex align-items-start">
+                      <i class="fas fa-angle-right text-secondary mr-2 mt-1"></i>
                       <span>{{ application }}</span>
                     </div>
                   </div>
@@ -254,14 +254,14 @@
   </section>
 
   <!-- Why Choose Section -->
-  <section class="bg-light py-5">
-    <div class="container">
+  <section class="bg-base-200 py-5">
+    <div class="container mx-auto px-4">
       <h2 class="text-center mb-5">Why Choose Christopher Skerritt for {{ practice_area.name }} Cases</h2>
       
-      <div class="row">
-        <div class="col-md-4 mb-4">
+      <div class="flex flex-wrap -mx-4">
+        <div class="md:w-1/3 px-4 mb-4">
           <div class="text-center">
-            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <div class="bg-primary text-white rounded-full d-inline-flex items-center justify-center mb-3" style="width: 80px; height: 80px;">
               <i class="fas fa-graduation-cap fa-2x"></i>
             </div>
             <h4>Extensive Credentials</h4>
@@ -269,9 +269,9 @@
           </div>
         </div>
         
-        <div class="col-md-4 mb-4">
+        <div class="md:w-1/3 px-4 mb-4">
           <div class="text-center">
-            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <div class="bg-primary text-white rounded-full d-inline-flex items-center justify-center mb-3" style="width: 80px; height: 80px;">
               <i class="fas fa-gavel fa-2x"></i>
             </div>
             <h4>Court Experience</h4>
@@ -279,9 +279,9 @@
           </div>
         </div>
         
-        <div class="col-md-4 mb-4">
+        <div class="md:w-1/3 px-4 mb-4">
           <div class="text-center">
-            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <div class="bg-primary text-white rounded-full d-inline-flex items-center justify-center mb-3" style="width: 80px; height: 80px;">
               <i class="fas fa-chart-bar fa-2x"></i>
             </div>
             <h4>Comprehensive Analysis</h4>
@@ -294,15 +294,15 @@
 
   <!-- CTA Section -->
   <section class="bg-primary text-white py-5">
-    <div class="container text-center">
+    <div class="container mx-auto px-4 text-center">
       <h2 class="mb-4">Need Expert Analysis for Your {{ practice_area.name }} Case?</h2>
-      <p class="lead mb-4">Get comprehensive economic, vocational, and life care planning services from a qualified expert</p>
+      <p class="text-xl text-gray-600 mb-4">Get comprehensive economic, vocational, and life care planning services from a qualified expert</p>
       <div class="d-grid gap-2 d-md-block">
-        <a href="{% url 'contact' %}?practice_area={{ practice_area.slug }}" class="btn btn-warning btn-lg">
-          <i class="fas fa-calendar-check me-2"></i>Schedule Free Consultation
+        <a href="{% url 'contact' %}?practice_area={{ practice_area.slug }}" class="btn btn btn-warning btn-lg">
+          <i class="fas fa-calendar-check mr-2"></i>Schedule Free Consultation
         </a>
         <a href="tel:+12036052814" class="btn btn-light btn-lg">
-          <i class="fas fa-phone me-2"></i>(203) 605-2814
+          <i class="fas fa-phone mr-2"></i>(203) 605-2814
         </a>
       </div>
       <p class="mt-3">Available for cases nationwide • Rapid response guaranteed</p>
@@ -312,19 +312,19 @@
   <!-- Related Practice Areas -->
   {% if related_areas %}
   <section class="py-5">
-    <div class="container">
+    <div class="container mx-auto px-4">
       <h3 class="text-center mb-4">Related Practice Areas</h3>
-      <div class="row">
+      <div class="flex flex-wrap -mx-4">
         {% for area in related_areas %}
-        <div class="col-md-4 mb-3">
-          <div class="card h-100 border-0 shadow-sm">
+        <div class="md:w-1/3 px-4 mb-3">
+          <div class="card bg-base-100 shadow-xl h-full border-0 shadow">
             <div class="card-body">
               <h5 class="card-title">
                 <a href="{% url 'practice_area_detail' slug=area.slug %}" class="text-decoration-none">
                   {{ area.name }}
                 </a>
               </h5>
-              <p class="card-text small">{{ area.description|truncatewords:20 }}</p>
+              <p class="text-base small">{{ area.description|truncatewords:20 }}</p>
             </div>
           </div>
         </div>
