@@ -77,10 +77,25 @@ echo ""
 # Check Docker if available
 if command -v docker &> /dev/null && [ -f "docker-compose.yml" ]; then
     echo "🐳 Docker status:"
-    docker compose ps
+    docker compose ps || docker-compose ps
     echo ""
-    echo "Recent Docker logs:"
-    docker compose logs --tail=10 2>&1 || echo "No Docker logs available"
+    
+    # Check Django container specifically
+    echo "Django container status:"
+    docker compose ps django || docker-compose ps django
+    echo ""
+    
+    echo "Recent Django container logs:"
+    docker compose logs --tail=30 django 2>&1 || docker-compose logs --tail=30 django 2>&1
+    echo ""
+    
+    echo "Recent Caddy container logs:"
+    docker compose logs --tail=20 caddy 2>&1 || docker-compose logs --tail=20 caddy 2>&1
+    echo ""
+    
+    # Check if containers are healthy
+    echo "Container health status:"
+    docker ps --format "table {{.Names}}\t{{.Status}}" | grep skerritt || echo "No skerritt containers found"
 fi
 echo ""
 
