@@ -1,43 +1,35 @@
 {% load static %}
-<nav class="navbar" role="navigation" aria-label="Main navigation">
+<nav class="navbar navbar-expand-lg navbar-dark" role="navigation" aria-label="Main navigation">
     <div class="container">
-        <div class="navbar-brand">
-            <a href="{% url 'home' %}" class="logo-link">
-                <img src="{% static 'images/SEC_LOGO.png' %}" 
-                     alt="Skerritt Economics and Consulting - SEC Logo" 
-                     class="navbar-logo"
-                     width="320" 
-                     height="80"
-                     loading="eager">
-                <span class="sr-only">Skerritt Economics & Consulting</span>
-            </a>
-        </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
+        <a href="{% url 'home' %}" class="navbar-brand">
+            <img src="{% static 'images/SEC_LOGO.png' %}"
+                 alt="Skerritt Economics and Consulting - SEC Logo"
+                 width="180" height="72" class="d-inline-block align-text-top">
+            <span class="visually-hidden">Skerritt Economics & Consulting</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <ul class="navbar-menu">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li class="has-dropdown">
-                <a href="{% url 'services_index' %}">Services</a>
-                <ul class="dropdown-menu">
-                    <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
-                    <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
-                    <li><a href="{% url 'service_consulting' %}">Business Consulting</a></li>
-                    <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
-                    <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
-                    <li class="dropdown-divider"></li>
-                    <li><a href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
-                </ul>
-            </li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
-            <li><a href="{% url 'resources' %}">Resources</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name in ['service_forensic','service_valuation','service_consulting','service_vocational','service_lifecare','services_index','practice_areas_index'] %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'service_forensic' %}">Forensic Economics</a></li>
+                        <li><a class="dropdown-item" href="{% url 'service_valuation' %}">Business Valuation</a></li>
+                        <li><a class="dropdown-item" href="{% url 'service_consulting' %}">Business Consulting</a></li>
+                        <li><a class="dropdown-item" href="{% url 'service_vocational' %}">Vocational Expert</a></li>
+                        <li><a class="dropdown-item" href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'practice_areas_index' %}">All Practice Areas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
+                <li class="nav-item"><a href="{% url 'case_studies' %}" class="nav-link {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}">Case Studies</a></li>
+                <li class="nav-item"><a href="{% url 'resources' %}" class="nav-link {% if request.resolver_match.url_name == 'resources' %}active{% endif %}">Resources</a></li>
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
