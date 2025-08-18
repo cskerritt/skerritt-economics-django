@@ -21,24 +21,41 @@ allowed_hosts_env = os.environ.get('DJANGO_ALLOWED_HOSTS', 'skerritteconomics.co
 ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_env.split(',') if host.strip()]
 
 # Database - use SQLite for simplicity on Lightsail
+# Determine the best database path based on environment
+if os.path.exists('/app/db'):
+    db_path = '/app/db/db.sqlite3'
+elif os.path.exists('/home/bitnami/skerritt-economics-django'):
+    db_path = '/home/bitnami/skerritt-economics-django/db.sqlite3'
+else:
+    db_path = os.path.join(BASE_DIR, 'db.sqlite3')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/app/db/db.sqlite3',
+        'NAME': db_path,
     }
 }
 
 # Static files configuration
 STATIC_URL = '/static/'
-STATIC_ROOT = os.environ.get('STATIC_ROOT', '/app/staticfiles')
+# Determine the best static files path based on environment
+if os.path.exists('/app'):
+    STATIC_ROOT = os.environ.get('STATIC_ROOT', '/app/staticfiles')
+    MEDIA_ROOT = os.environ.get('MEDIA_ROOT', '/app/media')
+elif os.path.exists('/home/bitnami/skerritt-economics-django'):
+    STATIC_ROOT = os.environ.get('STATIC_ROOT', '/home/bitnami/skerritt-economics-django/staticfiles')
+    MEDIA_ROOT = os.environ.get('MEDIA_ROOT', '/home/bitnami/skerritt-economics-django/media')
+else:
+    STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(BASE_DIR, 'staticfiles'))
+    MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.environ.get('MEDIA_ROOT', '/app/media')
 
 # Security
-SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'True') == 'True'
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# Disable SSL redirect by default for initial setup, enable in production
+SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False') == 'True'
+SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False') == 'True'
+CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'False') == 'True'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_HSTS_SECONDS = 31536000
