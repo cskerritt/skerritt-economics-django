@@ -20,9 +20,10 @@ jobs:
     - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
+        host: ${{ secrets.LIGHTSAIL_HOST || secrets.SERVER_IP }}
+        username: ${{ secrets.LIGHTSAIL_USERNAME || secrets.SERVER_USER || 'bitnami' }}
+        key: ${{ secrets.LIGHTSAIL_KEY || secrets.SERVER_SSH_KEY }}
+        port: ${{ secrets.LIGHTSAIL_PORT || '22' }}
         script: |
           cd /home/bitnami/skerritt-economics-django
           ./deploy.sh
