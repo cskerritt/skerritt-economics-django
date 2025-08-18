@@ -73,13 +73,13 @@ LOCATION_DATA = {
         "state_abbr": "VT",
         "population": "44,743",
         "metro_population": "225,000",
-        "description": "Vermont\"s premier forensic economist serving Burlington area law firms. Expert in agricultural losses, ski industry damages, and small business valuation.',
+        "description": "Vermont's premier forensic economist serving Burlington area law firms. Expert in agricultural losses, ski industry damages, and small business valuation.",
         "meta_description": "Burlington VT forensic economist. Agricultural losses, ski industry damages & small business valuation expert. Free consultation: (203) 605-2814",
         "services_focus": ["Agricultural Economic Loss", "Ski Resort Injury Damages", "Small Business Valuation", "Environmental Damage Assessment"],
         "local_courts": ["Vermont Superior Court", "U.S. District Court for Vermont", "Chittenden County Superior Court"],
         "nearby_cities": ["South Burlington", "Colchester", "Essex", "Williston", "Montpelier"],
         "testimonial": {
-            "text": "Skerritt Economics provided excellent analysis of lost profits for our client\"s seasonal business. Highly recommended for Vermont cases.',
+            "text": "Skerritt Economics provided excellent analysis of lost profits for our client's seasonal business. Highly recommended for Vermont cases.",
             "author": "Burlington Business Attorney"
         }
     },

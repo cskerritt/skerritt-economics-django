@@ -22,6 +22,8 @@ from main.sitemap_generator import generate_sitemap_xml
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/v1/", include("skerritt_site.api_urls")),
+    path("accounts/", include("allauth.urls")),
     path("sitemap.xml", generate_sitemap_xml, name="sitemap"),
     path("", include("main.urls")),
     path("blog/", include("blog.urls", namespace="blog")),

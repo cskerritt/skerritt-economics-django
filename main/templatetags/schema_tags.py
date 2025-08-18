@@ -38,7 +38,7 @@ def faq_schema(faqs):
         "mainEntity": faq_list
     }
     
-    html = f"<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>"
+    html = f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
     return mark_safe(html)
 
 @register.simple_tag
@@ -73,7 +73,7 @@ def breadcrumb_schema(items):
         "itemListElement": item_list
     }
     
-    html = f"<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>"
+    html = f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
     return mark_safe(html)
 
 @register.simple_tag
@@ -104,7 +104,7 @@ def service_schema(service_name, description, provider_name="Skerritt Economics 
         }
     }
     
-    html = f"<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>"
+    html = f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
     return mark_safe(html)
 
 @register.simple_tag
@@ -136,5 +136,5 @@ def local_business_schema():
         ]
     }
     
-    html = f"<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>"
+    html = f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
     return mark_safe(html)

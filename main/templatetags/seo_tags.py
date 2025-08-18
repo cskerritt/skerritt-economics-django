@@ -110,9 +110,9 @@ def internal_links(current_page="", link_type="related", max_links=5):
         links = link_map[service_type].get(link_type, [])[:max_links]
     
     # Generate HTML
-    html = "<div class="internal-links">"
+    html = '<div class="internal-links">'
     for link in links:
-        html += f"<a href="{link["url"]}" class="internal-link">{link["text"]}</a>"
+        html += f'<a href="{link["url"]}" class="internal-link">{link["text"]}</a>'
         if link != links[-1]:
             html += " | "
     html += "</div>"
@@ -170,7 +170,7 @@ def breadcrumb_schema(path=""):
         "itemListElement": breadcrumbs
     }
     
-    return mark_safe(f"<script type="application/ld+json">{json.dumps(schema)}</script>")
+    return mark_safe(f'<script type="application/ld+json">{json.dumps(schema)}</script>')
 
 
 @register.simple_tag
@@ -211,18 +211,18 @@ def related_services(current_service="", max_services=4):
     # Take only max_services
     services = dict(list(services.items())[:max_services])
     
-    html = "<div class="related-services">"
+    html = '<div class="related-services">'
     html += "<h3>Related Services</h3>"
-    html += "<div class="services-grid">"
+    html += '<div class="services-grid">'
     
     for key, service in services.items():
-        html += f""'
+        html += f"""
         <div class="service-card">
-            <h4><a href="{service["url"]}">{service["name"]}</a></h4>
-            <p>{service["description"]}</p>
-            <a href="{service["url"]}" class="learn-more">Learn More →</a>
+            <h4><a href="{service['url']}">{service['name']}</a></h4>
+            <p>{service['description']}</p>
+            <a href="{service['url']}" class="learn-more">Learn More →</a>
         </div>
-        ""'
+        """
     
     html += "</div></div>"
     
@@ -249,12 +249,12 @@ def location_links(state="", service=""):
     
     service_slug = service.lower().replace(" ", "-")
     
-    html = "<div class="location-links">"
+    html = '<div class="location-links">'
     html += f"<p>Serving {state.title()} including: "
     
     for i, city in enumerate(cities):
         city_slug = city.lower().replace(" ", "-")
-        html += f"<a href="/{service_slug}/{city_slug}/">{city}</a>"
+        html += f'<a href="/{service_slug}/{city_slug}/">{city}</a>'
         if i < len(cities) - 1:
             html += ", "
     
@@ -286,7 +286,7 @@ def add_internal_links(content, keyword_map=None):
     for keyword, url in keyword_map.items():
         # Only link first occurrence
         pattern = re.compile(r"\b" + re.escape(keyword) + r"\b", re.IGNORECASE)
-        replacement = f"<a href="{url}">{keyword}</a>"
+        replacement = f'<a href="{url}">{keyword}</a>'
         content = pattern.sub(replacement, content, count=1)
     
     return mark_safe(content)
@@ -324,14 +324,14 @@ def seo_footer_links():
         ]
     }
     
-    html = "<div class="footer-links-grid">"
+    html = '<div class="footer-links-grid">'
     
     for section, links in footer_sections.items():
-        html += f"<div class="footer-section">"
+        html += f'<div class="footer-section">'
         html += f"<h4>{section}</h4>"
         html += "<ul>"
         for link in links:
-            html += f"<li><a href="{link["url"]}">{link["text"]}</a></li>"
+            html += f'<li><a href="{link["url"]}">{link["text"]}</a></li>'
         html += "</ul>"
         html += "</div>"
     
@@ -380,7 +380,7 @@ def structured_data(data_type="", **kwargs):
     else:
         return ""
     
-    return mark_safe(f"<script type="application/ld+json">{json.dumps(schema)}</script>")
+    return mark_safe(f'<script type="application/ld+json">{json.dumps(schema)}</script>')
 
 
 @register.simple_tag
@@ -400,12 +400,12 @@ def city_service_links(service="forensic-economist", limit=10):
         ("Atlanta", "atlanta"),
     ]
     
-    html = "<div class="city-service-links">"
+    html = '<div class="city-service-links">'
     html += f"<h3>{service.replace("-", " ").title()} Services by City</h3>"
-    html += "<ul class="city-links">"
+    html += '<ul class="city-links">'
     
     for city_name, city_slug in major_cities[:limit]:
-        html += f"<li><a href="/{service}/{city_slug}/">{city_name} {service.replace("-", " ").title()}</a></li>"
+        html += f'<li><a href="/{service}/{city_slug}/">{city_name} {service.replace("-", " ").title()}</a></li>'
     
     html += "</ul>"
     html += "</div>"

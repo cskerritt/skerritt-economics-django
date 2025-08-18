@@ -100,7 +100,7 @@ def generate_sitemap_xml(request):
     
     # Add practice area pages
     for area in PRACTICE_AREAS:
-        add_url(f"/practice-areas/{area["slug"]}/", "monthly", 0.7)
+        add_url(f"/practice-areas/{area['slug']}/", "monthly", 0.7)
     
     # Add city pages
     services = ["forensic-economist", "business-valuation", "vocational-expert", "life-care-planner"]
@@ -154,7 +154,7 @@ def generate_sitemap_xml(request):
     xml_str = ET.tostring(urlset, encoding="unicode", method="xml")
     
     # Add XML declaration
-    xml_str = "<?xml version="1.0" encoding="UTF-8"?>\n" + xml_str
+    xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n' + xml_str
     
     # Return HTTP response
     return HttpResponse(xml_str, content_type="application/xml")
