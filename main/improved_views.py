@@ -120,8 +120,8 @@ class StateServiceIndexView(TemplateView):
             "state_slug": state_slug,
             "cities": state_data["cities"][:20],  # Top 20 cities
             "total_cities": len(state_data["cities"]),
-            "meta_title": f"{service_info['title']} Services in {state_data["name"]} | Christopher Skerritt",
-            "meta_description": f"Expert {service_info['title'].lower()} services throughout {state_data["name"]}. Serving all major cities with {service_info["description"].lower()}. Call (203) 605-2814."
+            "meta_title": f"{service_info['title']} Services in {state_data['name']} | Christopher Skerritt",
+            "meta_description": f"Expert {service_info['title'].lower()} services throughout {state_data['name']}. Serving all major cities with {service_info['description'].lower()}. Call (203) 605-2814."
         })
         
         return context
@@ -164,7 +164,7 @@ class ServiceIndexView(TemplateView):
             "featured_states": states_data,
             "total_states": len(US_STATES_COMPLETE),
             "meta_title": f"{service_info['title']} Services Nationwide | Christopher Skerritt", 
-            "meta_description": f"Expert {service_info['title'].lower()} services available in all 50 states. {service_info["description"]} for legal professionals nationwide. Call (203) 605-2814."
+            "meta_description": f"Expert {service_info['title'].lower()} services available in all 50 states. {service_info['description']} for legal professionals nationwide. Call (203) 605-2814."
         })
         
         return context
@@ -183,7 +183,7 @@ class CityServiceSitemapView(TemplateView):
             for city in state_data["cities"]:
                 for service_slug in SERVICES.keys():
                     urls.append({
-                        "url": f"/locations/{service_slug}/{state_data['slug']}/{city["slug"]}/",
+                        "url": f"/locations/{service_slug}/{state_data['slug']}/{city['slug']}/",
                         "priority": 0.8,
                         "changefreq": "monthly"
                     })
