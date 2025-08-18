@@ -83,8 +83,9 @@ jobs:
           # Navigate to app directory
           cd /home/bitnami/skerritt-economics-django || cd /opt/skerritt-economics || cd ~/skerritt-economics-django
           
-          # Pull latest changes from git
-          git pull origin main
+          # Pull latest changes from git (force merge strategy for divergent branches)
+          git fetch origin main
+          git reset --hard origin/main
           
           # Run deployment script or docker compose
           if [ -f "/usr/local/bin/deploy_app.sh" ]; then
