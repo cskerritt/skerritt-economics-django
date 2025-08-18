@@ -9,462 +9,462 @@
 {{ block.super }}
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "{{ service_data.name }} Services in {{ state.name }}",
-    "description": "Expert {{ service_data.description|lower }} throughout {{ state.name }}. Serving {{ total_cities }} major cities.",
-    "provider": {
-        "@type": "Person",
-        "name": "Christopher Skerritt",
-        "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC",
-        "jobTitle": "{{ service_data.job_title }}",
-        "telephone": "+1-203-605-2814",
-        "email": "chris@skerritteconomics.com"
-    },
-    "areaServed": {
-        "@type": "State",
-        "name": "{{ state.name }}"
-    },
-    "offers": {
-        "@type": "Offer",
-        "name": "Free Case Consultation",
-        "description": "Initial consultation for {{ service_data.name|lower }} cases throughout {{ state.name }}"
-    }
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ service_data.name }} Services in {{ state.name }}",
+  "description": "Expert {{ service_data.description|lower }} throughout {{ state.name }}. Serving {{ total_cities }} major cities.",
+  "provider": {
+    "@type": "Person",
+    "name": "Christopher Skerritt",
+    "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC",
+    "jobTitle": "{{ service_data.job_title }}",
+    "telephone": "+1-203-605-2814",
+    "email": "chris@skerritteconomics.com"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "{{ state.name }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "name": "Free Case Consultation",
+    "description": "Initial consultation for {{ service_data.name|lower }} cases throughout {{ state.name }}"
+  }
 }
 </script>
 
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "{{ service_data.name }} Cities in {{ state.name }}",
-    "description": "Major cities in {{ state.name }} where we provide {{ service_data.name|lower }} services",
-    "numberOfItems": {{ cities|length }},
-    "itemListElement": [
-        {% for city in cities %}
-        {
-            "@type": "ListItem",
-            "position": {{ forloop.counter }},
-            "item": {
-                "@type": "Place",
-                "name": "{{ city.name }}, {{ state.abbr }}",
-                "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'city_service_page' service_slug=service_slug state_slug=state_slug city_slug=city.slug %}"
-            }
-        }{% if not forloop.last %},{% endif %}
-        {% endfor %}
-    ]
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ service_data.name }} Cities in {{ state.name }}",
+  "description": "Major cities in {{ state.name }} where we provide {{ service_data.name|lower }} services",
+  "numberOfItems": {{ cities|length }},
+  "itemListElement": [
+    {% for city in cities %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "item": {
+        "@type": "Place",
+        "name": "{{ city.name }}, {{ state.abbr }}",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'city_service_page' service_slug=service_slug state_slug=state_slug city_slug=city.slug %}"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
 }
 </script>
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
-    <!-- Hero Section -->
-    <section class="hero-section bg-primary text-white py-5">
-        <div class="container">
-            <!-- Breadcrumbs -->
-            <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb bg-transparent p-0 mb-0">
-                    <li class="breadcrumb-item">
-                        <a href="{% url 'home' %}" class="text-light">
-                            <i class="fas fa-home" aria-hidden="true"></i> Home
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{% url 'services_index' %}" class="text-light">Services</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ service_data.service_url }}" class="text-light">{{ service_data.name }}</a>
-                    </li>
-                    <li class="breadcrumb-item active text-light" aria-current="page">
-                        {{ state.name }}
-                    </li>
-                </ol>
-            </nav>
+  <!-- Hero Section -->
+  <section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb bg-transparent p-0 mb-0">
+          <li class="breadcrumb-item">
+            <a href="{% url 'home' %}" class="text-light">
+              <i class="fas fa-home" aria-hidden="true"></i> Home
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'services_index' %}" class="text-light">Services</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{{ service_data.service_url }}" class="text-light">{{ service_data.name }}</a>
+          </li>
+          <li class="breadcrumb-item active text-light" aria-current="page">
+            {{ state.name }}
+          </li>
+        </ol>
+      </nav>
 
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 mb-3">{{ service_data.name }} Services in {{ state.name }}</h1>
-                    <p class="lead mb-4">
-                        Expert {{ service_data.description|lower }} throughout {{ state.name }}. 
-                        Serving {{ total_cities }} major cities with court-qualified testimony and analysis.
-                    </p>
-                    
-                    <!-- State Statistics -->
-                    <div class="row mb-4">
-                        <div class="col-md-3 col-6 mb-2">
-                            <div class="d-flex align-items-center text-light">
-                                <i class="fas fa-map-marked-alt fa-2x me-2 text-warning" aria-hidden="true"></i>
-                                <div>
-                                    <div class="fw-bold">{{ total_cities }}+</div>
-                                    <small>Cities Served</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 mb-2">
-                            <div class="d-flex align-items-center text-light">
-                                <i class="fas fa-gavel fa-2x me-2 text-warning" aria-hidden="true"></i>
-                                <div>
-                                    <div class="fw-bold">Court-Qualified</div>
-                                    <small>Expert Witness</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 mb-2">
-                            <div class="d-flex align-items-center text-light">
-                                <i class="fas fa-clock fa-2x me-2 text-warning" aria-hidden="true"></i>
-                                <div>
-                                    <div class="fw-bold">Same-Day</div>
-                                    <small>Response</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 mb-2">
-                            <div class="d-flex align-items-center text-light">
-                                <i class="fas fa-certificate fa-2x me-2 text-warning" aria-hidden="true"></i>
-                                <div>
-                                    <div class="fw-bold">15+ Certs</div>
-                                    <small>Professional</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Primary CTAs -->
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="tel:+12036052814" class="btn btn-warning btn-lg px-4 py-2">
-                            <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
-                        </a>
-                        <a href="{% url 'contact' %}?state={{ state.name }}&service={{ service_data.slug }}" class="btn btn-outline-light btn-lg px-4 py-2">
-                            <i class="fas fa-calendar-check" aria-hidden="true"></i> Free Consultation
-                        </a>
-                    </div>
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 mb-3">{{ service_data.name }} Services in {{ state.name }}</h1>
+          <p class="lead mb-4">
+            Expert {{ service_data.description|lower }} throughout {{ state.name }}. 
+            Serving {{ total_cities }} major cities with court-qualified testimony and analysis.
+          </p>
+          
+          <!-- State Statistics -->
+          <div class="row mb-4">
+            <div class="col-md-3 col-6 mb-2">
+              <div class="d-flex align-items-center text-light">
+                <i class="fas fa-map-marked-alt fa-2x me-2 text-warning" aria-hidden="true"></i>
+                <div>
+                  <div class="fw-bold">{{ total_cities }}+</div>
+                  <small>Cities Served</small>
                 </div>
-                
-                <div class="col-lg-4">
-                    <div class="text-center">
-                        <div class="bg-white text-dark p-4 rounded-3 shadow-lg">
-                            <h3 class="h5 mb-3">{{ state.name }} Coverage</h3>
-                            <div class="mb-3">
-                                <img src="{% static 'images/christopher-skerritt.webp' %}" 
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+              <div class="d-flex align-items-center text-light">
+                <i class="fas fa-gavel fa-2x me-2 text-warning" aria-hidden="true"></i>
+                <div>
+                  <div class="fw-bold">Court-Qualified</div>
+                  <small>Expert Witness</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+              <div class="d-flex align-items-center text-light">
+                <i class="fas fa-clock fa-2x me-2 text-warning" aria-hidden="true"></i>
+                <div>
+                  <div class="fw-bold">Same-Day</div>
+                  <small>Response</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+              <div class="d-flex align-items-center text-light">
+                <i class="fas fa-certificate fa-2x me-2 text-warning" aria-hidden="true"></i>
+                <div>
+                  <div class="fw-bold">15+ Certs</div>
+                  <small>Professional</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Primary CTAs -->
+          <div class="d-flex flex-wrap gap-3">
+            <a href="tel:+12036052814" class="btn btn-warning btn-lg px-4 py-2">
+              <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
+            </a>
+            <a href="{% url 'contact' %}?state={{ state.name }}&service={{ service_data.slug }}" class="btn btn-outline-light btn-lg px-4 py-2">
+              <i class="fas fa-calendar-check" aria-hidden="true"></i> Free Consultation
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="text-center">
+            <div class="bg-white text-dark p-4 rounded-3 shadow-lg">
+              <h3 class="h5 mb-3">{{ state.name }} Coverage</h3>
+              <div class="mb-3">
+                <img src="{% static 'images/christopher-skerritt.webp' %}" 
                                      alt="Christopher Skerritt"
                                      class="rounded-circle mb-2"
                                      width="80" 
                                      height="80"
                                      loading="lazy">
-                            </div>
-                            <h4 class="h6 mb-1">Christopher Skerritt</h4>
-                            <p class="text-muted small mb-3">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
-                            <div class="d-grid gap-2">
-                                <a href="tel:+12036052814" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-phone" aria-hidden="true"></i> Call Expert
-                                </a>
-                                <a href="{% url 'contact' %}?state={{ state.name }}" class="btn btn-outline-primary btn-sm">
-                                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Schedule Consultation
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <h4 class="h6 mb-1">Christopher Skerritt</h4>
+              <p class="text-muted small mb-3">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+              <div class="d-grid gap-2">
+                <a href="tel:+12036052814" class="btn btn-primary btn-sm">
+                  <i class="fas fa-phone" aria-hidden="true"></i> Call Expert
+                </a>
+                <a href="{% url 'contact' %}?state={{ state.name }}" class="btn btn-outline-primary btn-sm">
+                  <i class="fas fa-calendar-check" aria-hidden="true"></i> Schedule Consultation
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <!-- Service Overview -->
-                <section class="mb-5">
-                    <h2 class="h3 mb-4">{{ service_data.name }} Expertise Across {{ state.name }}</h2>
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <p class="lead">
-                                Christopher Skerritt provides comprehensive {{ service_data.name|lower }} services to attorneys 
-                                and legal professionals throughout {{ state.name }}. With extensive experience in economic analysis 
-                                and expert testimony, we serve all major metropolitan areas and courts across the state.
-                            </p>
-                            
-                            <div class="row mt-4">
-                                <div class="col-md-6">
-                                    <h4 class="h6 text-primary mb-3">{{ state.name }} Specializations</h4>
-                                    <ul class="list-unstyled">
-                                        {% for specialization in service_data.state_specializations %}
-                                        <li class="mb-2">
-                                            <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
-                                            {{ specialization }}
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4 class="h6 text-primary mb-3">Coverage Areas</h4>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2">
-                                            <i class="fas fa-map-marker-alt text-primary me-2" aria-hidden="true"></i>
-                                            All {{ state.name }} counties
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-building text-primary me-2" aria-hidden="true"></i>
-                                            State and federal courts
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-video text-primary me-2" aria-hidden="true"></i>
-                                            Remote testimony available
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-handshake text-primary me-2" aria-hidden="true"></i>
-                                            Mediation and arbitration
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Major Cities Served -->
-                <section class="mb-5">
-                    <h2 class="h3 mb-4">Major {{ state.name }} Cities We Serve</h2>
-                    <p class="mb-4">
-                        Expert {{ service_data.name|lower }} services available in all major {{ state.name }} metropolitan areas:
-                    </p>
-                    
-                    <div class="row">
-                        {% for city in cities %}
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100 border-0 shadow-sm">
-                                <div class="card-body">
-                                    <h3 class="h5 card-title">
-                                        <i class="fas fa-map-marker-alt text-primary me-2" aria-hidden="true"></i>
-                                        {{ city.name }}
-                                    </h3>
-                                    <p class="card-text text-muted">{{ city.county }} County</p>
-                                    {% if city.population %}
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            Population: {{ city.population|floatformat:0 }}
-                                        </small>
-                                    </p>
-                                    {% endif %}
-                                    <div class="d-grid">
-                                        <a href="{% url 'city_service_page' service_slug=service_slug state_slug=state_slug city_slug=city.slug %}" 
-                                           class="btn btn-primary btn-sm">
-                                            View {{ service_data.name }} Services
-                                            <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </section>
-
-                <!-- State-Specific Information -->
-                <section class="mb-5">
-                    <h2 class="h3 mb-4">{{ state.name }} Economic & Legal Considerations</h2>
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h4 class="h6 text-primary mb-3">Local Economic Factors</h4>
-                                    <ul class="mb-0">
-                                        <li>{{ state.name }} wage and employment data</li>
-                                        <li>Industry-specific economic trends</li>
-                                        <li>Regional cost of living adjustments</li>
-                                        <li>State-specific labor market conditions</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4 class="h6 text-primary mb-3">Legal Considerations</h4>
-                                    <ul class="mb-0">
-                                        <li>{{ state.name }} court procedures and rules</li>
-                                        <li>State-specific damage calculation methods</li>
-                                        <li>Local precedent and case law</li>
-                                        <li>Expert witness qualification standards</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Why Choose Us for {{ state.name }} Cases -->
-                <section class="mb-5">
-                    <h2 class="h3 mb-4">Why {{ state.name }} Attorneys Choose Christopher Skerritt</h2>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="card h-100 border-0 shadow-sm">
-                                <div class="card-body">
-                                    <h4 class="h6 text-primary">
-                                        <i class="fas fa-graduation-cap me-2" aria-hidden="true"></i>
-                                        Expert Qualifications
-                                    </h4>
-                                    <ul class="list-unstyled mb-0">
-                                        <li>M.Ed - Springfield College</li>
-                                        <li>MBA Healthcare Leadership - Bryant University</li>
-                                        <li>15+ professional certifications</li>
-                                        <li>20+ years litigation experience</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="card h-100 border-0 shadow-sm">
-                                <div class="card-body">
-                                    <h4 class="h6 text-primary">
-                                        <i class="fas fa-gavel me-2" aria-hidden="true"></i>
-                                        Court Experience
-                                    </h4>
-                                    <ul class="list-unstyled mb-0">
-                                        <li>Extensive {{ state.name }} testimony</li>
-                                        <li>State and federal court experience</li>
-                                        <li>Deposition and trial testimony</li>
-                                        <li>Arbitration and mediation support</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                <div class="sticky-top" style="top: 20px;">
-                    <!-- Contact Card -->
-                    <div class="card border-primary shadow-sm mb-4">
-                        <div class="card-header bg-primary text-white text-center">
-                            <h3 class="h5 mb-0">
-                                <i class="fas fa-phone" aria-hidden="true"></i>
-                                Contact {{ state.name }} Expert
-                            </h3>
-                        </div>
-                        <div class="card-body text-center">
-                            <p class="mb-3">Get expert {{ service_data.description|lower }} throughout {{ state.name }}</p>
-                            
-                            <div class="mb-3">
-                                <img src="{% static 'images/christopher-skerritt.webp' %}" 
-                                     alt="Christopher Skerritt"
-                                     class="rounded-circle mb-2"
-                                     width="80" 
-                                     height="80"
-                                     loading="lazy">
-                                <h4 class="h6 mb-1">Christopher Skerritt</h4>
-                                <p class="text-muted small">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
-                            </div>
-                            
-                            <div class="d-grid gap-2">
-                                <a href="tel:+12036052814" class="btn btn-primary">
-                                    <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
-                                </a>
-                                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary">
-                                    <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
-                                </a>
-                                <a href="{% url 'contact' %}?state={{ state.name }}&service={{ service_data.slug }}" class="btn btn-secondary">
-                                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Request Consultation
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Types -->
-                    <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-light">
-                            <h3 class="h6 mb-0">{{ service_data.name }} Types</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled mb-0">
-                                {% for service_type in service_data.service_types %}
-                                <li class="mb-2">
-                                    <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
-                                    {{ service_type }}
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- All Services -->
-                    <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-light">
-                            <h3 class="h6 mb-0">All Our Services</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled mb-0">
-                                {% for service in service_data.all_services %}
-                                <li class="mb-2">
-                                    <a href="{{ service.state_url }}{{ state_slug }}/" class="text-decoration-none">
-                                        <i class="{{ service.icon }}" aria-hidden="true"></i>
-                                        {{ service.name }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Quick Stats -->
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-header bg-light">
-                            <h3 class="h6 mb-0">{{ state.name }} Quick Facts</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row text-center g-2">
-                                <div class="col-6">
-                                    <div class="p-2">
-                                        <div class="fw-bold text-primary">{{ total_cities }}+</div>
-                                        <small class="text-muted">Cities Served</small>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="p-2">
-                                        <div class="fw-bold text-primary">24-48hrs</div>
-                                        <small class="text-muted">Response Time</small>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="p-2">
-                                        <div class="fw-bold text-primary">20+ Years</div>
-                                        <small class="text-muted">Experience</small>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="p-2">
-                                        <div class="fw-bold text-primary">15+ Certs</div>
-                                        <small class="text-muted">Professional</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <section class="cta-section bg-primary text-white py-5 mt-5 rounded">
-            <div class="container text-center">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="h3 mb-3">Need {{ service_data.name }} Services in {{ state.name }}?</h2>
-                        <p class="lead mb-4">
-                            Get professional {{ service_data.description|lower }} from a court-qualified expert witness 
-                            serving all major {{ state.name }} cities
-                        </p>
-                        <div class="d-flex flex-wrap justify-content-center gap-3">
-                            <a href="tel:+12036052814" class="btn btn-warning btn-lg">
-                                <i class="fas fa-phone" aria-hidden="true"></i> Call (203) 605-2814
-                            </a>
-                            <a href="{% url 'contact' %}?state={{ state.name }}&service={{ service_data.slug }}" class="btn btn-light btn-lg">
-                                <i class="fas fa-calendar-check" aria-hidden="true"></i> Schedule Free Consultation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      </div>
     </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- Service Overview -->
+        <section class="mb-5">
+          <h2 class="h3 mb-4">{{ service_data.name }} Expertise Across {{ state.name }}</h2>
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <p class="lead">
+                Christopher Skerritt provides comprehensive {{ service_data.name|lower }} services to attorneys 
+                and legal professionals throughout {{ state.name }}. With extensive experience in economic analysis 
+                and expert testimony, we serve all major metropolitan areas and courts across the state.
+              </p>
+              
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <h4 class="h6 text-primary mb-3">{{ state.name }} Specializations</h4>
+                  <ul class="list-unstyled">
+                    {% for specialization in service_data.state_specializations %}
+                    <li class="mb-2">
+                      <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
+                      {{ specialization }}
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h4 class="h6 text-primary mb-3">Coverage Areas</h4>
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      <i class="fas fa-map-marker-alt text-primary me-2" aria-hidden="true"></i>
+                      All {{ state.name }} counties
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-building text-primary me-2" aria-hidden="true"></i>
+                      State and federal courts
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-video text-primary me-2" aria-hidden="true"></i>
+                      Remote testimony available
+                    </li>
+                    <li class="mb-2">
+                      <i class="fas fa-handshake text-primary me-2" aria-hidden="true"></i>
+                      Mediation and arbitration
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Major Cities Served -->
+        <section class="mb-5">
+          <h2 class="h3 mb-4">Major {{ state.name }} Cities We Serve</h2>
+          <p class="mb-4">
+            Expert {{ service_data.name|lower }} services available in all major {{ state.name }} metropolitan areas:
+          </p>
+          
+          <div class="row">
+            {% for city in cities %}
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h3 class="h5 card-title">
+                    <i class="fas fa-map-marker-alt text-primary me-2" aria-hidden="true"></i>
+                    {{ city.name }}
+                  </h3>
+                  <p class="card-text text-muted">{{ city.county }} County</p>
+                  {% if city.population %}
+                  <p class="card-text">
+                    <small class="text-muted">
+                      Population: {{ city.population|floatformat:0 }}
+                    </small>
+                  </p>
+                  {% endif %}
+                  <div class="d-grid">
+                    <a href="{% url 'city_service_page' service_slug=service_slug state_slug=state_slug city_slug=city.slug %}" 
+                                           class="btn btn-primary btn-sm">
+                      View {{ service_data.name }} Services
+                      <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <!-- State-Specific Information -->
+        <section class="mb-5">
+          <h2 class="h3 mb-4">{{ state.name }} Economic & Legal Considerations</h2>
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 class="h6 text-primary mb-3">Local Economic Factors</h4>
+                  <ul class="mb-0">
+                    <li>{{ state.name }} wage and employment data</li>
+                    <li>Industry-specific economic trends</li>
+                    <li>Regional cost of living adjustments</li>
+                    <li>State-specific labor market conditions</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h4 class="h6 text-primary mb-3">Legal Considerations</h4>
+                  <ul class="mb-0">
+                    <li>{{ state.name }} court procedures and rules</li>
+                    <li>State-specific damage calculation methods</li>
+                    <li>Local precedent and case law</li>
+                    <li>Expert witness qualification standards</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Choose Us for {{ state.name }} Cases -->
+        <section class="mb-5">
+          <h2 class="h3 mb-4">Why {{ state.name }} Attorneys Choose Christopher Skerritt</h2>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h4 class="h6 text-primary">
+                    <i class="fas fa-graduation-cap me-2" aria-hidden="true"></i>
+                    Expert Qualifications
+                  </h4>
+                  <ul class="list-unstyled mb-0">
+                    <li>M.Ed - Springfield College</li>
+                    <li>MBA Healthcare Leadership - Bryant University</li>
+                    <li>15+ professional certifications</li>
+                    <li>20+ years litigation experience</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <h4 class="h6 text-primary">
+                    <i class="fas fa-gavel me-2" aria-hidden="true"></i>
+                    Court Experience
+                  </h4>
+                  <ul class="list-unstyled mb-0">
+                    <li>Extensive {{ state.name }} testimony</li>
+                    <li>State and federal court experience</li>
+                    <li>Deposition and trial testimony</li>
+                    <li>Arbitration and mediation support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="sticky-top" style="top: 20px;">
+          <!-- Contact Card -->
+          <div class="card border-primary shadow-sm mb-4">
+            <div class="card-header bg-primary text-white text-center">
+              <h3 class="h5 mb-0">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                Contact {{ state.name }} Expert
+              </h3>
+            </div>
+            <div class="card-body text-center">
+              <p class="mb-3">Get expert {{ service_data.description|lower }} throughout {{ state.name }}</p>
+              
+              <div class="mb-3">
+                <img src="{% static 'images/christopher-skerritt.webp' %}" 
+                                     alt="Christopher Skerritt"
+                                     class="rounded-circle mb-2"
+                                     width="80" 
+                                     height="80"
+                                     loading="lazy">
+                <h4 class="h6 mb-1">Christopher Skerritt</h4>
+                <p class="text-muted small">M.Ed, MBA, CRC, CLCP, ABVE/F</p>
+              </div>
+              
+              <div class="d-grid gap-2">
+                <a href="tel:+12036052814" class="btn btn-primary">
+                  <i class="fas fa-phone" aria-hidden="true"></i> (203) 605-2814
+                </a>
+                <a href="mailto:chris@skerritteconomics.com" class="btn btn-outline-primary">
+                  <i class="fas fa-envelope" aria-hidden="true"></i> Email Expert
+                </a>
+                <a href="{% url 'contact' %}?state={{ state.name }}&service={{ service_data.slug }}" class="btn btn-secondary">
+                  <i class="fas fa-calendar-check" aria-hidden="true"></i> Request Consultation
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Types -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-light">
+              <h3 class="h6 mb-0">{{ service_data.name }} Types</h3>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                {% for service_type in service_data.service_types %}
+                <li class="mb-2">
+                  <i class="fas fa-check text-success me-2" aria-hidden="true"></i>
+                  {{ service_type }}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <!-- All Services -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-light">
+              <h3 class="h6 mb-0">All Our Services</h3>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                {% for service in service_data.all_services %}
+                <li class="mb-2">
+                  <a href="{{ service.state_url }}{{ state_slug }}/" class="text-decoration-none">
+                    <i class="{{ service.icon }}" aria-hidden="true"></i>
+                    {{ service.name }}
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="card border-0 shadow-sm">
+            <div class="card-header bg-light">
+              <h3 class="h6 mb-0">{{ state.name }} Quick Facts</h3>
+            </div>
+            <div class="card-body">
+              <div class="row text-center g-2">
+                <div class="col-6">
+                  <div class="p-2">
+                    <div class="fw-bold text-primary">{{ total_cities }}+</div>
+                    <small class="text-muted">Cities Served</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-2">
+                    <div class="fw-bold text-primary">24-48hrs</div>
+                    <small class="text-muted">Response Time</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-2">
+                    <div class="fw-bold text-primary">20+ Years</div>
+                    <small class="text-muted">Experience</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-2">
+                    <div class="fw-bold text-primary">15+ Certs</div>
+                    <small class="text-muted">Professional</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section bg-primary text-white py-5 mt-5 rounded">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="h3 mb-3">Need {{ service_data.name }} Services in {{ state.name }}?</h2>
+            <p class="lead mb-4">
+              Get professional {{ service_data.description|lower }} from a court-qualified expert witness 
+              serving all major {{ state.name }} cities
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="tel:+12036052814" class="btn btn-warning btn-lg">
+                <i class="fas fa-phone" aria-hidden="true"></i> Call (203) 605-2814
+              </a>
+              <a href="{% url 'contact' %}?state={{ state.name }}&service={{ service_data.slug }}" class="btn btn-light btn-lg">
+                <i class="fas fa-calendar-check" aria-hidden="true"></i> Schedule Free Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
 {% endblock %}

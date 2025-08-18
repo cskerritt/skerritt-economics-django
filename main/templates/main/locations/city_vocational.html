@@ -9,276 +9,276 @@
 {{ block.super }}
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Vocational Expert Services in {{ city.name }}",
-    "description": "Expert vocational assessment and earning capacity analysis in {{ city.name }}, {{ city.state_name }}",
-    "provider": {
-        "@type": "Person",
-        "name": "Christopher Skerritt",
-        "honorificSuffix": "CVE, ABVE/F, CRC",
-        "jobTitle": "Vocational Expert",
-        "telephone": "+1-203-605-2814"
-    },
-    "areaServed": {
-        "@type": "City",
-        "name": "{{ city.name }}",
-        "containedInPlace": {
-            "@type": "State",
-            "name": "{{ city.state_name }}"
-        }
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": {{ city.lat }},
-        "longitude": {{ city.lng }}
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Vocational Expert Services in {{ city.name }}",
+  "description": "Expert vocational assessment and earning capacity analysis in {{ city.name }}, {{ city.state_name }}",
+  "provider": {
+    "@type": "Person",
+    "name": "Christopher Skerritt",
+    "honorificSuffix": "CVE, ABVE/F, CRC",
+    "jobTitle": "Vocational Expert",
+    "telephone": "+1-203-605-2814"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "{{ city.name }}",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "{{ city.state_name }}"
     }
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ city.lat }},
+    "longitude": {{ city.lng }}
+  }
 }
 </script>
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    <!-- Hero Section with CTA -->
-    <section class="city-hero bg-primary text-white p-5 rounded-3 mb-4">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold">Vocational Expert in {{ city.name }}, {{ city.state_abbr }}</h1>
-                <p class="lead mb-4">Certified vocational expert providing employability assessments and earning capacity analysis for {{ city.name }} litigation. CVE, ABVE/F, CRC certified with extensive experience.</p>
-                
-                <div class="hero-badges mb-4">
-                    <span class="badge bg-white text-primary me-2 p-2">📍 {{ city.county }}</span>
-                    <span class="badge bg-white text-primary me-2 p-2">🎓 CVE, ABVE/F</span>
-                    <span class="badge bg-white text-primary me-2 p-2">⚖️ Court-Qualified</span>
-                    <span class="badge bg-white text-primary me-2 p-2">📊 20+ Years Experience</span>
-                </div>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="cta-card bg-white text-dark p-4 rounded-3 shadow">
-                    <h3 class="h4 mb-3">Free {{ city.name }} Consultation</h3>
-                    <p class="mb-3">Discuss your vocational assessment needs</p>
-                    
-                    <a href="tel:+12036052814" class="btn btn-primary btn-lg w-100 mb-2">
-                        📞 (203) 605-2814
-                    </a>
-                    
-                    <a href="{% url 'contact' %}?city={{ city.name }}&service=vocational" class="btn btn-outline-primary w-100">
-                        📅 Schedule Assessment
-                    </a>
-                </div>
-            </div>
+  <!-- Hero Section with CTA -->
+  <section class="city-hero bg-primary text-white p-5 rounded-3 mb-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold">Vocational Expert in {{ city.name }}, {{ city.state_abbr }}</h1>
+        <p class="lead mb-4">Certified vocational expert providing employability assessments and earning capacity analysis for {{ city.name }} litigation. CVE, ABVE/F, CRC certified with extensive experience.</p>
+        
+        <div class="hero-badges mb-4">
+          <span class="badge bg-white text-primary me-2 p-2">📍 {{ city.county }}</span>
+          <span class="badge bg-white text-primary me-2 p-2">🎓 CVE, ABVE/F</span>
+          <span class="badge bg-white text-primary me-2 p-2">⚖️ Court-Qualified</span>
+          <span class="badge bg-white text-primary me-2 p-2">📊 20+ Years Experience</span>
         </div>
-    </section>
-
-    <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'location' state=city.state %}">{{ city.state_name }}</a></li>
-            <li class="breadcrumb-item active">{{ city.name }} Vocational Expert</li>
-        </ol>
-    </nav>
-
-    <div class="row">
-        <div class="col-md-8">
-            <section class="mb-4">
-                <h2>Vocational Expert Services in {{ city.name }}</h2>
-                <p>Christopher Skerritt provides comprehensive vocational expert services to attorneys and insurance companies throughout <strong>{{ city.name }}</strong> and <strong>{{ city.county }}</strong>, {{ city.state_name }}. With certifications including CVE, ABVE/F, and CRC, we deliver thorough employability assessments and earning capacity analyses.</p>
-                
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <h3>Assessment Services</h3>
-                        <ul>
-                            <li><strong>Employability evaluations</strong></li>
-                            <li><strong>Transferable skills analysis</strong></li>
-                            <li><strong>Labor market surveys</strong></li>
-                            <li><strong>Earning capacity projections</strong></li>
-                            <li><strong>Job placement feasibility</strong></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>Case Types</h3>
-                        <ul>
-                            <li><strong>Personal injury</strong> cases</li>
-                            <li><strong>Workers' compensation</strong></li>
-                            <li><strong>Social Security disability</strong></li>
-                            <li><strong>Long-term disability</strong></li>
-                            <li><strong>Divorce</strong> proceedings</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-4">
-                <h2>Vocational Assessment Process</h2>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>1. Clinical Interview</h4>
-                        <p>Comprehensive interview to understand educational background, work history, and functional limitations.</p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>2. Testing & Evaluation</h4>
-                        <p>Standardized vocational testing to assess aptitudes, interests, and transferable skills.</p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>3. Labor Market Analysis</h4>
-                        <p>Research of {{ city.name }} and {{ city.state_name }} labor markets to identify suitable occupations.</p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>4. Report Preparation</h4>
-                        <p>Detailed report with findings, vocational opinions, and earning capacity analysis.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-4">
-                <h2>{{ city.name }} Labor Market Expertise</h2>
-                <p>Our vocational assessments incorporate specific knowledge of the {{ city.name }} employment market:</p>
-                <ul>
-                    <li>Major employers in {{ city.county }}</li>
-                    <li>Local wage rates and employment trends</li>
-                    <li>{{ city.state_name }} vocational rehabilitation resources</li>
-                    <li>Regional educational and training opportunities</li>
-                    <li>Industry-specific job availability in {{ city.name }}</li>
-                </ul>
-            </section>
-
-            <section class="mb-4">
-                <h2>Professional Credentials</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul>
-                            <li><strong>CVE</strong> - Certified Vocational Evaluator</li>
-                            <li><strong>ABVE/F</strong> - American Board of Vocational Experts Fellow</li>
-                            <li><strong>CRC</strong> - Certified Rehabilitation Counselor</li>
-                            <li><strong>LRC</strong> - Licensed Rehabilitation Counselor</li>
-                            <li><strong>FVE</strong> - Forensic Vocational Expert</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                            <li><strong>IPEC</strong> - International Psychometric Evaluation Certified</li>
-                            <li><strong>REAS</strong> - Registered Employment Assessment Specialist</li>
-                            <li><strong>CEAS I</strong> - Certified Ergonomic Assessment Specialist</li>
-                            <li><strong>CPRW</strong> - Certified Professional Resume Writer</li>
-                            <li><strong>QRC</strong> - Qualified Rehabilitation Consultant</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-4">
-                <h2>Frequently Asked Questions - {{ city.name }} Vocational Expert</h2>
-                
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h4>What does a vocational expert do in {{ city.name }} cases?</h4>
-                        <p>A vocational expert assesses an individual's ability to work and earn income following injury or disability. We analyze transferable skills, labor market conditions in {{ city.name }}, and provide expert opinions on employability and earning capacity.</p>
-                    </div>
-                </div>
-                
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h4>How long does a vocational assessment take?</h4>
-                        <p>A comprehensive vocational assessment typically takes 2-3 weeks from initial interview to final report. The evaluation itself usually requires 4-6 hours with the client, followed by labor market research specific to {{ city.name }} and {{ city.state_name }}.</p>
-                    </div>
-                </div>
-                
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h4>Do you testify in {{ city.county }} courts?</h4>
-                        <p>Yes, we regularly provide expert testimony in {{ city.county }} courts, including depositions and trials. We can also provide testimony via video conference when appropriate.</p>
-                    </div>
-                </div>
-            </section>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="cta-card bg-white text-dark p-4 rounded-3 shadow">
+          <h3 class="h4 mb-3">Free {{ city.name }} Consultation</h3>
+          <p class="mb-3">Discuss your vocational assessment needs</p>
+          
+          <a href="tel:+12036052814" class="btn btn-primary btn-lg w-100 mb-2">
+            📞 (203) 605-2814
+          </a>
+          
+          <a href="{% url 'contact' %}?city={{ city.name }}&service=vocational" class="btn btn-outline-primary w-100">
+            📅 Schedule Assessment
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="col-md-4">
-            <div class="card mb-3 sticky-top" style="top: 20px;">
-                <div class="card-body">
-                    <h3>{{ city.name }} Vocational Expert</h3>
-                    <p><strong>Christopher Skerritt</strong><br>
-                    CVE, ABVE/F, CRC</p>
-                    <p>📞 <a href="tel:+12036052814" class="btn btn-primary btn-block">(203) 605-2814</a></p>
-                    <p>✉️ <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-                    <hr>
-                    <h4>Assessment Services</h4>
-                    <ul class="list-unstyled">
-                        <li>✓ Employability Evaluation</li>
-                        <li>✓ Earning Capacity Analysis</li>
-                        <li>✓ Transferable Skills</li>
-                        <li>✓ Labor Market Survey</li>
-                        <li>✓ Vocational Testing</li>
-                        <li>✓ Rehabilitation Planning</li>
-                    </ul>
-                    <hr>
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li><a href="/{{ city.state }}/{{ city.slug }}/forensic-economist/">Forensic Economics</a></li>
-                        <li><a href="/{{ city.state }}/{{ city.slug }}/business-valuation/">Business Valuation</a></li>
-                        <li><a href="/{{ city.state }}/{{ city.slug }}/life-care-planner/">Life Care Planning</a></li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'location' state=city.state %}">{{ city.state_name }}</a></li>
+      <li class="breadcrumb-item active">{{ city.name }} Vocational Expert</li>
+    </ol>
+  </nav>
+
+  <div class="row">
+    <div class="col-md-8">
+      <section class="mb-4">
+        <h2>Vocational Expert Services in {{ city.name }}</h2>
+        <p>Christopher Skerritt provides comprehensive vocational expert services to attorneys and insurance companies throughout <strong>{{ city.name }}</strong> and <strong>{{ city.county }}</strong>, {{ city.state_name }}. With certifications including CVE, ABVE/F, and CRC, we deliver thorough employability assessments and earning capacity analyses.</p>
+        
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h3>Assessment Services</h3>
+            <ul>
+              <li><strong>Employability evaluations</strong></li>
+              <li><strong>Transferable skills analysis</strong></li>
+              <li><strong>Labor market surveys</strong></li>
+              <li><strong>Earning capacity projections</strong></li>
+              <li><strong>Job placement feasibility</strong></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h3>Case Types</h3>
+            <ul>
+              <li><strong>Personal injury</strong> cases</li>
+              <li><strong>Workers' compensation</strong></li>
+              <li><strong>Social Security disability</strong></li>
+              <li><strong>Long-term disability</strong></li>
+              <li><strong>Divorce</strong> proceedings</li>
+            </ul>
+          </div>
         </div>
+      </section>
+
+      <section class="mb-4">
+        <h2>Vocational Assessment Process</h2>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>1. Clinical Interview</h4>
+            <p>Comprehensive interview to understand educational background, work history, and functional limitations.</p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>2. Testing & Evaluation</h4>
+            <p>Standardized vocational testing to assess aptitudes, interests, and transferable skills.</p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>3. Labor Market Analysis</h4>
+            <p>Research of {{ city.name }} and {{ city.state_name }} labor markets to identify suitable occupations.</p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>4. Report Preparation</h4>
+            <p>Detailed report with findings, vocational opinions, and earning capacity analysis.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h2>{{ city.name }} Labor Market Expertise</h2>
+        <p>Our vocational assessments incorporate specific knowledge of the {{ city.name }} employment market:</p>
+        <ul>
+          <li>Major employers in {{ city.county }}</li>
+          <li>Local wage rates and employment trends</li>
+          <li>{{ city.state_name }} vocational rehabilitation resources</li>
+          <li>Regional educational and training opportunities</li>
+          <li>Industry-specific job availability in {{ city.name }}</li>
+        </ul>
+      </section>
+
+      <section class="mb-4">
+        <h2>Professional Credentials</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <ul>
+              <li><strong>CVE</strong> - Certified Vocational Evaluator</li>
+              <li><strong>ABVE/F</strong> - American Board of Vocational Experts Fellow</li>
+              <li><strong>CRC</strong> - Certified Rehabilitation Counselor</li>
+              <li><strong>LRC</strong> - Licensed Rehabilitation Counselor</li>
+              <li><strong>FVE</strong> - Forensic Vocational Expert</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul>
+              <li><strong>IPEC</strong> - International Psychometric Evaluation Certified</li>
+              <li><strong>REAS</strong> - Registered Employment Assessment Specialist</li>
+              <li><strong>CEAS I</strong> - Certified Ergonomic Assessment Specialist</li>
+              <li><strong>CPRW</strong> - Certified Professional Resume Writer</li>
+              <li><strong>QRC</strong> - Qualified Rehabilitation Consultant</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h2>Frequently Asked Questions - {{ city.name }} Vocational Expert</h2>
+        
+        <div class="card mb-2">
+          <div class="card-body">
+            <h4>What does a vocational expert do in {{ city.name }} cases?</h4>
+            <p>A vocational expert assesses an individual's ability to work and earn income following injury or disability. We analyze transferable skills, labor market conditions in {{ city.name }}, and provide expert opinions on employability and earning capacity.</p>
+          </div>
+        </div>
+        
+        <div class="card mb-2">
+          <div class="card-body">
+            <h4>How long does a vocational assessment take?</h4>
+            <p>A comprehensive vocational assessment typically takes 2-3 weeks from initial interview to final report. The evaluation itself usually requires 4-6 hours with the client, followed by labor market research specific to {{ city.name }} and {{ city.state_name }}.</p>
+          </div>
+        </div>
+        
+        <div class="card mb-2">
+          <div class="card-body">
+            <h4>Do you testify in {{ city.county }} courts?</h4>
+            <p>Yes, we regularly provide expert testimony in {{ city.county }} courts, including depositions and trials. We can also provide testimony via video conference when appropriate.</p>
+          </div>
+        </div>
+      </section>
     </div>
 
-    {% if nearby_cities %}
-    <section class="mb-4">
-        <h2>Vocational Expert Services Near {{ city.name }}</h2>
-        <p>We also provide vocational expert services in these nearby {{ city.state_name }} cities:</p>
-        <div class="row">
-            {% for nearby in nearby_cities %}
-            <div class="col-md-4 mb-2">
-                <a href="/{{ city.state }}/{{ nearby.slug }}/vocational-expert/">{{ nearby.name }}, {{ city.state_abbr }}</a>
-            </div>
-            {% endfor %}
+    <div class="col-md-4">
+      <div class="card mb-3 sticky-top" style="top: 20px;">
+        <div class="card-body">
+          <h3>{{ city.name }} Vocational Expert</h3>
+          <p><strong>Christopher Skerritt</strong><br>
+          CVE, ABVE/F, CRC</p>
+          <p>📞 <a href="tel:+12036052814" class="btn btn-primary btn-block">(203) 605-2814</a></p>
+          <p>✉️ <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+          <hr>
+          <h4>Assessment Services</h4>
+          <ul class="list-unstyled">
+            <li>✓ Employability Evaluation</li>
+            <li>✓ Earning Capacity Analysis</li>
+            <li>✓ Transferable Skills</li>
+            <li>✓ Labor Market Survey</li>
+            <li>✓ Vocational Testing</li>
+            <li>✓ Rehabilitation Planning</li>
+          </ul>
+          <hr>
+          <h4>Other Services</h4>
+          <ul>
+            <li><a href="/{{ city.state }}/{{ city.slug }}/forensic-economist/">Forensic Economics</a></li>
+            <li><a href="/{{ city.state }}/{{ city.slug }}/business-valuation/">Business Valuation</a></li>
+            <li><a href="/{{ city.state }}/{{ city.slug }}/life-care-planner/">Life Care Planning</a></li>
+          </ul>
         </div>
-    </section>
-    {% endif %}
+      </div>
+    </div>
+  </div>
 
-    <!-- Call to Action Section -->
-    <section class="cta-section bg-light p-5 rounded text-center mt-5">
-        <h2>Need a Vocational Expert in {{ city.name }}?</h2>
-        <p class="lead">Get certified vocational assessment from an experienced CVE, ABVE/F expert</p>
-        <p>Serving all of {{ city.county }} and {{ city.state_name }}</p>
-        <div class="mt-4">
-            <a href="tel:+12036052814" class="btn btn-primary btn-lg me-3">Call (203) 605-2814</a>
-            <a href="{% url 'contact' %}?city={{ city.name }}&service=vocational" class="btn btn-secondary btn-lg">Schedule Assessment</a>
-        </div>
-    </section>
+  {% if nearby_cities %}
+  <section class="mb-4">
+    <h2>Vocational Expert Services Near {{ city.name }}</h2>
+    <p>We also provide vocational expert services in these nearby {{ city.state_name }} cities:</p>
+    <div class="row">
+      {% for nearby in nearby_cities %}
+      <div class="col-md-4 mb-2">
+        <a href="/{{ city.state }}/{{ nearby.slug }}/vocational-expert/">{{ nearby.name }}, {{ city.state_abbr }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Call to Action Section -->
+  <section class="cta-section bg-light p-5 rounded text-center mt-5">
+    <h2>Need a Vocational Expert in {{ city.name }}?</h2>
+    <p class="lead">Get certified vocational assessment from an experienced CVE, ABVE/F expert</p>
+    <p>Serving all of {{ city.county }} and {{ city.state_name }}</p>
+    <div class="mt-4">
+      <a href="tel:+12036052814" class="btn btn-primary btn-lg me-3">Call (203) 605-2814</a>
+      <a href="{% url 'contact' %}?city={{ city.name }}&service=vocational" class="btn btn-secondary btn-lg">Schedule Assessment</a>
+    </div>
+  </section>
 </div>
 
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "Do you provide vocational expert services in {{ city.name }}, {{ city.state_abbr }}?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, Christopher Skerritt provides comprehensive vocational expert services throughout {{ city.name }} and {{ city.county }}, {{ city.state_name }}. We handle employability assessments, earning capacity analysis, and vocational rehabilitation planning."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What certifications does your vocational expert have?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Christopher Skerritt holds multiple vocational certifications including CVE (Certified Vocational Evaluator), ABVE/F (American Board of Vocational Experts Fellow), CRC (Certified Rehabilitation Counselor), and over 10 additional professional credentials."
-            }
-        }
-    ]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you provide vocational expert services in {{ city.name }}, {{ city.state_abbr }}?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Christopher Skerritt provides comprehensive vocational expert services throughout {{ city.name }} and {{ city.county }}, {{ city.state_name }}. We handle employability assessments, earning capacity analysis, and vocational rehabilitation planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications does your vocational expert have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Christopher Skerritt holds multiple vocational certifications including CVE (Certified Vocational Evaluator), ABVE/F (American Board of Vocational Experts Fellow), CRC (Certified Rehabilitation Counselor), and over 10 additional professional credentials."
+      }
+    }
+  ]
 }
 </script>
 {% endblock %}

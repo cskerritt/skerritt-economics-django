@@ -12,36 +12,36 @@ from .city_views import (
 # Generate URL patterns for all cities
 city_seo_urlpatterns = [
     # City-specific pages for forensic economist
-    path('forensic-economist/<slug:city_slug>/', 
+    path("forensic-economist/<slug:city_slug>/", 
          ForensicEconomistCityView.as_view(), 
-         name='city_forensic_economist'),
+         name="city_forensic_economist"),
     
-    path('business-valuation/<slug:city_slug>/', 
+    path("business-valuation/<slug:city_slug>/", 
          BusinessValuationCityView.as_view(), 
-         name='city_business_valuation'),
+         name="city_business_valuation"),
     
-    path('vocational-expert/<slug:city_slug>/', 
+    path("vocational-expert/<slug:city_slug>/", 
          VocationalExpertCityView.as_view(), 
-         name='city_vocational_expert'),
+         name="city_vocational_expert"),
     
-    path('life-care-planner/<slug:city_slug>/', 
+    path("life-care-planner/<slug:city_slug>/", 
          LifeCarePlannerCityView.as_view(), 
-         name='city_life_care_planner'),
+         name="city_life_care_planner"),
     
     # Alternative URL patterns for better SEO
-    path('<slug:city_slug>-forensic-economist/', 
+    path("<slug:city_slug>-forensic-economist/", 
          ForensicEconomistCityView.as_view(), 
-         name='city_forensic_economist_alt'),
+         name="city_forensic_economist_alt"),
     
-    path('<slug:city_slug>-business-valuation/', 
+    path("<slug:city_slug>-business-valuation/", 
          BusinessValuationCityView.as_view(), 
-         name='city_business_valuation_alt'),
+         name="city_business_valuation_alt"),
     
-    path('<slug:city_slug>-vocational-expert/', 
+    path("<slug:city_slug>-vocational-expert/", 
          VocationalExpertCityView.as_view(), 
-         name='city_vocational_expert_alt'),
+         name="city_vocational_expert_alt"),
     
-    path('<slug:city_slug>-life-care-planner/', 
+    path("<slug:city_slug>-life-care-planner/", 
          LifeCarePlannerCityView.as_view(), 
-         name='city_life_care_planner_alt'),
+         name="city_life_care_planner_alt"),
 ]

@@ -6,129 +6,129 @@
 
 {% block content %}
 <div class="container">
-    <h1>Contact Us</h1>
-    <p class="lead">Schedule a free consultation to discuss your case requirements.</p>
-    
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-title">
-                    <h2>Request Consultation</h2>
-                </div>
-                
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-{{ message.tags|default:'info' }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                
-                <form method="post" class="contact-form needs-validation" onsubmit="trackFormSubmission('consultation_request');">
-                    {% csrf_token %}
-                    
-                    <div class="form-group">
-                        {{ form.name.label_tag }}
-                        {{ form.name }}
-                        {% if form.name.errors %}
-                            <div class="error-message text-danger">{{ form.name.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.email.label_tag }}
-                        {{ form.email }}
-                        {% if form.email.errors %}
-                            <div class="error-message text-danger">{{ form.email.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.phone.label_tag }}
-                        {{ form.phone }}
-                        {% if form.phone.errors %}
-                            <div class="error-message text-danger">{{ form.phone.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.organization.label_tag }}
-                        {{ form.organization }}
-                        {% if form.organization.errors %}
-                            <div class="error-message text-danger">{{ form.organization.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.case_type.label_tag }}
-                        {{ form.case_type }}
-                        {% if form.case_type.errors %}
-                            <div class="error-message text-danger">{{ form.case_type.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.jurisdiction.label_tag }}
-                        {{ form.jurisdiction }}
-                        {% if form.jurisdiction.errors %}
-                            <div class="error-message text-danger">{{ form.jurisdiction.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.timeline.label_tag }}
-                        {{ form.timeline }}
-                        {% if form.timeline.errors %}
-                            <div class="error-message text-danger">{{ form.timeline.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="form-group">
-                        {{ form.case_details.label_tag }}
-                        {{ form.case_details }}
-                        {% if form.case_details.errors %}
-                            <div class="error-message text-danger">{{ form.case_details.errors.0 }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Submit Consultation Request</button>
-                </form>
-            </div>
+  <h1>Contact Us</h1>
+  <p class="lead">Schedule a free consultation to discuss your case requirements.</p>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-title">
+          <h2>Request Consultation</h2>
         </div>
         
-        <div class="col-md-4">
-            <div class="card">
-                <h3>Direct Contact</h3>
-                <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
-                <p>
-                    <strong>Email:</strong><br>
-                    <a href="mailto:chris@skerritteconomics.com" onclick="trackEmailClick();">chris@skerritteconomics.com</a>
-                </p>
-                <p>
-                    <strong>Phone:</strong><br>
-                    <a href="tel:+12036052814" onclick="trackPhoneClick();">(203) 605-2814</a>
-                </p>
-                <p>
-                    <strong>Office Hours:</strong><br>
-                    Monday - Friday: 9:00 AM - 5:00 PM EST<br>
-                    Weekend consultations available by appointment
-                </p>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }}">
+              {{ message }}
             </div>
-            
-            <div class="card mt-3">
-                <h3>Response Time</h3>
-                <p>We typically respond to all inquiries within 24 hours during business days.</p>
-                <p>For urgent matters, please call directly or indicate urgency in your message.</p>
-            </div>
-            
-            <div class="card mt-3">
-                <h3>Service Areas</h3>
-                <p><strong>Primary Coverage:</strong> All New England states</p>
-                <p><strong>National:</strong> Available for cases throughout the United States</p>
-                <p><strong>Remote Services:</strong> Video consultations and remote testimony available</p>
-            </div>
-        </div>
+          {% endfor %}
+        {% endif %}
+        
+        <form method="post" class="contact-form needs-validation" onsubmit="trackFormSubmission('consultation_request');">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            {% if form.name.errors %}
+              <div class="error-message text-danger">{{ form.name.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {% if form.email.errors %}
+              <div class="error-message text-danger">{{ form.email.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.phone.label_tag }}
+            {{ form.phone }}
+            {% if form.phone.errors %}
+              <div class="error-message text-danger">{{ form.phone.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.organization.label_tag }}
+            {{ form.organization }}
+            {% if form.organization.errors %}
+              <div class="error-message text-danger">{{ form.organization.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.case_type.label_tag }}
+            {{ form.case_type }}
+            {% if form.case_type.errors %}
+              <div class="error-message text-danger">{{ form.case_type.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.jurisdiction.label_tag }}
+            {{ form.jurisdiction }}
+            {% if form.jurisdiction.errors %}
+              <div class="error-message text-danger">{{ form.jurisdiction.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.timeline.label_tag }}
+            {{ form.timeline }}
+            {% if form.timeline.errors %}
+              <div class="error-message text-danger">{{ form.timeline.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            {{ form.case_details.label_tag }}
+            {{ form.case_details }}
+            {% if form.case_details.errors %}
+              <div class="error-message text-danger">{{ form.case_details.errors.0 }}</div>
+            {% endif %}
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit Consultation Request</button>
+        </form>
+      </div>
     </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Direct Contact</h3>
+        <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:chris@skerritteconomics.com" onclick="trackEmailClick();">chris@skerritteconomics.com</a>
+        </p>
+        <p>
+          <strong>Phone:</strong><br>
+          <a href="tel:+12036052814" onclick="trackPhoneClick();">(203) 605-2814</a>
+        </p>
+        <p>
+          <strong>Office Hours:</strong><br>
+          Monday - Friday: 9:00 AM - 5:00 PM EST<br>
+          Weekend consultations available by appointment
+        </p>
+      </div>
+      
+      <div class="card mt-3">
+        <h3>Response Time</h3>
+        <p>We typically respond to all inquiries within 24 hours during business days.</p>
+        <p>For urgent matters, please call directly or indicate urgency in your message.</p>
+      </div>
+      
+      <div class="card mt-3">
+        <h3>Service Areas</h3>
+        <p><strong>Primary Coverage:</strong> All New England states</p>
+        <p><strong>National:</strong> Available for cases throughout the United States</p>
+        <p><strong>Remote Services:</strong> Video consultations and remote testimony available</p>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 

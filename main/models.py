@@ -3,29 +3,29 @@ from django.utils import timezone
 
 class ContactInquiry(models.Model):
     CASE_TYPE_CHOICES = [
-        ('personal_injury', 'Personal Injury'),
-        ('wrongful_death', 'Wrongful Death'),
-        ('medical_malpractice', 'Medical Malpractice'),
-        ('employment', 'Employment Litigation'),
-        ('business_valuation', 'Business Valuation'),
-        ('commercial_dispute', 'Commercial Dispute'),
-        ('other', 'Other'),
+        ("personal_injury", "Personal Injury"),
+        ("wrongful_death", "Wrongful Death"),
+        ("medical_malpractice", "Medical Malpractice"),
+        ("employment", "Employment Litigation"),
+        ("business_valuation", "Business Valuation"),
+        ("commercial_dispute", "Commercial Dispute"),
+        ("other", "Other"),
     ]
     
     JURISDICTION_CHOICES = [
-        ('state_court', 'State Court'),
-        ('federal_court', 'Federal Court'),
-        ('arbitration', 'Arbitration'),
-        ('mediation', 'Mediation'),
-        ('administrative', 'Administrative'),
-        ('other', 'Other'),
+        ("state_court", "State Court"),
+        ("federal_court", "Federal Court"),
+        ("arbitration", "Arbitration"),
+        ("mediation", "Mediation"),
+        ("administrative", "Administrative"),
+        ("other", "Other"),
     ]
     
     TIMELINE_CHOICES = [
-        ('immediate', 'Immediate (< 30 days)'),
-        ('soon', 'Soon (1-3 months)'),
-        ('planning', 'Planning (3-6 months)'),
-        ('future', 'Future (> 6 months)'),
+        ("immediate", "Immediate (< 30 days)"),
+        ("soon", "Soon (1-3 months)"),
+        ("planning", "Planning (3-6 months)"),
+        ("future", "Future (> 6 months)"),
     ]
     
     name = models.CharField(max_length=100)
@@ -45,10 +45,10 @@ class ContactInquiry(models.Model):
     
     class Meta:
         verbose_name_plural = "Contact Inquiries"
-        ordering = ['-created_date']
+        ordering = ["-created_date"]
     
     def __str__(self):
-        return f"{self.name} - {self.get_case_type_display()} ({self.created_date.strftime('%Y-%m-%d')})"
+        return f"{self.name} - {self.get_case_type_display()} ({self.created_date.strftime("%Y-%m-%d")})"
 
 
 class Testimonial(models.Model):
@@ -60,7 +60,7 @@ class Testimonial(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     
     class Meta:
-        ordering = ['display_order', '-created_date']
+        ordering = ["display_order", "-created_date"]
     
     def __str__(self):
         return f"{self.author} - {self.title}"
@@ -76,7 +76,7 @@ class FAQ(models.Model):
     class Meta:
         verbose_name = "FAQ"
         verbose_name_plural = "FAQs"
-        ordering = ['display_order', 'question']
+        ordering = ["display_order", "question"]
     
     def __str__(self):
         return self.question
@@ -84,32 +84,32 @@ class FAQ(models.Model):
 
 class Referral(models.Model):
     REFERRAL_TYPE_CHOICES = [
-        ('attorney_to_expert', 'Attorney Seeking Expert'),
-        ('attorney_to_attorney', 'Attorney to Attorney'),
-        ('client_needs_expert', 'Client Needs Expert'),
-        ('expert_collaboration', 'Expert Collaboration'),
-        ('other', 'Other'),
+        ("attorney_to_expert", "Attorney Seeking Expert"),
+        ("attorney_to_attorney", "Attorney to Attorney"),
+        ("client_needs_expert", "Client Needs Expert"),
+        ("expert_collaboration", "Expert Collaboration"),
+        ("other", "Other"),
     ]
     
     CASE_TYPE_CHOICES = [
-        ('personal_injury', 'Personal Injury'),
-        ('wrongful_death', 'Wrongful Death'),
-        ('medical_malpractice', 'Medical Malpractice'),
-        ('employment', 'Employment Litigation'),
-        ('business_valuation', 'Business Valuation'),
-        ('commercial_dispute', 'Commercial Dispute'),
-        ('divorce', 'Divorce/Family Law'),
-        ('insurance', 'Insurance Dispute'),
-        ('construction', 'Construction Defect'),
-        ('intellectual_property', 'Intellectual Property'),
-        ('other', 'Other'),
+        ("personal_injury", "Personal Injury"),
+        ("wrongful_death", "Wrongful Death"),
+        ("medical_malpractice", "Medical Malpractice"),
+        ("employment", "Employment Litigation"),
+        ("business_valuation", "Business Valuation"),
+        ("commercial_dispute", "Commercial Dispute"),
+        ("divorce", "Divorce/Family Law"),
+        ("insurance", "Insurance Dispute"),
+        ("construction", "Construction Defect"),
+        ("intellectual_property", "Intellectual Property"),
+        ("other", "Other"),
     ]
     
     URGENCY_CHOICES = [
-        ('urgent', 'Urgent - Need within 1 week'),
-        ('soon', 'Soon - Need within 1 month'),
-        ('planning', 'Planning - Need within 3 months'),
-        ('exploring', 'Exploring options'),
+        ("urgent", "Urgent - Need within 1 week"),
+        ("soon", "Soon - Need within 1 month"),
+        ("planning", "Planning - Need within 3 months"),
+        ("exploring", "Exploring options"),
     ]
     
     # Referrer Information
@@ -146,8 +146,8 @@ class Referral(models.Model):
     # Contact Preference
     preferred_contact_method = models.CharField(
         max_length=20,
-        choices=[('email', 'Email'), ('phone', 'Phone'), ('either', 'Either')],
-        default='either'
+        choices=[("email", "Email"), ("phone", "Phone"), ("either", "Either")],
+        default="either"
     )
     best_time_to_contact = models.CharField(max_length=100, blank=True)
     
@@ -158,9 +158,9 @@ class Referral(models.Model):
     internal_notes = models.TextField(blank=True, help_text="Internal notes (not shown to referrer)")
     
     class Meta:
-        ordering = ['-created_date']
+        ordering = ["-created_date"]
         verbose_name = "Expert Referral"
         verbose_name_plural = "Expert Referrals"
     
     def __str__(self):
-        return f"{self.referrer_name} - {self.get_case_type_display()} - {self.created_date.strftime('%Y-%m-%d')}"
+        return f"{self.referrer_name} - {self.get_case_type_display()} - {self.created_date.strftime("%Y-%m-%d")}"

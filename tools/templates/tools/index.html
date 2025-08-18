@@ -6,97 +6,97 @@
 
 {% block content %}
 <div class="container">
-    <h1>Professional Economic Analysis Tools</h1>
-    <p class="lead">Free calculators and tools for forensic economics and business valuation analysis.</p>
-    
-    <div class="alert alert-info">
-        <strong>Disclaimer:</strong> These tools are provided for informational purposes only. Results should be reviewed by a qualified professional. For case-specific analysis, please <a href="{% url 'contact' %}">contact us</a>.
+  <h1>Professional Economic Analysis Tools</h1>
+  <p class="lead">Free calculators and tools for forensic economics and business valuation analysis.</p>
+  
+  <div class="alert alert-info">
+    <strong>Disclaimer:</strong> These tools are provided for informational purposes only. Results should be reviewed by a qualified professional. For case-specific analysis, please <a href="{% url 'contact' %}">contact us</a>.
+  </div>
+  
+  <div class="tools-grid services-grid">
+    <div class="card">
+      <h3>📊 Life Expectancy Lookup Tool</h3>
+      <p>Calculate life expectancy, work-life expectancy, and years to final separation using CDC life tables and BLS data.</p>
+      <ul>
+        <li>Life Expectancy (LE)</li>
+        <li>Work Life Expectancy (WLE)</li>
+        <li>Years to Final Separation (YFS)</li>
+      </ul>
+      <a href="{% url 'tools:life_expectancy' %}" class="btn btn-primary">Use Tool →</a>
     </div>
     
-    <div class="tools-grid services-grid">
-        <div class="card">
-            <h3>📊 Life Expectancy Lookup Tool</h3>
-            <p>Calculate life expectancy, work-life expectancy, and years to final separation using CDC life tables and BLS data.</p>
-            <ul>
-                <li>Life Expectancy (LE)</li>
-                <li>Work Life Expectancy (WLE)</li>
-                <li>Years to Final Separation (YFS)</li>
-            </ul>
-            <a href="{% url 'tools:life_expectancy' %}" class="btn btn-primary">Use Tool →</a>
-        </div>
-        
-        <div class="card">
-            <h3>💵 Present Value Calculator</h3>
-            <p>Calculate the present value of future economic losses with customizable discount rates and growth assumptions.</p>
-            <ul>
-                <li>Future value streams</li>
-                <li>Discount rate application</li>
-                <li>Inflation adjustments</li>
-            </ul>
-            <a href="{% url 'tools:present_value' %}" class="btn btn-primary">Use Tool →</a>
-        </div>
-        
-        <div class="card">
-            <h3>📈 Wage Growth Projector</h3>
-            <p>Project future earnings incorporating inflation, productivity growth, and merit increases.</p>
-            <ul>
-                <li>Base wage projection</li>
-                <li>Inflation factors</li>
-                <li>Merit increase modeling</li>
-            </ul>
-            <a href="{% url 'tools:wage_growth' %}" class="btn btn-primary">Use Tool →</a>
-        </div>
-        
-        <div class="card">
-            <h3>🏠 Household Services Valuation</h3>
-            <p>Estimate the economic value of lost household services using replacement cost methodology.</p>
-            <ul>
-                <li>Service hour estimation</li>
-                <li>Replacement cost rates</li>
-                <li>Age-adjusted values</li>
-            </ul>
-            <a href="{% url 'tools:household_services' %}" class="btn btn-primary">Use Tool →</a>
-        </div>
-        
-        <div class="card">
-            <h3>🏢 Quick Business Valuation</h3>
-            <p>Preliminary business valuation using income, market, and asset-based approaches.</p>
-            <ul>
-                <li>Income approach</li>
-                <li>Market multiples</li>
-                <li>Asset-based valuation</li>
-            </ul>
-            <a href="{% url 'tools:business_valuation' %}" class="btn btn-primary">Use Tool →</a>
-        </div>
-        
-        <div class="card">
-            <h3>🏥 Medical Cost Projector</h3>
-            <p>Project future medical care costs with medical inflation rates and life care planning factors.</p>
-            <ul>
-                <li>Medical inflation rates</li>
-                <li>Treatment duration</li>
-                <li>Cost escalation</li>
-            </ul>
-            <a href="{% url 'tools:medical_costs' %}" class="btn btn-primary">Use Tool →</a>
-        </div>
+    <div class="card">
+      <h3>💵 Present Value Calculator</h3>
+      <p>Calculate the present value of future economic losses with customizable discount rates and growth assumptions.</p>
+      <ul>
+        <li>Future value streams</li>
+        <li>Discount rate application</li>
+        <li>Inflation adjustments</li>
+      </ul>
+      <a href="{% url 'tools:present_value' %}" class="btn btn-primary">Use Tool →</a>
     </div>
     
-    <div class="card mt-3">
-        <h2>Tool References & Methodology</h2>
-        <p>Our calculators use established methodologies and data sources:</p>
-        <ul>
-            <li><strong>Life Tables:</strong> CDC National Vital Statistics Reports</li>
-            <li><strong>Work-Life Tables:</strong> BLS Worklife Estimates</li>
-            <li><strong>Discount Rates:</strong> U.S. Treasury rates and economic research</li>
-            <li><strong>Medical Inflation:</strong> CMS National Health Expenditure data</li>
-            <li><strong>Household Services:</strong> Dollar Value of a Day methodology</li>
-        </ul>
+    <div class="card">
+      <h3>📈 Wage Growth Projector</h3>
+      <p>Project future earnings incorporating inflation, productivity growth, and merit increases.</p>
+      <ul>
+        <li>Base wage projection</li>
+        <li>Inflation factors</li>
+        <li>Merit increase modeling</li>
+      </ul>
+      <a href="{% url 'tools:wage_growth' %}" class="btn btn-primary">Use Tool →</a>
     </div>
     
-    <div class="cta text-center mt-3">
-        <h2>Need Professional Analysis?</h2>
-        <p>While these tools provide useful estimates, complex cases require professional economic analysis.</p>
-        <a href="{% url 'contact' %}" class="btn btn-primary">Request Professional Analysis</a>
+    <div class="card">
+      <h3>🏠 Household Services Valuation</h3>
+      <p>Estimate the economic value of lost household services using replacement cost methodology.</p>
+      <ul>
+        <li>Service hour estimation</li>
+        <li>Replacement cost rates</li>
+        <li>Age-adjusted values</li>
+      </ul>
+      <a href="{% url 'tools:household_services' %}" class="btn btn-primary">Use Tool →</a>
     </div>
+    
+    <div class="card">
+      <h3>🏢 Quick Business Valuation</h3>
+      <p>Preliminary business valuation using income, market, and asset-based approaches.</p>
+      <ul>
+        <li>Income approach</li>
+        <li>Market multiples</li>
+        <li>Asset-based valuation</li>
+      </ul>
+      <a href="{% url 'tools:business_valuation' %}" class="btn btn-primary">Use Tool →</a>
+    </div>
+    
+    <div class="card">
+      <h3>🏥 Medical Cost Projector</h3>
+      <p>Project future medical care costs with medical inflation rates and life care planning factors.</p>
+      <ul>
+        <li>Medical inflation rates</li>
+        <li>Treatment duration</li>
+        <li>Cost escalation</li>
+      </ul>
+      <a href="{% url 'tools:medical_costs' %}" class="btn btn-primary">Use Tool →</a>
+    </div>
+  </div>
+  
+  <div class="card mt-3">
+    <h2>Tool References & Methodology</h2>
+    <p>Our calculators use established methodologies and data sources:</p>
+    <ul>
+      <li><strong>Life Tables:</strong> CDC National Vital Statistics Reports</li>
+      <li><strong>Work-Life Tables:</strong> BLS Worklife Estimates</li>
+      <li><strong>Discount Rates:</strong> U.S. Treasury rates and economic research</li>
+      <li><strong>Medical Inflation:</strong> CMS National Health Expenditure data</li>
+      <li><strong>Household Services:</strong> Dollar Value of a Day methodology</li>
+    </ul>
+  </div>
+  
+  <div class="cta text-center mt-3">
+    <h2>Need Professional Analysis?</h2>
+    <p>While these tools provide useful estimates, complex cases require professional economic analysis.</p>
+    <a href="{% url 'contact' %}" class="btn btn-primary">Request Professional Analysis</a>
+  </div>
 </div>
 {% endblock %}

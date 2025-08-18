@@ -14,245 +14,245 @@
 
 {% block content %}
 <div class="container-fluid">
-    <!-- Hero Section -->
-    <div class="hero-section bg-success text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="display-4 mb-4">Professional Business Valuation in {{ city.name }}, {{ city.state_abbr }}</h1>
-                    <p class="lead">Expert business appraisal and valuation services for {{ city.name }} businesses. Certified valuations for litigation, transactions, tax planning, and strategic decision-making.</p>
-                    <div class="cta-buttons mt-4">
-                        <a href="#contact" class="btn btn-warning btn-lg me-3">Free Consultation</a>
-                        <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <div class="hero-section bg-success text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-4 mb-4">Professional Business Valuation in {{ city.name }}, {{ city.state_abbr }}</h1>
+          <p class="lead">Expert business appraisal and valuation services for {{ city.name }} businesses. Certified valuations for litigation, transactions, tax planning, and strategic decision-making.</p>
+          <div class="cta-buttons mt-4">
+            <a href="#contact" class="btn btn-warning btn-lg me-3">Free Consultation</a>
+            <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Breadcrumbs -->
-    <div class="container mt-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% for breadcrumb in breadcrumbs %}
-                    {% if breadcrumb.url %}
-                        <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
-                    {% else %}
-                        <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </nav>
-    </div>
+  <!-- Breadcrumbs -->
+  <div class="container mt-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          {% if breadcrumb.url %}
+            <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+          {% else %}
+            <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
 
-    <!-- Services Section -->
-    <div class="container py-5">
+  <!-- Services Section -->
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Business Valuation Services in {{ city.name }}, {{ city.state_abbr }}</h2>
+        <p>Professional business valuation services for {{ city.name }} companies across all industries. Whether you need a valuation for litigation, transaction planning, or strategic purposes, our certified approach ensures accurate and defensible results.</p>
+        
+        <div class="services-list mt-4">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-success">
+                <div class="card-body">
+                  <h5 class="card-title text-success">Litigation Support</h5>
+                  <p class="card-text">Expert business valuations for divorce, partnership disputes, and commercial litigation in {{ city.name }}.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-success">
+                <div class="card-body">
+                  <h5 class="card-title text-success">Transaction Planning</h5>
+                  <p class="card-text">Buy/sell agreements, mergers, and acquisition valuations for {{ city.county }} businesses.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-success">
+                <div class="card-body">
+                  <h5 class="card-title text-success">Tax & Estate Planning</h5>
+                  <p class="card-text">Gift and estate tax valuations, ESOP feasibility studies for {{ city.name }} companies.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-success">
+                <div class="card-body">
+                  <h5 class="card-title text-success">Financial Reporting</h5>
+                  <p class="card-text">ASC 805, ASC 350, and ASC 820 compliance valuations for {{ city.state }} businesses.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-5">Our Business Valuation Process in {{ city.name }}</h3>
+        <div class="process-steps">
+          <div class="row">
+            <div class="col-md-4 text-center mb-4">
+              <div class="step-icon bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">1</span>
+              </div>
+              <h5 class="mt-3">Data Collection</h5>
+              <p>Comprehensive review of financial statements, tax returns, and business operations.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="step-icon bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">2</span>
+              </div>
+              <h5 class="mt-3">Analysis</h5>
+              <p>Apply multiple valuation approaches including asset, market, and income methods.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="step-icon bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">3</span>
+              </div>
+              <h5 class="mt-3">Report & Support</h5>
+              <p>Detailed written report with expert witness testimony if required.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-5">Industries We Serve in {{ city.name }}</h3>
         <div class="row">
-            <div class="col-lg-8">
-                <h2>Business Valuation Services in {{ city.name }}, {{ city.state_abbr }}</h2>
-                <p>Professional business valuation services for {{ city.name }} companies across all industries. Whether you need a valuation for litigation, transaction planning, or strategic purposes, our certified approach ensures accurate and defensible results.</p>
-                
-                <div class="services-list mt-4">
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-success">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Litigation Support</h5>
-                                    <p class="card-text">Expert business valuations for divorce, partnership disputes, and commercial litigation in {{ city.name }}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-success">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Transaction Planning</h5>
-                                    <p class="card-text">Buy/sell agreements, mergers, and acquisition valuations for {{ city.county }} businesses.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-success">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Tax & Estate Planning</h5>
-                                    <p class="card-text">Gift and estate tax valuations, ESOP feasibility studies for {{ city.name }} companies.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-success">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Financial Reporting</h5>
-                                    <p class="card-text">ASC 805, ASC 350, and ASC 820 compliance valuations for {{ city.state }} businesses.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-5">Our Business Valuation Process in {{ city.name }}</h3>
-                <div class="process-steps">
-                    <div class="row">
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h4 mb-0">1</span>
-                            </div>
-                            <h5 class="mt-3">Data Collection</h5>
-                            <p>Comprehensive review of financial statements, tax returns, and business operations.</p>
-                        </div>
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h4 mb-0">2</span>
-                            </div>
-                            <h5 class="mt-3">Analysis</h5>
-                            <p>Apply multiple valuation approaches including asset, market, and income methods.</p>
-                        </div>
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h4 mb-0">3</span>
-                            </div>
-                            <h5 class="mt-3">Report & Support</h5>
-                            <p>Detailed written report with expert witness testimony if required.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-5">Industries We Serve in {{ city.name }}</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="list-unstyled">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Manufacturing & Distribution</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Technology & Software</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Healthcare & Medical Practices</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Professional Services</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="list-unstyled">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Retail & E-commerce</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Real Estate & Construction</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Hospitality & Entertainment</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Family-Owned Businesses</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <div class="list-unstyled">
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Manufacturing & Distribution</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Technology & Software</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Healthcare & Medical Practices</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Professional Services</span>
+              </div>
             </div>
-
-            <div class="col-lg-4">
-                <!-- Contact Card -->
-                <div class="card border-warning mb-4" id="contact">
-                    <div class="card-header bg-warning text-dark">
-                        <h5 class="mb-0">Free Valuation Consultation</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>Discuss your {{ city.name }} business valuation needs. Free initial consultation available.</p>
-                        <div class="contact-info">
-                            <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
-                            <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-                        </div>
-                        <a href="/contact/" class="btn btn-success w-100">Contact Form</a>
-                    </div>
-                </div>
-
-                <!-- Credentials -->
-                <div class="card">
-                    <div class="card-header">
-                        <h6>Professional Credentials</h6>
-                    </div>
-                    <div class="card-body">
-                        <p class="small">M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC</p>
-                        <p class="small">Over 20 years of valuation experience serving {{ city.state }} businesses.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="list-unstyled">
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Retail & E-commerce</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Real Estate & Construction</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Hospitality & Entertainment</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Family-Owned Businesses</span>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Testimonials Section -->
-    <div class="bg-light py-5">
-        <div class="container">
-            <h3 class="text-center mb-5">What {{ city.name }} Clients Say</h3>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"Professional, thorough, and timely. Chris provided exactly what we needed for our business transaction."</p>
-                            <small class="text-muted">- Business Owner, {{ city.county }}</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"His valuation report was comprehensive and held up perfectly during litigation proceedings."</p>
-                            <small class="text-muted">- Attorney, {{ city.state }}</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"Clear explanations and excellent expert witness testimony. Highly recommended for any valuation needs."</p>
-                            <small class="text-muted">- CPA, {{ city.name }}</small>
-                        </div>
-                    </div>
-                </div>
+      <div class="col-lg-4">
+        <!-- Contact Card -->
+        <div class="card border-warning mb-4" id="contact">
+          <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Free Valuation Consultation</h5>
+          </div>
+          <div class="card-body">
+            <p>Discuss your {{ city.name }} business valuation needs. Free initial consultation available.</p>
+            <div class="contact-info">
+              <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
+              <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
             </div>
+            <a href="/contact/" class="btn btn-success w-100">Contact Form</a>
+          </div>
         </div>
-    </div>
 
-    <!-- FAQ Section -->
-    <div class="container py-5">
-        <h3>Business Valuation FAQs - {{ city.name }}</h3>
-        <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                        How long does a business valuation take?
-                    </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Most business valuations for {{ city.name }} companies are completed within 2-4 weeks, depending on the complexity of the business and availability of financial information.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                        What information do I need to provide?
-                    </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        We'll need 3-5 years of financial statements, tax returns, and information about the business operations, market conditions, and purpose of the valuation.
-                    </div>
-                </div>
-            </div>
+        <!-- Credentials -->
+        <div class="card">
+          <div class="card-header">
+            <h6>Professional Credentials</h6>
+          </div>
+          <div class="card-body">
+            <p class="small">M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC, REAS, CEAS I, MSCC, QRC</p>
+            <p class="small">Over 20 years of valuation experience serving {{ city.state }} businesses.</p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="bg-light py-5">
+    <div class="container">
+      <h3 class="text-center mb-5">What {{ city.name }} Clients Say</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="card-text">"Professional, thorough, and timely. Chris provided exactly what we needed for our business transaction."</p>
+              <small class="text-muted">- Business Owner, {{ city.county }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="card-text">"His valuation report was comprehensive and held up perfectly during litigation proceedings."</p>
+              <small class="text-muted">- Attorney, {{ city.state }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="card-text">"Clear explanations and excellent expert witness testimony. Highly recommended for any valuation needs."</p>
+              <small class="text-muted">- CPA, {{ city.name }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="container py-5">
+    <h3>Business Valuation FAQs - {{ city.name }}</h3>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            How long does a business valuation take?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Most business valuations for {{ city.name }} companies are completed within 2-4 weeks, depending on the complexity of the business and availability of financial information.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            What information do I need to provide?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We'll need 3-5 years of financial statements, tax returns, and information about the business operations, market conditions, and purpose of the valuation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -8,71 +8,71 @@
 
 {% block content %}
 <section class="hero-section">
-    <div class="container">
-        <h1>Economic Expert Services in {{ state_name }}</h1>
-        <p class="lead">Forensic economics, business valuation, and expert witness services throughout {{ state_name }}</p>
-    </div>
+  <div class="container">
+    <h1>Economic Expert Services in {{ state_name }}</h1>
+    <p class="lead">Forensic economics, business valuation, and expert witness services throughout {{ state_name }}</p>
+  </div>
 </section>
 
 <section class="state-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2>Comprehensive Economic Analysis Services in {{ state_name }}</h2>
-                <p>
-                    Skerritt Economics provides expert economic analysis and testimony throughout {{ state_name }}. 
-                    Our team delivers accurate, defensible economic assessments for legal proceedings, 
-                    business disputes, and personal injury cases across the state.
-                </p>
-                
-                <h3>{{ state_name }} Services Include:</h3>
-                {% render_service_list location_context=state_name|add:" courts" location_phrase=" in "|add:state_name case_context=state_name|add:" injury cases" disability_context=state_name|add:" disability cases" %}
-                
-                <h3>Practice Areas in {{ state_name }}</h3>
-                <ul>
-                    <li>Personal Injury Economic Analysis</li>
-                    <li>Medical Malpractice Damages</li>
-                    <li>Employment Litigation</li>
-                    <li>Commercial Disputes</li>
-                    <li>Wrongful Death Economic Loss</li>
-                    <li>Business Interruption Claims</li>
-                    <li>Marital Dissolution Business Valuations</li>
-                    <li>Workers' Compensation</li>
-                </ul>
-                
-                <h3>{{ state_name }} Court Experience</h3>
-                <p>
-                    Our experts have provided testimony in state and federal courts throughout {{ state_name }}, 
-                    including superior courts, district courts, and appellate courts. We understand the local 
-                    legal environment and economic conditions that affect damage calculations and valuations.
-                </p>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="cta-box">
-                        <h3>Need Expert Economic Analysis in {{ state_name }}?</h3>
-                        <p>Contact us for professional economic expert services.</p>
-                        <a href="/contact/" class="btn btn-primary">Contact Us</a>
-                    </div>
-                    
-                    <div class="location-info">
-                        <h4>Service Coverage</h4>
-                        <p>We provide services throughout {{ state_name }}, including major cities and rural areas.</p>
-                    </div>
-                    
-                    <div class="related-locations">
-                        <h4>Other Locations</h4>
-                        <ul>
-                            <li><a href="/locations/">All Locations</a></li>
-                            <li><a href="/locations/massachusetts/">Massachusetts</a></li>
-                            <li><a href="/locations/rhode-island/">Rhode Island</a></li>
-                            <li><a href="/locations/connecticut/">Connecticut</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Comprehensive Economic Analysis Services in {{ state_name }}</h2>
+        <p>
+          Skerritt Economics provides expert economic analysis and testimony throughout {{ state_name }}. 
+          Our team delivers accurate, defensible economic assessments for legal proceedings, 
+          business disputes, and personal injury cases across the state.
+        </p>
+        
+        <h3>{{ state_name }} Services Include:</h3>
+        {% render_service_list location_context=state_name|add:" courts" location_phrase=" in "|add:state_name case_context=state_name|add:" injury cases" disability_context=state_name|add:" disability cases" %}
+        
+        <h3>Practice Areas in {{ state_name }}</h3>
+        <ul>
+          <li>Personal Injury Economic Analysis</li>
+          <li>Medical Malpractice Damages</li>
+          <li>Employment Litigation</li>
+          <li>Commercial Disputes</li>
+          <li>Wrongful Death Economic Loss</li>
+          <li>Business Interruption Claims</li>
+          <li>Marital Dissolution Business Valuations</li>
+          <li>Workers' Compensation</li>
+        </ul>
+        
+        <h3>{{ state_name }} Court Experience</h3>
+        <p>
+          Our experts have provided testimony in state and federal courts throughout {{ state_name }}, 
+          including superior courts, district courts, and appellate courts. We understand the local 
+          legal environment and economic conditions that affect damage calculations and valuations.
+        </p>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="cta-box">
+            <h3>Need Expert Economic Analysis in {{ state_name }}?</h3>
+            <p>Contact us for professional economic expert services.</p>
+            <a href="/contact/" class="btn btn-primary">Contact Us</a>
+          </div>
+          
+          <div class="location-info">
+            <h4>Service Coverage</h4>
+            <p>We provide services throughout {{ state_name }}, including major cities and rural areas.</p>
+          </div>
+          
+          <div class="related-locations">
+            <h4>Other Locations</h4>
+            <ul>
+              <li><a href="/locations/">All Locations</a></li>
+              <li><a href="/locations/massachusetts/">Massachusetts</a></li>
+              <li><a href="/locations/rhode-island/">Rhode Island</a></li>
+              <li><a href="/locations/connecticut/">Connecticut</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock %}

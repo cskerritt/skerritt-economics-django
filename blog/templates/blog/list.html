@@ -6,67 +6,67 @@
 
 {% block content %}
 <div class="container">
-    <h1>Articles & Insights</h1>
-    <p class="lead">Expert analysis and insights on forensic economics and business valuation topics.</p>
-    
-    <!-- Categories -->
-    {% if categories %}
-    <div class="blog-categories mb-3">
-        <strong>Categories:</strong>
-        <a href="{% url 'blog:list' %}" class="category-tag">All</a>
-        {% for category in categories %}
-        <a href="{% url 'blog:category' category.slug %}" class="category-tag">{{ category.name }}</a>
-        {% endfor %}
-    </div>
-    {% endif %}
-    
-    <!-- Blog Posts -->
-    <div class="blog-posts">
-        {% if posts %}
-            {% for post in posts %}
-            <article class="blog-post">
-                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-                <div class="blog-meta">
-                    <span>{{ post.published_date|date:"F d, Y" }}</span>
-                    {% if post.category %}
-                    | <a href="{% url 'blog:category' post.category.slug %}">{{ post.category.name }}</a>
-                    {% endif %}
-                    | By {{ post.author }}
-                </div>
-                {% if post.excerpt %}
-                <p>{{ post.excerpt }}</p>
-                {% else %}
-                <p>{{ post.content|truncatewords:50|safe }}</p>
-                {% endif %}
-                <a href="{{ post.get_absolute_url }}" class="btn btn-secondary">Read More →</a>
-            </article>
-            {% endfor %}
-            
-            <!-- Pagination -->
-            {% if is_paginated %}
-            <nav class="pagination-nav mt-3">
-                <div class="pagination">
-                    {% if page_obj.has_previous %}
-                    <a href="?page=1">« First</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                    {% endif %}
-                    
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                    </span>
-                    
-                    {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">Last »</a>
-                    {% endif %}
-                </div>
-            </nav>
-            {% endif %}
+  <h1>Articles & Insights</h1>
+  <p class="lead">Expert analysis and insights on forensic economics and business valuation topics.</p>
+  
+  <!-- Categories -->
+  {% if categories %}
+  <div class="blog-categories mb-3">
+    <strong>Categories:</strong>
+    <a href="{% url 'blog:list' %}" class="category-tag">All</a>
+    {% for category in categories %}
+    <a href="{% url 'blog:category' category.slug %}" class="category-tag">{{ category.name }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  
+  <!-- Blog Posts -->
+  <div class="blog-posts">
+    {% if posts %}
+      {% for post in posts %}
+      <article class="blog-post">
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        <div class="blog-meta">
+          <span>{{ post.published_date|date:"F d, Y" }}</span>
+          {% if post.category %}
+          | <a href="{% url 'blog:category' post.category.slug %}">{{ post.category.name }}</a>
+          {% endif %}
+          | By {{ post.author }}
+        </div>
+        {% if post.excerpt %}
+        <p>{{ post.excerpt }}</p>
         {% else %}
-            <div class="alert alert-info">
-                <p>No articles have been published yet. Check back soon for expert insights on forensic economics and business valuation.</p>
-            </div>
+        <p>{{ post.content|truncatewords:50|safe }}</p>
         {% endif %}
-    </div>
+        <a href="{{ post.get_absolute_url }}" class="btn btn-secondary">Read More →</a>
+      </article>
+      {% endfor %}
+      
+      <!-- Pagination -->
+      {% if is_paginated %}
+      <nav class="pagination-nav mt-3">
+        <div class="pagination">
+          {% if page_obj.has_previous %}
+          <a href="?page=1">« First</a>
+          <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+          {% endif %}
+          
+          <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </span>
+          
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">Last »</a>
+          {% endif %}
+        </div>
+      </nav>
+      {% endif %}
+    {% else %}
+      <div class="alert alert-info">
+        <p>No articles have been published yet. Check back soon for expert insights on forensic economics and business valuation.</p>
+      </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}

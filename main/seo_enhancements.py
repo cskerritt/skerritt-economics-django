@@ -13,41 +13,41 @@ class SEOManager:
     """Central SEO management for the website"""
     
     @staticmethod
-    def generate_internal_links(current_page, content_type='service'):
+    def generate_internal_links(current_page, content_type="service"):
         """Generate contextual internal links for better SEO"""
         
         internal_links = {
-            'service': [
-                {'text': 'forensic economics expert', 'url': '/services/forensic-economics/'},
-                {'text': 'business valuation services', 'url': '/services/business-valuation/'},
-                {'text': 'vocational expert witness', 'url': '/services/vocational-expert/'},
-                {'text': 'life care planning', 'url': '/services/life-care-planning/'},
-                {'text': 'economic damage calculations', 'url': '/services/forensic-economics/'},
-                {'text': 'lost earnings analysis', 'url': '/practice-areas/personal-injury/'},
+            "service": [
+                {"text": "forensic economics expert", "url": "/services/forensic-economics/"},
+                {"text": "business valuation services", "url": "/services/business-valuation/"},
+                {"text": "vocational expert witness", "url": "/services/vocational-expert/"},
+                {"text": "life care planning", "url": "/services/life-care-planning/"},
+                {"text": "economic damage calculations", "url": "/services/forensic-economics/"},
+                {"text": "lost earnings analysis", "url": "/practice-areas/personal-injury/"},
             ],
-            'location': [
-                {'text': 'nationwide expert witness services', 'url': '/locations/'},
-                {'text': 'Massachusetts forensic economist', 'url': '/locations/massachusetts-forensic-economist/'},
-                {'text': 'Rhode Island economic expert', 'url': '/locations/rhode-island-forensic-economist/'},
-                {'text': 'New England economic consulting', 'url': '/locations/new-england-economic-expert/'},
+            "location": [
+                {"text": "nationwide expert witness services", "url": "/locations/"},
+                {"text": "Massachusetts forensic economist", "url": "/locations/massachusetts-forensic-economist/"},
+                {"text": "Rhode Island economic expert", "url": "/locations/rhode-island-forensic-economist/"},
+                {"text": "New England economic consulting", "url": "/locations/new-england-economic-expert/"},
             ],
-            'practice': [
-                {'text': 'personal injury economics', 'url': '/practice-areas/personal-injury/'},
-                {'text': 'medical malpractice damages', 'url': '/practice-areas/medical-malpractice/'},
-                {'text': 'employment litigation expert', 'url': '/practice-areas/employment-litigation/'},
-                {'text': 'commercial dispute valuation', 'url': '/practice-areas/commercial-disputes/'},
+            "practice": [
+                {"text": "personal injury economics", "url": "/practice-areas/personal-injury/"},
+                {"text": "medical malpractice damages", "url": "/practice-areas/medical-malpractice/"},
+                {"text": "employment litigation expert", "url": "/practice-areas/employment-litigation/"},
+                {"text": "commercial dispute valuation", "url": "/practice-areas/commercial-disputes/"},
             ],
-            'tools': [
-                {'text': 'life expectancy calculator', 'url': '/tools/life-expectancy/'},
-                {'text': 'present value calculator', 'url': '/tools/present-value/'},
-                {'text': 'wage growth projections', 'url': '/tools/wage-growth/'},
-                {'text': 'business valuation tools', 'url': '/tools/business-valuation/'},
+            "tools": [
+                {"text": "life expectancy calculator", "url": "/tools/life-expectancy/"},
+                {"text": "present value calculator", "url": "/tools/present-value/"},
+                {"text": "wage growth projections", "url": "/tools/wage-growth/"},
+                {"text": "business valuation tools", "url": "/tools/business-valuation/"},
             ]
         }
         
         # Filter out current page
         links = internal_links.get(content_type, [])
-        return [link for link in links if link['url'] != current_page]
+        return [link for link in links if link["url"] != current_page]
     
     @staticmethod
     def generate_schema_markup(page_type, **kwargs):
@@ -55,12 +55,12 @@ class SEOManager:
         
         schemas = []
         
-        if page_type == 'service':
+        if page_type == "service":
             service_schema = {
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
-                "name": kwargs.get('name', 'Expert Economic Services'),
-                "description": kwargs.get('description', ''),
+                "name": kwargs.get("name", "Expert Economic Services"),
+                "description": kwargs.get("description", ""),
                 "provider": {
                     "@type": "Organization",
                     "name": "Skerritt Economics & Consulting",
@@ -73,47 +73,47 @@ class SEOManager:
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
                     "name": "Service Offerings",
-                    "itemListElement": kwargs.get('offerings', [])
+                    "itemListElement": kwargs.get("offerings", [])
                 }
             }
             schemas.append(service_schema)
         
-        elif page_type == 'location':
+        elif page_type == "location":
             location_schema = {
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
-                "name": f"Skerritt Economics - {kwargs.get('location_name', '')}",
-                "description": kwargs.get('description', ''),
+                "name": f"Skerritt Economics - {kwargs.get("location_name", "")}",
+                "description": kwargs.get("description", ""),
                 "address": {
                     "@type": "PostalAddress",
-                    "addressLocality": kwargs.get('city', ''),
-                    "addressRegion": kwargs.get('state', ''),
+                    "addressLocality": kwargs.get("city", ""),
+                    "addressRegion": kwargs.get("state", ""),
                     "addressCountry": "US"
                 },
                 "geo": {
                     "@type": "GeoCoordinates",
-                    "latitude": kwargs.get('latitude', ''),
-                    "longitude": kwargs.get('longitude', '')
+                    "latitude": kwargs.get("latitude", ""),
+                    "longitude": kwargs.get("longitude", "")
                 },
-                "url": kwargs.get('url', ''),
+                "url": kwargs.get("url", ""),
                 "telephone": "+1-203-605-2814",
                 "priceRange": "$$$$"
             }
             schemas.append(location_schema)
         
-        elif page_type == 'article':
+        elif page_type == "article":
             article_schema = {
                 "@context": "https://schema.org",
                 "@type": "Article",
-                "headline": kwargs.get('title', ''),
-                "description": kwargs.get('description', ''),
+                "headline": kwargs.get("title", ""),
+                "description": kwargs.get("description", ""),
                 "author": {
                     "@type": "Person",
                     "name": "Christopher Skerritt",
                     "url": "https://skerritteconomics.com/about"
                 },
-                "datePublished": kwargs.get('published_date', datetime.now().isoformat()),
-                "dateModified": kwargs.get('modified_date', datetime.now().isoformat()),
+                "datePublished": kwargs.get("published_date", datetime.now().isoformat()),
+                "dateModified": kwargs.get("modified_date", datetime.now().isoformat()),
                 "publisher": {
                     "@type": "Organization",
                     "name": "Skerritt Economics & Consulting",
@@ -124,14 +124,14 @@ class SEOManager:
                 },
                 "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": kwargs.get('url', '')
+                    "@id": kwargs.get("url", "")
                 },
-                "keywords": kwargs.get('keywords', [])
+                "keywords": kwargs.get("keywords", [])
             }
             schemas.append(article_schema)
         
         # Add breadcrumb schema
-        if kwargs.get('breadcrumbs'):
+        if kwargs.get("breadcrumbs"):
             breadcrumb_schema = {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -139,10 +139,10 @@ class SEOManager:
                     {
                         "@type": "ListItem",
                         "position": i + 1,
-                        "name": crumb['name'],
-                        "item": crumb['url']
+                        "name": crumb["name"],
+                        "item": crumb["url"]
                     }
-                    for i, crumb in enumerate(kwargs['breadcrumbs'])
+                    for i, crumb in enumerate(kwargs["breadcrumbs"])
                 ]
             }
             schemas.append(breadcrumb_schema)
@@ -155,89 +155,89 @@ class SEOManager:
         
         backlink_strategies = [
             {
-                'type': 'resource_pages',
-                'title': 'Economic Damages Calculator Tools',
-                'description': 'Free interactive calculators for attorneys and insurance professionals',
-                'target_sites': ['law schools', 'bar associations', 'legal directories'],
-                'content_ideas': [
-                    'Present value calculator with detailed methodology',
-                    'Lost earnings calculator with state-specific data',
-                    'Life care cost estimator',
-                    'Business valuation quick assessment tool'
+                "type": "resource_pages",
+                "title": "Economic Damages Calculator Tools",
+                "description": "Free interactive calculators for attorneys and insurance professionals",
+                "target_sites": ["law schools", "bar associations", "legal directories"],
+                "content_ideas": [
+                    "Present value calculator with detailed methodology",
+                    "Lost earnings calculator with state-specific data",
+                    "Life care cost estimator",
+                    "Business valuation quick assessment tool"
                 ]
             },
             {
-                'type': 'guest_posts',
-                'title': 'Expert Insights on Economic Damages',
-                'target_sites': ['legal blogs', 'insurance publications', 'financial websites'],
-                'topics': [
-                    'How to Calculate Economic Damages in Personal Injury Cases',
-                    'The Role of Vocational Experts in Litigation',
-                    'Understanding Present Value in Legal Settlements',
-                    'Business Valuation Methods for Divorce Proceedings'
+                "type": "guest_posts",
+                "title": "Expert Insights on Economic Damages",
+                "target_sites": ["legal blogs", "insurance publications", "financial websites"],
+                "topics": [
+                    "How to Calculate Economic Damages in Personal Injury Cases",
+                    "The Role of Vocational Experts in Litigation",
+                    "Understanding Present Value in Legal Settlements",
+                    "Business Valuation Methods for Divorce Proceedings"
                 ]
             },
             {
-                'type': 'case_studies',
-                'title': 'Detailed Case Analysis',
-                'description': 'In-depth analysis of significant cases',
-                'value_prop': 'Provides attorneys with real-world examples and methodologies',
-                'format': 'Long-form content with data visualizations'
+                "type": "case_studies",
+                "title": "Detailed Case Analysis",
+                "description": "In-depth analysis of significant cases",
+                "value_prop": "Provides attorneys with real-world examples and methodologies",
+                "format": "Long-form content with data visualizations"
             },
             {
-                'type': 'industry_guides',
-                'title': 'Comprehensive Industry Guides',
-                'topics': [
-                    'Complete Guide to Forensic Economics',
-                    'Attorney\'s Guide to Economic Expert Witnesses',
-                    'Insurance Adjuster\'s Handbook for Economic Damages',
-                    'Life Care Planning Best Practices'
+                "type": "industry_guides",
+                "title": "Comprehensive Industry Guides",
+                "topics": [
+                    "Complete Guide to Forensic Economics",
+                    "Attorney\"s Guide to Economic Expert Witnesses',
+                    "Insurance Adjuster\"s Handbook for Economic Damages',
+                    "Life Care Planning Best Practices"
                 ]
             },
             {
-                'type': 'local_citations',
-                'title': 'Local Business Directory Submissions',
-                'directories': [
-                    'Google My Business',
-                    'Bing Places',
-                    'Apple Maps',
-                    'Yelp for Business',
-                    'Yellow Pages',
-                    'Better Business Bureau',
-                    'Chamber of Commerce directories',
-                    'Professional association directories'
+                "type": "local_citations",
+                "title": "Local Business Directory Submissions",
+                "directories": [
+                    "Google My Business",
+                    "Bing Places",
+                    "Apple Maps",
+                    "Yelp for Business",
+                    "Yellow Pages",
+                    "Better Business Bureau",
+                    "Chamber of Commerce directories",
+                    "Professional association directories"
                 ]
             },
             {
-                'type': 'professional_associations',
-                'title': 'Professional Organization Profiles',
-                'organizations': [
-                    'National Association of Forensic Economics',
-                    'American Board of Vocational Experts',
-                    'International Association of Rehabilitation Professionals',
-                    'American Economic Association',
-                    'State bar associations',
-                    'Insurance professional organizations'
+                "type": "professional_associations",
+                "title": "Professional Organization Profiles",
+                "organizations": [
+                    "National Association of Forensic Economics",
+                    "American Board of Vocational Experts",
+                    "International Association of Rehabilitation Professionals",
+                    "American Economic Association",
+                    "State bar associations",
+                    "Insurance professional organizations"
                 ]
             },
             {
-                'type': 'educational_content',
-                'title': 'Educational Resources',
-                'formats': [
-                    'Webinars on economic damage calculations',
-                    'Continuing education courses for attorneys',
-                    'White papers on valuation methodologies',
-                    'Infographics on economic concepts'
+                "type": "educational_content",
+                "title": "Educational Resources",
+                "formats": [
+                    "Webinars on economic damage calculations",
+                    "Continuing education courses for attorneys",
+                    "White papers on valuation methodologies",
+                    "Infographics on economic concepts"
                 ]
             },
             {
-                'type': 'press_releases',
-                'title': 'Newsworthy Content',
-                'topics': [
-                    'New service offerings',
-                    'Significant case victories',
-                    'Industry insights and trends',
-                    'Economic impact studies'
+                "type": "press_releases",
+                "title": "Newsworthy Content",
+                "topics": [
+                    "New service offerings",
+                    "Significant case victories",
+                    "Industry insights and trends",
+                    "Economic impact studies"
                 ]
             }
         ]
@@ -249,35 +249,35 @@ class SEOManager:
         """Generate comprehensive meta tags for any page"""
         
         meta_tags = {
-            'basic': {
-                'description': kwargs.get('description', 'Skerritt Economics - Expert forensic economics and business valuation services'),
-                'keywords': kwargs.get('keywords', 'forensic economist, business valuation, expert witness'),
-                'author': 'Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F',
-                'robots': 'index, follow, max-image-preview:large',
-                'viewport': 'width=device-width, initial-scale=1.0',
+            "basic": {
+                "description": kwargs.get("description", "Skerritt Economics - Expert forensic economics and business valuation services"),
+                "keywords": kwargs.get("keywords", "forensic economist, business valuation, expert witness"),
+                "author": "Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F",
+                "robots": "index, follow, max-image-preview:large",
+                "viewport": "width=device-width, initial-scale=1.0",
             },
-            'opengraph': {
-                'og:title': kwargs.get('og_title', kwargs.get('title', 'Skerritt Economics & Consulting')),
-                'og:description': kwargs.get('og_description', kwargs.get('description', '')),
-                'og:type': kwargs.get('og_type', 'website'),
-                'og:url': kwargs.get('url', ''),
-                'og:image': kwargs.get('og_image', 'https://skerritteconomics.com/static/images/seo-share-image.jpg'),
-                'og:site_name': 'Skerritt Economics & Consulting',
-                'og:locale': 'en_US',
+            "opengraph": {
+                "og:title": kwargs.get("og_title", kwargs.get("title", "Skerritt Economics & Consulting")),
+                "og:description": kwargs.get("og_description", kwargs.get("description", "")),
+                "og:type": kwargs.get("og_type", "website"),
+                "og:url": kwargs.get("url", ""),
+                "og:image": kwargs.get("og_image", "https://skerritteconomics.com/static/images/seo-share-image.jpg"),
+                "og:site_name": "Skerritt Economics & Consulting",
+                "og:locale": "en_US",
             },
-            'twitter': {
-                'twitter:card': 'summary_large_image',
-                'twitter:site': '@SkerrittEcon',
-                'twitter:creator': '@ChrisSkerritt',
-                'twitter:title': kwargs.get('twitter_title', kwargs.get('title', '')),
-                'twitter:description': kwargs.get('twitter_description', kwargs.get('description', '')),
-                'twitter:image': kwargs.get('twitter_image', 'https://skerritteconomics.com/static/images/seo-share-image.jpg'),
+            "twitter": {
+                "twitter:card": "summary_large_image",
+                "twitter:site": "@SkerrittEcon",
+                "twitter:creator": "@ChrisSkerritt",
+                "twitter:title": kwargs.get("twitter_title", kwargs.get("title", "")),
+                "twitter:description": kwargs.get("twitter_description", kwargs.get("description", "")),
+                "twitter:image": kwargs.get("twitter_image", "https://skerritteconomics.com/static/images/seo-share-image.jpg"),
             },
-            'geo': {
-                'geo.region': kwargs.get('geo_region', 'US-RI'),
-                'geo.placename': kwargs.get('geo_placename', 'Smithfield, Rhode Island'),
-                'geo.position': kwargs.get('geo_position', '41.8669;-71.5493'),
-                'ICBM': kwargs.get('icbm', '41.8669, -71.5493'),
+            "geo": {
+                "geo.region": kwargs.get("geo_region", "US-RI"),
+                "geo.placename": kwargs.get("geo_placename", "Smithfield, Rhode Island"),
+                "geo.position": kwargs.get("geo_position", "41.8669;-71.5493"),
+                "ICBM": kwargs.get("icbm", "41.8669, -71.5493"),
             }
         }
         
@@ -288,72 +288,72 @@ class SEOManager:
         """Generate content silo structure for better SEO"""
         
         silo_structure = {
-            'services': {
-                'parent': '/services/',
-                'title': 'Expert Economic Services',
-                'children': [
+            "services": {
+                "parent": "/services/",
+                "title": "Expert Economic Services",
+                "children": [
                     {
-                        'url': '/services/forensic-economics/',
-                        'title': 'Forensic Economics',
-                        'children': [
-                            '/forensic-economist/boston/',
-                            '/forensic-economist/providence/',
-                            '/practice-areas/personal-injury/',
-                            '/tools/lost-earnings-calculator/',
+                        "url": "/services/forensic-economics/",
+                        "title": "Forensic Economics",
+                        "children": [
+                            "/forensic-economist/boston/",
+                            "/forensic-economist/providence/",
+                            "/practice-areas/personal-injury/",
+                            "/tools/lost-earnings-calculator/",
                         ]
                     },
                     {
-                        'url': '/services/business-valuation/',
-                        'title': 'Business Valuation',
-                        'children': [
-                            '/business-valuation/boston/',
-                            '/business-valuation/providence/',
-                            '/practice-areas/commercial-disputes/',
-                            '/tools/business-valuation/',
+                        "url": "/services/business-valuation/",
+                        "title": "Business Valuation",
+                        "children": [
+                            "/business-valuation/boston/",
+                            "/business-valuation/providence/",
+                            "/practice-areas/commercial-disputes/",
+                            "/tools/business-valuation/",
                         ]
                     },
                     {
-                        'url': '/services/vocational-expert/',
-                        'title': 'Vocational Expert',
-                        'children': [
-                            '/vocational-expert/boston/',
-                            '/vocational-expert/providence/',
-                            '/practice-areas/employment-litigation/',
-                            '/tools/wage-growth/',
+                        "url": "/services/vocational-expert/",
+                        "title": "Vocational Expert",
+                        "children": [
+                            "/vocational-expert/boston/",
+                            "/vocational-expert/providence/",
+                            "/practice-areas/employment-litigation/",
+                            "/tools/wage-growth/",
                         ]
                     },
                     {
-                        'url': '/services/life-care-planning/',
-                        'title': 'Life Care Planning',
-                        'children': [
-                            '/life-care-planner/boston/',
-                            '/life-care-planner/providence/',
-                            '/practice-areas/medical-malpractice/',
-                            '/tools/medical-costs/',
+                        "url": "/services/life-care-planning/",
+                        "title": "Life Care Planning",
+                        "children": [
+                            "/life-care-planner/boston/",
+                            "/life-care-planner/providence/",
+                            "/practice-areas/medical-malpractice/",
+                            "/tools/medical-costs/",
                         ]
                     }
                 ]
             },
-            'locations': {
-                'parent': '/locations/',
-                'title': 'Service Areas',
-                'children': [
+            "locations": {
+                "parent": "/locations/",
+                "title": "Service Areas",
+                "children": [
                     {
-                        'url': '/locations/massachusetts-forensic-economist/',
-                        'title': 'Massachusetts',
-                        'children': [
-                            '/forensic-economist/boston/',
-                            '/business-valuation/cambridge/',
-                            '/vocational-expert/worcester/',
+                        "url": "/locations/massachusetts-forensic-economist/",
+                        "title": "Massachusetts",
+                        "children": [
+                            "/forensic-economist/boston/",
+                            "/business-valuation/cambridge/",
+                            "/vocational-expert/worcester/",
                         ]
                     },
                     {
-                        'url': '/locations/rhode-island-forensic-economist/',
-                        'title': 'Rhode Island',
-                        'children': [
-                            '/forensic-economist/providence/',
-                            '/business-valuation/warwick/',
-                            '/life-care-planner/cranston/',
+                        "url": "/locations/rhode-island-forensic-economist/",
+                        "title": "Rhode Island",
+                        "children": [
+                            "/forensic-economist/providence/",
+                            "/business-valuation/warwick/",
+                            "/life-care-planner/cranston/",
                         ]
                     }
                 ]
@@ -372,50 +372,50 @@ class BacklinkBuilder:
         
         linkable_assets = [
             {
-                'type': 'interactive_tool',
-                'title': 'Economic Damages Calculator Suite',
-                'description': 'Comprehensive calculator tools for legal professionals',
-                'features': [
-                    'Lost earnings calculator with inflation adjustments',
-                    'Present value calculator with multiple discount rates',
-                    'Life care cost estimator with medical inflation',
-                    'Household services valuation tool',
-                    'Business valuation quick estimator'
+                "type": "interactive_tool",
+                "title": "Economic Damages Calculator Suite",
+                "description": "Comprehensive calculator tools for legal professionals",
+                "features": [
+                    "Lost earnings calculator with inflation adjustments",
+                    "Present value calculator with multiple discount rates",
+                    "Life care cost estimator with medical inflation",
+                    "Household services valuation tool",
+                    "Business valuation quick estimator"
                 ],
-                'embed_code': True,
-                'api_access': True
+                "embed_code": True,
+                "api_access": True
             },
             {
-                'type': 'data_study',
-                'title': 'Annual Economic Damages Report',
-                'description': 'Comprehensive analysis of economic damage trends',
-                'sections': [
-                    'Average settlement values by case type',
-                    'Regional variations in economic damages',
-                    'Impact of inflation on damage calculations',
-                    'Vocational assessment trends'
+                "type": "data_study",
+                "title": "Annual Economic Damages Report",
+                "description": "Comprehensive analysis of economic damage trends",
+                "sections": [
+                    "Average settlement values by case type",
+                    "Regional variations in economic damages",
+                    "Impact of inflation on damage calculations",
+                    "Vocational assessment trends"
                 ],
-                'format': 'PDF download with web summary'
+                "format": "PDF download with web summary"
             },
             {
-                'type': 'resource_library',
-                'title': 'Expert Witness Resource Center',
-                'contents': [
-                    'Sample expert reports',
-                    'Deposition preparation guides',
-                    'Cross-examination strategies',
-                    'Economic terminology glossary',
-                    'Case law summaries'
+                "type": "resource_library",
+                "title": "Expert Witness Resource Center",
+                "contents": [
+                    "Sample expert reports",
+                    "Deposition preparation guides",
+                    "Cross-examination strategies",
+                    "Economic terminology glossary",
+                    "Case law summaries"
                 ]
             },
             {
-                'type': 'infographic_series',
-                'title': 'Visual Guides to Economic Concepts',
-                'topics': [
-                    'Understanding Present Value',
-                    'Life Care Planning Process',
-                    'Business Valuation Methods',
-                    'Economic Loss Components'
+                "type": "infographic_series",
+                "title": "Visual Guides to Economic Concepts",
+                "topics": [
+                    "Understanding Present Value",
+                    "Life Care Planning Process",
+                    "Business Valuation Methods",
+                    "Economic Loss Components"
                 ]
             }
         ]
@@ -427,9 +427,9 @@ class BacklinkBuilder:
         """Generate outreach email templates for link building"""
         
         templates = {
-            'resource_page': {
-                'subject': 'Resource Addition: Economic Damages Calculator for Legal Professionals',
-                'body': '''Dear [Name],
+            "resource_page": {
+                "subject": "Resource Addition: Economic Damages Calculator for Legal Professionals",
+                "body": ""'Dear [Name],
 
 I noticed your excellent resource page for legal professionals at [URL] and wanted to suggest a valuable addition.
 
@@ -447,11 +447,11 @@ Would this be a valuable addition to your resource page? I'd be happy to provide
 Best regards,
 Christopher Skerritt
 Skerritt Economics & Consulting
-'''
+""'
             },
-            'guest_post': {
-                'subject': 'Guest Post Proposal: Economic Expert Witness Best Practices',
-                'body': '''Dear [Name],
+            "guest_post": {
+                "subject": "Guest Post Proposal: Economic Expert Witness Best Practices",
+                "body": ""'Dear [Name],
 
 I've been following [Website] and appreciate your coverage of litigation support topics.
 
@@ -469,11 +469,11 @@ Would any of these topics interest your readers?
 
 Best regards,
 Christopher Skerritt, MBA, CRC, CLCP
-'''
+""'
             },
-            'broken_link': {
-                'subject': 'Broken Link on [Page Title]',
-                'body': '''Dear [Name],
+            "broken_link": {
+                "subject": "Broken Link on [Page Title]",
+                "body": ""'Dear [Name],
 
 While researching economic expert resources, I noticed a broken link on your page [URL].
 
@@ -485,7 +485,7 @@ Hope this helps improve your valuable resource page!
 
 Best regards,
 Christopher Skerritt
-'''
+""'
             }
         }
         
@@ -496,32 +496,32 @@ Christopher Skerritt
         """Framework for analyzing competitor backlinks"""
         
         analysis_framework = {
-            'competitors': [
-                'forensiceconomics.com',
-                'economicexpert.com',
-                'businessvaluationexpert.com',
-                'vocationalexpert.com'
+            "competitors": [
+                "forensiceconomics.com",
+                "economicexpert.com",
+                "businessvaluationexpert.com",
+                "vocationalexpert.com"
             ],
-            'link_types_to_target': [
-                'Legal directories',
-                'Bar association resources',
-                'Insurance industry sites',
-                'Educational institutions',
-                'Professional associations',
-                'Legal blogs and publications'
+            "link_types_to_target": [
+                "Legal directories",
+                "Bar association resources",
+                "Insurance industry sites",
+                "Educational institutions",
+                "Professional associations",
+                "Legal blogs and publications"
             ],
-            'content_gaps': [
-                'State-specific damage calculation guides',
-                'Industry-specific valuation methodologies',
-                'Interactive calculation tools',
-                'Video explanations of economic concepts',
-                'Podcast appearances'
+            "content_gaps": [
+                "State-specific damage calculation guides",
+                "Industry-specific valuation methodologies",
+                "Interactive calculation tools",
+                "Video explanations of economic concepts",
+                "Podcast appearances"
             ],
-            'monitoring_tools': [
-                'Google Alerts for brand mentions',
-                'Ahrefs for backlink tracking',
-                'SEMrush for competitor analysis',
-                'BuzzSumo for content opportunities'
+            "monitoring_tools": [
+                "Google Alerts for brand mentions",
+                "Ahrefs for backlink tracking",
+                "SEMrush for competitor analysis",
+                "BuzzSumo for content opportunities"
             ]
         }
         
@@ -536,16 +536,16 @@ class ContentOptimizer:
         """Add SEO optimizations to content"""
         
         optimizations = {
-            'keyword_density': '1-2% for primary keywords',
-            'related_terms': ContentOptimizer.get_related_terms(target_keywords),
-            'content_structure': {
-                'use_headers': 'H2 and H3 tags every 200-300 words',
-                'bullet_points': 'Break up long paragraphs',
-                'internal_links': '3-5 contextual links per page',
-                'external_links': '1-2 authoritative sources',
-                'images': 'Include alt text with keywords',
-                'meta_description': '150-160 characters with primary keyword',
-                'url_structure': 'Include primary keyword in URL slug'
+            "keyword_density": "1-2% for primary keywords",
+            "related_terms": ContentOptimizer.get_related_terms(target_keywords),
+            "content_structure": {
+                "use_headers": "H2 and H3 tags every 200-300 words",
+                "bullet_points": "Break up long paragraphs",
+                "internal_links": "3-5 contextual links per page",
+                "external_links": "1-2 authoritative sources",
+                "images": "Include alt text with keywords",
+                "meta_description": "150-160 characters with primary keyword",
+                "url_structure": "Include primary keyword in URL slug"
             }
         }
         
@@ -556,33 +556,33 @@ class ContentOptimizer:
         """Get LSI and related keywords"""
         
         keyword_map = {
-            'forensic economist': [
-                'economic damages expert',
-                'litigation economist',
-                'economic loss analysis',
-                'financial expert witness',
-                'damage calculations'
+            "forensic economist": [
+                "economic damages expert",
+                "litigation economist",
+                "economic loss analysis",
+                "financial expert witness",
+                "damage calculations"
             ],
-            'business valuation': [
-                'company appraisal',
-                'fair market value',
-                'business worth assessment',
-                'enterprise valuation',
-                'business appraisal expert'
+            "business valuation": [
+                "company appraisal",
+                "fair market value",
+                "business worth assessment",
+                "enterprise valuation",
+                "business appraisal expert"
             ],
-            'vocational expert': [
-                'employability assessment',
-                'earning capacity expert',
-                'vocational rehabilitation',
-                'labor market analysis',
-                'vocational evaluator'
+            "vocational expert": [
+                "employability assessment",
+                "earning capacity expert",
+                "vocational rehabilitation",
+                "labor market analysis",
+                "vocational evaluator"
             ],
-            'life care planning': [
-                'future medical costs',
-                'catastrophic injury planning',
-                'medical cost projection',
-                'life care plan development',
-                'future care needs'
+            "life care planning": [
+                "future medical costs",
+                "catastrophic injury planning",
+                "medical cost projection",
+                "life care plan development",
+                "future care needs"
             ]
         }
         
@@ -593,59 +593,59 @@ class ContentOptimizer:
         """Generate SEO-focused content calendar"""
         
         content_calendar = {
-            'weekly': [
+            "weekly": [
                 {
-                    'type': 'blog_post',
-                    'topics': [
-                        'Case law updates affecting economic damages',
-                        'Economic trends impacting valuations',
-                        'Practical tips for attorneys',
-                        'Industry news and analysis'
+                    "type": "blog_post",
+                    "topics": [
+                        "Case law updates affecting economic damages",
+                        "Economic trends impacting valuations",
+                        "Practical tips for attorneys",
+                        "Industry news and analysis"
                     ]
                 }
             ],
-            'monthly': [
+            "monthly": [
                 {
-                    'type': 'comprehensive_guide',
-                    'topics': [
-                        'State-specific economic damage laws',
-                        'Industry valuation guides',
-                        'Practice area deep dives',
-                        'Methodology explanations'
+                    "type": "comprehensive_guide",
+                    "topics": [
+                        "State-specific economic damage laws",
+                        "Industry valuation guides",
+                        "Practice area deep dives",
+                        "Methodology explanations"
                     ]
                 },
                 {
-                    'type': 'case_study',
-                    'format': 'Detailed analysis with data'
+                    "type": "case_study",
+                    "format": "Detailed analysis with data"
                 }
             ],
-            'quarterly': [
+            "quarterly": [
                 {
-                    'type': 'research_report',
-                    'topics': [
-                        'Economic damage trends analysis',
-                        'Regional market studies',
-                        'Industry benchmarking reports'
+                    "type": "research_report",
+                    "topics": [
+                        "Economic damage trends analysis",
+                        "Regional market studies",
+                        "Industry benchmarking reports"
                     ]
                 },
                 {
-                    'type': 'webinar',
-                    'topics': [
-                        'Economic damages for attorneys',
-                        'Business valuation methodologies',
-                        'Life care planning best practices'
+                    "type": "webinar",
+                    "topics": [
+                        "Economic damages for attorneys",
+                        "Business valuation methodologies",
+                        "Life care planning best practices"
                     ]
                 }
             ],
-            'annual': [
+            "annual": [
                 {
-                    'type': 'comprehensive_report',
-                    'title': 'Annual State of Economic Damages Report',
-                    'sections': [
-                        'Trend analysis',
-                        'Case law developments',
-                        'Methodology updates',
-                        'Regional variations'
+                    "type": "comprehensive_report",
+                    "title": "Annual State of Economic Damages Report",
+                    "sections": [
+                        "Trend analysis",
+                        "Case law developments",
+                        "Methodology updates",
+                        "Regional variations"
                     ]
                 }
             ]

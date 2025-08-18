@@ -9,296 +9,296 @@
 {{ block.super }}
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Life Care Planning Services in {{ city.name }}",
-    "description": "Certified life care planning and future medical cost projections in {{ city.name }}, {{ city.state_name }}",
-    "provider": {
-        "@type": "Person",
-        "name": "Christopher Skerritt",
-        "honorificSuffix": "CLCP, MSCC, CRC",
-        "jobTitle": "Life Care Planner",
-        "telephone": "+1-203-605-2814"
-    },
-    "areaServed": {
-        "@type": "City",
-        "name": "{{ city.name }}",
-        "containedInPlace": {
-            "@type": "State",
-            "name": "{{ city.state_name }}"
-        }
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": {{ city.lat }},
-        "longitude": {{ city.lng }}
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Life Care Planning Services in {{ city.name }}",
+  "description": "Certified life care planning and future medical cost projections in {{ city.name }}, {{ city.state_name }}",
+  "provider": {
+    "@type": "Person",
+    "name": "Christopher Skerritt",
+    "honorificSuffix": "CLCP, MSCC, CRC",
+    "jobTitle": "Life Care Planner",
+    "telephone": "+1-203-605-2814"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "{{ city.name }}",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "{{ city.state_name }}"
     }
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ city.lat }},
+    "longitude": {{ city.lng }}
+  }
 }
 </script>
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    <!-- Hero Section with CTA -->
-    <section class="city-hero bg-primary text-white p-5 rounded-3 mb-4">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold">Life Care Planner in {{ city.name }}, {{ city.state_abbr }}</h1>
-                <p class="lead mb-4">Certified Life Care Planner providing comprehensive medical cost projections for {{ city.name }} catastrophic injury cases. CLCP, MSCC certified with rehabilitation expertise.</p>
-                
-                <div class="hero-badges mb-4">
-                    <span class="badge bg-white text-primary me-2 p-2">📍 {{ city.county }}</span>
-                    <span class="badge bg-white text-primary me-2 p-2">🎓 CLCP, MSCC</span>
-                    <span class="badge bg-white text-primary me-2 p-2">⚖️ Court-Qualified</span>
-                    <span class="badge bg-white text-primary me-2 p-2">📊 20+ Years Experience</span>
-                </div>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="cta-card bg-white text-dark p-4 rounded-3 shadow">
-                    <h3 class="h4 mb-3">Free {{ city.name }} Consultation</h3>
-                    <p class="mb-3">Discuss your life care planning needs</p>
-                    
-                    <a href="tel:+12036052814" class="btn btn-primary btn-lg w-100 mb-2">
-                        📞 (203) 605-2814
-                    </a>
-                    
-                    <a href="{% url 'contact' %}?city={{ city.name }}&service=lifecare" class="btn btn-outline-primary w-100">
-                        📅 Schedule Planning Session
-                    </a>
-                </div>
-            </div>
+  <!-- Hero Section with CTA -->
+  <section class="city-hero bg-primary text-white p-5 rounded-3 mb-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold">Life Care Planner in {{ city.name }}, {{ city.state_abbr }}</h1>
+        <p class="lead mb-4">Certified Life Care Planner providing comprehensive medical cost projections for {{ city.name }} catastrophic injury cases. CLCP, MSCC certified with rehabilitation expertise.</p>
+        
+        <div class="hero-badges mb-4">
+          <span class="badge bg-white text-primary me-2 p-2">📍 {{ city.county }}</span>
+          <span class="badge bg-white text-primary me-2 p-2">🎓 CLCP, MSCC</span>
+          <span class="badge bg-white text-primary me-2 p-2">⚖️ Court-Qualified</span>
+          <span class="badge bg-white text-primary me-2 p-2">📊 20+ Years Experience</span>
         </div>
-    </section>
-
-    <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'location' state=city.state %}">{{ city.state_name }}</a></li>
-            <li class="breadcrumb-item active">{{ city.name }} Life Care Planner</li>
-        </ol>
-    </nav>
-
-    <div class="row">
-        <div class="col-md-8">
-            <section class="mb-4">
-                <h2>Life Care Planning Services in {{ city.name }}</h2>
-                <p>Christopher Skerritt provides comprehensive life care planning services to attorneys and insurance companies throughout <strong>{{ city.name }}</strong> and <strong>{{ city.county }}</strong>, {{ city.state_name }}. With CLCP and MSCC certifications, we deliver thorough future medical care cost projections for catastrophic injury cases.</p>
-                
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <h3>Injury Types We Plan For</h3>
-                        <ul>
-                            <li><strong>Traumatic brain injury</strong> (TBI)</li>
-                            <li><strong>Spinal cord injury</strong></li>
-                            <li><strong>Amputations</strong></li>
-                            <li><strong>Severe burns</strong></li>
-                            <li><strong>Multiple trauma</strong></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>Medical Conditions</h3>
-                        <ul>
-                            <li><strong>Birth injuries</strong></li>
-                            <li><strong>Cerebral palsy</strong></li>
-                            <li><strong>Chronic pain syndromes</strong></li>
-                            <li><strong>Neurological disorders</strong></li>
-                            <li><strong>Complex medical needs</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-4">
-                <h2>Life Care Plan Components</h2>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>Medical Care Projections</h4>
-                        <ul>
-                            <li>Physician visits and specialist consultations</li>
-                            <li>Surgical procedures and hospitalizations</li>
-                            <li>Diagnostic testing and imaging</li>
-                            <li>Emergency care provisions</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>Rehabilitation Services</h4>
-                        <ul>
-                            <li>Physical therapy programs</li>
-                            <li>Occupational therapy needs</li>
-                            <li>Speech and language therapy</li>
-                            <li>Cognitive rehabilitation</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>Support Services & Equipment</h4>
-                        <ul>
-                            <li>Durable medical equipment</li>
-                            <li>Home modifications</li>
-                            <li>Vehicle adaptations</li>
-                            <li>Attendant care requirements</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h4>Medications & Supplies</h4>
-                        <ul>
-                            <li>Prescription medications</li>
-                            <li>Medical supplies</li>
-                            <li>Nutritional supplements</li>
-                            <li>Wound care products</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-4">
-                <h2>{{ city.name }} Healthcare Resources</h2>
-                <p>Our life care plans incorporate {{ city.name }} and {{ city.state_name }} specific healthcare resources:</p>
-                <ul>
-                    <li>Major medical centers in {{ city.county }}</li>
-                    <li>Specialized rehabilitation facilities</li>
-                    <li>{{ city.state_name }} disability services</li>
-                    <li>Local home health agencies</li>
-                    <li>Medical equipment suppliers in {{ city.name }}</li>
-                </ul>
-            </section>
-
-            <section class="mb-4">
-                <h2>Professional Credentials</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul>
-                            <li><strong>CLCP</strong> - Certified Life Care Planner</li>
-                            <li><strong>MSCC</strong> - Medical-Legal Consultant Certified</li>
-                            <li><strong>CRC</strong> - Certified Rehabilitation Counselor</li>
-                            <li><strong>LRC</strong> - Licensed Rehabilitation Counselor</li>
-                            <li><strong>CVE</strong> - Certified Vocational Evaluator</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                            <li><strong>ABVE/F</strong> - Board Certified Vocational Expert</li>
-                            <li><strong>FVE</strong> - Forensic Vocational Expert</li>
-                            <li><strong>IPEC</strong> - International Psychometric Certified</li>
-                            <li><strong>REAS</strong> - Registered Employment Assessment</li>
-                            <li><strong>QRC</strong> - Qualified Rehabilitation Consultant</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-4">
-                <h2>Frequently Asked Questions - {{ city.name }} Life Care Planning</h2>
-                
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h4>What is included in a life care plan for {{ city.name }} cases?</h4>
-                        <p>A comprehensive life care plan includes all future medical care, therapies, medications, equipment, home modifications, and support services needed throughout the individual's lifetime. We research costs specific to {{ city.name }} and {{ city.state_name }} providers.</p>
-                    </div>
-                </div>
-                
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h4>How long does it take to prepare a life care plan?</h4>
-                        <p>A typical life care plan takes 3-4 weeks from initial assessment to final report. This includes medical record review, client evaluation if appropriate, research of {{ city.name }} area resources, and cost projections.</p>
-                    </div>
-                </div>
-                
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h4>Do you work with {{ city.county }} medical providers?</h4>
-                        <p>Yes, we collaborate with treating physicians and specialists throughout {{ city.county }} to ensure our life care plans reflect appropriate medical care standards and local treatment options.</p>
-                    </div>
-                </div>
-            </section>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="cta-card bg-white text-dark p-4 rounded-3 shadow">
+          <h3 class="h4 mb-3">Free {{ city.name }} Consultation</h3>
+          <p class="mb-3">Discuss your life care planning needs</p>
+          
+          <a href="tel:+12036052814" class="btn btn-primary btn-lg w-100 mb-2">
+            📞 (203) 605-2814
+          </a>
+          
+          <a href="{% url 'contact' %}?city={{ city.name }}&service=lifecare" class="btn btn-outline-primary w-100">
+            📅 Schedule Planning Session
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="col-md-4">
-            <div class="card mb-3 sticky-top" style="top: 20px;">
-                <div class="card-body">
-                    <h3>{{ city.name }} Life Care Planner</h3>
-                    <p><strong>Christopher Skerritt</strong><br>
-                    CLCP, MSCC, CRC</p>
-                    <p>📞 <a href="tel:+12036052814" class="btn btn-primary btn-block">(203) 605-2814</a></p>
-                    <p>✉️ <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-                    <hr>
-                    <h4>Planning Services</h4>
-                    <ul class="list-unstyled">
-                        <li>✓ Catastrophic Injury Plans</li>
-                        <li>✓ Future Medical Costs</li>
-                        <li>✓ Rehabilitation Planning</li>
-                        <li>✓ Equipment & Supplies</li>
-                        <li>✓ Home Modifications</li>
-                        <li>✓ Care Coordination</li>
-                    </ul>
-                    <hr>
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li><a href="/{{ city.state }}/{{ city.slug }}/forensic-economist/">Forensic Economics</a></li>
-                        <li><a href="/{{ city.state }}/{{ city.slug }}/business-valuation/">Business Valuation</a></li>
-                        <li><a href="/{{ city.state }}/{{ city.slug }}/vocational-expert/">Vocational Expert</a></li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'location' state=city.state %}">{{ city.state_name }}</a></li>
+      <li class="breadcrumb-item active">{{ city.name }} Life Care Planner</li>
+    </ol>
+  </nav>
+
+  <div class="row">
+    <div class="col-md-8">
+      <section class="mb-4">
+        <h2>Life Care Planning Services in {{ city.name }}</h2>
+        <p>Christopher Skerritt provides comprehensive life care planning services to attorneys and insurance companies throughout <strong>{{ city.name }}</strong> and <strong>{{ city.county }}</strong>, {{ city.state_name }}. With CLCP and MSCC certifications, we deliver thorough future medical care cost projections for catastrophic injury cases.</p>
+        
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h3>Injury Types We Plan For</h3>
+            <ul>
+              <li><strong>Traumatic brain injury</strong> (TBI)</li>
+              <li><strong>Spinal cord injury</strong></li>
+              <li><strong>Amputations</strong></li>
+              <li><strong>Severe burns</strong></li>
+              <li><strong>Multiple trauma</strong></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h3>Medical Conditions</h3>
+            <ul>
+              <li><strong>Birth injuries</strong></li>
+              <li><strong>Cerebral palsy</strong></li>
+              <li><strong>Chronic pain syndromes</strong></li>
+              <li><strong>Neurological disorders</strong></li>
+              <li><strong>Complex medical needs</strong></li>
+            </ul>
+          </div>
         </div>
+      </section>
+
+      <section class="mb-4">
+        <h2>Life Care Plan Components</h2>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>Medical Care Projections</h4>
+            <ul>
+              <li>Physician visits and specialist consultations</li>
+              <li>Surgical procedures and hospitalizations</li>
+              <li>Diagnostic testing and imaging</li>
+              <li>Emergency care provisions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>Rehabilitation Services</h4>
+            <ul>
+              <li>Physical therapy programs</li>
+              <li>Occupational therapy needs</li>
+              <li>Speech and language therapy</li>
+              <li>Cognitive rehabilitation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>Support Services & Equipment</h4>
+            <ul>
+              <li>Durable medical equipment</li>
+              <li>Home modifications</li>
+              <li>Vehicle adaptations</li>
+              <li>Attendant care requirements</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4>Medications & Supplies</h4>
+            <ul>
+              <li>Prescription medications</li>
+              <li>Medical supplies</li>
+              <li>Nutritional supplements</li>
+              <li>Wound care products</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h2>{{ city.name }} Healthcare Resources</h2>
+        <p>Our life care plans incorporate {{ city.name }} and {{ city.state_name }} specific healthcare resources:</p>
+        <ul>
+          <li>Major medical centers in {{ city.county }}</li>
+          <li>Specialized rehabilitation facilities</li>
+          <li>{{ city.state_name }} disability services</li>
+          <li>Local home health agencies</li>
+          <li>Medical equipment suppliers in {{ city.name }}</li>
+        </ul>
+      </section>
+
+      <section class="mb-4">
+        <h2>Professional Credentials</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <ul>
+              <li><strong>CLCP</strong> - Certified Life Care Planner</li>
+              <li><strong>MSCC</strong> - Medical-Legal Consultant Certified</li>
+              <li><strong>CRC</strong> - Certified Rehabilitation Counselor</li>
+              <li><strong>LRC</strong> - Licensed Rehabilitation Counselor</li>
+              <li><strong>CVE</strong> - Certified Vocational Evaluator</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul>
+              <li><strong>ABVE/F</strong> - Board Certified Vocational Expert</li>
+              <li><strong>FVE</strong> - Forensic Vocational Expert</li>
+              <li><strong>IPEC</strong> - International Psychometric Certified</li>
+              <li><strong>REAS</strong> - Registered Employment Assessment</li>
+              <li><strong>QRC</strong> - Qualified Rehabilitation Consultant</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h2>Frequently Asked Questions - {{ city.name }} Life Care Planning</h2>
+        
+        <div class="card mb-2">
+          <div class="card-body">
+            <h4>What is included in a life care plan for {{ city.name }} cases?</h4>
+            <p>A comprehensive life care plan includes all future medical care, therapies, medications, equipment, home modifications, and support services needed throughout the individual's lifetime. We research costs specific to {{ city.name }} and {{ city.state_name }} providers.</p>
+          </div>
+        </div>
+        
+        <div class="card mb-2">
+          <div class="card-body">
+            <h4>How long does it take to prepare a life care plan?</h4>
+            <p>A typical life care plan takes 3-4 weeks from initial assessment to final report. This includes medical record review, client evaluation if appropriate, research of {{ city.name }} area resources, and cost projections.</p>
+          </div>
+        </div>
+        
+        <div class="card mb-2">
+          <div class="card-body">
+            <h4>Do you work with {{ city.county }} medical providers?</h4>
+            <p>Yes, we collaborate with treating physicians and specialists throughout {{ city.county }} to ensure our life care plans reflect appropriate medical care standards and local treatment options.</p>
+          </div>
+        </div>
+      </section>
     </div>
 
-    {% if nearby_cities %}
-    <section class="mb-4">
-        <h2>Life Care Planning Services Near {{ city.name }}</h2>
-        <p>We also provide life care planning services in these nearby {{ city.state_name }} cities:</p>
-        <div class="row">
-            {% for nearby in nearby_cities %}
-            <div class="col-md-4 mb-2">
-                <a href="/{{ city.state }}/{{ nearby.slug }}/life-care-planner/">{{ nearby.name }}, {{ city.state_abbr }}</a>
-            </div>
-            {% endfor %}
+    <div class="col-md-4">
+      <div class="card mb-3 sticky-top" style="top: 20px;">
+        <div class="card-body">
+          <h3>{{ city.name }} Life Care Planner</h3>
+          <p><strong>Christopher Skerritt</strong><br>
+          CLCP, MSCC, CRC</p>
+          <p>📞 <a href="tel:+12036052814" class="btn btn-primary btn-block">(203) 605-2814</a></p>
+          <p>✉️ <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+          <hr>
+          <h4>Planning Services</h4>
+          <ul class="list-unstyled">
+            <li>✓ Catastrophic Injury Plans</li>
+            <li>✓ Future Medical Costs</li>
+            <li>✓ Rehabilitation Planning</li>
+            <li>✓ Equipment & Supplies</li>
+            <li>✓ Home Modifications</li>
+            <li>✓ Care Coordination</li>
+          </ul>
+          <hr>
+          <h4>Other Services</h4>
+          <ul>
+            <li><a href="/{{ city.state }}/{{ city.slug }}/forensic-economist/">Forensic Economics</a></li>
+            <li><a href="/{{ city.state }}/{{ city.slug }}/business-valuation/">Business Valuation</a></li>
+            <li><a href="/{{ city.state }}/{{ city.slug }}/vocational-expert/">Vocational Expert</a></li>
+          </ul>
         </div>
-    </section>
-    {% endif %}
+      </div>
+    </div>
+  </div>
 
-    <!-- Call to Action Section -->
-    <section class="cta-section bg-light p-5 rounded text-center mt-5">
-        <h2>Need a Life Care Planner in {{ city.name }}?</h2>
-        <p class="lead">Get comprehensive future care cost projections from a CLCP certified expert</p>
-        <p>Serving all of {{ city.county }} and {{ city.state_name }}</p>
-        <div class="mt-4">
-            <a href="tel:+12036052814" class="btn btn-primary btn-lg me-3">Call (203) 605-2814</a>
-            <a href="{% url 'contact' %}?city={{ city.name }}&service=lifecare" class="btn btn-secondary btn-lg">Schedule Consultation</a>
-        </div>
-    </section>
+  {% if nearby_cities %}
+  <section class="mb-4">
+    <h2>Life Care Planning Services Near {{ city.name }}</h2>
+    <p>We also provide life care planning services in these nearby {{ city.state_name }} cities:</p>
+    <div class="row">
+      {% for nearby in nearby_cities %}
+      <div class="col-md-4 mb-2">
+        <a href="/{{ city.state }}/{{ nearby.slug }}/life-care-planner/">{{ nearby.name }}, {{ city.state_abbr }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Call to Action Section -->
+  <section class="cta-section bg-light p-5 rounded text-center mt-5">
+    <h2>Need a Life Care Planner in {{ city.name }}?</h2>
+    <p class="lead">Get comprehensive future care cost projections from a CLCP certified expert</p>
+    <p>Serving all of {{ city.county }} and {{ city.state_name }}</p>
+    <div class="mt-4">
+      <a href="tel:+12036052814" class="btn btn-primary btn-lg me-3">Call (203) 605-2814</a>
+      <a href="{% url 'contact' %}?city={{ city.name }}&service=lifecare" class="btn btn-secondary btn-lg">Schedule Consultation</a>
+    </div>
+  </section>
 </div>
 
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "Do you provide life care planning services in {{ city.name }}, {{ city.state_abbr }}?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, Christopher Skerritt provides comprehensive life care planning services throughout {{ city.name }} and {{ city.county }}, {{ city.state_name }}. We handle catastrophic injury cases, creating detailed future medical care and cost projections."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What certifications does your life care planner have?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Christopher Skerritt holds CLCP (Certified Life Care Planner) and MSCC (Medical-Legal Consultant Certified) credentials, along with over 10 additional rehabilitation and vocational certifications including CRC, CVE, and ABVE/F."
-            }
-        }
-    ]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you provide life care planning services in {{ city.name }}, {{ city.state_abbr }}?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Christopher Skerritt provides comprehensive life care planning services throughout {{ city.name }} and {{ city.county }}, {{ city.state_name }}. We handle catastrophic injury cases, creating detailed future medical care and cost projections."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications does your life care planner have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Christopher Skerritt holds CLCP (Certified Life Care Planner) and MSCC (Medical-Legal Consultant Certified) credentials, along with over 10 additional rehabilitation and vocational certifications including CRC, CVE, and ABVE/F."
+      }
+    }
+  ]
 }
 </script>
 {% endblock %}

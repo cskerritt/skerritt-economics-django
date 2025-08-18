@@ -10,7 +10,7 @@ class Category(models.Model):
     
     class Meta:
         verbose_name_plural = "Categories"
-        ordering = ['name']
+        ordering = ["name"]
     
     def __str__(self):
         return self.name
@@ -21,13 +21,13 @@ class Category(models.Model):
         super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        return reverse('blog:category', kwargs={'category': self.slug})
+        return reverse("blog:category", kwargs={"category": self.slug})
 
 
 class Post(models.Model):
     STATUS_CHOICES = [
-        ('draft', 'Draft'),
-        ('published', 'Published'),
+        ("draft", "Draft"),
+        ("published", "Published"),
     ]
     
     title = models.CharField(max_length=200)
@@ -36,10 +36,10 @@ class Post(models.Model):
     content = models.TextField()
     excerpt = models.TextField(max_length=500, blank=True, help_text="Brief description for listings")
     
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='posts')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name="posts")
     tags = models.CharField(max_length=200, blank=True, help_text="Comma-separated tags")
     
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
     featured = models.BooleanField(default=False, help_text="Display on homepage")
     
     created_date = models.DateTimeField(default=timezone.now)
@@ -49,7 +49,7 @@ class Post(models.Model):
     meta_description = models.CharField(max_length=160, blank=True, help_text="SEO meta description")
     
     class Meta:
-        ordering = ['-published_date']
+        ordering = ["-published_date"]
     
     def __str__(self):
         return self.title
@@ -57,25 +57,25 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        if self.status == 'published' and not self.published_date:
+        if self.status == "published" and not self.published_date:
             self.published_date = timezone.now()
         super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'slug': self.slug})
+        return reverse("blog:detail", kwargs={"slug": self.slug})
     
     def get_tags_list(self):
         if self.tags:
-            return [tag.strip() for tag in self.tags.split(',')]
+            return [tag.strip() for tag in self.tags.split(",")]
         return []
 
 
 class CaseStudy(models.Model):
     PRACTICE_AREA_CHOICES = [
-        ('personal_injury', 'Personal Injury & Wrongful Death'),
-        ('medical_malpractice', 'Medical Malpractice'),
-        ('employment', 'Employment Litigation'),
-        ('commercial', 'Commercial Disputes'),
+        ("personal_injury", "Personal Injury & Wrongful Death"),
+        ("medical_malpractice", "Medical Malpractice"),
+        ("employment", "Employment Litigation"),
+        ("commercial", "Commercial Disputes"),
     ]
     
     title = models.CharField(max_length=200)
@@ -87,7 +87,7 @@ class CaseStudy(models.Model):
     challenges = models.TextField(blank=True, help_text="Key challenges addressed")
     outcome = models.TextField(blank=True, help_text="Case outcome or result")
     
-    amount = models.CharField(max_length=100, blank=True, help_text="Economic value (e.g., '$2.3M')")
+    amount = models.CharField(max_length=100, blank=True, help_text="Economic value (e.g., "$2.3M")")
     featured = models.BooleanField(default=False, help_text="Display on homepage")
     
     created_date = models.DateTimeField(default=timezone.now)
@@ -95,7 +95,7 @@ class CaseStudy(models.Model):
     
     class Meta:
         verbose_name_plural = "Case Studies"
-        ordering = ['-created_date']
+        ordering = ["-created_date"]
     
     def __str__(self):
         return self.title
@@ -107,4 +107,4 @@ class CaseStudy(models.Model):
     
     def get_absolute_url(self):
         # For now, link to case studies page since we don't have individual case study pages
-        return reverse('case_studies')
+        return reverse("case_studies")

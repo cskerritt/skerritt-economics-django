@@ -18,14 +18,14 @@ def get_location_data():
         dict: Location data including states, cities, and services
     """
     # Try Django settings first, then environment variable, then default
-    data_file = getattr(settings, 'LOCATION_DATA_FILE', None) or \
-                os.environ.get('LOCATION_DATA_FILE') or \
+    data_file = getattr(settings, "LOCATION_DATA_FILE", None) or \
+                os.environ.get("LOCATION_DATA_FILE") or \
                 os.path.join(
                     os.path.dirname(os.path.dirname(__file__)), 
-                    'data', 
-                    'locations.json'
+                    "data", 
+                    "locations.json"
                 )
-    with open(data_file, 'r') as f:
+    with open(data_file, "r") as f:
         return json.load(f)
 
 @lru_cache(maxsize=1)
@@ -38,28 +38,28 @@ def get_services_config():
     """
     return [
         {
-            'slug': 'forensic-economics',
-            'name': 'Forensic Economics',
-            'description': 'Economic damage calculations, lost earnings analysis, and expert testimony',
-            'suffix_template': 'for {location_context}'
+            "slug": "forensic-economics",
+            "name": "Forensic Economics",
+            "description": "Economic damage calculations, lost earnings analysis, and expert testimony",
+            "suffix_template": "for {location_context}"
         },
         {
-            'slug': 'business-valuation',
-            'name': 'Business Valuation',
-            'description': 'Professional business valuations for litigation, divorce, and partnership disputes',
-            'suffix_template': '{location_phrase}'
+            "slug": "business-valuation",
+            "name": "Business Valuation",
+            "description": "Professional business valuations for litigation, divorce, and partnership disputes",
+            "suffix_template": "{location_phrase}"
         },
         {
-            'slug': 'life-care-planning',
-            'name': 'Life Care Planning',
-            'description': 'Comprehensive life care plans and future medical cost projections',
-            'suffix_template': 'for {case_context}'
+            "slug": "life-care-planning",
+            "name": "Life Care Planning",
+            "description": "Comprehensive life care plans and future medical cost projections",
+            "suffix_template": "for {case_context}"
         },
         {
-            'slug': 'vocational-expert',
-            'name': 'Vocational Assessment',
-            'description': 'Earning capacity evaluations and employability determinations',
-            'suffix_template': 'for {disability_context}'
+            "slug": "vocational-expert",
+            "name": "Vocational Assessment",
+            "description": "Earning capacity evaluations and employability determinations",
+            "suffix_template": "for {disability_context}"
         }
     ]
 
@@ -73,7 +73,7 @@ def clear_cache():
     Raises:
         RuntimeError: If DEBUG is False (production mode)
     """
-    if not getattr(settings, 'DEBUG', False):
+    if not getattr(settings, "DEBUG", False):
         raise RuntimeError(
             "Cache clearing is disabled in production. "
             "The cache will be automatically cleared on process restart."

@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install gunicorn for production
-RUN pip install --no-cache-dir gunicorn
+# Install gunicorn for production and development tools
+RUN pip install --no-cache-dir gunicorn ruff
 
 # Copy project
 COPY . .

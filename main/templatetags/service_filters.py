@@ -14,11 +14,11 @@ def format_suffix(suffix_template, context):
     Usage: {{ service.suffix_template|format_suffix:suffix_context }}
     """
     if not suffix_template or not context:
-        return ''
+        return ""
     
     try:
         # Simple string formatting with the context dictionary
-        return ' ' + suffix_template.format(**context) + '.'
+        return " " + suffix_template.format(**context) + "."
     except (KeyError, ValueError):
         # If formatting fails, return empty string
-        return '.'
+        return "."

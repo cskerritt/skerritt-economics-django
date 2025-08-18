@@ -7,83 +7,83 @@
 
 {% block content %}
 <section class="hero-section">
-    <div class="container">
-        <h1>{{ service_name }} in {{ city_name }}, {{ state_name }}</h1>
-        <p class="lead">Professional {{ service_name|lower }} services for legal cases and disputes</p>
-    </div>
+  <div class="container">
+    <h1>{{ service_name }} in {{ city_name }}, {{ state_name }}</h1>
+    <p class="lead">Professional {{ service_name|lower }} services for legal cases and disputes</p>
+  </div>
 </section>
 
 <section class="service-area-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2>Expert {{ service_name }} Services in {{ city_name }}</h2>
-                <p>
-                    Dr. Christopher Skerritt provides comprehensive {{ service_name|lower }} services 
-                    throughout {{ city_name }} and the {{ state_name }} area. With extensive experience 
-                    in forensic economics and expert testimony, we deliver accurate, defensible analyses 
-                    for legal proceedings.
-                </p>
-                
-                <h3>Our {{ city_name }} {{ service_name }} Services Include:</h3>
-                <ul>
-                    {% if service_type == 'vocational-expert' %}
-                        <li>Vocational assessments and earning capacity evaluations</li>
-                        <li>Employability determinations</li>
-                        <li>Labor market surveys and job placement analysis</li>
-                        <li>Transferable skills analysis</li>
-                        <li>Expert testimony in disability and personal injury cases</li>
-                    {% elif service_type == 'forensic-economist' %}
-                        <li>Economic damage calculations</li>
-                        <li>Lost earnings and benefits analysis</li>
-                        <li>Present value calculations</li>
-                        <li>Business interruption losses</li>
-                        <li>Wrongful death economic analysis</li>
-                    {% elif service_type == 'life-care-planner' %}
-                        <li>Comprehensive life care plans</li>
-                        <li>Future medical cost projections</li>
-                        <li>Assistive technology assessments</li>
-                        <li>Home modification recommendations</li>
-                        <li>Long-term care needs analysis</li>
-                    {% elif service_type == 'business-valuation' %}
-                        <li>Business and professional practice valuations</li>
-                        <li>Marital dissolution business valuations</li>
-                        <li>Partner buyout valuations</li>
-                        <li>Economic damages for business disputes</li>
-                        <li>Lost profits calculations</li>
-                    {% endif %}
-                </ul>
-                
-                <h3>Why Choose Our {{ city_name }} Services?</h3>
-                <ul>
-                    <li>Local knowledge of {{ city_name }} and {{ state_name }} markets</li>
-                    <li>Extensive courtroom experience</li>
-                    <li>Peer-reviewed methodologies</li>
-                    <li>Clear, compelling expert reports</li>
-                    <li>Responsive and professional service</li>
-                </ul>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="cta-box">
-                        <h3>Need a {{ service_name }}?</h3>
-                        <p>Contact us for expert analysis and testimony in {{ city_name }}.</p>
-                        <a href="/contact/" class="btn btn-primary">Get Started</a>
-                    </div>
-                    
-                    <div class="related-services">
-                        <h4>Related Services</h4>
-                        <ul>
-                            <li><a href="/services/forensic-economics/">Forensic Economics</a></li>
-                            <li><a href="/services/business-valuation/">Business Valuation</a></li>
-                            <li><a href="/services/life-care-planning/">Life Care Planning</a></li>
-                            <li><a href="/services/vocational-expert/">Vocational Expert</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Expert {{ service_name }} Services in {{ city_name }}</h2>
+        <p>
+          Dr. Christopher Skerritt provides comprehensive {{ service_name|lower }} services 
+          throughout {{ city_name }} and the {{ state_name }} area. With extensive experience 
+          in forensic economics and expert testimony, we deliver accurate, defensible analyses 
+          for legal proceedings.
+        </p>
+        
+        <h3>Our {{ city_name }} {{ service_name }} Services Include:</h3>
+        <ul>
+          {% if service_type == 'vocational-expert' %}
+            <li>Vocational assessments and earning capacity evaluations</li>
+            <li>Employability determinations</li>
+            <li>Labor market surveys and job placement analysis</li>
+            <li>Transferable skills analysis</li>
+            <li>Expert testimony in disability and personal injury cases</li>
+          {% elif service_type == 'forensic-economist' %}
+            <li>Economic damage calculations</li>
+            <li>Lost earnings and benefits analysis</li>
+            <li>Present value calculations</li>
+            <li>Business interruption losses</li>
+            <li>Wrongful death economic analysis</li>
+          {% elif service_type == 'life-care-planner' %}
+            <li>Comprehensive life care plans</li>
+            <li>Future medical cost projections</li>
+            <li>Assistive technology assessments</li>
+            <li>Home modification recommendations</li>
+            <li>Long-term care needs analysis</li>
+          {% elif service_type == 'business-valuation' %}
+            <li>Business and professional practice valuations</li>
+            <li>Marital dissolution business valuations</li>
+            <li>Partner buyout valuations</li>
+            <li>Economic damages for business disputes</li>
+            <li>Lost profits calculations</li>
+          {% endif %}
+        </ul>
+        
+        <h3>Why Choose Our {{ city_name }} Services?</h3>
+        <ul>
+          <li>Local knowledge of {{ city_name }} and {{ state_name }} markets</li>
+          <li>Extensive courtroom experience</li>
+          <li>Peer-reviewed methodologies</li>
+          <li>Clear, compelling expert reports</li>
+          <li>Responsive and professional service</li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="cta-box">
+            <h3>Need a {{ service_name }}?</h3>
+            <p>Contact us for expert analysis and testimony in {{ city_name }}.</p>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          
+          <div class="related-services">
+            <h4>Related Services</h4>
+            <ul>
+              <li><a href="/services/forensic-economics/">Forensic Economics</a></li>
+              <li><a href="/services/business-valuation/">Business Valuation</a></li>
+              <li><a href="/services/life-care-planning/">Life Care Planning</a></li>
+              <li><a href="/services/vocational-expert/">Vocational Expert</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock %}

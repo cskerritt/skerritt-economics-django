@@ -9,29 +9,29 @@ def get_all_city_service_urls():
     """Get all city service URL patterns for sitemap generation"""
     
     services = [
-        'forensic-economics',
-        'business-valuation', 
-        'business-consulting',
-        'vocational-expert',
-        'life-care-planning'
+        "forensic-economics",
+        "business-valuation", 
+        "business-consulting",
+        "vocational-expert",
+        "life-care-planning"
     ]
     
     urls = []
     cities = get_all_expanded_cities()
     
     for city in cities:
-        state_slug = city['state_slug']
-        city_slug = city['slug']
+        state_slug = city["state_slug"]
+        city_slug = city["slug"]
         
         for service in services:
             url = f"/{state_slug}/{city_slug}/{service}/"
             urls.append({
-                'url': url,
-                'city': city['name'],
-                'state': city['state'],
-                'service': service,
-                'priority': 0.7,
-                'changefreq': 'monthly'
+                "url": url,
+                "city": city["name"],
+                "state": city["state"],
+                "service": service,
+                "priority": 0.7,
+                "changefreq": "monthly"
             })
     
     return urls

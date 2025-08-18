@@ -6,115 +6,115 @@
 
 {% block content %}
 <div class="container">
-    <h1>{{ service_title }} Services in {{ city_name }}, {{ state_name }}</h1>
-    <p class="lead">Expert {{ service_description|lower }} for legal professionals in {{ city_name }}, {{ state }} and throughout {{ state_name }}.</p>
-    
-    <div class="row">
-        <div class="col-md-8">
-            <section class="card mb-3">
-                <h2>{{ service_title }} Services</h2>
-                <p>Skerritt Economics & Consulting provides expert {{ service_title|lower }} services to attorneys and legal professionals in {{ city_name }}, {{ state }}. With extensive experience in litigation support, we deliver comprehensive economic analysis that stands up to scrutiny.</p>
-                
-                {% if service_type == 'forensic_economics' %}
-                <h3>Our Forensic Economics Services Include:</h3>
-                <ul>
-                    <li>Lost earnings and earning capacity analysis</li>
-                    <li>Wrongful death economic damages</li>
-                    <li>Loss of household services valuation</li>
-                    <li>Present value calculations</li>
-                    <li>Personal injury economic loss</li>
-                </ul>
-                {% elif service_type == 'business_valuation' %}
-                <h3>Our Business Valuation Services Include:</h3>
-                <ul>
-                    <li>Fair market value determinations</li>
-                    <li>Business interruption loss analysis</li>
-                    <li>Shareholder dispute valuations</li>
-                    <li>Divorce business valuations</li>
-                    <li>Economic damage assessments</li>
-                </ul>
-                {% elif service_type == 'life_care_planning' %}
-                <h3>Our Life Care Planning Services Include:</h3>
-                <ul>
-                    <li>Future medical cost projections</li>
-                    <li>Catastrophic injury planning</li>
-                    <li>Medical needs assessments</li>
-                    <li>Assistive technology evaluations</li>
-                    <li>Home modification cost analysis</li>
-                </ul>
-                {% elif service_type == 'vocational_expert' %}
-                <h3>Our Vocational Expert Services Include:</h3>
-                <ul>
-                    <li>Earning capacity evaluations</li>
-                    <li>Transferable skills analysis</li>
-                    <li>Labor market surveys</li>
-                    <li>Employability assessments</li>
-                    <li>Vocational rehabilitation planning</li>
-                </ul>
-                {% endif %}
-            </section>
-            
-            <section class="card mb-3">
-                <h2>Serving {{ city_name }}, {{ state_name }} Legal Professionals</h2>
-                <p>Christopher Skerritt provides expert witness services throughout {{ state_name }}, including {{ city_name }} and surrounding areas. While based in Smithfield, Rhode Island, we offer nationwide coverage with:</p>
-                <ul>
-                    <li>State and federal court testimony</li>
-                    <li>Deposition testimony</li>
-                    <li>Expert reports and analysis</li>
-                    <li>Case consultation and evaluation</li>
-                </ul>
-            </section>
-            
-            <section class="card mb-3">
-                <h2>Expert Qualifications</h2>
-                <ul>
-                    <li><strong>Education:</strong> M.Ed (Springfield College), MBA Healthcare Leadership (Bryant University)</li>
-                    <li><strong>Certifications:</strong> CRC, CLCP, ABVE/F, CVE, FVE, IPEC, CEAS I, REAS, MSCC, QRC</li>
-                    <li><strong>Leadership:</strong> President-Elect, American Rehabilitation Economics Association (AREA)</li>
-                    <li><strong>Experience:</strong> Extensive testimony in state and federal courts</li>
-                    <li><strong>Methodology:</strong> Evidence-based analysis following industry standards</li>
-                </ul>
-            </section>
-        </div>
+  <h1>{{ service_title }} Services in {{ city_name }}, {{ state_name }}</h1>
+  <p class="lead">Expert {{ service_description|lower }} for legal professionals in {{ city_name }}, {{ state }} and throughout {{ state_name }}.</p>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <section class="card mb-3">
+        <h2>{{ service_title }} Services</h2>
+        <p>Skerritt Economics & Consulting provides expert {{ service_title|lower }} services to attorneys and legal professionals in {{ city_name }}, {{ state }}. With extensive experience in litigation support, we deliver comprehensive economic analysis that stands up to scrutiny.</p>
         
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <h3>Quick Contact</h3>
-                <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
-                <p>Phone: <a href="tel:+12036052814">(203) 605-2814</a></p>
-                <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-                <a href="{% url 'contact' %}" class="btn btn-primary">Request Consultation</a>
-            </div>
-            
-            <div class="card mb-3">
-                <h3>Service Area</h3>
-                <p>Providing expert {{ service_title|lower }} services throughout:</p>
-                <ul>
-                    <li>{{ city_name }}, {{ state }}</li>
-                    <li>{{ state_name }} statewide</li>
-                    <li>All 50 states</li>
-                    <li>Remote testimony available nationwide</li>
-                </ul>
-            </div>
-            
-            <div class="card mb-3">
-                <h3>Related Services</h3>
-                <ul>
-                    {% if service_type != 'forensic_economics' %}
-                    <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
-                    {% endif %}
-                    {% if service_type != 'business_valuation' %}
-                    <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
-                    {% endif %}
-                    {% if service_type != 'vocational_expert' %}
-                    <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
-                    {% endif %}
-                    {% if service_type != 'life_care_planning' %}
-                    <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
+        {% if service_type == 'forensic_economics' %}
+        <h3>Our Forensic Economics Services Include:</h3>
+        <ul>
+          <li>Lost earnings and earning capacity analysis</li>
+          <li>Wrongful death economic damages</li>
+          <li>Loss of household services valuation</li>
+          <li>Present value calculations</li>
+          <li>Personal injury economic loss</li>
+        </ul>
+        {% elif service_type == 'business_valuation' %}
+        <h3>Our Business Valuation Services Include:</h3>
+        <ul>
+          <li>Fair market value determinations</li>
+          <li>Business interruption loss analysis</li>
+          <li>Shareholder dispute valuations</li>
+          <li>Divorce business valuations</li>
+          <li>Economic damage assessments</li>
+        </ul>
+        {% elif service_type == 'life_care_planning' %}
+        <h3>Our Life Care Planning Services Include:</h3>
+        <ul>
+          <li>Future medical cost projections</li>
+          <li>Catastrophic injury planning</li>
+          <li>Medical needs assessments</li>
+          <li>Assistive technology evaluations</li>
+          <li>Home modification cost analysis</li>
+        </ul>
+        {% elif service_type == 'vocational_expert' %}
+        <h3>Our Vocational Expert Services Include:</h3>
+        <ul>
+          <li>Earning capacity evaluations</li>
+          <li>Transferable skills analysis</li>
+          <li>Labor market surveys</li>
+          <li>Employability assessments</li>
+          <li>Vocational rehabilitation planning</li>
+        </ul>
+        {% endif %}
+      </section>
+      
+      <section class="card mb-3">
+        <h2>Serving {{ city_name }}, {{ state_name }} Legal Professionals</h2>
+        <p>Christopher Skerritt provides expert witness services throughout {{ state_name }}, including {{ city_name }} and surrounding areas. While based in Smithfield, Rhode Island, we offer nationwide coverage with:</p>
+        <ul>
+          <li>State and federal court testimony</li>
+          <li>Deposition testimony</li>
+          <li>Expert reports and analysis</li>
+          <li>Case consultation and evaluation</li>
+        </ul>
+      </section>
+      
+      <section class="card mb-3">
+        <h2>Expert Qualifications</h2>
+        <ul>
+          <li><strong>Education:</strong> M.Ed (Springfield College), MBA Healthcare Leadership (Bryant University)</li>
+          <li><strong>Certifications:</strong> CRC, CLCP, ABVE/F, CVE, FVE, IPEC, CEAS I, REAS, MSCC, QRC</li>
+          <li><strong>Leadership:</strong> President-Elect, American Rehabilitation Economics Association (AREA)</li>
+          <li><strong>Experience:</strong> Extensive testimony in state and federal courts</li>
+          <li><strong>Methodology:</strong> Evidence-based analysis following industry standards</li>
+        </ul>
+      </section>
     </div>
+    
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <h3>Quick Contact</h3>
+        <p><strong>Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F</strong></p>
+        <p>Phone: <a href="tel:+12036052814">(203) 605-2814</a></p>
+        <p>Email: <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Request Consultation</a>
+      </div>
+      
+      <div class="card mb-3">
+        <h3>Service Area</h3>
+        <p>Providing expert {{ service_title|lower }} services throughout:</p>
+        <ul>
+          <li>{{ city_name }}, {{ state }}</li>
+          <li>{{ state_name }} statewide</li>
+          <li>All 50 states</li>
+          <li>Remote testimony available nationwide</li>
+        </ul>
+      </div>
+      
+      <div class="card mb-3">
+        <h3>Related Services</h3>
+        <ul>
+          {% if service_type != 'forensic_economics' %}
+          <li><a href="{% url 'service_forensic' %}">Forensic Economics</a></li>
+          {% endif %}
+          {% if service_type != 'business_valuation' %}
+          <li><a href="{% url 'service_valuation' %}">Business Valuation</a></li>
+          {% endif %}
+          {% if service_type != 'vocational_expert' %}
+          <li><a href="{% url 'service_vocational' %}">Vocational Expert</a></li>
+          {% endif %}
+          {% if service_type != 'life_care_planning' %}
+          <li><a href="{% url 'service_lifecare' %}">Life Care Planning</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

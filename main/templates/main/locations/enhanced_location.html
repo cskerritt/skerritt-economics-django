@@ -8,148 +8,148 @@
 
 {% block content %}
 <div class="container">
-    <!-- Breadcrumbs -->
-    {% include 'partials/_breadcrumbs_enhanced.html' with breadcrumb_items=breadcrumb_items current_page=location.city %}
+  <!-- Breadcrumbs -->
+  {% include 'partials/_breadcrumbs_enhanced.html' with breadcrumb_items=breadcrumb_items current_page=location.city %}
+  
+  <!-- Hero Section -->
+  <section class="location-hero mb-4">
+    <h1 class="animate-on-scroll">{{ location.city }} Forensic Economist & Business Valuation Expert</h1>
+    <p class="lead">{{ location.description }}</p>
     
-    <!-- Hero Section -->
-    <section class="location-hero mb-4">
-        <h1 class="animate-on-scroll">{{ location.city }} Forensic Economist & Business Valuation Expert</h1>
-        <p class="lead">{{ location.description }}</p>
-        
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="stat-label">Serving</span>
-                <span class="stat-value">{{ location.metro_population }} Metro Area</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Local Courts</span>
-                <span class="stat-value">{{ location.local_courts|length }}+ Courts</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Experience</span>
-                <span class="stat-value">20+ Years</span>
-            </div>
-        </div>
-        
-        <div class="hero-cta mt-4">
-            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Schedule {{ location.city }} Consultation</a>
-            <a href="tel:+12036052814" class="btn btn-secondary btn-lg">Call (203) 605-2814</a>
-        </div>
-    </section>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-label">Serving</span>
+        <span class="stat-value">{{ location.metro_population }} Metro Area</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Local Courts</span>
+        <span class="stat-value">{{ location.local_courts|length }}+ Courts</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Experience</span>
+        <span class="stat-value">20+ Years</span>
+      </div>
+    </div>
     
-    <!-- Services Focus for Location -->
-    <section class="location-services mb-4">
-        <h2>Specialized Services for {{ location.city }} Attorneys</h2>
-        <div class="services-grid">
-            {% for service in location.services_focus %}
-            <div class="service-card animate-on-scroll">
-                <h3>{{ service }}</h3>
-                <p>Expert economic analysis and testimony for {{ service|lower }} cases in {{ location.city }} and throughout {{ location.state }}.</p>
-                <a href="{% url 'services_index' %}" class="btn btn-outline-primary">Learn More →</a>
-            </div>
-            {% endfor %}
+    <div class="hero-cta mt-4">
+      <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Schedule {{ location.city }} Consultation</a>
+      <a href="tel:+12036052814" class="btn btn-secondary btn-lg">Call (203) 605-2814</a>
+    </div>
+  </section>
+  
+  <!-- Services Focus for Location -->
+  <section class="location-services mb-4">
+    <h2>Specialized Services for {{ location.city }} Attorneys</h2>
+    <div class="services-grid">
+      {% for service in location.services_focus %}
+      <div class="service-card animate-on-scroll">
+        <h3>{{ service }}</h3>
+        <p>Expert economic analysis and testimony for {{ service|lower }} cases in {{ location.city }} and throughout {{ location.state }}.</p>
+        <a href="{% url 'services_index' %}" class="btn btn-outline-primary">Learn More →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  
+  <!-- Local Courts Served -->
+  <section class="courts-section mb-4">
+    <h2>{{ location.city }} Courts We Serve</h2>
+    <div class="courts-grid">
+      {% for court in location.local_courts %}
+      <div class="court-item">
+        <i class="fas fa-gavel"></i>
+        <span>{{ court }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="mt-3">Available for testimony in all {{ location.state }} state and federal courts, with extensive experience in {{ location.city }} area litigation.</p>
+  </section>
+  
+  <!-- Local Testimonial -->
+  {% if location.testimonial %}
+  <section class="testimonial-section mb-4">
+    <div class="testimonial-card">
+      <blockquote>
+        <p>"{{ location.testimonial.text }}"</p>
+        <footer>— {{ location.testimonial.author }}</footer>
+      </blockquote>
+    </div>
+  </section>
+  {% endif %}
+  
+  <!-- Why Choose Us for Location -->
+  <section class="why-choose-location mb-4">
+    <h2>Why {{ location.city }} Law Firms Choose Skerritt Economics</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h4>Local Market Knowledge</h4>
+        <p>Deep understanding of {{ location.city }} and {{ location.state }} economic conditions, wage rates, and business valuations.</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-clock"></i>
+        <h4>Rapid Response</h4>
+        <p>Quick turnaround for {{ location.city }} area cases with in-person meetings and court appearances available.</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-balance-scale"></i>
+        <h4>Court Experience</h4>
+        <p>Extensive testimony experience in {{ location.state }} courts with a proven track record of successful outcomes.</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-certificate"></i>
+        <h4>Professional Credentials</h4>
+        <p>Multiple certifications including CRC, CLCP, ABVE/F, ensuring comprehensive analysis for {{ location.city }} cases.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Nearby Cities -->
+  <section class="nearby-cities mb-4">
+    <h3>Also Serving Nearby Communities</h3>
+    <p>In addition to {{ location.city }}, we provide forensic economics services throughout the {{ location.state }} region including:</p>
+    <div class="city-tags">
+      {% for city in location.nearby_cities %}
+      <span class="city-tag">{{ city }}</span>
+      {% endfor %}
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="location-contact mb-4">
+    <div class="contact-card">
+      <h2>Schedule Your {{ location.city }} Consultation</h2>
+      <p>Get expert economic analysis for your {{ location.state }} case. Contact us today for a free consultation.</p>
+      
+      <div class="contact-options">
+        <div class="contact-method">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Call Us</strong>
+            <a href="tel:+12036052814">(203) 605-2814</a>
+          </div>
         </div>
-    </section>
-    
-    <!-- Local Courts Served -->
-    <section class="courts-section mb-4">
-        <h2>{{ location.city }} Courts We Serve</h2>
-        <div class="courts-grid">
-            {% for court in location.local_courts %}
-            <div class="court-item">
-                <i class="fas fa-gavel"></i>
-                <span>{{ court }}</span>
-            </div>
-            {% endfor %}
+        <div class="contact-method">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email Us</strong>
+            <a href="{% url 'contact' %}">Send Message</a>
+          </div>
         </div>
-        <p class="mt-3">Available for testimony in all {{ location.state }} state and federal courts, with extensive experience in {{ location.city }} area litigation.</p>
-    </section>
-    
-    <!-- Local Testimonial -->
-    {% if location.testimonial %}
-    <section class="testimonial-section mb-4">
-        <div class="testimonial-card">
-            <blockquote>
-                <p>"{{ location.testimonial.text }}"</p>
-                <footer>— {{ location.testimonial.author }}</footer>
-            </blockquote>
+        <div class="contact-method">
+          <i class="fas fa-video"></i>
+          <div>
+            <strong>Virtual Meeting</strong>
+            <span>Available via Zoom</span>
+          </div>
         </div>
-    </section>
-    {% endif %}
-    
-    <!-- Why Choose Us for Location -->
-    <section class="why-choose-location mb-4">
-        <h2>Why {{ location.city }} Law Firms Choose Skerritt Economics</h2>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4>Local Market Knowledge</h4>
-                <p>Deep understanding of {{ location.city }} and {{ location.state }} economic conditions, wage rates, and business valuations.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-clock"></i>
-                <h4>Rapid Response</h4>
-                <p>Quick turnaround for {{ location.city }} area cases with in-person meetings and court appearances available.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-balance-scale"></i>
-                <h4>Court Experience</h4>
-                <p>Extensive testimony experience in {{ location.state }} courts with a proven track record of successful outcomes.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-certificate"></i>
-                <h4>Professional Credentials</h4>
-                <p>Multiple certifications including CRC, CLCP, ABVE/F, ensuring comprehensive analysis for {{ location.city }} cases.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Nearby Cities -->
-    <section class="nearby-cities mb-4">
-        <h3>Also Serving Nearby Communities</h3>
-        <p>In addition to {{ location.city }}, we provide forensic economics services throughout the {{ location.state }} region including:</p>
-        <div class="city-tags">
-            {% for city in location.nearby_cities %}
-            <span class="city-tag">{{ city }}</span>
-            {% endfor %}
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section class="location-contact mb-4">
-        <div class="contact-card">
-            <h2>Schedule Your {{ location.city }} Consultation</h2>
-            <p>Get expert economic analysis for your {{ location.state }} case. Contact us today for a free consultation.</p>
-            
-            <div class="contact-options">
-                <div class="contact-method">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Call Us</strong>
-                        <a href="tel:+12036052814">(203) 605-2814</a>
-                    </div>
-                </div>
-                <div class="contact-method">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email Us</strong>
-                        <a href="{% url 'contact' %}">Send Message</a>
-                    </div>
-                </div>
-                <div class="contact-method">
-                    <i class="fas fa-video"></i>
-                    <div>
-                        <strong>Virtual Meeting</strong>
-                        <span>Available via Zoom</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact {{ location.city }} Office</a>
-            </div>
-        </div>
-    </section>
+      </div>
+      
+      <div class="text-center mt-4">
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact {{ location.city }} Office</a>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- Location-specific Schema Markup -->
@@ -159,145 +159,145 @@
 <style>
 /* Location Page Styles */
 .location-hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    color: white;
-    padding: 3rem 2rem;
-    border-radius: 12px;
-    text-align: center;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
 }
 
 .location-hero h1 {
-    color: white;
-    margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin: 2rem 0;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .stat-item {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .stat-label {
-    font-size: 0.875rem;
-    opacity: 0.9;
+  font-size: 0.875rem;
+  opacity: 0.9;
 }
 
 .stat-value {
-    font-size: 1.25rem;
-    font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .courts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 .court-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    background: var(--background-alt);
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--background-alt);
+  border-radius: 8px;
 }
 
 .court-item i {
-    color: var(--secondary-color);
-    font-size: 1.25rem;
+  color: var(--secondary-color);
+  font-size: 1.25rem;
 }
 
 .testimonial-card {
-    background: var(--background-alt);
-    padding: 2rem;
-    border-radius: 12px;
-    border-left: 4px solid var(--secondary-color);
+  background: var(--background-alt);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--secondary-color);
 }
 
 .testimonial-card blockquote {
-    margin: 0;
-    font-size: 1.125rem;
-    font-style: italic;
+  margin: 0;
+  font-size: 1.125rem;
+  font-style: italic;
 }
 
 .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .benefit-item {
-    text-align: center;
+  text-align: center;
 }
 
 .benefit-item i {
-    font-size: 2.5rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
 }
 
 .city-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .city-tag {
-    padding: 0.5rem 1rem;
-    background: var(--background-alt);
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  background: var(--background-alt);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
 }
 
 .contact-card {
-    background: linear-gradient(135deg, var(--background-alt), var(--background));
-    padding: 2.5rem;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, var(--background-alt), var(--background));
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
 }
 
 .contact-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .contact-method {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .contact-method i {
-    font-size: 1.5rem;
-    color: var(--accent-color);
+  font-size: 1.5rem;
+  color: var(--accent-color);
 }
 
 /* Mobile Styles */
 @media (max-width: 767px) {
-    .location-hero {
-        padding: 2rem 1rem;
-    }
-    
-    .hero-stats {
-        gap: 1.5rem;
-    }
-    
-    .courts-grid,
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
+  .location-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-stats {
+    gap: 1.5rem;
+  }
+  
+  .courts-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 {% endblock %}

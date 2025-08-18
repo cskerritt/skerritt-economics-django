@@ -22,19 +22,19 @@
   "url": "https://skerritteconomics.com{% url 'city_business_valuation' city_slug %}",
   "telephone": "+12036052814",
   "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "{{ city.name }}",
-    "addressRegion": "{{ city.state_abbr }}",
-    "addressCountry": "US"
+  "@type": "PostalAddress",
+  "addressLocality": "{{ city.name }}",
+  "addressRegion": "{{ city.state_abbr }}",
+  "addressCountry": "US"
   },
   "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": {{ city.lat }},
-    "longitude": {{ city.lng }}
+  "@type": "GeoCoordinates",
+  "latitude": {{ city.lat }},
+  "longitude": {{ city.lng }}
   },
   "areaServed": {
-    "@type": "City",
-    "name": "{{ city.name }}, {{ city.state_abbr }}"
+  "@type": "City",
+  "name": "{{ city.name }}, {{ city.state_abbr }}"
   },
   "priceRange": "$$$$",
   "openingHours": "Mo-Fr 08:00-18:00",
@@ -49,19 +49,19 @@
   "name": "Business Valuation {{ city.name }} - Christopher Skerritt",
   "serviceType": ["Business Valuation", "Business Appraisal", "Company Valuation", "Fair Market Value Analysis"],
   "provider": {
-    "@type": "Person",
-    "name": "Christopher Skerritt",
-    "jobTitle": "Business Valuation Expert",
-    "alumniOf": "MBA",
-    "hasCredential": ["MBA", "CRC", "Business Valuation Certification"]
+  "@type": "Person",
+  "name": "Christopher Skerritt",
+  "jobTitle": "Business Valuation Expert",
+  "alumniOf": "MBA",
+  "hasCredential": ["MBA", "CRC", "Business Valuation Certification"]
   },
   "areaServed": {
-    "@type": "City",
-    "name": "{{ city.name }}",
-    "containedInPlace": {
+  "@type": "City",
+  "name": "{{ city.name }}",
+  "containedInPlace": {
       "@type": "State",
       "name": "{{ city.state }}"
-    }
+  }
   }
 }
 </script>
@@ -69,326 +69,326 @@
 
 {% block content %}
 <div class="container">
-    <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'location' city.state|lower|slugify %}">{{ city.state }}</a></li>
-            <li class="breadcrumb-item active">{{ city.name }} Business Valuation</li>
-        </ol>
-    </nav>
+  <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'locations_index' %}">Locations</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'location' city.state|lower|slugify %}">{{ city.state }}</a></li>
+      <li class="breadcrumb-item active">{{ city.name }} Business Valuation</li>
+    </ol>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section mb-5">
-        <h1 class="display-4">Business Valuation Expert {{ city.name }}, {{ city.state_abbr }}</h1>
-        <p class="lead">Professional Business Appraisals & Fair Market Value Analysis in {{ city.county }}, {{ city.state }}</p>
+  <!-- Hero Section -->
+  <section class="hero-section mb-5">
+    <h1 class="display-4">Business Valuation Expert {{ city.name }}, {{ city.state_abbr }}</h1>
+    <p class="lead">Professional Business Appraisals & Fair Market Value Analysis in {{ city.county }}, {{ city.state }}</p>
+    
+    <div class="row mt-4">
+      <div class="col-md-8">
+        <div class="alert alert-success">
+          <h2 class="h5">Certified Business Valuation Expert Serving {{ city.name }}</h2>
+          <p>Christopher Skerritt provides comprehensive business valuation services throughout the {{ city.metro_area }} metro area. With an MBA and decades of experience, we deliver accurate, defensible business appraisals for legal, tax, and transaction purposes.</p>
+          <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mt-3">Free Consultation for {{ city.name }} Businesses</a>
+          <span class="d-block mt-2">📞 Direct: (203) 605-2814</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h3 class="h5">Service Area</h3>
+            <ul class="list-unstyled">
+              <li>📍 {{ city.name }}, {{ city.state_abbr }}</li>
+              <li>📍 {{ city.county }}</li>
+              <li>📍 {{ city.metro_area }} Metro</li>
+              <li>📍 {{ city.region }} Region</li>
+            </ul>
+            <p class="small">Businesses Served: {{ city.population|floatformat:0|default:"N/A" }} population</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section mb-5">
+    <h2>Business Valuation Services in {{ city.name }}</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="h4">Litigation Support Valuations</h3>
+            <ul>
+              <li>Shareholder and partnership disputes</li>
+              <li>Divorce business valuations</li>
+              <li>Estate and gift tax valuations</li>
+              <li>Dissenting shareholder actions</li>
+              <li>Business damage calculations</li>
+            </ul>
+            <p class="mt-3"><strong>Expert testimony in {{ city.name }} courts</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="h4">Transaction Advisory</h3>
+            <ul>
+              <li>Merger and acquisition valuations</li>
+              <li>Buy-sell agreement pricing</li>
+              <li>Fairness opinions</li>
+              <li>Strategic buyer identification</li>
+              <li>Purchase price allocation</li>
+            </ul>
+            <p class="mt-3"><strong>Supporting {{ city.metro_area }} businesses</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="h4">Tax & Compliance Valuations</h3>
+            <ul>
+              <li>Estate and gift tax reporting</li>
+              <li>409A valuations for stock options</li>
+              <li>Charitable contribution valuations</li>
+              <li>Property tax appeals</li>
+              <li>Financial reporting (ASC 805, 350)</li>
+            </ul>
+            <p class="mt-3"><strong>IRS compliant valuations</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="h4">Business Economic Analysis</h3>
+            <ul>
+              <li>Lost profits calculations</li>
+              <li>Business interruption losses</li>
+              <li>Intellectual property valuation</li>
+              <li>Intangible asset valuation</li>
+              <li>Economic damage assessments</li>
+            </ul>
+            <p class="mt-3"><strong>{{ city.name }} business expertise</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Expertise Section -->
+  <section class="local-expertise mb-5">
+    <h2>{{ city.name }} Business Valuation Expert</h2>
+    <div class="row">
+      <div class="col-lg-8">
+        <p>When businesses in {{ city.name }}, {{ city.state }} need accurate, defensible valuations, they trust Skerritt Economics. Our business valuation practice combines rigorous analytical methods with deep understanding of {{ city.state }} business law and local market conditions.</p>
         
-        <div class="row mt-4">
-            <div class="col-md-8">
-                <div class="alert alert-success">
-                    <h2 class="h5">Certified Business Valuation Expert Serving {{ city.name }}</h2>
-                    <p>Christopher Skerritt provides comprehensive business valuation services throughout the {{ city.metro_area }} metro area. With an MBA and decades of experience, we deliver accurate, defensible business appraisals for legal, tax, and transaction purposes.</p>
-                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mt-3">Free Consultation for {{ city.name }} Businesses</a>
-                    <span class="d-block mt-2">📞 Direct: (203) 605-2814</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h3 class="h5">Service Area</h3>
-                        <ul class="list-unstyled">
-                            <li>📍 {{ city.name }}, {{ city.state_abbr }}</li>
-                            <li>📍 {{ city.county }}</li>
-                            <li>📍 {{ city.metro_area }} Metro</li>
-                            <li>📍 {{ city.region }} Region</li>
-                        </ul>
-                        <p class="small">Businesses Served: {{ city.population|floatformat:0|default:"N/A" }} population</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <h3>Why Choose Our {{ city.name }} Business Valuation Services</h3>
+        <ul>
+          <li><strong>Local Market Knowledge:</strong> Understanding of {{ city.name }} and {{ city.metro_area }} business environment, industry dynamics, and economic conditions</li>
+          <li><strong>Court Experience:</strong> Qualified to testify in {{ city.state }} state and federal courts</li>
+          <li><strong>Comprehensive Analysis:</strong> Detailed valuation reports that meet IRS and court standards</li>
+          <li><strong>Industry Expertise:</strong> Experience valuing businesses across all {{ city.name }} industries</li>
+          <li><strong>Professional Standards:</strong> Adherence to AICPA, ASA, and NACVA valuation standards</li>
+        </ul>
 
-    <!-- Services Section -->
-    <section class="services-section mb-5">
-        <h2>Business Valuation Services in {{ city.name }}</h2>
+        <h3>Industries We Value in {{ city.name }}</h3>
+        <p>Our business valuation expertise spans all major industries in the {{ city.metro_area }} area, including:</p>
         <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h4">Litigation Support Valuations</h3>
-                        <ul>
-                            <li>Shareholder and partnership disputes</li>
-                            <li>Divorce business valuations</li>
-                            <li>Estate and gift tax valuations</li>
-                            <li>Dissenting shareholder actions</li>
-                            <li>Business damage calculations</li>
-                        </ul>
-                        <p class="mt-3"><strong>Expert testimony in {{ city.name }} courts</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h4">Transaction Advisory</h3>
-                        <ul>
-                            <li>Merger and acquisition valuations</li>
-                            <li>Buy-sell agreement pricing</li>
-                            <li>Fairness opinions</li>
-                            <li>Strategic buyer identification</li>
-                            <li>Purchase price allocation</li>
-                        </ul>
-                        <p class="mt-3"><strong>Supporting {{ city.metro_area }} businesses</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h4">Tax & Compliance Valuations</h3>
-                        <ul>
-                            <li>Estate and gift tax reporting</li>
-                            <li>409A valuations for stock options</li>
-                            <li>Charitable contribution valuations</li>
-                            <li>Property tax appeals</li>
-                            <li>Financial reporting (ASC 805, 350)</li>
-                        </ul>
-                        <p class="mt-3"><strong>IRS compliant valuations</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h4">Business Economic Analysis</h3>
-                        <ul>
-                            <li>Lost profits calculations</li>
-                            <li>Business interruption losses</li>
-                            <li>Intellectual property valuation</li>
-                            <li>Intangible asset valuation</li>
-                            <li>Economic damage assessments</li>
-                        </ul>
-                        <p class="mt-3"><strong>{{ city.name }} business expertise</strong></p>
-                    </div>
-                </div>
-            </div>
+          <div class="col-md-6">
+            <ul>
+              <li>Manufacturing and distribution</li>
+              <li>Professional services firms</li>
+              <li>Healthcare practices</li>
+              <li>Technology companies</li>
+              <li>Retail and restaurants</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul>
+              <li>Construction companies</li>
+              <li>Real estate entities</li>
+              <li>Financial services</li>
+              <li>Transportation and logistics</li>
+              <li>Franchises</li>
+            </ul>
+          </div>
         </div>
-    </section>
-
-    <!-- Local Expertise Section -->
-    <section class="local-expertise mb-5">
-        <h2>{{ city.name }} Business Valuation Expert</h2>
-        <div class="row">
-            <div class="col-lg-8">
-                <p>When businesses in {{ city.name }}, {{ city.state }} need accurate, defensible valuations, they trust Skerritt Economics. Our business valuation practice combines rigorous analytical methods with deep understanding of {{ city.state }} business law and local market conditions.</p>
-                
-                <h3>Why Choose Our {{ city.name }} Business Valuation Services</h3>
-                <ul>
-                    <li><strong>Local Market Knowledge:</strong> Understanding of {{ city.name }} and {{ city.metro_area }} business environment, industry dynamics, and economic conditions</li>
-                    <li><strong>Court Experience:</strong> Qualified to testify in {{ city.state }} state and federal courts</li>
-                    <li><strong>Comprehensive Analysis:</strong> Detailed valuation reports that meet IRS and court standards</li>
-                    <li><strong>Industry Expertise:</strong> Experience valuing businesses across all {{ city.name }} industries</li>
-                    <li><strong>Professional Standards:</strong> Adherence to AICPA, ASA, and NACVA valuation standards</li>
-                </ul>
-
-                <h3>Industries We Value in {{ city.name }}</h3>
-                <p>Our business valuation expertise spans all major industries in the {{ city.metro_area }} area, including:</p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul>
-                            <li>Manufacturing and distribution</li>
-                            <li>Professional services firms</li>
-                            <li>Healthcare practices</li>
-                            <li>Technology companies</li>
-                            <li>Retail and restaurants</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                            <li>Construction companies</li>
-                            <li>Real estate entities</li>
-                            <li>Financial services</li>
-                            <li>Transportation and logistics</li>
-                            <li>Franchises</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card bg-primary text-white">
-                    <div class="card-body">
-                        <h3 class="h4">Schedule a Valuation Consultation</h3>
-                        <p>Discuss your {{ city.name }} business valuation needs with an experienced expert.</p>
-                        <ul class="list-unstyled text-white">
-                            <li>✓ Free initial consultation</li>
-                            <li>✓ Valuation approach discussion</li>
-                            <li>✓ Fee estimate</li>
-                            <li>✓ Timeline planning</li>
-                        </ul>
-                        <a href="{% url 'contact' %}" class="btn btn-light btn-block">Contact Us Today</a>
-                        <p class="mt-3 mb-0">📞 (203) 605-2814</p>
-                        <p>📧 chris@skerritteconomics.com</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card bg-primary text-white">
+          <div class="card-body">
+            <h3 class="h4">Schedule a Valuation Consultation</h3>
+            <p>Discuss your {{ city.name }} business valuation needs with an experienced expert.</p>
+            <ul class="list-unstyled text-white">
+              <li>✓ Free initial consultation</li>
+              <li>✓ Valuation approach discussion</li>
+              <li>✓ Fee estimate</li>
+              <li>✓ Timeline planning</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-light btn-block">Contact Us Today</a>
+            <p class="mt-3 mb-0">📞 (203) 605-2814</p>
+            <p>📧 chris@skerritteconomics.com</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Valuation Methods Section -->
-    <section class="valuation-methods mb-5">
-        <h2>Business Valuation Methods Used in {{ city.name }}</h2>
-        <div class="accordion" id="valuationMethodsAccordion">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h5 mb-0">Income Approach</h3>
-                </div>
-                <div class="card-body">
-                    <p>The income approach values {{ city.name }} businesses based on their ability to generate future economic benefits. We use discounted cash flow (DCF) analysis and capitalization of earnings methods, incorporating {{ city.metro_area }} market data and industry risk factors.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h5 mb-0">Market Approach</h3>
-                </div>
-                <div class="card-body">
-                    <p>The market approach compares your {{ city.name }} business to similar companies that have sold recently. We analyze transaction databases and public company data to identify appropriate multiples for businesses in the {{ city.state }} market.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h5 mb-0">Asset Approach</h3>
-                </div>
-                <div class="card-body">
-                    <p>The asset approach values businesses based on their underlying assets. This method is particularly relevant for {{ city.name }} holding companies, real estate entities, and asset-intensive businesses in {{ city.county }}.</p>
-                </div>
-            </div>
+  <!-- Valuation Methods Section -->
+  <section class="valuation-methods mb-5">
+    <h2>Business Valuation Methods Used in {{ city.name }}</h2>
+    <div class="accordion" id="valuationMethodsAccordion">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="h5 mb-0">Income Approach</h3>
         </div>
-    </section>
-
-    <!-- Common Purposes Section -->
-    <section class="purposes-section mb-5">
-        <h2>Common Business Valuation Needs in {{ city.name }}</h2>
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="h5">Divorce Proceedings</h4>
-                        <p>Business valuations for marital property division in {{ city.county }} divorce cases. We provide neutral, court-ready valuations.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="h5">Buy-Sell Agreements</h4>
-                        <p>Valuation for partner buyouts and shareholder agreements for {{ city.name }} businesses.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="h5">Estate Planning</h4>
-                        <p>Business valuations for estate tax planning and wealth transfer strategies in {{ city.state }}.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="h5">Mergers & Acquisitions</h4>
-                        <p>Fair market value analysis for {{ city.metro_area }} business sales and acquisitions.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="h5">Litigation Support</h4>
-                        <p>Expert testimony for business disputes in {{ city.name }} courts.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="h5">Tax Compliance</h4>
-                        <p>409A valuations and gift tax valuations meeting IRS requirements.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="card-body">
+          <p>The income approach values {{ city.name }} businesses based on their ability to generate future economic benefits. We use discounted cash flow (DCF) analysis and capitalization of earnings methods, incorporating {{ city.metro_area }} market data and industry risk factors.</p>
         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section mb-5">
-        <h2>Frequently Asked Questions - {{ city.name }} Business Valuation</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="h5">What is business valuation?</h3>
-                <p>Business valuation determines the economic value of a business or ownership interest. In {{ city.name }}, valuations are needed for sales, divorces, estate planning, and litigation.</p>
-                
-                <h3 class="h5">How long does a business valuation take?</h3>
-                <p>Most {{ city.name }} business valuations are completed within 2-3 weeks. Complex valuations or those requiring extensive analysis may take 4-6 weeks.</p>
-            </div>
-            <div class="col-md-6">
-                <h3 class="h5">What information is needed for valuation?</h3>
-                <p>We typically need 3-5 years of financial statements, tax returns, and information about the business operations and {{ city.metro_area }} market conditions.</p>
-                
-                <h3 class="h5">How much does business valuation cost?</h3>
-                <p>Business valuation fees vary based on complexity and purpose. {{ city.name }} valuations typically range from $5,000 to $25,000. We provide fixed fee quotes after initial consultation.</p>
-            </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="h5 mb-0">Market Approach</h3>
         </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process-section mb-5">
-        <h2>Our {{ city.name }} Business Valuation Process</h2>
-        <ol>
-            <li><strong>Initial Consultation:</strong> Discuss your valuation needs and {{ city.name }} business specifics</li>
-            <li><strong>Engagement Letter:</strong> Formal agreement outlining scope, timeline, and fees</li>
-            <li><strong>Information Gathering:</strong> Collection of financial data and business documents</li>
-            <li><strong>Site Visit:</strong> On-site review of {{ city.name }} business operations (when applicable)</li>
-            <li><strong>Market Research:</strong> Analysis of {{ city.metro_area }} economic and industry conditions</li>
-            <li><strong>Valuation Analysis:</strong> Application of appropriate valuation methods</li>
-            <li><strong>Draft Report:</strong> Preliminary valuation report for review</li>
-            <li><strong>Final Report:</strong> Comprehensive valuation report suitable for intended use</li>
-            <li><strong>Testimony:</strong> Expert witness services if needed for {{ city.county }} proceedings</li>
-        </ol>
-    </section>
-
-    <!-- Related Locations -->
-    <section class="related-locations mb-5">
-        <h2>Business Valuation Services Near {{ city.name }}</h2>
-        <p>In addition to {{ city.name }}, we provide business valuation services throughout {{ city.state }} and the {{ city.region }} region:</p>
-        <div class="row">
-            {% for nearby_city in nearby_cities %}
-            <div class="col-md-4 col-sm-6 mb-3">
-                <a href="{% url 'city_business_valuation' nearby_city.slug %}" class="btn btn-outline-primary btn-block">
-                    {{ nearby_city.name }}, {{ nearby_city.state_abbr }}
-                </a>
-            </div>
-            {% endfor %}
+        <div class="card-body">
+          <p>The market approach compares your {{ city.name }} business to similar companies that have sold recently. We analyze transaction databases and public company data to identify appropriate multiples for businesses in the {{ city.state }} market.</p>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section text-center py-5 bg-light rounded">
-        <h2>Need a Business Valuation Expert in {{ city.name }}?</h2>
-        <p class="lead">Get professional business appraisal services for your {{ city.state }} business</p>
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <a href="{% url 'contact' %}" class="btn btn-primary btn-lg btn-block">Schedule Consultation</a>
-            </div>
-            <div class="col-md-4">
-                <a href="tel:+12036052814" class="btn btn-success btn-lg btn-block">📞 (203) 605-2814</a>
-            </div>
-            <div class="col-md-4">
-                <a href="{% url 'service_valuation' %}" class="btn btn-info btn-lg btn-block">Learn More</a>
-            </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="h5 mb-0">Asset Approach</h3>
         </div>
-    </section>
+        <div class="card-body">
+          <p>The asset approach values businesses based on their underlying assets. This method is particularly relevant for {{ city.name }} holding companies, real estate entities, and asset-intensive businesses in {{ city.county }}.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Purposes Section -->
+  <section class="purposes-section mb-5">
+    <h2>Common Business Valuation Needs in {{ city.name }}</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="h5">Divorce Proceedings</h4>
+            <p>Business valuations for marital property division in {{ city.county }} divorce cases. We provide neutral, court-ready valuations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="h5">Buy-Sell Agreements</h4>
+            <p>Valuation for partner buyouts and shareholder agreements for {{ city.name }} businesses.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="h5">Estate Planning</h4>
+            <p>Business valuations for estate tax planning and wealth transfer strategies in {{ city.state }}.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="h5">Mergers & Acquisitions</h4>
+            <p>Fair market value analysis for {{ city.metro_area }} business sales and acquisitions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="h5">Litigation Support</h4>
+            <p>Expert testimony for business disputes in {{ city.name }} courts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="h5">Tax Compliance</h4>
+            <p>409A valuations and gift tax valuations meeting IRS requirements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section mb-5">
+    <h2>Frequently Asked Questions - {{ city.name }} Business Valuation</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="h5">What is business valuation?</h3>
+        <p>Business valuation determines the economic value of a business or ownership interest. In {{ city.name }}, valuations are needed for sales, divorces, estate planning, and litigation.</p>
+        
+        <h3 class="h5">How long does a business valuation take?</h3>
+        <p>Most {{ city.name }} business valuations are completed within 2-3 weeks. Complex valuations or those requiring extensive analysis may take 4-6 weeks.</p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5">What information is needed for valuation?</h3>
+        <p>We typically need 3-5 years of financial statements, tax returns, and information about the business operations and {{ city.metro_area }} market conditions.</p>
+        
+        <h3 class="h5">How much does business valuation cost?</h3>
+        <p>Business valuation fees vary based on complexity and purpose. {{ city.name }} valuations typically range from $5,000 to $25,000. We provide fixed fee quotes after initial consultation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section mb-5">
+    <h2>Our {{ city.name }} Business Valuation Process</h2>
+    <ol>
+      <li><strong>Initial Consultation:</strong> Discuss your valuation needs and {{ city.name }} business specifics</li>
+      <li><strong>Engagement Letter:</strong> Formal agreement outlining scope, timeline, and fees</li>
+      <li><strong>Information Gathering:</strong> Collection of financial data and business documents</li>
+      <li><strong>Site Visit:</strong> On-site review of {{ city.name }} business operations (when applicable)</li>
+      <li><strong>Market Research:</strong> Analysis of {{ city.metro_area }} economic and industry conditions</li>
+      <li><strong>Valuation Analysis:</strong> Application of appropriate valuation methods</li>
+      <li><strong>Draft Report:</strong> Preliminary valuation report for review</li>
+      <li><strong>Final Report:</strong> Comprehensive valuation report suitable for intended use</li>
+      <li><strong>Testimony:</strong> Expert witness services if needed for {{ city.county }} proceedings</li>
+    </ol>
+  </section>
+
+  <!-- Related Locations -->
+  <section class="related-locations mb-5">
+    <h2>Business Valuation Services Near {{ city.name }}</h2>
+    <p>In addition to {{ city.name }}, we provide business valuation services throughout {{ city.state }} and the {{ city.region }} region:</p>
+    <div class="row">
+      {% for nearby_city in nearby_cities %}
+      <div class="col-md-4 col-sm-6 mb-3">
+        <a href="{% url 'city_business_valuation' nearby_city.slug %}" class="btn btn-outline-primary btn-block">
+          {{ nearby_city.name }}, {{ nearby_city.state_abbr }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section text-center py-5 bg-light rounded">
+    <h2>Need a Business Valuation Expert in {{ city.name }}?</h2>
+    <p class="lead">Get professional business appraisal services for your {{ city.state }} business</p>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-4">
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg btn-block">Schedule Consultation</a>
+      </div>
+      <div class="col-md-4">
+        <a href="tel:+12036052814" class="btn btn-success btn-lg btn-block">📞 (203) 605-2814</a>
+      </div>
+      <div class="col-md-4">
+        <a href="{% url 'service_valuation' %}" class="btn btn-info btn-lg btn-block">Learn More</a>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock %}

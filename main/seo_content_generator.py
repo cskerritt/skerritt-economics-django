@@ -28,10 +28,10 @@ class SEOContentGenerator:
             
         # Generate content sections
         content = {
-            'seo_meta': self._generate_meta_tags(keyword_map, city, state_abbr),
-            'schema_markup': self._generate_schema(service_slug, city, state_name, county, lat, lng),
-            'page_content': self._generate_content(keyword_map, city, state_name, county),
-            'technical_seo': self._generate_technical_seo(service_slug, city, state_abbr)
+            "seo_meta": self._generate_meta_tags(keyword_map, city, state_abbr),
+            "schema_markup": self._generate_schema(service_slug, city, state_name, county, lat, lng),
+            "page_content": self._generate_content(keyword_map, city, state_name, county),
+            "technical_seo": self._generate_technical_seo(service_slug, city, state_abbr)
         }
         
         return content
@@ -40,15 +40,15 @@ class SEOContentGenerator:
         """Generate SEO-optimized meta tags"""
         
         return {
-            'title': keyword_map['title_tag'][:60],  # Max 60 chars
-            'description': keyword_map['meta_description'][:160],  # Max 160 chars
-            'keywords': f"{keyword_map['primary_keyword']}, {', '.join([kw['keyword'] for kw in self.keyword_mapper.service_keywords.get(keyword_map['primary_keyword'].split()[-1], {}).get('secondary', [])[:3]])}",
-            'og_title': keyword_map['title_tag'],
-            'og_description': keyword_map['meta_description'],
-            'og_type': 'website',
-            'canonical_url': f"/locations/{keyword_map['primary_keyword'].split()[-1]}/{state_abbr.lower()}/{city.lower().replace(' ', '-')}/",
-            'robots': 'index, follow',
-            'author': 'Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F'
+            "title": keyword_map["title_tag"][:60],  # Max 60 chars
+            "description": keyword_map["meta_description"][:160],  # Max 160 chars
+            "keywords": f"{keyword_map["primary_keyword"]}, {", ".join([kw["keyword"] for kw in self.keyword_mapper.service_keywords.get(keyword_map["primary_keyword"].split()[-1], {}).get("secondary", [])[:3]])}",
+            "og_title": keyword_map["title_tag"],
+            "og_description": keyword_map["meta_description"],
+            "og_type": "website",
+            "canonical_url": f"/locations/{keyword_map["primary_keyword"].split()[-1]}/{state_abbr.lower()}/{city.lower().replace(" ", "-")}/",
+            "robots": "index, follow",
+            "author": "Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F"
         }
     
     def _generate_schema(self, service_slug, city, state_name, county, lat, lng):
@@ -60,13 +60,13 @@ class SEOContentGenerator:
         schemas.append({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": f"{service_slug.replace('-', ' ').title()} Services in {city}",
-            "description": f"Expert {service_slug.replace('-', ' ')} services in {city}, {state_name}",
+            "name": f"{service_slug.replace("-", " ").title()} Services in {city}",
+            "description": f"Expert {service_slug.replace("-", " ")} services in {city}, {state_name}",
             "provider": {
                 "@type": "Person",
                 "name": "Christopher Skerritt",
                 "honorificSuffix": "M.Ed, MBA, CRC, CLCP, ABVE/F, CVE, FVE, IPEC",
-                "jobTitle": service_slug.replace('-', ' ').title(),
+                "jobTitle": service_slug.replace("-", " ").title(),
                 "telephone": "+1-203-605-2814",
                 "email": "chris@skerritteconomics.com",
                 "url": "https://skerritteconomics.com"
@@ -90,9 +90,9 @@ class SEOContentGenerator:
         schemas.append({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            "name": f"Skerritt Economics - {city} {service_slug.replace('-', ' ').title()}",
-            "description": f"Professional {service_slug.replace('-', ' ')} services for attorneys in {city}, {state_name}",
-            "url": f"https://skerritteconomics.com/locations/{service_slug}/{state_name.lower().replace(' ', '-')}/{city.lower().replace(' ', '-')}/",
+            "name": f"Skerritt Economics - {city} {service_slug.replace("-", " ").title()}",
+            "description": f"Professional {service_slug.replace("-", " ")} services for attorneys in {city}, {state_name}",
+            "url": f"https://skerritteconomics.com/locations/{service_slug}/{state_name.lower().replace(" ", "-")}/{city.lower().replace(" ", "-")}/",
             "telephone": "+1-203-605-2814",
             "priceRange": "$$$$",
             "address": {
@@ -115,7 +115,7 @@ class SEOContentGenerator:
         })
         
         # FAQPage schema
-        faqs = self.keyword_mapper.service_keywords.get(service_slug, {}).get('questions', [])
+        faqs = self.keyword_mapper.service_keywords.get(service_slug, {}).get("questions", [])
         if faqs:
             faq_items = []
             for question in faqs[:5]:  # Top 5 FAQs
@@ -140,21 +140,21 @@ class SEOContentGenerator:
         """Generate 1500+ word SEO-optimized content"""
         
         content = {
-            'h1': keyword_map['h1'],
-            'intro': self._generate_intro(keyword_map, city, state_name, county),
-            'sections': []
+            "h1": keyword_map["h1"],
+            "intro": self._generate_intro(keyword_map, city, state_name, county),
+            "sections": []
         }
         
         # Section 1: Service Overview (300 words)
-        content['sections'].append({
-            'h2': keyword_map['h2_suggestions'][0],
-            'content': f"""
-                <p>Christopher Skerritt provides comprehensive {keyword_map['primary_keyword']} services 
+        content["sections"].append({
+            "h2": keyword_map["h2_suggestions"][0],
+            "content": f"""
+                <p>Christopher Skerritt provides comprehensive {keyword_map["primary_keyword"]} services 
                 to legal professionals throughout <strong>{city}</strong> and <strong>{county}</strong>, 
                 {state_name}. With over 20 years of experience in litigation support and economic analysis, 
                 our expertise helps attorneys build stronger cases with reliable economic evidence.</p>
                 
-                <p>As a {keyword_map['primary_keyword']} serving {city}, we specialize in complex 
+                <p>As a {keyword_map["primary_keyword"]} serving {city}, we specialize in complex 
                 economic calculations that stand up to rigorous cross-examination. Our methodology follows 
                 established forensic economics principles while incorporating local {state_name} economic 
                 data for accurate, defensible damage assessments.</p>
@@ -168,18 +168,18 @@ class SEOContentGenerator:
                     <li><strong>Employment litigation</strong> damage assessments</li>
                 </ul>
                 
-                <p>Our {city} {keyword_map['primary_keyword']} practice combines multiple disciplines 
+                <p>Our {city} {keyword_map["primary_keyword"]} practice combines multiple disciplines 
                 to provide comprehensive economic analysis. This integrated approach ensures all aspects 
                 of economic loss are properly evaluated and documented for your {county} case.</p>
             """,
-            'word_count': 300
+            "word_count": 300
         })
         
         # Section 2: Why Choose Us (250 words)
-        content['sections'].append({
-            'h2': keyword_map['h2_suggestions'][1],
-            'content': f"""
-                <p>Selecting the right {keyword_map['primary_keyword']} for your {city} case requires 
+        content["sections"].append({
+            "h2": keyword_map["h2_suggestions"][1],
+            "content": f"""
+                <p>Selecting the right {keyword_map["primary_keyword"]} for your {city} case requires 
                 careful consideration of credentials, experience, and local market knowledge. Christopher 
                 Skerritt brings unique qualifications that set our practice apart from other economic 
                 experts in {state_name}.</p>
@@ -202,14 +202,14 @@ class SEOContentGenerator:
                 and wage data specific to the {city} metropolitan area. This local expertise ensures 
                 our economic projections reflect realistic outcomes for your clients.</p>
             """,
-            'word_count': 250
+            "word_count": 250
         })
         
         # Section 3: Types of Cases (400 words)
-        content['sections'].append({
-            'h2': keyword_map['h2_suggestions'][2],
-            'content': f"""
-                <p>Our {keyword_map['primary_keyword']} services support a wide range of litigation 
+        content["sections"].append({
+            "h2": keyword_map["h2_suggestions"][2],
+            "content": f"""
+                <p>Our {keyword_map["primary_keyword"]} services support a wide range of litigation 
                 types in {city} and throughout {state_name}. Each case type requires specialized 
                 knowledge and methodology to accurately assess economic damages.</p>
                 
@@ -245,15 +245,15 @@ class SEOContentGenerator:
                 care needs. Our {state_name} medical malpractice experience includes cases involving 
                 birth injuries, surgical errors, and delayed diagnosis.</p>
             """,
-            'word_count': 400
+            "word_count": 400
         })
         
         # Section 4: Local Market Expertise (300 words)
-        content['sections'].append({
-            'h2': f"{city} Economic Data and Labor Market Analysis",
-            'content': f"""
+        content["sections"].append({
+            "h2": f"{city} Economic Data and Labor Market Analysis",
+            "content": f"""
                 <p>Accurate economic damage calculations require deep understanding of local economic 
-                conditions. Our {keyword_map['primary_keyword']} practice maintains current data on 
+                conditions. Our {keyword_map["primary_keyword"]} practice maintains current data on 
                 {city} area employment, wages, and economic trends to support precise damage assessments.</p>
                 
                 <h3>{county} Employment Statistics</h3>
@@ -280,21 +280,21 @@ class SEOContentGenerator:
                 rehabilitation and mitigation analysis. We assess available resources for skill development 
                 and career transition, considering both cost and accessibility for injured parties in {county}.</p>
             """,
-            'word_count': 300
+            "word_count": 300
         })
         
         # Section 5: FAQ Section (350 words)
         faq_content = self._generate_faq_section(keyword_map, city, state_name, county)
-        content['sections'].append({
-            'h2': "Frequently Asked Questions",
-            'content': faq_content,
-            'word_count': 350
+        content["sections"].append({
+            "h2": "Frequently Asked Questions",
+            "content": faq_content,
+            "word_count": 350
         })
         
         # Call to Action
-        content['cta'] = f"""
+        content["cta"] = f"""
             <div class="cta-section">
-                <h2>Need a {keyword_map['primary_keyword'].title()} in {city}?</h2>
+                <h2>Need a {keyword_map["primary_keyword"].title()} in {city}?</h2>
                 <p>Get expert economic analysis for your {county} case. Christopher Skerritt provides 
                 comprehensive forensic economics services to attorneys throughout {state_name}.</p>
                 <ul>
@@ -304,7 +304,7 @@ class SEOContentGenerator:
                     <li>Clear, defensible reports</li>
                 </ul>
                 <p><strong>Call (203) 605-2814</strong> or email chris@skerritteconomics.com to discuss 
-                your case with an experienced {keyword_map['primary_keyword']}.</p>
+                your case with an experienced {keyword_map["primary_keyword"]}.</p>
             </div>
         """
         
@@ -314,11 +314,11 @@ class SEOContentGenerator:
         """Generate SEO-optimized introduction paragraph"""
         
         return f"""
-            <p class="lead">Christopher Skerritt provides expert {keyword_map['primary_keyword']} 
+            <p class="lead">Christopher Skerritt provides expert {keyword_map["primary_keyword"]} 
             services to attorneys and legal professionals throughout <strong>{city}</strong>, 
             <strong>{county}</strong>, and {state_name}. With extensive experience in economic 
             damage analysis and court testimony, we deliver comprehensive economic assessments that 
-            support successful litigation outcomes. Our {city} {keyword_map['primary_keyword']} 
+            support successful litigation outcomes. Our {city} {keyword_map["primary_keyword"]} 
             practice combines advanced economic methodology with local market knowledge to provide 
             accurate, defensible damage calculations for all types of legal cases.</p>
         """
@@ -351,7 +351,7 @@ class SEOContentGenerator:
     def _generate_faq_section(self, keyword_map, city, state_name, county):
         """Generate complete FAQ section with schema-friendly markup"""
         
-        questions = keyword_map['questions_to_answer'][:5]
+        questions = keyword_map["questions_to_answer"][:5]
         faq_html = ""
         
         for question in questions:
@@ -370,55 +370,55 @@ class SEOContentGenerator:
     def _generate_technical_seo(self, service_slug, city, state_abbr):
         """Generate technical SEO requirements"""
         
-        city_slug = city.lower().replace(' ', '-')
+        city_slug = city.lower().replace(" ", "-")
         state_slug = state_abbr.lower()
         
         return {
-            'url_slug': f"/locations/{service_slug}/{state_slug}/{city_slug}/",
-            'canonical_url': f"https://skerritteconomics.com/locations/{service_slug}/{state_slug}/{city_slug}/",
-            'breadcrumbs': [
-                {'name': 'Home', 'url': '/'},
-                {'name': 'Locations', 'url': '/locations/'},
-                {'name': service_slug.replace('-', ' ').title(), 'url': f'/locations/{service_slug}/'},
-                {'name': state_abbr, 'url': f'/locations/{service_slug}/{state_slug}/'},
-                {'name': city, 'url': f'/locations/{service_slug}/{state_slug}/{city_slug}/'}
+            "url_slug": f"/locations/{service_slug}/{state_slug}/{city_slug}/",
+            "canonical_url": f"https://skerritteconomics.com/locations/{service_slug}/{state_slug}/{city_slug}/",
+            "breadcrumbs": [
+                {"name": "Home", "url": "/"},
+                {"name": "Locations", "url": "/locations/"},
+                {"name": service_slug.replace("-", " ").title(), "url": f"/locations/{service_slug}/"},
+                {"name": state_abbr, "url": f"/locations/{service_slug}/{state_slug}/"},
+                {"name": city, "url": f"/locations/{service_slug}/{state_slug}/{city_slug}/"}
             ],
-            'internal_links': [
-                {'anchor': f'{service_slug.replace("-", " ")} services', 'url': f'/services/{service_slug}/'},
-                {'anchor': 'about our expertise', 'url': '/about/'},
-                {'anchor': 'view case studies', 'url': '/case-studies/'},
-                {'anchor': f'other {state_abbr} locations', 'url': f'/locations/{state_slug}/'}
+            "internal_links": [
+                {"anchor": f"{service_slug.replace("-", " ")} services", "url": f"/services/{service_slug}/"},
+                {"anchor": "about our expertise", "url": "/about/"},
+                {"anchor": "view case studies", "url": "/case-studies/"},
+                {"anchor": f"other {state_abbr} locations", "url": f"/locations/{state_slug}/"}
             ],
-            'external_links': [
-                {'anchor': 'Bureau of Labor Statistics', 'url': 'https://www.bls.gov/', 'rel': 'nofollow'},
-                {'anchor': 'American Rehabilitation Economics Association', 'url': 'https://www.a-r-e-a.org/', 'rel': 'nofollow'}
+            "external_links": [
+                {"anchor": "Bureau of Labor Statistics", "url": "https://www.bls.gov/", "rel": "nofollow"},
+                {"anchor": "American Rehabilitation Economics Association", "url": "https://www.a-r-e-a.org/", "rel": "nofollow"}
             ],
-            'image_optimization': {
-                'hero_image': {
-                    'alt': f'{service_slug.replace("-", " ").title()} expert in {city}, {state_abbr}',
-                    'filename': f'{service_slug}-{city_slug}-{state_slug}.webp',
-                    'width': 1200,
-                    'height': 630
+            "image_optimization": {
+                "hero_image": {
+                    "alt": f"{service_slug.replace("-", " ").title()} expert in {city}, {state_abbr}",
+                    "filename": f"{service_slug}-{city_slug}-{state_slug}.webp",
+                    "width": 1200,
+                    "height": 630
                 },
-                'profile_image': {
-                    'alt': 'Christopher Skerritt, M.Ed, MBA - Expert Witness',
-                    'filename': 'christopher-skerritt-expert.webp',
-                    'width': 400,
-                    'height': 400
+                "profile_image": {
+                    "alt": "Christopher Skerritt, M.Ed, MBA - Expert Witness",
+                    "filename": "christopher-skerritt-expert.webp",
+                    "width": 400,
+                    "height": 400
                 }
             },
-            'mobile_optimization': {
-                'viewport': 'width=device-width, initial-scale=1.0',
-                'font_size_min': '16px',
-                'tap_target_size': '48px',
-                'lazy_loading': True
+            "mobile_optimization": {
+                "viewport": "width=device-width, initial-scale=1.0",
+                "font_size_min": "16px",
+                "tap_target_size": "48px",
+                "lazy_loading": True
             },
-            'page_speed': {
-                'critical_css': True,
-                'minify': True,
-                'compression': 'gzip',
-                'cache_control': 'public, max-age=31536000',
-                'preconnect': ['https://fonts.googleapis.com', 'https://www.google-analytics.com']
+            "page_speed": {
+                "critical_css": True,
+                "minify": True,
+                "compression": "gzip",
+                "cache_control": "public, max-age=31536000",
+                "preconnect": ["https://fonts.googleapis.com", "https://www.google-analytics.com"]
             }
         }
 
@@ -428,18 +428,18 @@ if __name__ == "__main__":
     
     # Generate content for Los Angeles forensic economics page
     content = generator.generate_seo_page(
-        service_slug='forensic-economics',
-        city='Los Angeles',
-        state_abbr='CA',
-        state_name='California',
-        county='Los Angeles County',
+        service_slug="forensic-economics",
+        city="Los Angeles",
+        state_abbr="CA",
+        state_name="California",
+        county="Los Angeles County",
         lat=34.0522,
         lng=-118.2437
     )
     
     print("SEO Content Generated Successfully!")
-    print(f"Title: {content['seo_meta']['title']}")
-    print(f"Description: {content['seo_meta']['description']}")
-    print(f"H1: {content['page_content']['h1']}")
-    print(f"Sections: {len(content['page_content']['sections'])}")
+    print(f"Title: {content["seo_meta"]["title"]}")
+    print(f"Description: {content["seo_meta"]["description"]}")
+    print(f"H1: {content["page_content"]["h1"]}")
+    print(f"Sections: {len(content["page_content"]["sections"])}")
     print(f"Total Word Count: ~1500 words")

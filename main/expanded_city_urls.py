@@ -21,54 +21,54 @@ def generate_expanded_city_urlpatterns():
     cities = get_all_expanded_cities()
     
     for city in cities:
-        state_slug = city['state_slug']
-        city_slug = city['slug']
+        state_slug = city["state_slug"]
+        city_slug = city["slug"]
         
         # Generate URLs for all 5 services
 
         # Forensic Economics URLs
         urlpatterns.append(
             path(
-                f'{state_slug}/{city_slug}/forensic-economics/',
+                f"{state_slug}/{city_slug}/forensic-economics/",
                 CityForensicEconomicsView.as_view(),
-                name=f'city_forensic_{state_slug}_{city_slug}',
-                kwargs={'city_slug': city_slug, 'state_slug': state_slug, 'service': 'forensic-economics'}
+                name=f"city_forensic_{state_slug}_{city_slug}",
+                kwargs={"city_slug": city_slug, "state_slug": state_slug, "service": "forensic-economics"}
             )
         )
         # Business Valuation URLs
         urlpatterns.append(
             path(
-                f'{state_slug}/{city_slug}/business-valuation/',
+                f"{state_slug}/{city_slug}/business-valuation/",
                 CityBusinessValuationView.as_view(),
-                name=f'city_valuation_{state_slug}_{city_slug}',
-                kwargs={'city_slug': city_slug, 'state_slug': state_slug, 'service': 'business-valuation'}
+                name=f"city_valuation_{state_slug}_{city_slug}",
+                kwargs={"city_slug": city_slug, "state_slug": state_slug, "service": "business-valuation"}
             )
         )
         # Business Consulting URLs
         urlpatterns.append(
             path(
-                f'{state_slug}/{city_slug}/business-consulting/',
+                f"{state_slug}/{city_slug}/business-consulting/",
                 CityBusinessConsultingView.as_view(),
-                name=f'city_consulting_{state_slug}_{city_slug}',
-                kwargs={'city_slug': city_slug, 'state_slug': state_slug, 'service': 'business-consulting'}
+                name=f"city_consulting_{state_slug}_{city_slug}",
+                kwargs={"city_slug": city_slug, "state_slug": state_slug, "service": "business-consulting"}
             )
         )
         # Vocational Expert URLs
         urlpatterns.append(
             path(
-                f'{state_slug}/{city_slug}/vocational-expert/',
+                f"{state_slug}/{city_slug}/vocational-expert/",
                 CityVocationalExpertView.as_view(),
-                name=f'city_vocational_{state_slug}_{city_slug}',
-                kwargs={'city_slug': city_slug, 'state_slug': state_slug, 'service': 'vocational-expert'}
+                name=f"city_vocational_{state_slug}_{city_slug}",
+                kwargs={"city_slug": city_slug, "state_slug": state_slug, "service": "vocational-expert"}
             )
         )
         # Life Care Planning URLs
         urlpatterns.append(
             path(
-                f'{state_slug}/{city_slug}/life-care-planning/',
+                f"{state_slug}/{city_slug}/life-care-planning/",
                 CityLifeCarePlanningView.as_view(),
-                name=f'city_lifecare_{state_slug}_{city_slug}',
-                kwargs={'city_slug': city_slug, 'state_slug': state_slug, 'service': 'life-care-planning'}
+                name=f"city_lifecare_{state_slug}_{city_slug}",
+                kwargs={"city_slug": city_slug, "state_slug": state_slug, "service": "life-care-planning"}
             )
         )
     

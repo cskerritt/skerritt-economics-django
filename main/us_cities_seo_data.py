@@ -4388,7 +4388,7 @@ def get_cities_by_state(state_abbr):
     """Get all cities in a specific state"""
     return {
         slug: city for slug, city in US_MAJOR_CITIES.items()
-        if city['state_abbr'] == state_abbr
+        if city["state_abbr"] == state_abbr
     }
 
 def get_nearby_cities(city_slug, limit=6):
@@ -4402,23 +4402,23 @@ def get_nearby_cities(city_slug, limit=6):
     
     # First, add cities in same metro area
     for slug, other_city in US_MAJOR_CITIES.items():
-        if slug != city_slug and other_city.get('metro_area') == city.get('metro_area'):
+        if slug != city_slug and other_city.get("metro_area") == city.get("metro_area"):
             nearby.append({
-                'slug': slug,
-                'name': other_city['name'],
-                'state_abbr': other_city['state_abbr']
+                "slug": slug,
+                "name": other_city["name"],
+                "state_abbr": other_city["state_abbr"]
             })
             if len(nearby) >= limit:
                 return nearby[:limit]
     
     # Then add cities in same state
     for slug, other_city in US_MAJOR_CITIES.items():
-        if slug != city_slug and other_city['state_abbr'] == city['state_abbr']:
-            if not any(n['slug'] == slug for n in nearby):
+        if slug != city_slug and other_city["state_abbr"] == city["state_abbr"]:
+            if not any(n["slug"] == slug for n in nearby):
                 nearby.append({
-                    'slug': slug,
-                    'name': other_city['name'],
-                    'state_abbr': other_city['state_abbr']
+                    "slug": slug,
+                    "name": other_city["name"],
+                    "state_abbr": other_city["state_abbr"]
                 })
                 if len(nearby) >= limit:
                     return nearby[:limit]
@@ -4429,7 +4429,7 @@ def get_top_cities_by_population(limit=50):
     """Get top cities by population"""
     sorted_cities = sorted(
         US_MAJOR_CITIES.items(),
-        key=lambda x: x[1]['population'],
+        key=lambda x: x[1]["population"],
         reverse=True
     )
     return dict(sorted_cities[:limit])
@@ -4441,7 +4441,7 @@ def get_database_stats():
     # Get states
     states = {}
     for city_data in US_MAJOR_CITIES.values():
-        state_abbr = city_data['state_abbr']
+        state_abbr = city_data["state_abbr"]
         if state_abbr not in states:
             states[state_abbr] = 0
         states[state_abbr] += 1
@@ -4449,20 +4449,20 @@ def get_database_stats():
     total_states = len(states)
     
     # Population statistics
-    populations = [city['population'] for city in US_MAJOR_CITIES.values()]
+    populations = [city["population"] for city in US_MAJOR_CITIES.values()]
     avg_population = sum(populations) / len(populations) if populations else 0
     
     return {
-        'total_cities': total_cities,
-        'total_states': total_states,
-        'avg_cities_per_state': round(total_cities / total_states, 1) if total_states > 0 else 0,
-        'avg_population': round(avg_population),
-        'largest_city': max(US_MAJOR_CITIES.items(), key=lambda x: x[1]['population']) if US_MAJOR_CITIES else None,
-        'smallest_city': min(US_MAJOR_CITIES.items(), key=lambda x: x[1]['population']) if US_MAJOR_CITIES else None,
-        'states_coverage': states
+        "total_cities": total_cities,
+        "total_states": total_states,
+        "avg_cities_per_state": round(total_cities / total_states, 1) if total_states > 0 else 0,
+        "avg_population": round(avg_population),
+        "largest_city": max(US_MAJOR_CITIES.items(), key=lambda x: x[1]["population"]) if US_MAJOR_CITIES else None,
+        "smallest_city": min(US_MAJOR_CITIES.items(), key=lambda x: x[1]["population"]) if US_MAJOR_CITIES else None,
+        "states_coverage": states
     }
 
 # Print basic stats when module loads
 if __name__ == "__main__":
     stats = get_database_stats()
-    print(f"US Cities SEO Database: {stats['total_cities']} cities across {stats['total_states']} states")
+    print(f"US Cities SEO Database: {stats["total_cities"]} cities across {stats["total_states"]} states")

@@ -14,338 +14,338 @@
 
 {% block content %}
 <div class="container-fluid">
-    <!-- Hero Section -->
-    <div class="hero-section bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="display-4 mb-4">Certified Life Care Planner in {{ city.name }}, {{ city.state_abbr }}</h1>
-                    <p class="lead">Expert life care planning and medical cost analysis for {{ city.name }} catastrophic injury and medical malpractice cases. Comprehensive future care planning and cost projections.</p>
-                    <div class="cta-buttons mt-4">
-                        <a href="#contact" class="btn btn-warning btn-lg me-3">Free Consultation</a>
-                        <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <div class="hero-section bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="display-4 mb-4">Certified Life Care Planner in {{ city.name }}, {{ city.state_abbr }}</h1>
+          <p class="lead">Expert life care planning and medical cost analysis for {{ city.name }} catastrophic injury and medical malpractice cases. Comprehensive future care planning and cost projections.</p>
+          <div class="cta-buttons mt-4">
+            <a href="#contact" class="btn btn-warning btn-lg me-3">Free Consultation</a>
+            <a href="tel:+1-203-605-2814" class="btn btn-outline-light btn-lg">Call Now: (203) 605-2814</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Breadcrumbs -->
-    <div class="container mt-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% for breadcrumb in breadcrumbs %}
-                    {% if breadcrumb.url %}
-                        <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
-                    {% else %}
-                        <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </nav>
-    </div>
+  <!-- Breadcrumbs -->
+  <div class="container mt-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          {% if breadcrumb.url %}
+            <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+          {% else %}
+            <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.name }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
 
-    <!-- Services Section -->
-    <div class="container py-5">
+  <!-- Services Section -->
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Life Care Planning Services in {{ city.name }}, {{ city.state_abbr }}</h2>
+        <p>Certified life care planner providing comprehensive future care planning and cost analysis for catastrophic injury cases in {{ city.name }}. Specialized in creating detailed, evidence-based life care plans that accurately project lifetime care needs and associated costs.</p>
+        
+        <div class="services-list mt-4">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-dark">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Catastrophic Injury Plans</h5>
+                  <p class="card-text">Comprehensive life care plans for spinal cord injuries, traumatic brain injuries, and amputations in {{ city.name }}.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-dark">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Medical Malpractice</h5>
+                  <p class="card-text">Future care planning for birth injuries, surgical errors, and other medical negligence cases in {{ city.county }}.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-dark">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Cost Projections</h5>
+                  <p class="card-text">Detailed medical cost analysis and future care cost projections for {{ city.state }} litigation.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100 border-dark">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Expert Testimony</h5>
+                  <p class="card-text">Professional courtroom testimony and deposition services for life care planning matters.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-5">Life Care Planning Process</h3>
+        <div class="planning-process">
+          <div class="row">
+            <div class="col-md-4 text-center mb-4">
+              <div class="step-icon bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <span class="h5 mb-0">1</span>
+              </div>
+              <h6 class="mt-3">Medical Review</h6>
+              <p class="small">Comprehensive review of medical records, treatment history, and current condition.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="step-icon bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <span class="h5 mb-0">2</span>
+              </div>
+              <h6 class="mt-3">Assessment & Planning</h6>
+              <p class="small">Clinical assessment and development of comprehensive care recommendations.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+              <div class="step-icon bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <span class="h5 mb-0">3</span>
+              </div>
+              <h6 class="mt-3">Cost Analysis</h6>
+              <p class="small">Detailed cost projections and final life care plan documentation.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-5">Specialization Areas</h3>
         <div class="row">
-            <div class="col-lg-8">
-                <h2>Life Care Planning Services in {{ city.name }}, {{ city.state_abbr }}</h2>
-                <p>Certified life care planner providing comprehensive future care planning and cost analysis for catastrophic injury cases in {{ city.name }}. Specialized in creating detailed, evidence-based life care plans that accurately project lifetime care needs and associated costs.</p>
-                
-                <div class="services-list mt-4">
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title text-dark">Catastrophic Injury Plans</h5>
-                                    <p class="card-text">Comprehensive life care plans for spinal cord injuries, traumatic brain injuries, and amputations in {{ city.name }}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title text-dark">Medical Malpractice</h5>
-                                    <p class="card-text">Future care planning for birth injuries, surgical errors, and other medical negligence cases in {{ city.county }}.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title text-dark">Cost Projections</h5>
-                                    <p class="card-text">Detailed medical cost analysis and future care cost projections for {{ city.state }} litigation.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100 border-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title text-dark">Expert Testimony</h5>
-                                    <p class="card-text">Professional courtroom testimony and deposition services for life care planning matters.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-5">Life Care Planning Process</h3>
-                <div class="planning-process">
-                    <div class="row">
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h5 mb-0">1</span>
-                            </div>
-                            <h6 class="mt-3">Medical Review</h6>
-                            <p class="small">Comprehensive review of medical records, treatment history, and current condition.</p>
-                        </div>
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h5 mb-0">2</span>
-                            </div>
-                            <h6 class="mt-3">Assessment & Planning</h6>
-                            <p class="small">Clinical assessment and development of comprehensive care recommendations.</p>
-                        </div>
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="step-icon bg-dark text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <span class="h5 mb-0">3</span>
-                            </div>
-                            <h6 class="mt-3">Cost Analysis</h6>
-                            <p class="small">Detailed cost projections and final life care plan documentation.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-5">Specialization Areas</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5 class="text-dark">Injury Types</h5>
-                        <div class="list-unstyled mb-4">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Spinal cord injuries</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Traumatic brain injuries</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Amputations</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Burns and reconstructive cases</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Birth injuries</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Chronic pain conditions</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="text-dark">Care Components</h5>
-                        <div class="list-unstyled mb-4">
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Medical and surgical care</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Rehabilitation services</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Medications and supplies</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Durable medical equipment</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Home modifications</span>
-                            </div>
-                            <div class="d-flex align-items-start mb-2">
-                                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
-                                <span>Attendant care needs</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="credentials-section mt-5">
-                    <h3>Professional Credentials</h3>
-                    <p>Christopher Skerritt is a Certified Life Care Planner (CLCP) with extensive medical background:</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="list-unstyled">
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Certified Life Care Planner (CLCP)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Certified Rehabilitation Counselor (CRC)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Master of Science in Clinical Counseling (MSCC)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="list-unstyled">
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Master's in Education</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• Master of Business Administration (MBA)</span>
-                                </div>
-                                <div class="d-flex align-items-start mb-2">
-                                    <span>• 20+ years healthcare experience</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <h5 class="text-dark">Injury Types</h5>
+            <div class="list-unstyled mb-4">
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Spinal cord injuries</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Traumatic brain injuries</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Amputations</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Burns and reconstructive cases</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Birth injuries</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Chronic pain conditions</span>
+              </div>
             </div>
-
-            <div class="col-lg-4">
-                <!-- Contact Card -->
-                <div class="card border-warning mb-4" id="contact">
-                    <div class="card-header bg-warning text-dark">
-                        <h5 class="mb-0">Free Case Consultation</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>Discuss your {{ city.name }} life care planning case. Free initial consultation available for qualifying cases.</p>
-                        <div class="contact-info">
-                            <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
-                            <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
-                        </div>
-                        <a href="/contact/" class="btn btn-dark w-100">Contact Form</a>
-                    </div>
-                </div>
-
-                <!-- Service Highlights -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h6>Service Highlights</h6>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-2">✓ Evidence-based planning methodology</li>
-                            <li class="mb-2">✓ Collaboration with medical specialists</li>
-                            <li class="mb-2">✓ Current market pricing research</li>
-                            <li class="mb-2">✓ Comprehensive cost projections</li>
-                            <li class="mb-2">✓ Expert witness testimony</li>
-                            <li class="mb-0">✓ Detailed written reports</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Statistics -->
-                <div class="card">
-                    <div class="card-header">
-                        <h6>Experience Overview</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center mb-2">
-                            <h4 class="text-dark mb-0">15+</h4>
-                            <small>Years Life Care Planning</small>
-                        </div>
-                        <div class="text-center mb-2">
-                            <h4 class="text-dark mb-0">300+</h4>
-                            <small>Life Care Plans Created</small>
-                        </div>
-                        <div class="text-center">
-                            <h4 class="text-dark mb-0">$500M+</h4>
-                            <small>Total Case Values</small>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <h5 class="text-dark">Care Components</h5>
+            <div class="list-unstyled mb-4">
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Medical and surgical care</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Rehabilitation services</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Medications and supplies</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Durable medical equipment</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Home modifications</span>
+              </div>
+              <div class="d-flex align-items-start mb-2">
+                <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                <span>Attendant care needs</span>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
 
-    <!-- Case Examples Section -->
-    <div class="bg-light py-5">
-        <div class="container">
-            <h3 class="text-center mb-5">Life Care Planning Case Examples - {{ city.name }}</h3>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Spinal Cord Injury</h5>
-                            <p class="card-text">Comprehensive life care plan for C4 incomplete spinal cord injury resulting from motor vehicle accident. Plan included attendant care, medical equipment, and home modifications.</p>
-                            <p class="text-muted small">Total projected costs: $4.2M over lifetime</p>
-                        </div>
-                    </div>
+        <div class="credentials-section mt-5">
+          <h3>Professional Credentials</h3>
+          <p>Christopher Skerritt is a Certified Life Care Planner (CLCP) with extensive medical background:</p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="list-unstyled">
+                <div class="d-flex align-items-start mb-2">
+                  <span>• Certified Life Care Planner (CLCP)</span>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Traumatic Brain Injury</h5>
-                            <p class="card-text">Life care plan for severe TBI from construction accident. Included cognitive rehabilitation, specialized medical care, and long-term supervision needs.</p>
-                            <p class="text-muted small">Total projected costs: $6.8M over lifetime</p>
-                        </div>
-                    </div>
+                <div class="d-flex align-items-start mb-2">
+                  <span>• Certified Rehabilitation Counselor (CRC)</span>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Birth Injury</h5>
-                            <p class="card-text">Comprehensive planning for cerebral palsy resulting from birth complications. Plan covered special education, therapies, and adaptive equipment needs.</p>
-                            <p class="text-muted small">Total projected costs: $3.1M over lifetime</p>
-                        </div>
-                    </div>
+                <div class="d-flex align-items-start mb-2">
+                  <span>• Master of Science in Clinical Counseling (MSCC)</span>
                 </div>
+              </div>
             </div>
+            <div class="col-md-6">
+              <div class="list-unstyled">
+                <div class="d-flex align-items-start mb-2">
+                  <span>• Master's in Education</span>
+                </div>
+                <div class="d-flex align-items-start mb-2">
+                  <span>• Master of Business Administration (MBA)</span>
+                </div>
+                <div class="d-flex align-items-start mb-2">
+                  <span>• 20+ years healthcare experience</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- FAQ Section -->
-    <div class="container py-5">
-        <h3>Life Care Planning FAQs - {{ city.name }}</h3>
-        <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                        What is a life care plan?
-                    </button>
-                </h2>
-                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        A life care plan is a comprehensive document that outlines the current and future medical, rehabilitation, and support needs of an individual with a catastrophic injury or chronic condition. It includes detailed cost projections for lifetime care needs in {{ city.name }}.
-                    </div>
-                </div>
+      <div class="col-lg-4">
+        <!-- Contact Card -->
+        <div class="card border-warning mb-4" id="contact">
+          <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Free Case Consultation</h5>
+          </div>
+          <div class="card-body">
+            <p>Discuss your {{ city.name }} life care planning case. Free initial consultation available for qualifying cases.</p>
+            <div class="contact-info">
+              <p><strong>Phone:</strong> <a href="tel:+1-203-605-2814">(203) 605-2814</a></p>
+              <p><strong>Email:</strong> <a href="mailto:chris@skerritteconomics.com">chris@skerritteconomics.com</a></p>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                        How long does it take to complete a life care plan?
-                    </button>
-                </h2>
-                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Most life care plans are completed within 4-6 weeks, depending on the complexity of the case, availability of medical records, and need for additional medical consultations or evaluations.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                        What makes a life care plan defensible in court?
-                    </button>
-                </h2>
-                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        A defensible life care plan must be based on current medical literature, expert medical opinions, evidence-based practices, and current market pricing. It should be comprehensive, reasonable, and directly related to the individual's condition and functional limitations.
-                    </div>
-                </div>
-            </div>
+            <a href="/contact/" class="btn btn-dark w-100">Contact Form</a>
+          </div>
         </div>
+
+        <!-- Service Highlights -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h6>Service Highlights</h6>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled small mb-0">
+              <li class="mb-2">✓ Evidence-based planning methodology</li>
+              <li class="mb-2">✓ Collaboration with medical specialists</li>
+              <li class="mb-2">✓ Current market pricing research</li>
+              <li class="mb-2">✓ Comprehensive cost projections</li>
+              <li class="mb-2">✓ Expert witness testimony</li>
+              <li class="mb-0">✓ Detailed written reports</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="card">
+          <div class="card-header">
+            <h6>Experience Overview</h6>
+          </div>
+          <div class="card-body">
+            <div class="text-center mb-2">
+              <h4 class="text-dark mb-0">15+</h4>
+              <small>Years Life Care Planning</small>
+            </div>
+            <div class="text-center mb-2">
+              <h4 class="text-dark mb-0">300+</h4>
+              <small>Life Care Plans Created</small>
+            </div>
+            <div class="text-center">
+              <h4 class="text-dark mb-0">$500M+</h4>
+              <small>Total Case Values</small>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Case Examples Section -->
+  <div class="bg-light py-5">
+    <div class="container">
+      <h3 class="text-center mb-5">Life Care Planning Case Examples - {{ city.name }}</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Spinal Cord Injury</h5>
+              <p class="card-text">Comprehensive life care plan for C4 incomplete spinal cord injury resulting from motor vehicle accident. Plan included attendant care, medical equipment, and home modifications.</p>
+              <p class="text-muted small">Total projected costs: $4.2M over lifetime</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Traumatic Brain Injury</h5>
+              <p class="card-text">Life care plan for severe TBI from construction accident. Included cognitive rehabilitation, specialized medical care, and long-term supervision needs.</p>
+              <p class="text-muted small">Total projected costs: $6.8M over lifetime</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Birth Injury</h5>
+              <p class="card-text">Comprehensive planning for cerebral palsy resulting from birth complications. Plan covered special education, therapies, and adaptive equipment needs.</p>
+              <p class="text-muted small">Total projected costs: $3.1M over lifetime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="container py-5">
+    <h3>Life Care Planning FAQs - {{ city.name }}</h3>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            What is a life care plan?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            A life care plan is a comprehensive document that outlines the current and future medical, rehabilitation, and support needs of an individual with a catastrophic injury or chronic condition. It includes detailed cost projections for lifetime care needs in {{ city.name }}.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            How long does it take to complete a life care plan?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Most life care plans are completed within 4-6 weeks, depending on the complexity of the case, availability of medical records, and need for additional medical consultations or evaluations.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            What makes a life care plan defensible in court?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            A defensible life care plan must be based on current medical literature, expert medical opinions, evidence-based practices, and current market pricing. It should be comprehensive, reasonable, and directly related to the individual's condition and functional limitations.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

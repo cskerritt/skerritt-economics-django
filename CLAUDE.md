@@ -1,6 +1,34 @@
 # Codebase Guidelines
 
-## Architecture
+## Current Setup Status
+
+**Note: This project is currently deployed using Docker. Some architectural components are not yet fully implemented:**
+
+### Currently Implemented:
+- ✅ Django project on Python 3.11 (Docker container)
+- ✅ PostgreSQL database (SQLite in development)
+- ✅ Docker Compose deployment
+- ✅ Caddy reverse proxy with HTTPS
+- ✅ Basic Django templates and views
+
+### To Be Implemented:
+- ⚠️ HTMX and Alpine.js (currently using Bootstrap 5)
+- ⚠️ Vite build system
+- ⚠️ Tailwind CSS and DaisyUI (currently using Bootstrap 5)
+- ⚠️ django-allauth for authentication
+- ⚠️ Django Rest Framework APIs
+- ⚠️ Celery and Redis
+- ⚠️ TypeScript configuration
+- ⚠️ django-vite integration
+
+### Current Deviations from Guidelines:
+1. **CSS Framework**: Using Bootstrap 5 instead of Tailwind/DaisyUI
+2. **Template Indentation**: Using 4 spaces instead of 2 spaces
+3. **Python Strings**: Mix of single and double quotes (should be double quotes only)
+4. **View Types**: Using class-based views (should prefer function-based)
+5. **Frontend Build**: No Vite/npm build system yet
+
+## Architecture (Target State)
 
 - This is a Django project built on Python 3.12.
 - User authentication uses `django-allauth`.
@@ -11,7 +39,7 @@
 - JavaScript files are kept in the `/assets/` folder and built by vite.
   JavaScript code is typically loaded via the static files framework inside Django templates using `django-vite`.
 - APIs use Django Rest Framework, and JavaScript code that interacts with APIs uses an
-  auto-generated OpenAPI-schema-baesd client.
+  auto-generated OpenAPI-schema-based client.
 - The front end uses Tailwind (Version 4) and DaisyUI.
 - The main database is Postgres.
 - Celery is used for background jobs and scheduled tasks.
@@ -19,30 +47,42 @@
 
 ## Commands you can run
 
-The following commands can be used for various tools and workflows:
-- Build front-end: `make npm-build` (production) or `make npm-dev` (development)
-- Type checking: `make npm-type-check`
-- Run server: `make start` or `make start-bg` (background)
+All commands work through Docker. Use the Makefile for convenience:
+
+### Docker & Development Commands
+- Start services: `make start` or `make start-bg` (background)
+- Stop services: `make stop`
+- Restart services: `make restart`
+- View logs: `make logs`
+- SSH into container: `make ssh`
+- Django shell: `make shell`
+- Database shell: `make dbshell`
+- Run Django management commands: `make manage ARGS='command'`
+
+### Testing & Code Quality
 - Run all tests: `make test`
 - Run specific test: `make test ARGS='apps.module.tests.test_file'`
 - Lint Python: `make ruff-lint`
 - Format Python: `make ruff-format`
-- Update translations: `make translations`
 
-Additional useful commands:
-- Start all services: `make start`
-- Stop all services: `make stop`
-- SSH into web container: `make ssh`
-- Django shell: `make shell`
-- Database shell: `make dbshell`
-- Run Django management commands: `make manage ARGS='command'`
+### Database & Static Files
+- Run migrations: `make migrate`
+- Create migrations: `make makemigrations`
+- Collect static files: `make collectstatic`
+
+### Frontend (To be implemented)
+- Build front-end: `make npm-build` (production) or `make npm-dev` (development)
+- Type checking: `make npm-type-check`
+
+### Translations
+- Update translations: `make translations`
 
 ## General Coding Preferences
 
 - Always prefer simple solutions.
 - Avoid duplication of code whenever possible, which means checking for other areas of the codebase that might already have similar code and functionality.
 - You are careful to only make changes that are requested or you are confident are well understood and related to the change being requested.
-- When fixing an issue or bug, do not introduce a new pattern or technology without first exhausting all options for the existing implementation. And if you finally do this, make sure to remove the old implementation afterwards so we don’t have duplicate logic.
+- When fixing an issue or bug, do not introduce a new pattern or technology without first exhausting all options for the existing implementation. And if you finally do this, make sure to remove the old implementation afterwards so we don't have duplicate logic.
 - Keep the codebase clean and organized.
 - Avoid writing scripts in files if possible, especially if the script is likely only to be run once.
 - Try to avoid having files over 200-300 lines of code. Refactor at that point.
@@ -116,3 +156,18 @@ Additional useful commands:
 ### Build System
 
 - Code is bundled using vite and served with `django-vite`.
+
+## Docker Deployment
+
+The project is deployed using Docker Compose with:
+- Django application container (ghcr.io/cskerritt/skerritt-economics-django)
+- Caddy reverse proxy for HTTPS
+- Volume mounts for static files, media, and database
+- Health checks for service monitoring
+- Template overrides via volume mount (`./templates:/app/templates`)
+
+### Important Docker Notes:
+- Templates are mounted from local filesystem to override container templates
+- Static files are served by Caddy from a shared volume
+- The Django container runs with gunicorn in production
+- Environment variables are managed via `.env` file

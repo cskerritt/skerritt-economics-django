@@ -10,9 +10,9 @@ def sitemap(request, sitemaps, **kwargs):
     Custom sitemap view that forces HTTPS protocol
     """
     # Set the request to appear as HTTPS
-    request.META['wsgi.url_scheme'] = 'https'
-    if 'HTTP_X_FORWARDED_PROTO' not in request.META:
-        request.META['HTTP_X_FORWARDED_PROTO'] = 'https'
+    request.META["wsgi.url_scheme"] = "https"
+    if "HTTP_X_FORWARDED_PROTO" not in request.META:
+        request.META["HTTP_X_FORWARDED_PROTO"] = "https"
     
     # Override is_secure to always return True
     original_is_secure = request.is_secure
@@ -23,12 +23,12 @@ def sitemap(request, sitemaps, **kwargs):
         response = sitemap_views.sitemap(request, sitemaps, **kwargs)
         
         # Ensure the content uses HTTPS
-        if hasattr(response, 'content'):
-            content = response.content.decode('utf-8')
+        if hasattr(response, "content"):
+            content = response.content.decode("utf-8")
             # Replace all HTTP URLs with HTTPS
-            content = content.replace('http://skerritteconomics.com', 'https://skerritteconomics.com')
-            content = content.replace('http://www.skerritteconomics.com', 'https://www.skerritteconomics.com')
-            response.content = content.encode('utf-8')
+            content = content.replace("http://skerritteconomics.com", "https://skerritteconomics.com")
+            content = content.replace("http://www.skerritteconomics.com", "https://www.skerritteconomics.com")
+            response.content = content.encode("utf-8")
         
         return response
     finally:
