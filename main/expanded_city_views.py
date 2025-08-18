@@ -57,7 +57,7 @@ class BaseCityServiceView(TemplateView):
             "vocational-expert": f"Certified vocational expert services in {city['name']}, {city['state_abbr']}. Professional vocational assessment and testimony.",
             "life-care-planning": f"Expert life care planning services in {city['name']}, {city['state_abbr']}. Comprehensive medical and care cost analysis."
         }
-        return service_descriptions.get(service, f"Expert {service.replace("-", " ")} services in {city["name"]}, {city["state_abbr"]}.")
+        return service_descriptions.get(service, f"Expert {service.replace('-', ' ')} services in {city['name']}, {city['state_abbr']}.")
     
     def get_canonical_url(self, city, service):
         """Generate canonical URL for the page"""
