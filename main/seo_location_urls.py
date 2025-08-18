@@ -31,46 +31,46 @@ def generate_all_location_urls():
         # State + Service combinations
         for service in CORE_SERVICES:
             urlpatterns.append(
-                path(f"{service["slug"]}-{state_slug}/", 
+                path(f"{service['slug']}-{state_slug}/", 
                      seo_location_views.state_service_page,
                      {"state_slug": state_slug, "service_slug": service["slug"]},
-                     name=f"{service["slug"]}-{state_slug}")
+                     name=f"{service['slug']}-{state_slug}")
             )
     
     # Metro area pages
     for metro in METRO_AREAS:
         urlpatterns.append(
-            path(f"{metro["slug"]}-economist/", 
+            path(f"{metro['slug']}-economist/", 
                  seo_location_views.metro_area_page,
                  {"metro_slug": metro["slug"]},
-                 name=f"metro-{metro["slug"]}")
+                 name=f"metro-{metro['slug']}")
         )
         
         # Metro + Service combinations
         for service in CORE_SERVICES:
             urlpatterns.append(
-                path(f"{metro["slug"]}-{service["slug"]}/", 
+                path(f"{metro['slug']}-{service["slug"]}/", 
                      seo_location_views.metro_service_page,
                      {"metro_slug": metro["slug"], "service_slug": service["slug"]},
-                     name=f"{metro["slug"]}-{service["slug"]}")
+                     name=f"{metro['slug']}-{service["slug"]}")
             )
     
     # County pages
     for county in MAJOR_COUNTIES:
         urlpatterns.append(
-            path(f"{county["slug"]}-economist/", 
+            path(f"{county['slug']}-economist/", 
                  seo_location_views.county_page,
                  {"county_slug": county["slug"]},
-                 name=f"county-{county["slug"]}")
+                 name=f"county-{county['slug']}")
         )
         
         # County + Service combinations  
         for service in CORE_SERVICES:
             urlpatterns.append(
-                path(f"{county["slug"]}-{service["slug"]}/", 
+                path(f"{county['slug']}-{service["slug"]}/", 
                      seo_location_views.county_service_page,
                      {"county_slug": county["slug"], "service_slug": service["slug"]},
-                     name=f"{county["slug"]}-{service["slug"]}")
+                     name=f"{county['slug']}-{service["slug"]}")
             )
     
     return urlpatterns
@@ -104,10 +104,10 @@ def generate_city_service_urls():
         for service in CORE_SERVICES:
             urlpatterns.append(
                 path(
-                    f"{service["slug"]}-{city["slug"]}/",
+                    f"{service['slug']}-{city["slug"]}/",
                     seo_location_views.city_service_page,
                     {"city_slug": city["slug"], "service_slug": service["slug"]},
-                    name=f"{service["slug"]}-{city["slug"]}"
+                    name=f"{service['slug']}-{city["slug"]}"
                 )
             )
     
@@ -166,12 +166,12 @@ def get_total_seo_urls():
 if __name__ == "__main__":
     stats = get_total_seo_urls()
     print(f"SEO Location URL Statistics:")
-    print(f"  State pages: {stats["state_pages"]}")
-    print(f"  State-service combos: {stats["state_service_combos"]}")
-    print(f"  Metro pages: {stats["metro_pages"]}")
-    print(f"  Metro-service combos: {stats["metro_service_combos"]}")
-    print(f"  County pages: {stats["county_pages"]}")
-    print(f"  County-service combos: {stats["county_service_combos"]}")
-    print(f"  City-service combos: {stats["city_service_combos"]}")
-    print(f"  Regional pages: {stats["regional_pages"]}")
-    print(f"  TOTAL URLs: {stats["total"]}")
+    print(f"  State pages: {stats['state_pages']}")
+    print(f"  State-service combos: {stats['state_service_combos']}")
+    print(f"  Metro pages: {stats['metro_pages']}")
+    print(f"  Metro-service combos: {stats['metro_service_combos']}")
+    print(f"  County pages: {stats['county_pages']}")
+    print(f"  County-service combos: {stats['county_service_combos']}")
+    print(f"  City-service combos: {stats['city_service_combos']}")
+    print(f"  Regional pages: {stats['regional_pages']}")
+    print(f"  TOTAL URLs: {stats['total']}")

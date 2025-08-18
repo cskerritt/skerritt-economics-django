@@ -13,7 +13,7 @@ class IndustryConsultingView(TemplateView):
         context["industry_slug"] = kwargs.get("industry_slug", "")
         context["industry_name"] = kwargs.get("industry_name", "")
         context["industry_description"] = kwargs.get("industry_description", "")
-        context["page_title"] = f"{context["industry_name"]} Business Consulting Services"
+        context["page_title"] = f"{context['industry_name']} Business Consulting Services"
         context["meta_description"] = context["industry_description"]
         
         # Add related services

@@ -36,14 +36,14 @@ def generate_ultra_seo_urls():
             for service in high_priority[:5]:  # Top 5 high priority services
                 urlpatterns.append(
                     path(
-                        f"{service["slug"]}-{neighborhood["slug"]}-{city_slug}/",
+                        f"{service['slug']}-{neighborhood["slug"]}-{city_slug}/",
                         ultra_seo_views.neighborhood_service_page,
                         {
                             "neighborhood_slug": neighborhood["slug"],
                             "city_slug": city_slug,
                             "service_slug": service["slug"]
                         },
-                        name=f"{service["slug"]}-{neighborhood["slug"]}"
+                        name=f"{service['slug']}-{neighborhood["slug"]}"
                     )
                 )
     
@@ -67,13 +67,13 @@ def generate_ultra_seo_urls():
         for industry in INDUSTRIES[:8]:  # Top 8 industries
             urlpatterns.append(
                 path(
-                    f"{industry}-economist-{metro["slug"]}/",
+                    f"{industry}-economist-{metro['slug']}/",
                     ultra_seo_views.industry_metro_page,
                     {
                         "industry_slug": industry,
                         "metro_slug": metro["slug"]
                     },
-                    name=f"{industry}-{metro["slug"]}"
+                    name=f"{industry}-{metro['slug']}"
                 )
             )
     
@@ -82,13 +82,13 @@ def generate_ultra_seo_urls():
         for court in COURT_SYSTEMS[:5]:  # Top 5 court types
             urlpatterns.append(
                 path(
-                    f"{court}-expert-{county["slug"]}/",
+                    f"{court}-expert-{county['slug']}/",
                     ultra_seo_views.court_county_page,
                     {
                         "court_slug": court,
                         "county_slug": county["slug"]
                     },
-                    name=f"{court}-{county["slug"]}"
+                    name=f"{court}-{county['slug']}"
                 )
             )
     
@@ -96,10 +96,10 @@ def generate_ultra_seo_urls():
     for region in CROSS_BORDER_REGIONS:
         urlpatterns.append(
             path(
-                f"{region["slug"]}-forensic-economist/",
+                f"{region['slug']}-forensic-economist/",
                 ultra_seo_views.cross_border_page,
                 {"region_slug": region["slug"]},
-                name=f"region-{region["slug"]}"
+                name=f"region-{region['slug']}"
             )
         )
         
@@ -107,13 +107,13 @@ def generate_ultra_seo_urls():
         for service in high_priority[:5]:
             urlpatterns.append(
                 path(
-                    f"{region["slug"]}-{service["slug"]}/",
+                    f"{region['slug']}-{service["slug"]}/",
                     ultra_seo_views.region_service_page,
                     {
                         "region_slug": region["slug"],
                         "service_slug": service["slug"]
                     },
-                    name=f"{region["slug"]}-{service["slug"]}"
+                    name=f"{region['slug']}-{service["slug"]}"
                 )
             )
     
@@ -123,13 +123,13 @@ def generate_ultra_seo_urls():
             for service in high_priority[:5]:  # Top 5 services
                 urlpatterns.append(
                     path(
-                        f"{service["slug"]}-{city["slug"]}/",
+                        f"{service['slug']}-{city["slug"]}/",
                         ultra_seo_views.city_service_page,
                         {
                             "city_slug": city["slug"],
                             "service_slug": service["slug"]
                         },
-                        name=f"{service["slug"]}-{city["slug"]}"
+                        name=f"{service['slug']}-{city["slug"]}"
                     )
                 )
     
@@ -149,13 +149,13 @@ def generate_ultra_seo_urls():
         for service in medium_priority[:10]:  # Medium priority services
             urlpatterns.append(
                 path(
-                    f"{service["slug"]}-{city["slug"]}/",
+                    f"{service['slug']}-{city["slug"]}/",
                     ultra_seo_views.city_service_page,
                     {
                         "city_slug": city["slug"],
                         "service_slug": service["slug"]
                     },
-                    name=f"{service["slug"]}-{city["slug"]}-med"
+                    name=f"{service['slug']}-{city["slug"]}-med"
                 )
             )
     
@@ -164,13 +164,13 @@ def generate_ultra_seo_urls():
         for practice in PRACTICE_AREAS[:8]:  # Top 8 practice areas
             urlpatterns.append(
                 path(
-                    f"{practice}-lawyer-{city["slug"]}/",
+                    f"{practice}-lawyer-{city['slug']}/",
                     ultra_seo_views.practice_city_page,
                     {
                         "practice_slug": practice,
                         "city_slug": city["slug"]
                     },
-                    name=f"{practice}-{city["slug"]}"
+                    name=f"{practice}-{city['slug']}"
                 )
             )
     
@@ -193,10 +193,10 @@ def generate_ultra_seo_urls():
     for metro in METRO_AREAS[:8]:  # Top 8 metros
         urlpatterns.append(
             path(
-                f"business-valuation-forensic-economist-{metro["slug"]}/",
+                f"business-valuation-forensic-economist-{metro['slug']}/",
                 ultra_seo_views.dual_service_metro,
                 {"metro_slug": metro["slug"]},
-                name=f"dual-service-{metro["slug"]}"
+                name=f"dual-service-{metro['slug']}"
             )
         )
     

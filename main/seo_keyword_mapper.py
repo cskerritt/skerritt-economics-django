@@ -166,15 +166,15 @@ class SEOKeywordMapper:
         # Create keyword map with suggested usage
         keyword_map = {
             "primary_keyword": f"{primary} {city}",
-            "title_tag": f"{service_kw["primary"]["keyword"].title()} in {city}, {state_abbr} | Expert Witness",
-            "meta_description": f"Expert {primary} services in {city}, {state_name}. {service_kw["secondary"][0]["keyword"].title()} for attorneys. Call (203) 605-2814.",
-            "h1": f"{service_kw["primary"]["keyword"].title()} in {city}, {state_name}",
+            "title_tag": f"{service_kw["primary"]['keyword'].title()} in {city}, {state_abbr} | Expert Witness",
+            "meta_description": f"Expert {primary} services in {city}, {state_name}. {service_kw["secondary"][0]['keyword'].title()} for attorneys. Call (203) 605-2814.",
+            "h1": f"{service_kw["primary"]['keyword'].title()} in {city}, {state_name}",
             "h2_suggestions": [
-                f"{service_kw["secondary"][0]["keyword"].title()} Services in {city}",
-                f"Why Choose Our {city} {service_kw["primary"]["keyword"].title()}",
-                f"{service_kw["secondary"][1]["keyword"].title()} for {county} Cases",
-                f"Expert {service_kw["secondary"][2]["keyword"].title()} in {state_name}",
-                f"{city} {service_kw["primary"]["keyword"].title()} Qualifications"
+                f"{service_kw["secondary"][0]['keyword'].title()} Services in {city}",
+                f"Why Choose Our {city} {service_kw["primary"]['keyword'].title()}",
+                f"{service_kw["secondary"][1]['keyword'].title()} for {county} Cases",
+                f"Expert {service_kw["secondary"][2]['keyword'].title()} in {state_name}",
+                f"{city} {service_kw["primary"]['keyword'].title()} Qualifications"
             ],
             "h3_suggestions": [
                 f"Types of Cases We Handle in {city}",
@@ -266,7 +266,7 @@ class SEOKeywordMapper:
                 {"anchor": "forensic economics services", "target": "/services/forensic-economics/"},
                 {"anchor": "our credentials", "target": "/about/"},
                 {"anchor": "case studies", "target": "/case-studies/"},
-                {"anchor": f"other {keyword_map["primary_keyword"].split()[-1]} locations", "target": "/locations/"}
+                {"anchor": f"other {keyword_map['primary_keyword'].split()[-1]} locations", "target": "/locations/"}
             ],
             "external_links": [
                 {"anchor": "American Rehabilitation Economics Association", "target": "https://www.a-r-e-a.org/"},
@@ -290,9 +290,9 @@ if __name__ == "__main__":
     )
     
     print("SEO Keyword Map Generated:")
-    print(f"Title Tag: {keyword_map["title_tag"]}")
-    print(f"Meta Description: {keyword_map["meta_description"]}")
-    print(f"H1: {keyword_map["h1"]}")
-    print(f"Primary Keyword: {keyword_map["primary_keyword"]}")
-    print(f"Search Volume: {keyword_map["competitor_analysis"]["search_volume"]}")
-    print(f"Difficulty: {keyword_map["competitor_analysis"]["difficulty"]}/100")
+    print(f"Title Tag: {keyword_map['title_tag']}")
+    print(f"Meta Description: {keyword_map['meta_description']}")
+    print(f"H1: {keyword_map['h1']}")
+    print(f"Primary Keyword: {keyword_map['primary_keyword']}")
+    print(f"Search Volume: {keyword_map["competitor_analysis"]['search_volume']}")
+    print(f"Difficulty: {keyword_map["competitor_analysis"]['difficulty']}/100")

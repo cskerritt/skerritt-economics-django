@@ -32,11 +32,11 @@ class CityLandingView(TemplateView):
     
     def get_page_title(self, city):
         """Generate SEO-optimized title"""
-        return f"Forensic Economist {city["name"]}, {city["state_abbr"]} | Economic Expert Witness | Skerritt Economics"
+        return f"Forensic Economist {city['name']}, {city['state_abbr']} | Economic Expert Witness | Skerritt Economics"
     
     def get_meta_description(self, city):
         """Generate SEO-optimized meta description"""
-        return f"Expert forensic economist serving {city["name"]}, {city["state"]}. Economic damage calculations, business valuation, life care planning. Free consultation: (203) 605-2814"
+        return f"Expert forensic economist serving {city['name']}, {city['state']}. Economic damage calculations, business valuation, life care planning. Free consultation: (203) 605-2814"
     
     def get_nearby_cities(self, city):
         """Get nearby cities for internal linking"""
@@ -68,10 +68,10 @@ class ForensicEconomistCityView(CityLandingView):
     template_name = "main/locations/city_forensic_economist.html"
     
     def get_page_title(self, city):
-        return f"Forensic Economist {city["name"]}, {city["state_abbr"]} | Economic Damages Expert | Christopher Skerritt"
+        return f"Forensic Economist {city['name']}, {city['state_abbr']} | Economic Damages Expert | Christopher Skerritt"
     
     def get_meta_description(self, city):
-        return f"Top forensic economist in {city["name"]}, {city["state_abbr"]}. Lost earnings, wrongful death, personal injury economic analysis. Court-qualified expert. Call (203) 605-2814"
+        return f"Top forensic economist in {city['name']}, {city['state_abbr']}. Lost earnings, wrongful death, personal injury economic analysis. Court-qualified expert. Call (203) 605-2814"
 
 
 class BusinessValuationCityView(CityLandingView):
@@ -80,10 +80,10 @@ class BusinessValuationCityView(CityLandingView):
     template_name = "main/locations/city_business_valuation.html"
     
     def get_page_title(self, city):
-        return f"Business Valuation Expert {city["name"]}, {city["state_abbr"]} | Fair Market Value Analysis"
+        return f"Business Valuation Expert {city['name']}, {city['state_abbr']} | Fair Market Value Analysis"
     
     def get_meta_description(self, city):
-        return f"Certified business valuation expert in {city["name"]}, {city["state_abbr"]}. Business damages, lost profits, partnership disputes. MBA economist. Free consultation: (203) 605-2814"
+        return f"Certified business valuation expert in {city['name']}, {city['state_abbr']}. Business damages, lost profits, partnership disputes. MBA economist. Free consultation: (203) 605-2814"
 
 
 class VocationalExpertCityView(CityLandingView):
@@ -92,10 +92,10 @@ class VocationalExpertCityView(CityLandingView):
     template_name = "main/locations/city_vocational.html"
     
     def get_page_title(self, city):
-        return f"Vocational Expert {city["name"]}, {city["state_abbr"]} | CVE ABVE/F | Earning Capacity"
+        return f"Vocational Expert {city['name']}, {city['state_abbr']} | CVE ABVE/F | Earning Capacity"
     
     def get_meta_description(self, city):
-        return f"Certified vocational expert CVE ABVE/F serving {city["name"]}, {city["state_abbr"]}. Employability assessments, earning capacity analysis. Call (203) 605-2814"
+        return f"Certified vocational expert CVE ABVE/F serving {city['name']}, {city['state_abbr']}. Employability assessments, earning capacity analysis. Call (203) 605-2814"
 
 
 class LifeCarePlannerCityView(CityLandingView):
@@ -104,7 +104,7 @@ class LifeCarePlannerCityView(CityLandingView):
     template_name = "main/locations/city_lifecare.html"
     
     def get_page_title(self, city):
-        return f"Life Care Planner CLCP {city["name"]}, {city["state_abbr"]} | Future Medical Costs"
+        return f"Life Care Planner CLCP {city['name']}, {city['state_abbr']} | Future Medical Costs"
     
     def get_meta_description(self, city):
-        return f"Certified Life Care Planner CLCP in {city["name"]}, {city["state_abbr"]}. Catastrophic injury, future medical costs, Medicare Set-Aside. Free consultation: (203) 605-2814"
+        return f"Certified Life Care Planner CLCP in {city['name']}, {city['state_abbr']}. Catastrophic injury, future medical costs, Medicare Set-Aside. Free consultation: (203) 605-2814"

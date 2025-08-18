@@ -46,7 +46,7 @@ class StateServiceSitemap(Sitemap):
         return combos
     
     def location(self, item):
-        return f"/{item["service"]}-{item["state"]}/"
+        return f"/{item['service']}-{item["state"]}/"
     
     def lastmod(self, obj):
         return datetime.now()
@@ -60,7 +60,7 @@ class MetroAreaSitemap(Sitemap):
         return METRO_AREAS
     
     def location(self, metro):
-        return f"/{metro["slug"]}-economist/"
+        return f"/{metro['slug']}-economist/"
     
     def lastmod(self, obj):
         return datetime.now()
@@ -81,7 +81,7 @@ class MetroServiceSitemap(Sitemap):
         return combos
     
     def location(self, item):
-        return f"/{item["metro"]}-{item["service"]}/"
+        return f"/{item['metro']}-{item["service"]}/"
     
     def lastmod(self, obj):
         return datetime.now()
@@ -95,7 +95,7 @@ class CountySitemap(Sitemap):
         return MAJOR_COUNTIES
     
     def location(self, county):
-        return f"/{county["slug"]}-economist/"
+        return f"/{county['slug']}-economist/"
     
     def lastmod(self, obj):
         return datetime.now()
@@ -116,7 +116,7 @@ class CountyServiceSitemap(Sitemap):
         return combos
     
     def location(self, item):
-        return f"/{item["county"]}-{item["service"]}/"
+        return f"/{item['county']}-{item["service"]}/"
     
     def lastmod(self, obj):
         return datetime.now()
@@ -156,7 +156,7 @@ class CityServiceSitemap(Sitemap):
         return combos
     
     def location(self, item):
-        return f"/{item["service"]}-{item["city"]}/"
+        return f"/{item['service']}-{item["city"]}/"
     
     def lastmod(self, obj):
         return datetime.now()

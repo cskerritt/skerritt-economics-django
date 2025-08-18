@@ -239,7 +239,7 @@ class BacklinkOutreachManager:
         
         templates = {
             "resource_page": {
-                "subject": f"Resource Addition: Economic Damages Calculator Suite for {target_site["name"]}",
+                "subject": f"Resource Addition: Economic Damages Calculator Suite for {target_site['name']}",
                 "body": f"""Dear {target_site.get("contact_name", "Resource Manager")},
 
 I hope this email finds you well. I recently came across your excellent resource page at {target_site["url"]} and wanted to suggest a valuable addition for your visitors.
@@ -277,7 +277,7 @@ P.S. We also offer complimentary consultations for complex cases if your visitor
 """
             },
             "guest_post": {
-                "subject": f"Guest Post Proposal: Economic Expert Witness Insights for {target_site["name"]}",
+                "subject": f"Guest Post Proposal: Economic Expert Witness Insights for {target_site['name']}",
                 "body": f"""Dear {target_site.get("contact_name", "Editor")},
 
 I"ve been following {target_site["name']} and appreciate your in-depth coverage of litigation support topics.
@@ -326,7 +326,7 @@ Professional Affiliations:
 """
             },
             "broken_link": {
-                "subject": f"Broken Resource Found on {target_site["name"]}",
+                "subject": f"Broken Resource Found on {target_site['name']}",
                 "body": f"""Dear {target_site.get("contact_name", "Webmaster")},
 
 While researching economic expert resources, I noticed a broken link on your page:

@@ -41,7 +41,7 @@ def generate_city_sitemap_entries():
                 "lastmod": current_date,
                 "changefreq": "weekly",
                 "priority": priority,
-                "title": f"{service_name} {city_data["name"]}, {city_data["state_abbr"]}"
+                "title": f"{service_name} {city_data['name']}, {city_data["state_abbr"]}"
             }
             
             sitemap_entries.append(entry)
@@ -83,10 +83,10 @@ def generate_sitemap_xml():
     
     for entry in entries:
         xml_content += "  <url>\n"
-        xml_content += f"    <loc>{entry["loc"]}</loc>\n"
-        xml_content += f"    <lastmod>{entry["lastmod"]}</lastmod>\n"
-        xml_content += f"    <changefreq>{entry["changefreq"]}</changefreq>\n"
-        xml_content += f"    <priority>{entry["priority"]}</priority>\n"
+        xml_content += f"    <loc>{entry['loc']}</loc>\n"
+        xml_content += f"    <lastmod>{entry['lastmod']}</lastmod>\n"
+        xml_content += f"    <changefreq>{entry['changefreq']}</changefreq>\n"
+        xml_content += f"    <priority>{entry['priority']}</priority>\n"
         xml_content += "  </url>\n"
     
     xml_content += "</urlset>"

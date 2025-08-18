@@ -111,12 +111,12 @@ def location_detail(request, location_slug):
     # Build context for template
     context = {
         "location": location,
-        "page_title": f"{location["city"]} Forensic Economist | {location["state"]} Business Valuation Expert",
+        "page_title": f"{location['city']} Forensic Economist | {location["state"]} Business Valuation Expert",
         "page_description": location["meta_description"],
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
             {"name": "Locations", "url": "/locations/"},
-            {"name": f"{location["city"]}, {location["state_abbr"]}", "url": request.path}
+            {"name": f"{location['city']}, {location["state_abbr"]}", "url": request.path}
         ]
     }
     

@@ -42,11 +42,11 @@ class SEOContentGenerator:
         return {
             "title": keyword_map["title_tag"][:60],  # Max 60 chars
             "description": keyword_map["meta_description"][:160],  # Max 160 chars
-            "keywords": f"{keyword_map["primary_keyword"]}, {", ".join([kw["keyword"] for kw in self.keyword_mapper.service_keywords.get(keyword_map["primary_keyword"].split()[-1], {}).get("secondary", [])[:3]])}",
+            "keywords": f"{keyword_map['primary_keyword']}, {", ".join([kw["keyword"] for kw in self.keyword_mapper.service_keywords.get(keyword_map["primary_keyword"].split()[-1], {}).get("secondary", [])[:3]])}",
             "og_title": keyword_map["title_tag"],
             "og_description": keyword_map["meta_description"],
             "og_type": "website",
-            "canonical_url": f"/locations/{keyword_map["primary_keyword"].split()[-1]}/{state_abbr.lower()}/{city.lower().replace(" ", "-")}/",
+            "canonical_url": f"/locations/{keyword_map['primary_keyword'].split()[-1]}/{state_abbr.lower()}/{city.lower().replace(" ", "-")}/",
             "robots": "index, follow",
             "author": "Christopher Skerritt, M.Ed, MBA, CRC, CLCP, ABVE/F"
         }
@@ -438,8 +438,8 @@ if __name__ == "__main__":
     )
     
     print("SEO Content Generated Successfully!")
-    print(f"Title: {content["seo_meta"]["title"]}")
-    print(f"Description: {content["seo_meta"]["description"]}")
-    print(f"H1: {content["page_content"]["h1"]}")
-    print(f"Sections: {len(content["page_content"]["sections"])}")
+    print(f"Title: {content["seo_meta"]['title']}")
+    print(f"Description: {content["seo_meta"]['description']}")
+    print(f"H1: {content["page_content"]['h1']}")
+    print(f"Sections: {len(content["page_content"]['sections'])}")
     print(f"Total Word Count: ~1500 words")

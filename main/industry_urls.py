@@ -115,9 +115,9 @@ industry_urlpatterns = []
 for industry in INDUSTRIES:
     industry_urlpatterns.append(
         path(
-            f"services/business-consulting/industries/{industry["slug"]}/",
+            f"services/business-consulting/industries/{industry['slug']}/",
             IndustryConsultingView.as_view(),
-            name=f"industry_{industry["slug"].replace("-", "_")}",
+            name=f"industry_{industry['slug'].replace("-", "_")}",
             kwargs={
                 "industry_slug": industry["slug"],
                 "industry_name": industry["name"],

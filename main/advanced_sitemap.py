@@ -299,12 +299,12 @@ class AdvancedSitemapGenerator:
         for page in image_data:
             url_elem = ET.SubElement(urlset, "url")
             loc = ET.SubElement(url_elem, "loc")
-            loc.text = f"{self.domain}{page["loc"]}"
+            loc.text = f"{self.domain}{page['loc']}"
             
             for img in page["images"]:
                 image_elem = ET.SubElement(url_elem, "image:image")
                 image_loc = ET.SubElement(image_elem, "image:loc")
-                image_loc.text = f"{self.domain}{img["url"]}"
+                image_loc.text = f"{self.domain}{img['url']}"
                 
                 if "caption" in img:
                     caption = ET.SubElement(image_elem, "image:caption")

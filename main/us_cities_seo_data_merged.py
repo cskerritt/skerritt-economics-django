@@ -686,14 +686,14 @@ def get_database_stats():
 if __name__ == "__main__":
     stats = get_database_stats()
     print(f"\n=== US Cities SEO Database Statistics ===")
-    print(f"Total Cities: {stats["total_cities"]}")
-    print(f"States Covered: {stats["total_states"]}/50")  
-    print(f"Average Cities per State: {stats["avg_cities_per_state"]}")
-    print(f"Average Population: {stats["avg_population"]:,}")
+    print(f"Total Cities: {stats['total_cities']}")
+    print(f"States Covered: {stats['total_states']}/50")  
+    print(f"Average Cities per State: {stats['avg_cities_per_state']}")
+    print(f"Average Population: {stats['avg_population']:,}")
     if stats["largest_city"]:
-        print(f"Largest City: {stats["largest_city"][1]["name"]}, {stats["largest_city"][1]["state_abbr"]} ({stats["largest_city"][1]["population"]:,})")
+        print(f"Largest City: {stats["largest_city"][1]['name']}, {stats["largest_city"][1]["state_abbr"]} ({stats["largest_city"][1]["population"]:,})")
     if stats["smallest_city"]:
-        print(f"Smallest City: {stats["smallest_city"][1]["name"]}, {stats["smallest_city"][1]["state_abbr"]} ({stats["smallest_city"][1]["population"]:,})")
+        print(f"Smallest City: {stats["smallest_city"][1]['name']}, {stats["smallest_city"][1]["state_abbr"]} ({stats["smallest_city"][1]["population"]:,})")
     
     print(f"\nRegional Coverage:")
     for region, count in sorted(stats["regional_breakdown"].items()):

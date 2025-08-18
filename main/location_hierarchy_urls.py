@@ -113,9 +113,9 @@ location_hierarchy_urlpatterns = []
 for state in US_STATES:
     location_hierarchy_urlpatterns.append(
         path(
-            f"locations/states/{state["slug"]}/",
+            f"locations/states/{state['slug']}/",
             StateLocationView.as_view(),
-            name=f"location_state_{state["slug"]}",
+            name=f"location_state_{state['slug']}",
             kwargs={
                 "state_slug": state["slug"],
                 "state_name": state["name"],
@@ -129,9 +129,9 @@ for city in SAMPLE_CITIES:
     # General city page - standardized with trailing slash
     location_hierarchy_urlpatterns.append(
         path(
-            f"locations/cities/{city["slug"]}/",
+            f"locations/cities/{city['slug']}/",
             CityLocationView.as_view(),
-            name=f"location_city_{city["slug"]}",
+            name=f"location_city_{city['slug']}",
             kwargs={
                 "city_slug": city["slug"],
                 "city_name": city["name"],
@@ -145,9 +145,9 @@ for city in SAMPLE_CITIES:
     for service in SERVICES:
         location_hierarchy_urlpatterns.append(
             path(
-                f"locations/cities/{city["slug"]}-{service["slug"]}/",
+                f"locations/cities/{city['slug']}-{service["slug"]}/",
                 CityServiceLocationView.as_view(),
-                name=f"location_city_{city["slug"]}_{service["slug"].replace("-", "_")}",
+                name=f"location_city_{city['slug']}_{service["slug"].replace("-", "_")}",
                 kwargs={
                     "city_slug": city["slug"],
                     "city_name": city["name"],

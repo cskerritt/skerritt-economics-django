@@ -16,8 +16,8 @@ class ServiceAreaBaseView(TemplateView):
         context["state_name"] = kwargs.get("state_name", context["state"])
         context["service_type"] = self.service_type
         context["service_name"] = self.service_name
-        context["page_title"] = f"{self.service_name} in {context["city_name"]}, {context["state_name"]}"
-        context["meta_description"] = f"Professional {self.service_name.lower()} services in {context["city_name"]}, {context["state_name"]}. Expert testimony and analysis for legal cases."
+        context["page_title"] = f"{self.service_name} in {context['city_name']}, {context["state_name"]}"
+        context["meta_description"] = f"Professional {self.service_name.lower()} services in {context['city_name']}, {context["state_name"]}. Expert testimony and analysis for legal cases."
         return context
 
 class ServiceAreaVocationalExpertView(ServiceAreaBaseView):

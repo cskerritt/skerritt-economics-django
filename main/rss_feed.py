@@ -73,7 +73,7 @@ class BlogRSSFeed(Feed):
         return item["description"]
     
     def item_link(self, item):
-        return f"/blog/{item["slug"]}/"
+        return f"/blog/{item['slug']}/"
     
     def item_pubdate(self, item):
         return item["pub_date"]

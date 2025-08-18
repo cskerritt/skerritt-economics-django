@@ -27,8 +27,8 @@ def state_page(request, state_slug):
         "state": state_data,
         "state_slug": state_slug,
         "cities": cities,
-        "page_title": f"{state_data["name"]} Forensic Economist | Expert Witness & Business Valuation",
-        "page_description": f"Leading forensic economist serving {state_data["name"]}. Expert economic analysis, business valuation, and damage calculations for all {state_data["abbr"]} courts.",
+        "page_title": f"{state_data['name']} Forensic Economist | Expert Witness & Business Valuation",
+        "page_description": f"Leading forensic economist serving {state_data['name']}. Expert economic analysis, business valuation, and damage calculations for all {state_data["abbr"]} courts.",
         "services": SEO_LOCATION_DATA["services"][:4],  # Top services
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
@@ -58,8 +58,8 @@ def state_service_page(request, state_slug, service_slug):
         "state": state_data,
         "service": service_data,
         "cities": cities,
-        "page_title": f"{service_data["title"]} in {state_data["name"]} | Skerritt Economics",
-        "page_description": f"{service_data["description"]} throughout {state_data["name"]}. Serving all {state_data["abbr"]} courts and jurisdictions. Free consultation: (203) 605-2814",
+        "page_title": f"{service_data['title']} in {state_data["name"]} | Skerritt Economics",
+        "page_description": f"{service_data['description']} throughout {state_data["name"]}. Serving all {state_data["abbr"]} courts and jurisdictions. Free consultation: (203) 605-2814",
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
             {"name": state_data["name"], "url": f"/forensic-economist-{state_slug}/"},
@@ -78,8 +78,8 @@ def metro_area_page(request, metro_slug):
     
     context = {
         "metro": metro_data,
-        "page_title": f"{metro_data["name"]} Forensic Economist | Regional Expert Witness",
-        "page_description": f"{metro_data["description"]}. Expert forensic economics and business valuation services. Call (203) 605-2814",
+        "page_title": f"{metro_data['name']} Forensic Economist | Regional Expert Witness",
+        "page_description": f"{metro_data['description']}. Expert forensic economics and business valuation services. Call (203) 605-2814",
         "services": SEO_LOCATION_DATA["services"][:4],
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
@@ -101,8 +101,8 @@ def metro_service_page(request, metro_slug, service_slug):
     context = {
         "metro": metro_data,
         "service": service_data,
-        "page_title": f"{service_data["title"]} - {metro_data["name"]} | Expert Services",
-        "page_description": f"{service_data["description"]} in the {metro_data["name"]} region. Experienced expert witness. Contact: (203) 605-2814",
+        "page_title": f"{service_data['title']} - {metro_data["name"]} | Expert Services",
+        "page_description": f"{service_data['description']} in the {metro_data["name"]} region. Experienced expert witness. Contact: (203) 605-2814",
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
             {"name": metro_data["name"], "url": f"/{metro_slug}-economist/"},
@@ -124,13 +124,13 @@ def county_page(request, county_slug):
     context = {
         "county": county_data,
         "state_name": state_name,
-        "page_title": f"{county_data["name"]} {county_data["state"]} Forensic Economist | Local Expert",
-        "page_description": f"Expert forensic economist serving {county_data["name"]}, {county_data["state"]}. Economic damages and business valuation. Call (203) 605-2814",
+        "page_title": f"{county_data['name']} {county_data["state"]} Forensic Economist | Local Expert",
+        "page_description": f"Expert forensic economist serving {county_data['name']}, {county_data["state"]}. Economic damages and business valuation. Call (203) 605-2814",
         "services": SEO_LOCATION_DATA["services"][:4],
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
             {"name": "Counties", "url": "/locations/"},
-            {"name": f"{county_data["name"]}, {county_data["state"]}", "url": request.path}
+            {"name": f"{county_data['name']}, {county_data["state"]}", "url": request.path}
         ]
     }
     
@@ -147,11 +147,11 @@ def county_service_page(request, county_slug, service_slug):
     context = {
         "county": county_data,
         "service": service_data,
-        "page_title": f"{service_data["title"]} in {county_data["name"]}, {county_data["state"]}",
-        "page_description": f"{service_data["description"]} for {county_data["name"]} attorneys and businesses. Free consultation: (203) 605-2814",
+        "page_title": f"{service_data['title']} in {county_data["name"]}, {county_data["state"]}",
+        "page_description": f"{service_data['description']} for {county_data["name"]} attorneys and businesses. Free consultation: (203) 605-2814",
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
-            {"name": f"{county_data["name"]}, {county_data["state"]}", "url": f"/{county_slug}-economist/"},
+            {"name": f"{county_data['name']}, {county_data["state"]}", "url": f"/{county_slug}-economist/"},
             {"name": service_data["title"], "url": request.path}
         ]
     }
@@ -182,11 +182,11 @@ def city_service_page(request, city_slug, service_slug):
         "city": city_data,
         "state": state_data,
         "service": service_data,
-        "page_title": f"{service_data["title"]} in {city_data["name"]}, {state_data["state_abbr"]}",
-        "page_description": f"{service_data["description"]} for {city_data["name"]} area. Expert witness testimony and economic analysis. Call (203) 605-2814",
+        "page_title": f"{service_data['title']} in {city_data["name"]}, {state_data["state_abbr"]}",
+        "page_description": f"{service_data['description']} for {city_data["name"]} area. Expert witness testimony and economic analysis. Call (203) 605-2814",
         "breadcrumb_items": [
             {"name": "Home", "url": "/"},
-            {"name": f"{city_data["name"]}, {state_data["state_abbr"]}", "url": f"/locations/{city_slug}/"},
+            {"name": f"{city_data['name']}, {state_data["state_abbr"]}", "url": f"/locations/{city_slug}/"},
             {"name": service_data["title"], "url": request.path}
         ]
     }

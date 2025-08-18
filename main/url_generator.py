@@ -32,7 +32,7 @@ def generate_service_area_urls():
         for service_slug, view_class in view_map.items():
             urlpatterns.append(
                 path(
-                    f"{service_slug}/{city_data["city"]}-{city_data["state"]}/",
+                    f"{service_slug}/{city_data['city']}-{city_data["state"]}/",
                     view_class.as_view(),
                     name=f"{service_slug.replace("-", "_")}_{city_data["city"]}_{city_data["state"]}",
                     kwargs={
@@ -57,9 +57,9 @@ def generate_state_location_urls():
     for state in states:
         urlpatterns.append(
             path(
-                f"locations/states/{state["slug"]}/",
+                f"locations/states/{state['slug']}/",
                 StateLocationView.as_view(),
-                name=f"location_state_{state["slug"]}",
+                name=f"location_state_{state['slug']}",
                 kwargs={
                     "state_slug": state["slug"],
                     "state_name": state["name"],

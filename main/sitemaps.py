@@ -140,7 +140,7 @@ class CitySitemap(Sitemap):
         return city_pages
     
     def location(self, item):
-        return f"/{item["service"]}/{item["city_slug"]}/"
+        return f"/{item['service']}/{item["city_slug"]}/"
     
     def lastmod(self, item):
         return datetime.now()
