@@ -141,4 +141,4 @@ For questions or issues, contact the development team.
 
 ## License
 
-Copyright © 2025 Skerritt Economics & Consulting. All rights reserved.
+Copyright © 2025 Skerritt Economics & Consulting. All rights reserved.# Trigger Docker rebuild
