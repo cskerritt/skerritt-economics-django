@@ -64,6 +64,7 @@ jobs:
         LIGHTSAIL_USERNAME: ${{ secrets.LIGHTSAIL_USERNAME }}
         LIGHTSAIL_KEY: ${{ secrets.LIGHTSAIL_KEY }}
         LIGHTSAIL_PORT: ${{ secrets.LIGHTSAIL_PORT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "🚀 Starting deployment to Lightsail..."
         
@@ -76,7 +77,9 @@ jobs:
         ssh-keyscan -H -p ${LIGHTSAIL_PORT:-22} $LIGHTSAIL_HOST >> ~/.ssh/known_hosts 2>/dev/null
         
         # Deploy using SSH
-        ssh -i lightsail_key -p ${LIGHTSAIL_PORT:-22} ${LIGHTSAIL_USERNAME}@${LIGHTSAIL_HOST} << 'ENDSSH'
+        export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+        export GITHUB_ACTOR="${{ github.actor }}"
+        ssh -i lightsail_key -p ${LIGHTSAIL_PORT:-22} ${LIGHTSAIL_USERNAME}@${LIGHTSAIL_HOST} << ENDSSH
           set -e
           echo "📦 Updating application..."
           
@@ -126,6 +129,10 @@ jobs:
           # Prioritize Docker if docker-compose.yml exists
           if [ -f "docker-compose.yml" ] && command -v docker &> /dev/null; then
             echo "Deploying with Docker Compose..."
+            
+            # Login to GitHub Container Registry
+            echo "Logging in to GitHub Container Registry..."
+            echo "${GITHUB_TOKEN}" | docker login ghcr.io -u ${GITHUB_ACTOR} --password-stdin
             
             # Pull the latest image
             echo "Pulling latest Docker image..."
