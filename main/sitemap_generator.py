@@ -121,11 +121,11 @@ def generate_sitemap_xml(request):
         
         # State + Service combinations (limited to avoid huge sitemap)
         for service in CORE_SERVICES[:4]:  # Top 4 services
-            add_url(f"/{service["slug"]}-{state_slug}/", "monthly", 0.7)
+            add_url(f"/{service['slug']}-{state_slug}/", "monthly", 0.7)
     
     # Metro area pages
     for metro in METRO_AREAS:
-        add_url(f"/{metro["slug"]}-economist/", "monthly", 0.8)
+        add_url(f"/{metro['slug']}-economist/", "monthly", 0.8)
         
         # Metro + Service combinations
         for service in CORE_SERVICES[:4]:
