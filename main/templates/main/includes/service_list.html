@@ -1,21 +1,11 @@
 {# Data-driven reusable service list component #}
+{% load service_filters %}
 <div class="services-grid">
     {% for service in services_config %}
     <div class="service-item">
         <h4>{{ service.name }}</h4>
         <p>
-            {{ service.description }}
-            {% if service.template_key == 'forensic_economics' %}
-                for {{ location_context|default:"legal proceedings" }}.
-            {% elif service.template_key == 'business_valuation' %}
-                {{ location_phrase|default:"" }}.
-            {% elif service.template_key == 'life_care_planning' %}
-                for {{ case_context|default:"injury cases" }}.
-            {% elif service.template_key == 'vocational_assessment' %}
-                for {{ disability_context|default:"disability cases" }}.
-            {% else %}
-                .
-            {% endif %}
+            {{ service.description }}{{ service.suffix_template|format_suffix:suffix_context }}
         </p>
     </div>
     {% endfor %}
