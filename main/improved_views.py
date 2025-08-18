@@ -72,14 +72,14 @@ class ImprovedCityServiceView(TemplateView):
             "nearby_cities": nearby_cities,
             
             # SEO data
-            "meta_title": f"{service_info['title']} in {city_data["name"]}, {state_abbr} | Christopher Skerritt",
-            "meta_description": f"Expert {service_info['title'].lower()} services in {city_data["name"]}, {state_data["name"]}. Christopher Skerritt provides {service_info["description"].lower()} for legal professionals. Call (203) 605-2814.",
+            "meta_title": f"{service_info['title']} in {city_data['name']}, {state_abbr} | Christopher Skerritt",
+            "meta_description": f"Expert {service_info['title'].lower()} services in {city_data['name']}, {state_data['name']}. Christopher Skerritt provides {service_info['description'].lower()} for legal professionals. Call (203) 605-2814.",
             
             # Structured data
             "structured_data": {
                 "service_name": f"{service_info['name']} Services in {city_data["name"]}",
-                "city_name": city_data["name"],
-                "state_name": state_data["name"],
+                "city_name": city_data['name'],
+                "state_name": state_data['name'],
                 "county": city_data["county"],
                 "latitude": city_data["lat"],
                 "longitude": city_data["lng"]
